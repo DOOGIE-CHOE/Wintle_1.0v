@@ -1,0 +1,440 @@
+﻿
+/* 변수 지정 */
+$intro-view: 100%;
+$wintle-color : rgb(65,126,141);
+$header-height: 50px;
+$bg-color: rgba(0,0,0,.6);
+$nav-btn-lighten:40%;
+$play-ber-height:$header-height*1.4;
+
+/* 함수 */
+@mixin XYcenter($left: 0, $top: 0, $right: $left ,$bottom: $top){
+    margin:auto;
+    left:$left;
+    top:$top;
+    right:$right;
+    bottom:$bottom;
+}
+
+@mixin BGbtn($width, $height:$width){
+    background-size: $width $height;
+    width:$width;
+    height:$height;
+}
+
+@mixin BOXsize($width, $height:$width){
+    width:$width;
+    height:$height;
+}
+
+html{
+    width:100%;
+    height:100%;
+    background: url('../img/bg_img/background.jpg') center center no-repeat;
+    background-size:cover;
+}
+
+
+/* ***************************
+            헤더 영역 
+   *************************** */
+
+header{   // 헤더
+    position: absolute;
+    width:100%;
+    height:$intro-view;  // 소개 페이지 보이게 하려면 100%로 지정
+    background:$wintle-color; //header-height가 100%일때는 배경색 x
+    box-shadow:rgba(50,50,50,.7) 0 0px 10px 5px;  // height가 $header-height일때 색상
+    overflow:hidden;
+    div.info-content{  // 소개 컨텐츠 삽입
+        //display:none;
+        iframe{
+            position:absolute;
+            border:0;
+            width:100%;
+            height:100%;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+        .introbtn{
+            $hi:50px;
+            $color:lightgray;
+            position:absolute;
+            font-size:x-large;
+            color:$color;
+            width:150px;
+            text-align:center;
+            line-height:$hi;
+            height:$hi;
+            left:0;
+            right:0;
+            bottom:15%;
+            margin:auto;
+            border:3px solid $color;
+            border-radius:$hi;
+            cursor:pointer;
+            opacity:.8;
+        }
+
+
+
+
+
+
+
+
+
+    }
+    #header-gnb{  // Global nav ber (한줄로 묶음)
+        position:absolute;
+        margin:auto;
+        width: 80%;
+        min-width:400px;
+        height:auto;
+        left:0;
+        right:0;
+        bottom:0;
+        & > div{
+            position:relative;
+        }
+        [class^=HeaderImg]{
+            cursor:pointer;
+            float:left;
+            left:0;
+            bottom:0;
+            overflow:hidden;
+            & > a{
+                font-size:0;
+                position:absolute;
+                width:100%;
+                height:100%;
+            }
+        }
+        .HeaderImg0{  // 홈 버튼 : 입장 전
+            background: url('../img/btnicon/home.png');
+            @include BGbtn($header-height);
+        }
+        .HeaderImg1{  // 로고 : 입장 후
+            background: url('../img/simbol/logo_s.png') center center no-repeat;
+            @include BGbtn($header-height*4, $header-height);
+        }
+        .HeaderImg2{   // 메뉴 버튼 : 모바일
+            background: url('../img/btnicon/닫기표시.png') center center no-repeat;
+            @include BGbtn($header-height);
+        }
+        [class^=MemberShipBtn]{
+            float:right;
+            & > *{
+                line-height:$header-height;
+                font-size:$header-height*0.4;
+            }
+            & > [class^=MemberShipBtn]{
+                cursor:pointer;
+            }
+        }
+        .MemberShipBtn0 > *{  // 입장 전
+            color:black;
+        }
+        .MemberShipBtn1 > *{  // 입장 후(로그인x)
+            color:lightgray;
+        }
+        .SearchBox{
+            height:$header-height;
+            float:right;
+            [class^=SearchBtn]{
+                position:absolute;
+                @include XYcenter(auto,auto,0,auto);
+            }
+            .SearchBtn0{ // 검색 버튼 클릭 전
+                background:url('../img/btnicon/언어 선택 아이콘.png') right center no-repeat;
+                @include BGbtn($header-height);
+            }
+            input{
+                float:left;
+                line-height:$header-height*0.7;
+                border:0;
+                border-bottom:2px solid lightgray;
+                background:none;
+                width:200px;    // 검색 버튼 클릭 시 '0'에서 너비 조절
+                padding-top:$header-height*0.1;
+                border-bottom-right-radius:$header-height;
+                border-top-right-radius:$header-height;
+                outline:none;
+                color:white;
+            }
+            .SearchBtn1{
+                
+            }
+        }
+    }
+}
+
+
+/* **************************
+     네비게이션 바 
+   ************************** */
+
+nav{
+    position:absolute;
+    z-index:-1;
+    width:8%;
+    height:100%;
+    cursor:pointer;
+    padding-top:$header-height;
+    box-sizing:border-box;
+    filter:blur;
+}
+.MoveContentMusic{
+    @include XYcenter(0,auto,auto);
+    background:url('../img/btnicon/view_album.png') center center no-repeat;  //                    ***********************************************
+    //cursor:default;
+    background-size:50%;
+    background-color:$bg-color;
+}
+.MoveContentStudio{
+    @include XYcenter(auto,auto,0,auto);
+    // background:url('../img/btnicon/view_source.png') center center no-repeat;  //                    ***********************************************
+    background-size:50%;
+    background-color:$bg-color;
+    .StudioLnb{
+        // display:none;  //                    ***********************************************
+        position:relative;
+        width:100%;
+        height:100%;
+        div{
+            position:relative;
+            width:100%;
+            height:20%;
+            color:lightgray;
+            text-align:right;
+            padding:10px;
+            box-sizing:border-box;
+        }
+        div:first-child{
+            background:url('../img/btnicon/0.all.png') center center no-repeat;
+            background-size:50%;
+            &:hover{
+                background-size:60%;
+                background-color:lighten($bg-color,$nav-btn-lighten);
+                font-size:0;
+            }
+        }
+        div:nth-child(2){
+            background: url('../img/btnicon/1.story.png')center center no-repeat;
+            background-size:50%;
+            &:hover{
+                background-size:60%;
+                background-color:lighten($bg-color,$nav-btn-lighten);
+                font-size:0;
+            }
+        }
+        div:nth-child(3){
+            background: url('../img/btnicon/2.melody.png')center center no-repeat;
+            background-size:50%;
+            &:hover{
+                background-size:60%;
+                background-color:lighten($bg-color,$nav-btn-lighten);
+                font-size:0;
+            }
+        }
+        div:nth-child(4){
+            background: url('../img/btnicon/3.player.png')center center no-repeat;
+            background-size:50%;
+            &:hover{
+                background-size:60%;
+                background-color:lighten($bg-color,$nav-btn-lighten);
+                font-size:0;
+            }
+        }
+        div:last-child{
+            background: url('../img/btnicon/4.photo.png')center center no-repeat;
+            background-size:50%;
+            &:hover{
+                background-size:60%;
+                background-color:lighten($bg-color,$nav-btn-lighten);
+                font-size:0;
+            }
+        }
+    }
+}
+
+
+
+
+
+/* **********************************
+             컨텐츠 박스
+   ********************************** */
+
+
+content{
+    position:absolute;
+    @include BOXsize(100%);
+    background-color:$bg-color;
+    z-index:-3;
+    .container{
+        position:absolute;
+        @include XYcenter();
+        z-index:-2;
+        padding-top:$header-height;
+        box-sizing:border-box;
+        width:84%;
+        overflow:hidden;
+        & > *{
+            position:relative;
+            float:left;
+            padding:5px;
+            box-sizing:border-box;
+            & > *{
+                position:relative;
+                clear:both;
+            }
+        }
+        article{
+            @include BOXsize(25%,100%);
+            overflow-wrap:break-word;
+            color:white;
+            &.MyPage{
+                // display:none;
+                padding-right:2.5px;
+                box-sizing:border-box;
+                float:left;
+            }
+            &.MixPage{
+                display:none;  //  -----------------------------------------------
+                padding-right:2.5px;
+                box-sizing:border-box;
+                float:left;
+            }
+        }
+        #music_content_box{
+            @include BOXsize(75%,100%);
+            background:rgba(255,255,255,.3);
+        }
+    }
+}
+
+
+
+/* **********************************
+             플레이 바
+   ********************************** */
+
+.PlayBar{
+    z-index:-1;
+    position:absolute;
+    background:$wintle-color;
+    opacity:.8;
+    width:100%;
+    height:$play-ber-height;
+    bottom:0;
+    overflow:hidden;
+    .container{
+        margin:0 auto;
+        width:80%;
+        min-width:900px;
+        div{
+            font-size:0;
+        }
+        .controler{
+            position:relative;
+            width:auto;
+            height:100%;
+            div:first-child{  // 이전곡
+                position:relative;
+                float:left;
+                @include BOXsize($play-ber-height);
+                background:url('../img/btnicon/이전곡.png') right center no-repeat;
+                background-size:$play-ber-height*0.7;
+                cursor:pointer;
+            }
+            div:nth-child(2){  // 재생버튼
+                position:relative;
+                background:url('../img/btnicon/재생.png') center center no-repeat;
+                @include BOXsize($play-ber-height);
+                background-size:$play-ber-height*0.7;
+                cursor:pointer;
+                float:left;
+            }
+            div:last-child{  // 다음곡
+                position:relative;
+                float:left;
+                @include BOXsize($play-ber-height);
+                background:url('../img/btnicon/다음곡.png') left center no-repeat;
+                background-size:$play-ber-height*0.7;
+                cursor:pointer;
+            }
+        }
+        .albumart{
+            position:relative;
+            float:left;
+            @include BOXsize($play-ber-height);
+            background:url('../img/btnicon/albumart.png') center center no-repeat;
+            background-size:$play-ber-height*0.9;
+            margin-right:20px;
+        }
+        .musicinfo{
+            position:relative;
+            width:auto;
+            height:100%;
+            z-index:-1;
+            .genre{  // 노래 장르
+                position:relative;
+                font-size:18px;
+                margin-bottom:-5px;
+            }
+            .songname{  // 노래 제목
+                position:relative;
+                font-size:25px;
+                margin-bottom:-80%;
+            }
+            div:last-child{  // 재생막대
+                position:relative;
+                float:left;
+                width:65%;
+                height:7px;
+                left:0;
+                right:0;
+                background:white;
+                top:$header-height*1.1;
+                border-radius:$header-height;
+                .playtime{
+                    position:relative;
+                    font-size:20px;
+                    text-align:right;
+                    float:right;
+                    bottom:30px;
+                    background:none;
+                }
+                .pointer{
+                    position:absolute;
+                    @include BOXsize(18px);
+                    background:lightgray;
+                    border-radius:50%;
+                    overflow:visible;
+                    transform:translate(-50%,0%);
+                    box-sizing:border-box;
+                    border:3px solid white;
+                    @include XYcenter(4%,0,auto,0);  // left값 조절로 슬라이더 조절
+                    z-index:1;
+                }
+                .playPast{  // 재생 완료한 기간
+                    position:absolute;
+                    background:red;
+                    top:0;
+                    border-radius:$play-ber-height;
+                    @include BOXsize(4%,100%);  // 기간 표시
+                }
+                .playFuture{  // 재생 가능 기간
+                    position:absolute;
+                    background:lightgray;
+                    top:0;
+                    border-radius:$play-ber-height;
+                    @include BOXsize(10%,100%);  // 기간 표시
+                }
+            }
+        }
+        
+    }
+}

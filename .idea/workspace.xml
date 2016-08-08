@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/ProfileImages/mask.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/background/file.webm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/mobie.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/pc.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/supper.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/All.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Melody.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/main_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Photo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Player.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Story.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/border-image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/defaultprofile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/g_signin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_s.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/password.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_large.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/small_logo_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/username.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/검색.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/공유하기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/다음곡.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/더보기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/로고_대문자.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/설정.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/소리재생.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/소스보기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기 나타내기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기 숨김상태.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/아이콘.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/앨범.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/언어 선택 아이콘.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/음소거.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/이전곡.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/이퀄라이저.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/일시정지.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/재생.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/정지.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/좋아요 클릭전.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/좋아요 클릭후.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/즐겨찾기 클릭 전.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/즐겨찾기 클릭 후.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/후원하기.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/mainpage/maincontroller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/footer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/mainpage/main.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/bootstrap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/controller.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/model.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/shared.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/sqlquery.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/template.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css_reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/dropupload.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/javascript.fullPage.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/jquery.tagit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/signin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobie.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobile.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobile.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/tagit.ui-zendesk.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/account/signup_check.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.fileupload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.iframe-transport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.knob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.ui.widget.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jq-jh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/mainpage/javascript.fullPage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/mainpage/javascript.fullPage.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/multiSelectorDraggable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tag-it/tag-it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tag-it/tag-it.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GlobalData.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/LyricsUpload.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/create.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/createStoredProcedure.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/delete.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/functions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pls-config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/php.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/www.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/ProfileImages/mask.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/ajaxtest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/background/file.webm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/dropupload.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/javascript.fullPage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/jquery.tagit.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/signin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/tagit.ui-zendesk.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/function.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/header.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/All.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Melody.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper_top.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper_top2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/main_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Photo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Player.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Story.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/border-image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/defaultprofile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/email.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/g_signin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_black.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_grey.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_s.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/password.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo_large.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/small_logo_black.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/username.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/검색.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/공유하기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/다음곡.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/더보기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/로고_대문자.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/설정.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/소리재생.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/소스보기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기 나타내기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기 숨김상태.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/아이콘.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/앨범.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/언어 선택 아이콘.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/음소거.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/이전곡.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/이퀄라이저.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/일시정지.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/재생.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/정지.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/좋아요 클릭전.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/좋아요 클릭후.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/즐겨찾기 클릭 전.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/즐겨찾기 클릭 후.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/후원하기.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.fileupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.iframe-transport.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.knob.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.ui.widget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/mainpage/javascript.fullPage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/mainpage/javascript.fullPage.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/tag-it/tag-it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/tag-it/tag-it.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/leftsidebar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/mycontents.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/mypage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/rightsidebar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/signin.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/signout.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/uploadfunction.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="wintle.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="wintle" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/mainpage/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
+              <folding>
+                <marker date="1470644855014" expanded="true" signature="2264:2266" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/signin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jq-jh.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/jq-jh.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3050">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/demo.html" />
+        <option value="$PROJECT_DIR$/intro.html" />
+        <option value="$PROJECT_DIR$/css/signin.css" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/header.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/signin.html" />
+        <option value="$PROJECT_DIR$/varify.php" />
+        <option value="$PROJECT_DIR$/verify.php" />
+        <option value="$PROJECT_DIR$/intro.php" />
+        <option value="$PROJECT_DIR$/header.php" />
+        <option value="$PROJECT_DIR$/www/MusicSources/source_all.php" />
+        <option value="$PROJECT_DIR$/www/source_all.php" />
+        <option value="$PROJECT_DIR$/www/rightsidebar.php" />
+        <option value="$PROJECT_DIR$/www/leftsidebar.php" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/GlobalData.php" />
+        <option value="$PROJECT_DIR$/www/a.php" />
+        <option value="$PROJECT_DIR$/www/ajaxtest.php" />
+        <option value="C:/Apache24/htdocs/Wintle_renew/www/header.php" />
+        <option value="$PROJECT_DIR$/www/uploadfunction.php" />
+        <option value="$PROJECT_DIR$/www/css/dropupload.css" />
+        <option value="$PROJECT_DIR$/www/mypage.php" />
+        <option value="$PROJECT_DIR$/www/index.php" />
+        <option value="$PROJECT_DIR$/www/mypage/mypage.php" />
+        <option value="$PROJECT_DIR$/data.xml" />
+        <option value="$PROJECT_DIR$/pls-config.php" />
+        <option value="$PROJECT_DIR$/www/signin.php" />
+        <option value="$PROJECT_DIR$/www/mycontents.php" />
+        <option value="$PROJECT_DIR$/www/function.php" />
+        <option value="$PROJECT_DIR$/www/DAO.php" />
+        <option value="$PROJECT_DIR$/www/header.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/library/bootstrap.php" />
+        <option value="$PROJECT_DIR$/application/models/mainpage/mainpage.php" />
+        <option value="$PROJECT_DIR$/application/views/mainpage/maincontrollor.php" />
+        <option value="$PROJECT_DIR$/application/controller/mainpage/maincontroller.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/application/views/footer.php" />
+        <option value="$PROJECT_DIR$/library/controller.class.php" />
+        <option value="$PROJECT_DIR$/library/template.class.php" />
+        <option value="$PROJECT_DIR$/application/controllers/mainpage/maincontroller.php" />
+        <option value="$PROJECT_DIR$/library/shared.php" />
+        <option value="$PROJECT_DIR$/public/js/dropupload/script.js" />
+        <option value="$PROJECT_DIR$/config/config.php" />
+        <option value="$PROJECT_DIR$/public/js/account/signup_check.js" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/css/style/mobile.css" />
+        <option value="$PROJECT_DIR$/application/views/mainpage/main.php" />
+        <option value="$PROJECT_DIR$/application/views/header.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Blade files</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainpage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainpage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wintle/WebSite1 (1)" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\css" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\config" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\application\controller" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v" />
+      <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_renew\www" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\js" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\css" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\application\views" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.php (2)">
+    <configuration default="false" name="index.php (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/Wintle_1.0v/Wintle_1.0v/public/index.php">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Daniel\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="" />
+      <created>1464369114728</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1464369114728</updated>
+      <workItem from="1464369115886" duration="603000" />
+      <workItem from="1464446929367" duration="6427000" />
+      <workItem from="1464454119178" duration="1099000" />
+      <workItem from="1464500939998" duration="3208000" />
+      <workItem from="1464509577848" duration="23000" />
+      <workItem from="1464509852217" duration="6201000" />
+      <workItem from="1464528006922" duration="4832000" />
+      <workItem from="1464589472642" duration="6686000" />
+      <workItem from="1464605575899" duration="1433000" />
+      <workItem from="1464712015870" duration="1413000" />
+      <workItem from="1464713945718" duration="6378000" />
+      <workItem from="1464764312687" duration="635000" />
+      <workItem from="1465211398221" duration="777000" />
+      <workItem from="1465778740100" duration="25225000" />
+      <workItem from="1465905760207" duration="16339000" />
+      <workItem from="1465983800967" duration="6786000" />
+      <workItem from="1466009726575" duration="1661000" />
+      <workItem from="1466388337398" duration="15960000" />
+      <workItem from="1466464969812" duration="8160000" />
+      <workItem from="1466734535688" duration="4975000" />
+      <workItem from="1466744040519" duration="174000" />
+      <workItem from="1466954572861" duration="1068000" />
+      <workItem from="1467001675766" duration="2152000" />
+      <workItem from="1467027447479" duration="14247000" />
+      <workItem from="1467120903343" duration="10000" />
+      <workItem from="1467195200804" duration="691000" />
+      <workItem from="1467282914751" duration="5620000" />
+      <workItem from="1467341641052" duration="7904000" />
+      <workItem from="1467376720217" duration="3711000" />
+      <workItem from="1467467692355" duration="12000" />
+      <workItem from="1467629502086" duration="984000" />
+      <workItem from="1467639988490" duration="10670000" />
+      <workItem from="1467798614794" duration="14890000" />
+      <workItem from="1467899381554" duration="560000" />
+      <workItem from="1467967910283" duration="1605000" />
+      <workItem from="1468218748243" duration="734000" />
+      <workItem from="1468903309929" duration="1267000" />
+      <workItem from="1468929192655" duration="268000" />
+      <workItem from="1468992008803" duration="4760000" />
+      <workItem from="1468997667636" duration="11332000" />
+      <workItem from="1469081710924" duration="4138000" />
+      <workItem from="1469091452040" duration="21000" />
+      <workItem from="1469112323136" duration="26000" />
+      <workItem from="1469165155656" duration="8496000" />
+      <workItem from="1470207713837" duration="6020000" />
+      <workItem from="1470248269061" duration="695000" />
+      <workItem from="1470249754793" duration="1674000" />
+      <workItem from="1470285841244" duration="4891000" />
+      <workItem from="1470382624173" duration="2583000" />
+      <workItem from="1470541653685" duration="36000" />
+      <workItem from="1470541832466" duration="85000" />
+      <workItem from="1470541930262" duration="48000" />
+      <workItem from="1470542033672" duration="17645000" />
+      <workItem from="1470633525874" duration="8930000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="260829000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31838074" sideWeight="0.5125" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31838074" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19474836" sideWeight="0.47291666" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24507658" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/function.php" />
+    <entry file="file://$PROJECT_DIR$/www/signout.php" />
+    <entry file="file://$PROJECT_DIR$/www/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/www/index.php" />
+    <entry file="file://$PROJECT_DIR$/www/header.php" />
+    <entry file="file://$PROJECT_DIR$/test.php" />
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/mainpage/mainpage.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/mainpage/mainpagecontrollor.php" />
+    <entry file="file://$PROJECT_DIR$/library/model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/sqlquery.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/dropupload.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_defines.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="724" column="9" selection-start-line="724" selection-start-column="9" selection-end-line="724" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/js/tag-it/tag-it.js" />
+    <entry file="file://$PROJECT_DIR$/public/js/dropupload/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/defaultprofile.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/account/signup_check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1656">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializer.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/multiSelectorDraggable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3288">
+          <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/css_reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style/pc.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style/pc.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-788">
+          <caret line="271" column="22" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/controller.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/template.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/shared.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/mainpage/maincontroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style/mobile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="356" column="3" selection-start-line="356" selection-start-column="3" selection-end-line="356" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/border-image.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_large.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/PAGE/main_logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/PAGE/Cloud_paper.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/All.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/logo_black.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/logo_grey.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/logo_s.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/mainpage/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
+          <folding>
+            <marker date="1470644855014" expanded="true" signature="2264:2266" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jq-jh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/signin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3050">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -83,10 +83,9 @@ header {
     bottom: 0;
     left: 0;
     padding: 20px;
-    background: lightskyblue;
-    border-radius: 5px;
-    height: 550px;
-    width: 360px;
+    background: white;
+    height: 300px;
+    width: 400px;
     position: absolute;
     transition: all 5s ease-in-out;
 }
@@ -97,7 +96,7 @@ header {
     font-family: Tahoma, Arial, sans-serif;
 }
 
-.popup .close {
+.overlay .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -105,16 +104,24 @@ header {
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
 }
 
-.popup .close:hover {
+.overlay .close:hover {
     color: orange;
 }
 
 .popup .content {
     max-height: 500px;
     overflow: auto;
+}
+
+.header img{
+    height:80px;
+    margin-top:100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*------------ signup part ------------*/
@@ -148,34 +155,24 @@ header {
 .SignUp input[type="text"],
 .SignUp input[type="password"]{
     background-color: #fff;
-    border-top: 2px solid #2c90c6;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-    border-bottom: 2px solid #2c90c6;
-    border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    -o-border-radius: 5px 5px 5px 5px;
-    -ms-border-radius: 5px 5px 5px 5px;
+    border-bottom: 2px solid whitesmoke;
     color: #363636;
-    padding-left: 40px;
-    width: 300px;
+    padding-left: 20px;
+    width: 350px;
+    margin-left:13px;
+    margin-bottom: 10px;
 }
 
 .SignUp input[type="submit"] {
-    background-color: #2c90c6;
-    border: 1px solid #2c90c6;
-    border-radius: 15px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    background-color: #1FB5BF;
     color: #fff;
     font-weight: bold;
     line-height: 48px;
     text-align: center;
     text-transform: uppercase;
-    width: 340px;
+    width: 100px;
+    float:right;
+    margin-right : 16px;
 }
 
 .SignUpText {
@@ -185,22 +182,31 @@ header {
     font-size: 15px;
 }
 
-.backboard {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 3px;
-    width: 350px;
-    background-color: whitesmoke;
-    border: 1px solid #2c90c6;
-    border-radius: 15px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-}
 
 .g-recaptcha {
     margin: 7px 0 7px 25px;
 }
 
+
+
+.divider {
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+    color : gray;
+}
+
+.divider hr {
+    margin-left:auto;
+    margin-right:auto;
+    width:40%;
+
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}

@@ -127,13 +127,13 @@ if(isset($_SESSION['valid_user'])){
             #section2 p {
                 opacity: 0.6;
             }
+
         </style>
 
         <script>
             /*
              $("#popup1").click(function(){
              alert("ASd");
-
 
              });
              */
@@ -174,7 +174,7 @@ if(isset($_SESSION['valid_user'])){
 
         <div id="header-gnb">
             <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-                <a href="http://www.wintle.co.kr"><img src="img/logo_s.png" style="height:50px"></a>
+                <a href="http://www.wintle.co.kr"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
             </div>
             <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
@@ -246,46 +246,52 @@ if(isset($_SESSION['valid_user'])){
             </div>
         </div>
     </div>
-
     <div id="popup1" class="overlay">
+        <a class="close" href="#">×</a>
+        <div class="header">
+            <a href="index.php"><img src="img/pavicon/logo_white_scaled.png"></a>
+        </div>
+
+
         <form action="" method="post">
             <div class="popup" id="popup">
-                <h2 style="color:white">Sign up for Wintle</h2>
-                <a class="close" href="#">×</a>
-                <br><br>
-                <div class="backboard">
-                    <div class="SignUp">
+                <div class="SignUp">
+                    <img style="margin-left:10px; margin-top:7px; height:52px;" src="img/social_login.png"/>
+                    <div class="divider">
+                        <hr class="left"/>OR<hr class="right" />
+                    </div>
+
+                    <!--
                         <span><img src="img/username.png"></span><span name="wrong" id="username_wrong"
                                                                        style="display: none"
                                                                        onclick="document.getElementById('username').value =''"><img
                                 src="img/x.png"></span><input type="text" name="username" id="username" required
                                                               placeholder="User name" autocomplete="off">
-
-                        <span><img src="img/email.png"></span><span name="wrong" id="email_wrong" style="display: none"
+-->
+                        <span name="wrong" id="email_wrong" style="display: none"
                                                                     onclick="document.getElementById('email_address').value =''"><img
                                 src="img/x.png"></span><input type="text" name="email_address" id="email_address" required
                                                               placeholder="Your email address" autocomplete="off">
 
-                        <span><img src="img/password.png"></span><span name="wrong" id="password_wrong"
+                        <span name="wrong" id="password_wrong"
                                                                        style="display: none"
                                                                        onclick="document.getElementById('password').value =''"><img
                                 src="img/x.png"></span><input type="password" name="password" id="password" required
                                                               placeholder="Enter a password" autocomplete="off">
-
+<!--
                         <span><img src="img/password.png"></span><span name="wrong" id="repassword_wrong"
                                                                        style="display: none"
                                                                        onclick="document.getElementById('repassword').value =''"><img
                                 src="img/x.png"></span><input type="password" name="repassword" id="repassword" required
                                                               placeholder="Re-enter a password"
                                                               autocomplete="off">
+-->
+                     <!--   <p class="SignUpText">Use at least one letter<br> one numeral, and seven characters.</p>-->
 
-                        <p class="SignUpText">Use at least one letter<br> one numeral, and seven characters.</p>
-
-                        <div class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
-
-                        <input id="submit" type="submit" name="submit" value="Sign Up for Wintle" onclick="return check()">
+<!--                        <div class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
+-->
+                        <input id="submit" type="submit" name="submit" value="Log In" onclick="return check()">
                     </div>
-                </div>
             </div>
         </form>
     </div>

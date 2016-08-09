@@ -2,195 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/ProfileImages/mask.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/background/file.webm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/mobie.scssc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/pc.scssc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/.sass-cache/ac709bbf88cb915e09574ab5821cf70d7de4ab68/supper.scssc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/All.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Melody.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/PAGE/main_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Photo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Player.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Story.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/border-image.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/defaultprofile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/email.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/g_signin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_grey.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo_s.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/password.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_large.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/small_logo_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/username.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/검색.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/공유하기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/다음곡.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/더보기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/로고_대문자.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/설정.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/소리재생.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/소스보기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기 나타내기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기 숨김상태.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/신고하기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/아이콘.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/앨범.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/언어 선택 아이콘.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/음소거.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/이전곡.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/이퀄라이저.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/일시정지.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/재생.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/정지.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/좋아요 클릭전.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/좋아요 클릭후.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/즐겨찾기 클릭 전.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/즐겨찾기 클릭 후.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/후원하기.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/mainpage/maincontroller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/footer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/header.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/mainpage/main.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/bootstrap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/controller.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/model.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/shared.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/sqlquery.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/template.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css_reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/dropupload.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/javascript.fullPage.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/jquery.tagit.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/signin.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobie.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/mobile.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/pc.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/style/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/tagit.ui-zendesk.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/account/signup_check.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.fileupload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.iframe-transport.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.knob.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/jquery.ui.widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropupload/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jq-jh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/mainpage/javascript.fullPage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/mainpage/javascript.fullPage.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/multiSelectorDraggable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tag-it/tag-it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tag-it/tag-it.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GlobalData.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/LyricsUpload.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/create.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/createStoredProcedure.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/delete.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/functions.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pls-config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/php.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/.idea/www.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/ProfileImages/mask.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/ajaxtest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/background/file.webm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/dropupload.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/javascript.fullPage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/jquery.tagit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/signin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/css/tagit.ui-zendesk.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/function.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/header.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/All.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Melody.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper_top.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/Cloud_paper_top2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/PAGE/main_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Photo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Player.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/Story.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/border-image.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/defaultprofile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/email.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/g_signin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/logo_s.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/password.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/pavicon/logo_large.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/small_logo_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/username.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/검색.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/공유하기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/다음곡.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/더보기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/로고_대문자.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/설정.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/소리재생.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/소스보기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기 나타내기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기 숨김상태.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/신고하기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/아이콘.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/앨범.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/언어 선택 아이콘.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/음소거.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/이전곡.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/이퀄라이저.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/일시정지.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/재생.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/정지.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/좋아요 클릭전.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/좋아요 클릭후.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/즐겨찾기 클릭 전.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/즐겨찾기 클릭 후.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/후원하기.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.fileupload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.iframe-transport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.knob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/jquery.ui.widget.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/dropupload/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/mainpage/javascript.fullPage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/mainpage/javascript.fullPage.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/tag-it/tag-it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/tag-it/tag-it.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/leftsidebar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/mycontents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/mypage.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/rightsidebar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/signin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/signout.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/uploadfunction.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_white_scaled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/social_login.PNG" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/img/logo_black.png" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/img/logo_grey.png" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_grey.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/img/logo_s.png" afterPath="$PROJECT_DIR$/public/img/pavicon/logo_s.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
     </list>
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -212,53 +31,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/mainpage/main.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
+            <state relative-caret-position="360">
+              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
               <folding>
-                <marker date="1470644855014" expanded="true" signature="2264:2266" placeholder="..." />
+                <element signature="e#7651#7705#0#HTML" expanded="true" />
+                <marker date="1470731264812" expanded="false" signature="9609:9622" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signin.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/signin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jq-jh.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/jq-jh.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3050">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="383">
+              <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -327,9 +117,9 @@
         <option value="$PROJECT_DIR$/public/js/dropupload/script.js" />
         <option value="$PROJECT_DIR$/config/config.php" />
         <option value="$PROJECT_DIR$/public/js/account/signup_check.js" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/style/mobile.css" />
         <option value="$PROJECT_DIR$/application/views/mainpage/main.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
       </list>
     </option>
@@ -392,7 +182,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -440,6 +229,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pavicon" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -553,6 +382,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,19 +393,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\css" />
-      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\config" />
-      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\application\controller" />
-      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v" />
-      <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_renew\www" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\js" />
       <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\css" />
       <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\application\views" />
       <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public" />
       <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_1.0v\public\img\pavicon" />
+      <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_1.0v\public\img" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\public\css" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\config" />
+      <recent name="C:\Users\Daniel\Desktop\Wintle_1.0v\application\controller" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php (2)">
@@ -691,11 +521,13 @@
       <workItem from="1470541930262" duration="48000" />
       <workItem from="1470542033672" duration="17645000" />
       <workItem from="1470633525874" duration="8930000" />
+      <workItem from="1470649563509" duration="36000" />
+      <workItem from="1470723363135" duration="6852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260829000" />
+    <option name="totallyTimeSpent" value="267717000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -707,19 +539,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31838074" sideWeight="0.5125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31838074" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19474836" sideWeight="0.47291666" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19365427" sideWeight="0.47291666" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24507658" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,6 +559,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31838074" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -803,7 +635,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="e#7651#7705#0#HTML" expanded="true" />
+            <marker date="1470731264812" expanded="false" signature="9609:9622" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -840,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3288">
           <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
           <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-788">
           <caret line="271" column="22" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,9 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -914,15 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/shared.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,9 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,18 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="356" column="3" selection-start-line="356" selection-start-column="3" selection-end-line="356" selection-end-column="3" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/img/PAGE/Cloud_paper_top2.png">
@@ -960,11 +761,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/img/border-image.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_large.ico">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -989,31 +785,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logo_black.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logo_grey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logo_s.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/mainpage/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-          <folding>
-            <marker date="1470644855014" expanded="true" signature="2264:2266" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/jq-jh.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1022,26 +793,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/library/shared.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1406">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/mainpage/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1992">
+          <caret line="83" column="15" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
+          <folding>
+            <marker date="1470644855014" expanded="true" signature="2264:2266" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/signin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="144">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_black.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_grey.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_large.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pavicon/logo_s.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding>
+            <element signature="e#7651#7705#0#HTML" expanded="true" />
+            <marker date="1470731264812" expanded="false" signature="9609:9622" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3050">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
+        <state relative-caret-position="383">
+          <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
           <folding />
         </state>
       </provider>

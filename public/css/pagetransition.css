@@ -1,0 +1,55 @@
+/* =============================================================================
+  DEMO
+============================================================================= */
+/**
+ * Sections
+ *
+ * Some sections to define card content areas.
+ */
+
+
+.section__content {
+    padding-left: 3px;
+}
+
+/**
+ * The cards
+ *
+ * Each card plays home to a front and back. I've set them up as squares here
+ * by using the padding technique, but you may set them up in any dimensions
+ * you like based on your site design.
+ */
+
+/* card fronts and backs */
+.card__front,
+.card__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card__front,
+.card__back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.card__back {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+/* click effect */
+.card.effect__click.flipped .card__front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.card.effect__click.flipped .card__back {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+}

@@ -137,8 +137,7 @@ if(isset($_SESSION['valid_user'])){
                 text-align: center;
             }
             .login-signup-text span{
-                font-size: 20px;
-                opacity: 1;
+                font-size: 17px;
             }
 
             .login-signup-text #login-text{
@@ -156,45 +155,38 @@ if(isset($_SESSION['valid_user'])){
                 bottom: 0;
                 left: 0;
                 background-color: rgba(0,0,0,0);
-                height: 50px;
-                width: 440px;
+                height: 40px;
+                width: 400px;
                 position: relative;
                 transition: all 5s ease-in-out;
                 padding-bottom: 0;
             }
 
             .arrow-up-left{
-                margin-top:12px;
+                margin-top:10px;
                 position:absolute;
                 width: 0;
                 height: 0;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
                 border-bottom: 15px solid white;
-                transition:0.5s;
-                -webkit-transition:0.5s;
-                -moz-transition:0.5s;
-                right:calc(100% - 153px);
+                transition:0.2s;
+                -webkit-transition:0.2s;
+                -moz-transition:0.2s;
+                right:calc(100% - 143px);
             }
 
             .SignUp{
-                display:inline-block;
-                width:440px;
-                margin-top:0;
+                vertical-align: top;
+                display: inline-block;
+                width:400px;
             }
 
             .signup-parent{
                 position:absolute;
-                width: 885px;
-                transition:0.5s;
-                -webkit-transition:0.5s;
-                -moz-transition:0.5s;
-                right:calc(100% - 885px);
+                /*width: 885px;
+*/              width: 950px;
             }
-            .signup-parent:hover{
-                right:0;
-            }
-
 
         </style>
 
@@ -210,16 +202,21 @@ if(isset($_SESSION['valid_user'])){
 
 
 
+
+
             $(function(){
-                $("#login-text").click(function (e){
-                    var cards = document.querySelectorAll(".card.effect__click");
-                    var c = cards[0].classList;
-                    c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
+                setLogInForm();
+
+                $("#login-text, #top_login").click(function (e){
+                    setLogInForm()
                 });
 
-                $("#signup-text").click(function (e){
-                    $(".signup-parent").css("right","0");
-                    $(".arrow-up-left").css("right","130px");
+                $("#signup-text, #top_signup").click(function (e){
+                    $(".arrow-up-left").css("right","117px");
+                    $("#popup").css("height","550px");
+                    $("#username").show("fast");
+                    $("#g-recaptcha").show("fast");
+                    $(".SignUpText").show("fast");
                 });
 
                 $("#popup1").click(function (e)
@@ -227,11 +224,20 @@ if(isset($_SESSION['valid_user'])){
                     var container = $("#popup");
                     var block = $("#login-signup-block");
 
-                 if ((!container.is(e.target) && container.has(e.target).length === 0) && (!block.is(e.target) && block.has(e.target).length === 0) )
-                 {
-                    window.location.href="#";
-                 }
+                    if ((!container.is(e.target) && container.has(e.target).length === 0) && (!block.is(e.target) && block.has(e.target).length === 0) )
+                    {
+                        window.location.href="#";
+                    }
                 });
+
+                function setLogInForm(){
+                    $(".arrow-up-left").css("right","calc(100% - 143px)");
+                    $("#popup").css("height","325px");
+                    $("#username").hide("fast");
+                    $("#g-recaptcha").hide("fast");
+                    $(".SignUpText").hide("fast");
+                }
+
             });
 
         </script>
@@ -334,7 +340,7 @@ if(isset($_SESSION['valid_user'])){
     <div id="popup1" class="overlay">
         <a class="close" href="#">×</a>
         <div class="header">
-            <a href="index.php"><img src="img/pavicon/logo_white_scaled.png"></a>
+            <a href="index.php"><img src="img/pavicon/logo_explain.png"></a>
         </div>
         <div class="login-signup-block" id="login-signup-block">
             <div class="login-signup-text">
@@ -343,14 +349,20 @@ if(isset($_SESSION['valid_user'])){
             </div>
             <div class="arrow-up-left"></div>
         </div>
-            <form action="" method="post">
-                <div class="popup" id="popup">
-                    <div class="signup-parent">
+
+        <!-- Sign up/Log in form -->
+        <form action="" method="post">
+            <div class="popup" id="popup">
                     <span class="SignUp">
-                        <img style="margin-left:28px; margin-top:18px; height:52px;" src="img/social_login.png"/>
+                        <img style="margin-left:28px; margin-top:18px; height:47px;" src="img/social_login.png"/>
                         <div class="divider">
                             <hr class="left"/>OR<hr class="right" />
                         </div>
+                        <span name="wrong" id="email_wrong" style="display: none"
+                              onclick="document.getElementById('username').value =''"><img
+                                src="img/x.png"></span><input type="text" name="username" id="username" required
+                                                              placeholder="Your Username" autocomplete="off">
+
                                                     <span name="wrong" id="email_wrong" style="display: none"
                                                           onclick="document.getElementById('email_address').value =''"><img
                                                             src="img/x.png"></span><input type="text" name="email_address" id="email_address" required
@@ -360,31 +372,18 @@ if(isset($_SESSION['valid_user'])){
                                                           onclick="document.getElementById('password').value =''"><img
                                                             src="img/x.png"></span><input type="password" name="password" id="password" required
                                                                                           placeholder="Enter a password" autocomplete="off">
-                        <input id="submit" type="submit" name="submit" value="Log In" onclick="return check()">
+                        <p class="SignUpText">Use at least one letter<br> one numeral, and seven characters.</p>
+
+                        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
+
+                        <input id="submit" type="submit" name="submit" value="Log In" style="margin-bottom: 30px" onclick="return check()">
                     </span>
-                    <span class="SignUp">
-                        <img style="margin-left:28px; margin-top:18px; height:52px;" src="img/social_login.png"/>
-                        <div class="divider">
-                            <hr class="left"/>OR<hr class="right" />
-                        </div>
-                                                    <span name="wrong" id="email_wrong" style="display: none"
-                                                          onclick="document.getElementById('email_address').value =''"><img
-                                                            src="img/x.png"></span><input type="text" name="email_address" id="email_address" required
-                                                                                          placeholder="Your email address" autocomplete="off">
-                                                    <span name="wrong" id="password_wrong"
-                                                          style="display: none"
-                                                          onclick="document.getElementById('password').value =''"><img
-                                                            src="img/x.png"></span><input type="password" name="password" id="password" required
-                                                                                          placeholder="Enter a password" autocomplete="off">
-                        <input id="submit" type="submit" name="submit" value="Log In" onclick="return check()">
-                    </span>
-                    </div>
-                </div>
-            </form>
-        </div>
-        </div>
+            </div>
+        </form>
+    </div>
+    </div>
     </body>
-</html>
+    </html>
 
 
 

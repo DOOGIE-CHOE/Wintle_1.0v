@@ -47,7 +47,8 @@ function unregisterGlobals() {
 /** Main Call Function **/
 
 function callHook() {
-    new MainController("mainpage","main");
+    $main = new MainController("mainpage","main");
+    $main->setComponents();
 }
 
 /** Autoload any classes that are required **/

@@ -30,12 +30,8 @@ if(isset($_SESSION['valid_user'])){
         <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <link rel="stylesheet" href="style/style.css">
-
         <!-- -------------------------------------------------------------------------
                                 css reset, Java script, JS PlugIn
-        <!-- JQ Plug In -->
-        <script src="js/multiSelectorDraggable.js"></script>
 
         <!-- css Plug In -->
         <link href="css/css_reset.css" rel="stylesheet" />
@@ -47,9 +43,10 @@ if(isset($_SESSION['valid_user'])){
         <!-- Javascript custom -->
         <script src="js/jq-jh.js"></script>
 
-        <link rel="stylesheet" href="css/pagetransition.css">
+        <!-- Form process -->
+        <script src="js/login-signup/form.js"></script>
 
-        <link rel="stylesheet" href="css/pagetransition.css" />
+        <link rel="stylesheet" href="css/style.css">
 
         <style>
             /* background video
@@ -138,6 +135,7 @@ if(isset($_SESSION['valid_user'])){
             }
             .login-signup-text span{
                 font-size: 17px;
+                cursor:pointer;
             }
 
             .login-signup-text #login-text{
@@ -182,65 +180,7 @@ if(isset($_SESSION['valid_user'])){
                 width:400px;
             }
 
-            .signup-parent{
-                position:absolute;
-                /*width: 885px;
-*/              width: 950px;
-            }
-
         </style>
-
-        <script>
-            /*
-             $("#popup1").click(function(){
-             alert("ASd");
-
-             });
-             */
-
-            // Add your javascript here
-
-
-
-
-
-            $(function(){
-                setLogInForm();
-
-                $("#login-text, #top_login").click(function (e){
-                    setLogInForm()
-                });
-
-                $("#signup-text, #top_signup").click(function (e){
-                    $(".arrow-up-left").css("right","117px");
-                    $("#popup").css("height","550px");
-                    $("#username").show("fast");
-                    $("#g-recaptcha").show("fast");
-                    $(".SignUpText").show("fast");
-                });
-
-                $("#popup1").click(function (e)
-                {
-                    var container = $("#popup");
-                    var block = $("#login-signup-block");
-
-                    if ((!container.is(e.target) && container.has(e.target).length === 0) && (!block.is(e.target) && block.has(e.target).length === 0) )
-                    {
-                        window.location.href="#";
-                    }
-                });
-
-                function setLogInForm(){
-                    $(".arrow-up-left").css("right","calc(100% - 143px)");
-                    $("#popup").css("height","325px");
-                    $("#username").hide("fast");
-                    $("#g-recaptcha").hide("fast");
-                    $(".SignUpText").hide("fast");
-                }
-
-            });
-
-        </script>
 
     </head>
     <body>
@@ -248,6 +188,7 @@ if(isset($_SESSION['valid_user'])){
         <video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
             <source src="background/file.webm">
         </video>
+
         <div id="fullpage">
             <div class="section " id="section0">
                 <div class="content">
@@ -257,6 +198,10 @@ if(isset($_SESSION['valid_user'])){
                 </div>
                 <img class="paper_cap" src="img/PAGE/Cloud_paper_top.png" alt=""/>
             </div>
+            <div class="section " id="section1"></div>
+
+            <div class="section " id="section2"></div>
+
         </div>
 
         <div class="info-content">
@@ -274,69 +219,6 @@ if(isset($_SESSION['valid_user'])){
         </div>
     </header>
 
-
-
-    <!--  ************************************
-               이용 전 까지 숨김 영역
-           ( 숨김 방법: Ajax || hidden ) 
-        ************************************* -->
-
-    <!-- 네비게이션 -->
-    <div class="hidden">
-        <nav class="MoveContentMusic">
-            <!-- background Left -->
-        </nav>
-        <nav class="MoveContentStudio">
-            <!-- 클릭 시 class="SouceLnb" 로 변경 -->
-            <div class="StudioLnb">
-                <div>All</div>
-                <div>Story</div>
-                <div>Melody</div>
-                <div>Player</div>
-                <div>Art</div>
-            </div>
-        </nav>
-
-        <!-- 컨텐츠 영역 -->
-        <content>
-            <div class="container">
-                <article class="MyPage">
-                    eijfla
-                </article>
-                <div id="music_content_box">
-                    sdfdsf
-                </div>
-                <article class="MixPage">
-                    sdfdsf
-                </article>
-            </div>
-        </content>
-
-        <!-- playbar -->
-
-        <div class="PlayBar">
-            <div class="container">
-                <div class="controler">
-                    <div>1.이전곡</div>
-                    <div>2.재생버튼</div>
-                    <div>3.다음곡</div>
-                </div>
-                <div class="albumart">앨범아트</div>
-                <div class="musicinfo">
-                    <div class="genre">jazz</div>
-                    <div class="songname">amazing grace</div>
-                    <div>
-                        <div class="playtime">
-                            --:--
-                        </div>
-                        <div class="pointer"></div>
-                        <div class="playFuture"></div>
-                        <div class="playPast"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="popup1" class="overlay">
         <a class="close" href="#">×</a>
         <div class="header">
@@ -351,14 +233,14 @@ if(isset($_SESSION['valid_user'])){
         </div>
 
         <!-- Sign up/Log in form -->
-        <form action="" method="post">
+        <form id="Login-Signup-Form">
             <div class="popup" id="popup">
                     <span class="SignUp">
                         <img style="margin-left:28px; margin-top:18px; height:47px;" src="img/social_login.png"/>
                         <div class="divider">
                             <hr class="left"/>OR<hr class="right" />
                         </div>
-                        <span name="wrong" id="email_wrong" style="display: none"
+                        <span name="wrong" id="username_wrong" style="display: none"
                               onclick="document.getElementById('username').value =''"><img
                                 src="img/x.png"></span><input type="text" name="username" id="username" required
                                                               placeholder="Your Username" autocomplete="off">
@@ -381,7 +263,16 @@ if(isset($_SESSION['valid_user'])){
             </div>
         </form>
     </div>
-    </div>
+
+
+    <script type="text/javascript" src="js/mainpage/javascript.fullPage.js"></script>
+    <script type="text/javascript">
+        fullpage.initialize('#fullpage', {
+            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+            menu: '#menu',
+            css3: true
+        });
+    </script>
     </body>
     </html>
 

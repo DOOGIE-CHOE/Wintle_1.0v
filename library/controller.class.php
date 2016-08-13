@@ -18,7 +18,6 @@ class Controller {
 
 		$this->_template = new Template($args[0],$args[1]);
 	}
-
 	/*
 	function __construct($model, $controllers, $action) {
 

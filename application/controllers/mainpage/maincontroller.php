@@ -8,4 +8,7 @@
 
 class MainController extends Controller{
 
+    function setComponents(){
+        $this->set("component","error");
+    }
 }

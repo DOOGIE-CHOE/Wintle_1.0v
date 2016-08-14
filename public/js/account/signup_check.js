@@ -4,6 +4,7 @@
 
 
 // check email based on regular expression
+/*
 function isValidEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -16,7 +17,7 @@ function isValidUsername(username) {
 function isValidPassword(password, repassword) {
     var errors = [];
     if (password.length < 8) {
-        errors.push("Your password must be at least 8 characters");
+        errorDisplay("Your password must be at least 8 characters");
     }
     if (password.search(/[a-z]/i) < 0) {
         errors.push("Your password must contain at least one letter.");
@@ -53,8 +54,7 @@ function check() {
     var username = document.getElementById("username");
     var email = document.getElementById("email_address");
     var password = document.getElementById("password");
-    var repassword = document.getElementById("repassword");
-
+    alert('asd');
 
     //username
     if (!isValidUsername(username.value)) {
@@ -64,7 +64,6 @@ function check() {
     else {
         mark(username, 'username_wrong', true);
     }
-
     //email
     if (!isValidEmail(email.value)) {
         mark(email, 'email_wrong', false);
@@ -92,7 +91,10 @@ function check() {
         alert("check if you are a robot");
         return false;
     }
-
-
     return true;
 }
+
+function errorDisplay(error){
+
+}
+*/

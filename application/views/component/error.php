@@ -7,15 +7,9 @@
  */
 
 ?>
-<script>
-    function showError(message){
-        alert(message);
-    }
-
-
-</script>
 <style>
     .alert {
+        display:none;
         position:absolute;
         padding: 20px;
         background-color: #f44336;
@@ -24,9 +18,9 @@
         top : 60px;
         opacity: 1;
         transition: opacity 0.6s;
-        -webkit-transition:0.2s;
-        -moz-transition:0.2s;
-        right:0;
+        -webkit-transition:0.5s;
+        -moz-transition:0.5s;
+        right:-700px;
         z-index:1000;
     }
 
@@ -49,18 +43,26 @@
 
 <div class="alert">
     <span class="closebtn">&times;</span>
-    Indicates a dangerous or potentially negative action.
+    <a id="error-message">Indicates a dangerous or potentially negative action.</a>
 </div>
 
 <script>
-    var close = document.getElementsByClassName("closebtn");
-    var i;
 
-    for (i = 0; i < close.length; i++) {
+    function errorDisplay(error){
+        //Clear timeout in case this function called multiple times
+        clearTimeout($(".alert"));
+        var msg = document.getElementById("error-message");
+        msg.innerHTML = error;
+        $(".alert").css("right","-1000px").show("200").css("right","0");
+        setTimeout(function(){ $(".alert").hide(0)},3000);
+    }
+
+    var close = document.getElementsByClassName("closebtn");
+    for (var i = 0; i < close.length; i++) {
         close[i].onclick = function(){
             var div = this.parentElement;
-            div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function(){ div.style.display = "none"; }, 300);
         }
     }
+
 </script>

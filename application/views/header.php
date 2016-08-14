@@ -258,7 +258,7 @@ if(isset($_SESSION['valid_user'])){
 
                         <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
 
-                        <input id="submit" type="submit" name="submit" value="Log In" style="margin-bottom: 30px" onclick="return check()">
+                        <input id="submit" type="submit" name="submit" value="LOG IN" style="margin-bottom: 30px" onclick="return check()">
                     </span>
             </div>
         </form>

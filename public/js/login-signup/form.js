@@ -25,6 +25,7 @@ function isValidPassword(password) {
         errors.push("Your password must contain at least one digit.");
     }
     if (errors.length > 0) {
+        errorDisplay(errors[0]);
         return false;
     }
 
@@ -43,23 +44,18 @@ function mark(oj, id, tf) {
         document.getElementById(id).style.display = 'none';
     }
 }
-function displayErrorBox(){
-    showError("test");
-}
 
+function signUp(){
 
-//sign up conditions
-function check() {
-    displayErrorBox();
     //get all elements we need
     var username = document.getElementById("username");
     var email = document.getElementById("email_address");
     var password = document.getElementById("password");
 
-
     //username
     if (!isValidUsername(username.value)) {
         mark(username, 'username_wrong', false);
+        errorDisplay("Invalid Username. Please check it again");
         return false;
     }
     else {
@@ -69,6 +65,7 @@ function check() {
     //email
     if (!isValidEmail(email.value)) {
         mark(email, 'email_wrong', false);
+        errorDisplay("Invalid Email Address. Please check it again");
         return false;
     }
     else {
@@ -88,11 +85,29 @@ function check() {
     //reCAPTCHA by google
     var response = grecaptcha.getResponse();
     if (response <= 0) {
-        alert("check if you are a robot");
+        errorDisplay("Are you a robot ?");
         return false;
     }
 
     return true;
+}
+
+
+
+
+//sign up conditions
+function check() {
+    var button = document.getElementById("submit");
+
+    if(button.value == "SIGN UP"){
+        if(signUp()){
+            return true;
+        }
+    }
+    else if(button.value == "LOG IN"){
+
+    }
+    return false;
 }
 
 

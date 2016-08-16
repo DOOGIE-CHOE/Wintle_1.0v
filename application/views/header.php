@@ -7,15 +7,26 @@ if(!isset($_SESSION))
 
 $top_fst_text = "Log In";
 $top_snd_text = "Sign Up";
-$top_fst_link = "#popup1";
+$top_fst_link = "../application/views/test.php";
 $top_snd_link = "#popup1";
 
-if(isset($_SESSION['valid_user'])){
+if(isset($_SESSION['loggedIn'])){
     $top_fst_text = $_SESSION['valid_user'];
     $top_snd_text = "Sign Out";
     $top_fst_link = "mypage.php";
-    $top_snd_link = "signout.php";
+    $top_snd_link = "/application/views/signout.php";
 }
+
+function signOut(){
+    $old_user = $_SESSION['valid_user'];
+    unset($_SESSION['valid_user']);
+    session_destroy();
+
+    if(!empty($old_user)){
+        echo "<script>window.location='index.php'</script>";
+    }
+}
+
 ?>
 
     <!DOCTYPE html>
@@ -185,11 +196,15 @@ if(isset($_SESSION['valid_user'])){
     </head>
     <body>
     <header>
-        <video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+        <div class="info-content">
+            <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>
+            <!--<div class="introbtn">시작하기</div>-->
+        </div>
+        <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
             <source src="background/file.webm">
-        </video>
+        </video>-->
 
-        <div id="fullpage">
+        <!--<div id="fullpage">
             <div class="section " id="section0">
                 <div class="content">
                     <div class="contaner">
@@ -202,7 +217,7 @@ if(isset($_SESSION['valid_user'])){
 
             <div class="section " id="section2"></div>
 
-        </div>
+        </div>-->
 
         <div class="info-content">
             <div class="introbtn">뮤지션에 도전하기</div>
@@ -210,7 +225,7 @@ if(isset($_SESSION['valid_user'])){
 
         <div id="header-gnb">
             <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-                <a href="http://www.wintle.co.kr"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
+                <a href="http://www.wintle.co.kr/test/index.php"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
             </div>
             <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
@@ -233,7 +248,7 @@ if(isset($_SESSION['valid_user'])){
         </div>
 
         <!-- Sign up/Log in form -->
-        <form id="Login-Signup-Form">
+        <form id="login-signup-form">
             <div class="popup" id="popup">
                     <span class="SignUp">
                         <img style="margin-left:28px; margin-top:18px; height:47px;" src="img/social_login.png"/>
@@ -244,7 +259,6 @@ if(isset($_SESSION['valid_user'])){
                               onclick="document.getElementById('username').value =''"><img
                                 src="img/x.png"></span><input type="text" name="username" id="username" required
                                                               placeholder="Your Username" autocomplete="off">
-
                                                     <span name="wrong" id="email_wrong" style="display: none"
                                                           onclick="document.getElementById('email_address').value =''"><img
                                                             src="img/x.png"></span><input type="text" name="email_address" id="email_address" required
@@ -275,74 +289,3 @@ if(isset($_SESSION['valid_user'])){
     </script>
     </body>
     </html>
-
-
-
-<?php
-
-class Verification
-{
-    /* Google recaptcha API url */
-    private $google_url = "https://www.google.com/recaptcha/api/siteverify";
-    private $secret = '6LcZwyATAAAAAFzPeCoBRL-ptF9gnGs-tP5-Bdik';
-
-    public function VerifyCaptcha($response)
-    {
-        $url = $this->google_url . "?secret=" . $this->secret . "&response=" . $response;
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 15);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-        $curlData = curl_exec($curl);
-
-        curl_close($curl);
-
-        $res = json_decode($curlData, TRUE);
-        if ($res['success'] == 'true')
-            return TRUE;
-        else
-            return FALSE;
-    }
-
-
-}
-//starts from here when submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $response = $_POST['g-recaptcha-response'];
-    try {
-        //check reCAPTCHA verification
-        if (!empty($response)) {
-            $cap = new Verification();
-            $verified = $cap->VerifyCaptcha($response);
-            //if reCAPTCHA is verified
-            if ($verified) {
-                $db = new DatabaseHandler();
-                if ($db->ConnectDB()) {
-                    if ($db->VerifyUsername()) {
-                        if ($db->VerifyEmail()) {
-                            $db->RegisterUser();
-                            $db->DisconnectDB();
-                            echo "<script>window.location='header.php';</script>";
-                            /* 2015 06 01 by Daniel
-                             * i used script at the middle of php because
-                             * php header('Lcation : header.php') is not working.
-                             * and i don't think it's a good idea to use script here.
-                             * if someone knows why, please fix it.
-                             * */
-                            exit;
-                        }
-                    }
-                }
-            } else {
-                throw new Exception("Our system recognized you as a robot.");
-            }
-        }
-    } catch (Exception $e) {
-        $db->DisconnectDB();
-        FailedOnSignUp($e->getMessage());
-    }
-}
-?>

@@ -34,13 +34,13 @@ if ( get_magic_quotes_gpc() ) {
 function unregisterGlobals() {
     if (ini_get('register_globals')) {
         $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
-        foreach ($array as $value) {
+       /* foreach ($array as $value) {
             foreach ($GLOBALS[$value] as $key => $var) {
                 if ($var === $GLOBALS[$key]) {
                     unset($GLOBALS[$key]);
                 }
             }
-        }
+        }*/
     }
 }
 
@@ -58,9 +58,9 @@ function __autoload($className) {
         require_once(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php');
     } else if (file_exists(ROOT . DS . 'application' . DS . 'controllers' .DS. 'mainpage' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS . 'controllers' .DS. 'mainpage' . DS . strtolower($className) . '.php');
-    } else if (file_exists(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($className) . '.php')) {
+    }/* else if (file_exists(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($className) . '.php');
-    } else {
+    }*/ else {
         /* Error Generation Code Here */
     }
 }

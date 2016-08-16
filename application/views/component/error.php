@@ -18,8 +18,8 @@
         top : 60px;
         opacity: 1;
         transition: opacity 0.6s;
-        -webkit-transition:0.5s;
-        -moz-transition:0.5s;
+        -webkit-transition:0.3s;
+        -moz-transition:0.3s;
         right:-700px;
         z-index:1000;
     }
@@ -49,12 +49,12 @@
 <script>
 
     function errorDisplay(error){
-        //Clear timeout in case this function called multiple times
-        clearTimeout($(".alert"));
-        var msg = document.getElementById("error-message");
-        msg.innerHTML = error;
-        $(".alert").css("right","-1000px").show("200").css("right","0");
-        setTimeout(function(){ $(".alert").hide(0)},3000);
+        if($(".alert").css("display") == "none"){
+            var msg = document.getElementById("error-message");
+            msg.innerHTML = error;
+            $(".alert").show(0).css("right","0");
+            setTimeout(function(){ $(".alert").hide(0).css("right","-800px")},3000);
+        }
     }
 
     var close = document.getElementsByClassName("closebtn");

@@ -42,6 +42,7 @@ header {
     cursor: pointer;
     opacity: .8; }
   header #header-gnb {
+    background-color:#417e8d;
     position: absolute;
     margin: auto;
     width: 80%;
@@ -49,7 +50,11 @@ header {
     height: auto;
     left: 0;
     right: 0;
-    bottom: 0; }
+    bottom: 0;
+    padding-right:10%;
+    padding-left:10%;
+
+  }
     header #header-gnb > div {
       position: relative; }
     header #header-gnb [class^=HeaderImg] {

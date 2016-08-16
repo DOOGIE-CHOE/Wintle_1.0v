@@ -82,17 +82,44 @@ function signUp(){
     }
 
 
-    //reCAPTCHA by google
+  /*  //reCAPTCHA by google
     var response = grecaptcha.getResponse();
     if (response <= 0) {
         errorDisplay("Are you a robot ?");
         return false;
     }
-
+*/
     return true;
 }
 
 
+function logIn(){
+    var username = document.getElementById("username");
+    var email = document.getElementById("email_address");
+    var password = document.getElementById("password");
+    username.value=" ";
+
+    //email
+    if (!isValidEmail(email.value)) {
+        mark(email, 'email_wrong', false);
+        errorDisplay("Invalid Email Address. Please check it again");
+        return false;
+    }
+    else {
+        mark(email, 'email_wrong', true);
+    }
+
+    //password
+    if (!isValidPassword(password.value)) {
+        mark(password, 'password_wrong', false);
+        return false;
+    }
+    else {
+        mark(password, 'password_wrong', true);
+    }
+
+    return true;
+}
 
 
 //sign up conditions
@@ -105,7 +132,9 @@ function check() {
         }
     }
     else if(button.value == "LOG IN"){
-
+        if(logIn()){
+            return true;
+        }
     }
     return false;
 }
@@ -153,12 +182,19 @@ $(function(){
     //Ajax lyrics upload
     var request;
     $("#login-signup-form").submit(function(event){
-
+        var _url;
+        var submit = document.getElementById("submit");
+        if(submit.value == "LOG IN"){
+            _url = 'application/models/login-signup/login.php';
+        }else if (submit.value == "SIGN UP"){
+            _url = '../application/models/login-signup/signup.php';
+        }else{
+            return false;
+        }
         //abort any request before get started
         if(request){
             request.abort();
         }
-
         //get variables
         var $form = $(this);
 
@@ -172,16 +208,18 @@ $(function(){
 
         //send ajax request
         request = $.ajax({
-            url:"uploadfunction.php",
+            url: _url,
             type:"post",
             data : serializedData,
             dataType : "json",
             success : function(data){
                 if(data.success){
-                    alert("Uploaded");
-                    window.location.replace("mycontents.php");
+                    if(submit.value == "SIGN UP"){
+                        alert('Signed up successfully');
+                    }
+                    window.location.replace("index.php");
                 }else{
-                    alert("Something went wrong. Sorry for inconvenience Please try it later :( ");
+                    errorDisplay(data.error);
                 }
             }
         });

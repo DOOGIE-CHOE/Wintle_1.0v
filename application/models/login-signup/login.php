@@ -1,6 +1,6 @@
 <?php
-/*session_start();
-require_once ($_SERVER['DOCUMENT_ROOT'].'/library/model.class.php');*/
+session_start();
+require_once ($_SERVER['DOCUMENT_ROOT'].'/library/model.class.php');
 
 /**
  * Created by PhpStorm.
@@ -11,10 +11,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/library/model.class.php');*/
 
 $data = array();
 $data['success'] = false;
-$data['error'] = "test";
-echo json_encode($data);/*
-try{
-    throw new Exception("LogInForm");
+$data['error'] = null;
+
+try {
     $db = new LogIn();
 
     if($db->CheckId($_POST['email_address'])){
@@ -25,8 +24,8 @@ try{
             $data['success']=true;
         }
     }
-}catch(Exception $e){
-    $data['error'] = $e->getMessage();
+}catch(Exception $e) {
+     $data['error'] = $e->getMessage();
 }finally{
     echo json_encode($data);
 }
@@ -72,4 +71,4 @@ class LogIn {
             return $data['username'];
         }
     }
-}*/
+}

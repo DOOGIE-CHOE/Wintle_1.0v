@@ -1,0 +1,70 @@
+GRANT
+DELIMITER $$
+create procedure UploadLyrics(
+in _email_address varchar(20),
+in _contents_id varchar(30),
+in _title varchar(30),
+in _contents varchar(1000),
+in _tags varchar(300),
+out _result int)
+BEGIN
+	declare result int default 0;
+
+	declare err int default 0;
+
+        declare loopcount int default 0;
+
+        declare hashtag varchar(255);
+    
+
+	start transaction;
+
+	insert into mylyrics(email_address, contents_id) values(_email_address, _contents_id);
+
+	insert into lyrics(contents_id, title, contents) values(_contents_id, _title, _contents);
+
+		
+do_this:
+
+  LOOP
+
+  
+    set loopcount = loopcount + 1;
+
+    set hashtag = splite_str(_tags,",",loopcount);
+
+    
+    if hashtag =''
+ then
+
+    leave do_this;
+
+    end if;
+
+    
+    insert into lyricshash(contents_id, hashtag) values (_contents_id,hashtag);
+
+
+    #SET SubStrLen = CHAR_LENGTH(SUBSTRING_INDEX(strIDs, ',', 1)) + 2;
+
+    #SET strIDs = MID(strIDs, SubStrLen, strLen);
+
+
+  END LOOP
+ do_this;
+
+
+if err<0 then
+
+	rollback;
+
+    set result = -1;
+
+else
+
+	commit;
+
+end if;
+
+
+END $$

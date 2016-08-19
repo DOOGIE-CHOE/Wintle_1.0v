@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 
 $top_fst_text = "Log In";
 $top_snd_text = "Sign Up";
-$top_fst_link = "../application/views/test.php";
+$top_fst_link = "#popup1";
 $top_snd_link = "#popup1";
 
 if(isset($_SESSION['loggedIn'])){
@@ -197,7 +197,7 @@ function signOut(){
     <body>
     <header>
         <div class="info-content">
-            <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>
+          <!--  <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
             <!--<div class="introbtn">시작하기</div>-->
         </div>
         <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">

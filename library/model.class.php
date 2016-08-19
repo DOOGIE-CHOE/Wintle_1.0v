@@ -10,7 +10,8 @@ class Model {
         // Check connection
         if ($this->conn->connect_error) {
             // die("Connection failed: " . $conn->connect_error);
-            throw new Exception ("Something went wrong.. :( Please, try it later");
+            throw new Exception($this->conn->connect_error);
+          //  throw new Exception ("Something went wrong.. :( Please, try it later");
         }
     }
 

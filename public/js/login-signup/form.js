@@ -182,12 +182,12 @@ $(function(){
     //Ajax lyrics upload
     var request;
     $("#login-signup-form").submit(function(event){
-        var _url;
+        var type;
         var submit = document.getElementById("submit");
         if(submit.value == "LOG IN"){
-            _url = 'application/models/login-signup/login.php';
+            type = 'login';
         }else if (submit.value == "SIGN UP"){
-            _url = '../application/models/login-signup/signup.php';
+            type = 'signup';
         }else{
             return false;
         }
@@ -201,14 +201,14 @@ $(function(){
         var $inputs = $form.find("input, textarea");
 
         //Serialize variables to send
-        var serializedData = $form.serialize();
+        var serializedData = $form.serialize() + "&type=" + type;
 
         //Block any inputs during working ajax
         $inputs.prop("disabled",true);
 
         //send ajax request
         request = $.ajax({
-            url: _url,
+            url: "../ajax.php",
             type:"post",
             data : serializedData,
             dataType : "json",

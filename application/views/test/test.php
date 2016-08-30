@@ -6,5 +6,14 @@
  * Time: 5:22 PM
  */
 
+?>
 
-echo "<script>alert('".getcwd()."')</script>" ;
+
+<html>
+
+<body>
+
+asdsadsadsadasd
+</body>
+
+</html>

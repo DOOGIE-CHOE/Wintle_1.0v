@@ -11,21 +11,22 @@ $top_fst_link = "#popup1";
 $top_snd_link = "#popup1";
 
 if(isset($_SESSION['loggedIn'])){
-    $top_fst_text = $_SESSION['valid_user'];
-    $top_snd_text = "Sign Out";
-    $top_fst_link = "mypage.php";
-    $top_snd_link = "/application/views/signout.php";
+    $top_fst_text = "";
+    $top_snd_text = "";
+    $top_fst_link = "";
+    $top_snd_link = "";
 }
-
+/*
 function signOut(){
+    echo "<script>alert('test')</script>";
     $old_user = $_SESSION['valid_user'];
     unset($_SESSION['valid_user']);
     session_destroy();
 
     if(!empty($old_user)){
-        echo "<script>window.location='index.php'</script>";
+       // echo "<script>window.location.replace(\"index.php\");</script>";
     }
-}
+}*/
 
 ?>
 
@@ -197,7 +198,7 @@ function signOut(){
     <body>
     <header>
         <div class="info-content">
-          <!--  <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
+            <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>
             <!--<div class="introbtn">시작하기</div>-->
         </div>
         <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
@@ -219,17 +220,17 @@ function signOut(){
 
         </div>-->
 
-        <div class="info-content">
+       <!-- <div class="info-content">
             <div class="introbtn">뮤지션에 도전하기</div>
         </div>
-
+-->
         <div id="header-gnb">
             <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-                <a href="http://www.wintle.co.kr/test/index.php"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
+                <a href="index.php"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
             </div>
             <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
-                <a href="<?php echo $top_snd_link?>" id="top_signup">&nbsp;&nbsp;<?php echo $top_snd_text?></a>
+                <a href="<?php if($top_snd_text == "Sign Up"){ echo "#popup1"; }else{/*new signOut(); */}?>" id="top_signup">&nbsp;&nbsp;<?php echo $top_snd_text?></a>
             </div>
         </div>
     </header>

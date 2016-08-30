@@ -8,14 +8,18 @@
 
 session_start();
 
-$old_user = $_SESSION['valid_user'];
-unset($_SESSION['valid_user']);
-session_destroy();
+class signOut{
+    function __construct() {
+        $old_user = $_SESSION['valid_user'];
+        unset($_SESSION['valid_user']);
+        session_destroy();
 
-if(!empty($old_user)){
-    echo "<script>window.location='/public/index.php'</script>";
-}else{
-    echo '<script>alert("Wrong access !!")</script>';
-    echo "<script>window.location='/public/index.php'</script>";
+        if(!empty($old_user)){
+            echo "<script>window.location='/public/index.php'</script>";
+        }else{
+            echo '<script>alert("Wrong access !!")</script>';
+            echo "<script>window.location='/public/index.php'</script>";
+        }
+    }
 }
 ?>

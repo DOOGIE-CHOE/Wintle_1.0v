@@ -175,10 +175,10 @@ require_once 'JustWave.class.php';
         */
 
         function AudioHandler(){
-            var left = calculateLeftToPx("#draggable-1");
-            if(timer == left){
-                audioElement.play();
-            }
+        //    var left = calculateLeftToPx("#draggable-1");
+          //  if(timer == left){
+          //      audioElement.play();
+           // }
         }
 
         function test(){
@@ -221,8 +221,17 @@ require_once 'JustWave.class.php';
             return tmp;
         }
 
+        function test1(){
+            $("#flat").append('<div id="tile"><div id="draggable-0" class="raw-audio"></div></div>');
+
+        }
+
 
         $(function() {
+            $("#draggable-0").draggable ({
+                axis : "x"
+            });
+
             $("#draggable-1").draggable ({
                 axis : "x"
             });
@@ -232,10 +241,6 @@ require_once 'JustWave.class.php';
             });
 
             $("#draggable-3").draggable ({
-                axis : "x"
-            });
-
-            $("#draggable-4").draggable ({
                 axis : "x"
             });
 
@@ -265,6 +270,43 @@ require_once 'JustWave.class.php';
                 $('.pause').click(function() {
                     audioElement.pause();
                 });*/
+
+
+            //Ajax lyrics upload
+            var request;
+            $("#upload-audio").submit(function(event){
+
+                //abort any request before get started
+                if(request){
+                    request.abort();
+                }
+
+                var formData = new FormData($(this).parents('form')[0]);
+
+                $.ajax({
+                    url: 'uploadaudio.php',
+                    type: 'POST',
+                    xhr: function() {
+                        var myXhr = $.ajaxSettings.xhr();
+                        return myXhr;
+                    },
+                    success: function (data) {
+                        alert("Data Uploaded: "+data);
+                    },
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+                request.always(function () {
+                    // Reenable the inputs
+                    $inputs.prop("disabled", false);
+                });
+
+                // Prevent default posting of form
+                event.preventDefault();
+            });
         });
 
     </script>
@@ -311,11 +353,11 @@ require_once 'JustWave.class.php';
 
 
 
-<form action="" method="POST" enctype="multipart/form-data">
+<form id="upload-audio" method="post" enctype="multipart/form-data">
 <div id="buttons">
     <div id="buttons-align">
         <input type="text" value="text" name="text">
-        <input type="file" value="upload" name="audio[]" multiple>
+        <input type="file" value="upload" name="audio[]" id="audio" multiple>
         <input type="submit" value="submit" id="submit">
 
         <input type="button" value="start" id="button" onclick="bar()">
@@ -347,15 +389,16 @@ require_once 'JustWave.class.php';
                     array_push($keys, $justwave->getKey());
                     $fullpath = $directory.$keys[$i].".png";
                     $width = $justwave->getwidth()."px";
+
                     echo "
-            <div id=\"tile\">
-                <div id=\"draggable-$i\" class=\"raw-audio\" style=\"
-                background-image: url('$fullpath');
-                width:$width;
-                \" >
-                </div>
-            </div>
-            ";
+                    <div id=\"tile\">
+                        <div id=\"draggable-$i\" class=\"raw-audio\" style=\"
+                             background-image: url('$fullpath');
+                             width:$width;
+                              \" >
+                        </div>
+                    </div>
+                    ";
                 }
             }
         }

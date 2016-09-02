@@ -1,5 +1,4 @@
 <?php
-require_once 'JustWave.class.php';
 ?>
 
 <!doctype html>
@@ -8,8 +7,13 @@ require_once 'JustWave.class.php';
     <meta charset="utf-8">
     <title>jQuery UI Droppable - Default functionality</title>
     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <!-- draggable import -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <script type="text/javascript" src="jquery.form.js"></script>
+
     <style>
         body, html{
             margin:0;
@@ -46,10 +50,6 @@ require_once 'JustWave.class.php';
             z-index: 10;
         }
 
-        #seconds{
-            float:left;
-        }
-
         #bar{
             position:absolute;
             top:0;
@@ -60,13 +60,6 @@ require_once 'JustWave.class.php';
             height:100%;
             width:0;
             background: black;
-        }
-        .playlist{
-            position:relative;
-            float:right;
-            height:1000px;
-            width:330px;
-            top:70px;
         }
 
         .options{
@@ -108,24 +101,10 @@ require_once 'JustWave.class.php';
             border-radius: 8px;
         }
 
-        .raw-audio2 {
-             position: absolute;
-             background-image: url("waves/waveform2.png");
-             background-repeat:no-repeat;
-             background-position:center;
-             width:507px;
-             height:100px;
-             background-color: #BA55D3;
-             margin-top: 5px;
-             margin-bottom: 9px;
-             opacity: 0.9;
-             z-index: 10;
-         }
 
     </style>
     <script>
         var timer = 0;
-        var music = 0 ;
         var RemToPx = 16;
         var _increase = 0;
         var interval;
@@ -136,7 +115,7 @@ require_once 'JustWave.class.php';
         function bar(){
             if(document.getElementById("button").value == "start") {
                 document.getElementById("button").value = "stop";
-                interval = setInterval(function(){  barProcess(_increase);  },100);
+                interval = setInterval(function(){  barProgress(_increase);  },100);
             }else{
                 document.getElementById("button").value = "start";
                 audioElement.pause();
@@ -144,55 +123,48 @@ require_once 'JustWave.class.php';
             }
         }
 
-        function barProcess(increase) {
+        function barProgress(increase) {
             _increase = parseInt(increase) + RemToPx;
-
             timer += 0.1;
             timer = timer.toFixed(1);
             timer = parseFloat(timer);
-
             $("#bar").css("left", _increase / 10 + "px");
         }
 
-        function reset() {
+        function resetBarProgress() {
             _increase = 0;
             $("#bar").css("left", "0");
             document.getElementById("button").value = "start";
             clearInterval(interval);
         }
 
+
         /*
-                function barProcess(increase) {
-                    _increase = parseInt(increase) + RemToPx;
-                    $("#bar").css("left", _increase / 10 + "px");
+         function barProcess(increase) {
+         _increase = parseInt(increase) + RemToPx;
+         $("#bar").css("left", _increase / 10 + "px");
 
-                    timer+=0.1;
-                    timer = timer.toFixed(1);
-                    timer = parseFloat(timer);
-                    AudioHandler();
-                    timeout = setTimeout("barProcess('" + _increase + "')", 100);
-                }
-        */
+         timer+=0.1;
+         timer = timer.toFixed(1);
+         timer = parseFloat(timer);
+         AudioHandler();
+         timeout = setTimeout("barProcess('" + _increase + "')", 100);
+         }
+         */
 
-        function AudioHandler(){
-        //    var left = calculateLeftToPx("#draggable-1");
-          //  if(timer == left){
-          //      audioElement.play();
-           // }
-        }
 
         function test(){
-/*
-            var p = $("#draggable-5");
-            var position = p.position();
-            var d = $("#flat");
-            var dposition = d.offset();
+            /*
+             var p = $("#draggable-5");
+             var position = p.position();
+             var d = $("#flat");
+             var dposition = d.offset();
 
-            var left = position.left - dposition.left;
+             var left = position.left - dposition.left;
 
 
-            $("#left").text("left : "+ position.left);
-            $("#left-div").text("top : "+ position.top);*/
+             $("#left").text("left : "+ position.left);
+             $("#left-div").text("top : "+ position.top);*/
         }
 
         function collision($div1, $div2) {
@@ -221,123 +193,76 @@ require_once 'JustWave.class.php';
             return tmp;
         }
 
-        function test1(){
-            $("#flat").append('<div id="tile"><div id="draggable-0" class="raw-audio"></div></div>');
+        function drawWavefroms(_sequence, _path, _width){
+            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url("+_path+"); width:"+_width+";'></div></div>");
+            $("#draggable-"+_sequence).draggable ({
+                axis : "x"
+            });
 
         }
 
+        $(document).ready(function(){
+            $('#audio').on('change',function(){
+                $('#upload-audio').ajaxForm({
+                    beforeSubmit:function(e){
+                        // $('.uploading').show();
+                    },
+                    success:function(e){
+                        var data = $.parseJSON(e);
+                        if(data[1] == true){/*error alert here*/}
+                        var count = data[0].length;
 
-        $(function() {
-            $("#draggable-0").draggable ({
-                axis : "x"
-            });
+                        var test =0;
+                        while($("#draggable-"+test).length != 0){
+                            test++;
+                        }
+                        for(var i =0; i<count; i++){
+                            drawWavefroms(i+test ,data[0][i].fullpath, data[0][i].width);
+                        }
+                    },
+                    error:function(e){
+                    }
 
-            $("#draggable-1").draggable ({
-                axis : "x"
-            });
-
-            $("#draggable-2").draggable ({
-                axis : "x"
-            });
-
-            $("#draggable-3").draggable ({
-                axis : "x"
+                }).submit();
             });
 
             // it works like a threading function
-            setInterval("AudioHandler()",50);
+            //setInterval("AudioHandler()",50);
 
 
             /*
-                       // EVENT LISTENER FOR AUDIO
-                        audioElement.addEventListener("load", function() {
-                            audioElement.play();
-                        }, true);
-            */
+             // EVENT LISTENER FOR AUDIO
+             audioElement.addEventListener("load", function() {
+             audioElement.play();
+             }, true);
+             */
 
             //Collision style music player
-  /*          window.setInterval(function() {
-                if(collision($('#bar'), $('#draggable-1'))){
-                    audioElement.play();
-                }
-            }, 10);*/
+            /*          window.setInterval(function() {
+             if(collision($('#bar'), $('#draggable-1'))){
+             audioElement.play();
+             }
+             }, 10);*/
 
             /*
-                $('.play').click(function() {
-                    audioElement.play();
-                });
+             $('.play').click(function() {
+             audioElement.play();
+             });
 
-                $('.pause').click(function() {
-                    audioElement.pause();
-                });*/
+             $('.pause').click(function() {
+             audioElement.pause();
+             });*/
 
-
-            //Ajax lyrics upload
-            var request;
-            $("#upload-audio").submit(function(event){
-
-                //abort any request before get started
-                if(request){
-                    request.abort();
-                }
-
-                var formData = new FormData($(this).parents('form')[0]);
-
-                $.ajax({
-                    url: 'uploadaudio.php',
-                    type: 'POST',
-                    xhr: function() {
-                        var myXhr = $.ajaxSettings.xhr();
-                        return myXhr;
-                    },
-                    success: function (data) {
-                        alert("Data Uploaded: "+data);
-                    },
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
-
-                request.always(function () {
-                    // Reenable the inputs
-                    $inputs.prop("disabled", false);
-                });
-
-                // Prevent default posting of form
-                event.preventDefault();
             });
-        });
 
     </script>
 </head>
 <body>
 <div id="logo">
-<img src="logo.png">
-</div>
-<div class="options">
-
-    <?php
-
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        if(isset($_FILES)){
-            var_dump($_POST);
-            var_dump($_FILES);
-
-        }else{
-            echo"ss";
-        }
-    }
-    ?>
-
-    <div>
-        <p>Colliding? <span id="result">false</span>
-    </div>
+    <img src="logo.png">
 </div>
 
-<div class="playlist">
-
-</div>
+<div class="options"></div>
 
 <!--
 <div id="seconds">
@@ -352,82 +277,19 @@ require_once 'JustWave.class.php';
 </br>
 
 
+<form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="uploadaudio.php" >
+    <div id="buttons">
+        <div id="buttons-align">
+            <input type="file" value="upload" name="audio[]" id="audio" multiple>
 
-<form id="upload-audio" method="post" enctype="multipart/form-data">
-<div id="buttons">
-    <div id="buttons-align">
-        <input type="text" value="text" name="text">
-        <input type="file" value="upload" name="audio[]" id="audio" multiple>
-        <input type="submit" value="submit" id="submit">
-
-        <input type="button" value="start" id="button" onclick="bar()">
-        <input type="button" value="reset" id="reset-button" onclick="reset()">
+            <input type="button" value="start" id="button" onclick="bar()">
+            <input type="button" value="reset" id="reset" onclick="resetBarProgress()">
+        </div>
     </div>
-</div>
 </form>
 
 <div id="flat">
-
-
-        <?php
-        $directory = "waves/";
-        $keys = array();
-        $fullpath;
-        $i;
-        $width;
-
-        if($_SERVER["REQUEST_METHOD"] =="POST" ) {
-
-            $length = count($_FILES['audio']['name']);
-
-            if($length == 0 && $_FILES['audio']['name'][0] == null){
-
-            }else{
-                for ($i = 0; $i < $length; $i++) {
-                    $justwave = new JustWave('GET');
-                    $justwave->create('audio/' . $_FILES['audio']['name'][$i]);
-                    array_push($keys, $justwave->getKey());
-                    $fullpath = $directory.$keys[$i].".png";
-                    $width = $justwave->getwidth()."px";
-
-                    echo "
-                    <div id=\"tile\">
-                        <div id=\"draggable-$i\" class=\"raw-audio\" style=\"
-                             background-image: url('$fullpath');
-                             width:$width;
-                              \" >
-                        </div>
-                    </div>
-                    ";
-                }
-            }
-        }
-
-        ?>
-<!--
-    <div id="tile">
-        <div id="draggable-1" class="raw-audio">
-        </div>
-    </div>
-
-    <div id="tile">
-        <div id="draggable-2" class="raw-audio">
-
-        </div>
-    </div>
-    <div id="tile">
-        <div id="draggable-3" class="raw-audio">
-
-        </div>
-    </div>
-    <div id="tile">
-        <div id="draggable-4" class="raw-audio">
-
-        </div>
-    </div>-->
-
     <div id="bar">
-
     </div>
 </div>
 <div>

@@ -11,6 +11,7 @@
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+    <link href="loadingSpinner.css" rel="stylesheet">
 
     <script type="text/javascript" src="jquery.form.js"></script>
 
@@ -54,7 +55,7 @@
             position:absolute;
             top:0;
             left:0;
-            z-index: 1000;
+            z-index: 80;
             border-style:solid;
             border-width: 1px;
             height:100%;
@@ -73,8 +74,8 @@
 
 
         #buttons{
-            z-index: 1;
-            position:absolute;
+            z-index: 90;
+            position:fixed;
             bottom:0;
             width:100%;
             height:100px;
@@ -205,9 +206,10 @@
             $('#audio').on('change',function(){
                 $('#upload-audio').ajaxForm({
                     beforeSubmit:function(e){
-                        // $('.uploading').show();
+                        $('.cssload-overlay').css("visibility","visible");
                     },
                     success:function(e){
+                        $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
                         if(data[1] == true){/*error alert here*/}
                         var count = data[0].length;
@@ -275,7 +277,11 @@
     <a style="margin-left:5rem">4:00</a>
 </div>-->
 </br>
-
+<div class="cssload-overlay">
+    <div class="cssload-container" >
+        <div class="cssload-whirlpool"></div>
+    </div>
+</div>
 
 <form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="uploadaudio.php" >
     <div id="buttons">

@@ -28,19 +28,23 @@
             margin-left:50px;
             margin-top:7px;
         }
+        #mp{
+            padding-bottom: 10%;
+        }
 
         #flat{
             position:relative;
-            padding:0;
+            padding: 0;
             margin:0;
             background-color: rgb(230,233,235);
             border-style:solid;
             border-width: 1px;
-            height:50rem;
             width:3000px;
             left: 301px;
             top:53px;
         }
+
+
         #tile{
             position:relative;
             background-image: url("tile.png");
@@ -63,13 +67,24 @@
             background: black;
         }
 
-        .options{
+        .option-space{
             position:absolute;
             float:left;
-            height:1000px;
+            height:100%;
             width:300px;
             top:70px;
             background:rgb(232,235,237);
+        }
+        .option-board{
+            position:fixed;
+            top:70px;
+            left:0;
+            width:300px;
+            height:100px;
+            background-color: #1FB5BF;
+        }
+        .option{
+
         }
 
 
@@ -93,7 +108,7 @@
             background-repeat:no-repeat;
             background-position:center;
             height:100px;
-            background-color: #BA55D3;
+            /*  background-color: royalblue;*/
             margin-top: 5px;
             margin-bottom: 9px;
             opacity: 0.9;
@@ -255,7 +270,7 @@
              audioElement.pause();
              });*/
 
-            });
+        });
 
     </script>
 </head>
@@ -264,8 +279,10 @@
     <img src="logo.png">
 </div>
 
-<div class="options"></div>
-
+<div class="option-space"></div>
+<div class="option-board">
+    <div class="option"></div>
+</div>
 <!--
 <div id="seconds">
     <a style="margin-left:2rem">1</a>
@@ -282,6 +299,52 @@
         <div class="cssload-whirlpool"></div>
     </div>
 </div>
+<div id="mp">
+    <div id="flat">
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#BA55D3;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	royalblue;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#EE6AA7;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#FF4040;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#7FFFD4;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#9AFF9A;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#EEEE00;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#FFA500;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#FF6347;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
+            background-color: 	#828282;
+            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
+             width:1000px;'></div></div>
+        <div id="bar">
+        </div>
+    </div>
+</div>
 
 <form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="uploadaudio.php" >
     <div id="buttons">
@@ -293,11 +356,6 @@
         </div>
     </div>
 </form>
-
-<div id="flat">
-    <div id="bar">
-    </div>
-</div>
 <div>
     <p id="left"></p>
     <p id="left-div"></p>

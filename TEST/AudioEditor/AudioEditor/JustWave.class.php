@@ -615,8 +615,8 @@ class JustWave
 		//	return;
 
 		// find waves in output dir
-		if($this->waveExists())
-			return;
+		//if($this->waveExists())
+			//return;
 
 		// let's do some neat cleaning to prevent injection
 		$mp3 = str_replace(array('"','&',"\\"), '', $url);

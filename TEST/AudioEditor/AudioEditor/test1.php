@@ -37,9 +37,7 @@
             padding: 0;
             margin:0;
             background-color: rgb(230,233,235);
-            border-style:solid;
-            border-width: 1px;
-            width:3000px;
+            width:5000px;
             left: 301px;
             top:53px;
         }
@@ -75,18 +73,6 @@
             top:70px;
             background:rgb(232,235,237);
         }
-        .option-board{
-            position:fixed;
-            top:70px;
-            left:0;
-            width:300px;
-            height:100px;
-            background-color: #1FB5BF;
-        }
-        .option{
-
-        }
-
 
         #buttons{
             z-index: 90;
@@ -108,7 +94,6 @@
             background-repeat:no-repeat;
             background-position:center;
             height:100px;
-            /*  background-color: royalblue;*/
             margin-top: 5px;
             margin-bottom: 9px;
             opacity: 0.9;
@@ -124,18 +109,38 @@
         var RemToPx = 16;
         var _increase = 0;
         var interval;
-
-        var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', 'audio/song1.mp3');
+        var playlist =[];
+        var audioElement = [];
 
         function bar(){
             if(document.getElementById("button").value == "start") {
                 document.getElementById("button").value = "stop";
                 interval = setInterval(function(){  barProgress(_increase);  },100);
+                playAllAudio();
             }else{
                 document.getElementById("button").value = "start";
-                audioElement.pause();
+                stopAllAudio();
                 clearInterval(interval);
+            }
+        }
+
+        function playAllAudio(){
+            for(var i = 0; i<audioElement.length; i++){
+                if(audioElement[i].currentTime != 0)
+                    audioElement[i].play();
+            }
+        }
+
+        function stopAllAudio(){
+            for(var i = 0; i<audioElement.length; i++){
+                audioElement[i].pause();
+            }
+        }
+
+        function resetAllAudio(){
+            for(var i = 0; i<audioElement.length; i++){
+                audioElement[i].pause();
+                audioElement[i].currentTime = 0;
             }
         }
 
@@ -149,9 +154,11 @@
 
         function resetBarProgress() {
             _increase = 0;
+            timer = 0;
             $("#bar").css("left", "0");
             document.getElementById("button").value = "start";
             clearInterval(interval);
+            resetAllAudio();
         }
 
 
@@ -209,12 +216,50 @@
             return tmp;
         }
 
+        function getRandomColor() {
+            var colorList = ["#BA55D3","royalblue","#EE6AA7","#FF4040","#7FFFD4","#9AFF9A","#EEEE00","#FFA500","#FF6347", "#828282"];
+            /*
+             * "#BA55D3"   light purple
+             * "royalblue" royalblue
+             * "#EE6AA7"   hot pink
+             * "#FF4040"   brown1
+             * "#7FFFD4"   aquamarine1
+             * "#9AFF9A"   palegreen1
+             * "#EEEE00"   yello1
+             * "#FFA500"   orange1
+             * "#FF6347"   tomato1
+             * "#828282"   grey51
+             * */
+            var min = 0;
+            var max = colorList.length-1;
+            return colorList[Math.floor(Math.random() * (max - min + 1)) + min];
+        }
+
         function drawWavefroms(_sequence, _path, _width){
-            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url("+_path+"); width:"+_width+";'></div></div>");
+            playlist.push("#draggable-"+_sequence);
+            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url("+_path+"); width:"+_width+"; background-color: "+getRandomColor()+"; '></div></div>");
             $("#draggable-"+_sequence).draggable ({
                 axis : "x"
             });
+        }
 
+        function setAudio(_path){
+            var audio = document.createElement('audio');
+            audio.setAttribute('src', _path);
+            audio.load();
+            audioElement.push(audio);
+            //audioElement[audioElement.length-1].load();
+        }
+
+        function audioHandler(){
+            if(playlist.length == 0){
+            }else{
+                for(var i=0;i<playlist.length;i++){
+                    if(timer == calculateLeftToPx(playlist[i])){
+                        audioElement[i].play();
+                    }
+                }
+            }
         }
 
         $(document).ready(function(){
@@ -227,14 +272,14 @@
                         $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
                         if(data[1] == true){/*error alert here*/}
-                        var count = data[0].length;
-
-                        var test =0;
-                        while($("#draggable-"+test).length != 0){
-                            test++;
+                        var dataLength = data[0].length;
+                        var count =0;
+                        while($("#draggable-"+count).length != 0){
+                            count++;
                         }
-                        for(var i =0; i<count; i++){
-                            drawWavefroms(i+test ,data[0][i].fullpath, data[0][i].width);
+                        for(var i =0; i<dataLength; i++){
+                            drawWavefroms(i+count ,data[0][i].imgpath, data[0][i].width);
+                            setAudio(data[0][i].audiopath);
                         }
                     },
                     error:function(e){
@@ -244,7 +289,7 @@
             });
 
             // it works like a threading function
-            //setInterval("AudioHandler()",50);
+            setInterval("audioHandler()",50);
 
 
             /*
@@ -280,8 +325,6 @@
 </div>
 
 <div class="option-space"></div>
-<div class="option-board">
-    <div class="option"></div>
 </div>
 <!--
 <div id="seconds">
@@ -301,46 +344,6 @@
 </div>
 <div id="mp">
     <div id="flat">
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#BA55D3;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	royalblue;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#EE6AA7;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#FF4040;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#7FFFD4;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#9AFF9A;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#EEEE00;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#FFA500;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#FF6347;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
-        <div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='
-            background-color: 	#828282;
-            background-image:url("waves/243701ecfb4c24324962418a043b8e59.png");
-             width:1000px;'></div></div>
         <div id="bar">
         </div>
     </div>
@@ -350,7 +353,6 @@
     <div id="buttons">
         <div id="buttons-align">
             <input type="file" value="upload" name="audio[]" id="audio" multiple>
-
             <input type="button" value="start" id="button" onclick="bar()">
             <input type="button" value="reset" id="reset" onclick="resetBarProgress()">
         </div>

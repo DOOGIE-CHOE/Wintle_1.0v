@@ -20,10 +20,11 @@ if($length == 0 && $_FILES['audio']['name'][0] == null){
 }else{
     for ($i = 0; $i < $length; $i++) {
         $justwave = new JustWave('GET');
-        $justwave->create($audiopath. $_FILES['audio']['name'][$i]);
+        $data[$i]['audiopath'] = $audiopath. $_FILES['audio']['name'][$i];
+        $justwave->create($data[$i]['audiopath']);
         // array_push($keys, $justwave->getKey());
         $data[$i]['key'] = $justwave->getKey();
-        $data[$i]['fullpath'] = $directory. $data[$i]['key'].".png";
+        $data[$i]['imgpath'] = $directory. $data[$i]['key'].".png";
         $data[$i]['width'] = $justwave->getwidth()."px";
         /*
                     echo "

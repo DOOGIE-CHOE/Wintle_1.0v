@@ -13,7 +13,7 @@ require_once 'JustWave.class.php';
 // e.g.: script.php?mode=file&wave_color=F00&prog_color=F00&back_color=00AC00
 $justwave = new JustWave('GET');
 // create waveform image(s)
-$justwave->create('audio/song7.mp3');
+$justwave->create('audio/song1.mp3');
 
 
 if($justwave->status == 'ok') {

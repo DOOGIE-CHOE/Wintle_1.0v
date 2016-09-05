@@ -109,7 +109,7 @@
         var RemToPx = 16;
         var _increase = 0;
         var interval;
-        var playlist =[];
+        var playlist =["#draggable-0","#draggable-1","#draggable-2","#draggable-3","#draggable-4"];
         var audioElement = [];
 
         function bar(){
@@ -169,33 +169,6 @@
             return tmp;
         }
 
-        function getRandomColor() {
-            var colorList = ["#BA55D3","royalblue","#EE6AA7","#FF4040","#7FFFD4","#9AFF9A","#EEEE00","#FFA500","#FF6347", "#828282"];
-            /*
-             * "#BA55D3"   light purple
-             * "royalblue" royalblue
-             * "#EE6AA7"   hot pink
-             * "#FF4040"   brown1
-             * "#7FFFD4"   aquamarine1
-             * "#9AFF9A"   palegreen1
-             * "#EEEE00"   yello1
-             * "#FFA500"   orange1
-             * "#FF6347"   tomato1
-             * "#828282"   grey51
-             * */
-            var min = 0;
-            var max = colorList.length-1;
-            return colorList[Math.floor(Math.random() * (max - min + 1)) + min];
-        }
-
-        function drawWavefroms(_sequence, _path, _width){
-            playlist.push("#draggable-"+_sequence);
-            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url("+_path+"); width:"+_width+"; background-color: "+getRandomColor()+"; '></div></div>");
-            $("#draggable-"+_sequence).draggable ({
-                axis : "x"
-            });
-        }
-
         function setAudio(_path){
             var audio = document.createElement('audio');
             audio.setAttribute('src', _path);
@@ -225,29 +198,26 @@
         }
 
         $(document).ready(function(){
-            $('#audio').on('change',function(){
-                $('#upload-audio').ajaxForm({
-                    beforeSubmit:function(e){
-                        $('.cssload-overlay').css("visibility","visible");
-                    },
-                    success:function(e){
-                        $('.cssload-overlay').css("visibility","hidden");
-                        var data = $.parseJSON(e);
-                        if(data[1] == true){/*error alert here*/}
-                        var dataLength = data[0].length;
-                        var count =0;
-                        while($("#draggable-"+count).length != 0){
-                            count++;
-                        }
-                        for(var i =0; i<dataLength; i++){
-                            drawWavefroms(i+count ,data[0][i].imgpath, data[0][i].width);
-                            setAudio(data[0][i].audiopath);
-                        }
-                    },
-                    error:function(e){
-                    }
+            setAudio("audio/comeback_guitar.m4a");
+            setAudio("audio/comeback_drum.m4a");
+            setAudio("audio/comeback_piano.m4a");
+            setAudio("audio/comeback_string.m4a");
+            setAudio("audio/comeback_vocal.m4a");
 
-                }).submit();
+            $("#draggable-0").draggable ({
+                axis : "x"
+            });
+            $("#draggable-1").draggable ({
+                axis : "x"
+            });
+            $("#draggable-2").draggable ({
+                axis : "x"
+            });
+            $("#draggable-3").draggable ({
+                axis : "x"
+            });
+            $("#draggable-4").draggable ({
+                axis : "x"
             });
 
             // it works like a threading function
@@ -273,10 +243,10 @@
 </div>
 <div id="mp">
     <div id="flat">
-        <div id='tile'><div id='draggable-0' class='raw-audio' style='background-image:url("waves/guitar.png"); width :3738.88px; left:40px; background-color: royalblue; '></div></div>
+        <div id='tile'><div id="draggable-0" class='raw-audio' style='background-image:url("waves/guitar.png"); width :3738.88px; left:40px; background-color: royalblue; '></div></div>
         <div id='tile'><div id='draggable-1' class='raw-audio' style='background-image:url("waves/drum.png"); width : 3685.76px; left:34px; background-color: #BA55D3; '></div></div>
         <div id='tile'><div id='draggable-2' class='raw-audio' style='background-image:url("waves/piano.png"); width :3734.88px; left:14px; background-color: #7FFFD4; '></div></div>
-        <div id='tile'><div id='draggable-3' class='raw-audio' style='background-image:url("waves/string.png"); width : 3094.88px; left 670px; background-color:  #EE6AA7;'></div></div>
+        <div id='tile'><div id='draggable-3' class='raw-audio' style='background-image:url("waves/string.png"); width : 3094.88px; left:670px; background-color:#EE6AA7;'></div></div>
         <div id='tile'><div id='draggable-4' class='raw-audio' style='background-image:url("waves/vocal.png"); width : 3423.2px; left:313px; background-color: #9AFF9A; '></div></div>
         <div id="bar">
         </div>

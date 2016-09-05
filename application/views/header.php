@@ -233,7 +233,7 @@ function signOut(){
                 <a href="<?php if($top_snd_text == "Sign Up"){ echo "#popup1"; }else{/*new signOut(); */}?>" id="top_signup">&nbsp;&nbsp;<?php echo $top_snd_text?></a>
             </div>
             <div style="position:absolute; right:25px; height:50px;">
-                <a href="../TEST/AudioEditor/AudioEditor/test1.php"><img src="img/beta.png" style="height:50px"></a>
+                <a href="../TEST/AudioEditor/AudioEditor/test2.php"><img src="img/beta.png" style="height:50px"></a>
             </div>
         </div>
     </header>

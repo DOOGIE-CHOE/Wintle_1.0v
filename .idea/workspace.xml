@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/testset.html" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/testset.html" />
     </list>
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,28 +24,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="test1.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test1.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+            <state relative-caret-position="432">
+              <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding>
-                <marker date="1473083736039" expanded="true" signature="5388:5405" ph="..." />
-                <marker date="1473083736039" expanded="true" signature="5388:5427" ph="..." />
-                <marker date="1473083736039" expanded="true" signature="5388:5438" ph="..." />
-                <marker date="1473083736039" expanded="true" signature="5388:5479" ph="..." />
-                <marker date="1473083736039" expanded="true" signature="5388:5495" ph="..." />
-                <marker date="1473083736039" expanded="true" signature="9582:9593" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="6631:6648" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="6631:6670" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="6631:6681" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="6631:6722" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="6631:6738" ph="..." />
+                <marker date="1473154897420" expanded="true" signature="9823:9834" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="307" column="28" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="225" column="28" selection-start-line="220" selection-start-column="12" selection-end-line="225" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -135,9 +133,9 @@
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test.js" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
-        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/testset.html" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php" />
+        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" />
       </list>
     </option>
   </component>
@@ -307,7 +305,7 @@
       <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_1.0v\application\views" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.testset.html">
+  <component name="RunManager" selected="JavaScript Debug.test1.php">
     <configuration default="false" name="test1.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/TEST/AudioEditor/AudioEditor/test1.php">
       <method />
     </configuration>
@@ -373,9 +371,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.testset.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.test2.php" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.testset.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test2.php" />
       </list>
     </recent_temporary>
   </component>
@@ -481,7 +479,7 @@
       <workItem from="1473050804897" duration="7627000" />
       <workItem from="1473062815822" duration="1287000" />
       <workItem from="1473083616267" duration="3461000" />
-      <workItem from="1473137353748" duration="10907000" />
+      <workItem from="1473137353748" duration="14644000" />
     </task>
     <servers />
   </component>
@@ -494,7 +492,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="477281000" />
+    <option name="totallyTimeSpent" value="481018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -840,21 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-          <folding>
-            <marker date="1473083736039" expanded="true" signature="5388:5405" ph="..." />
-            <marker date="1473083736039" expanded="true" signature="5388:5427" ph="..." />
-            <marker date="1473083736039" expanded="true" signature="5388:5438" ph="..." />
-            <marker date="1473083736039" expanded="true" signature="5388:5479" ph="..." />
-            <marker date="1473083736039" expanded="true" signature="5388:5495" ph="..." />
-            <marker date="1473083736039" expanded="true" signature="9582:9593" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/testset.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
@@ -865,14 +848,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="307" column="28" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
+        <state relative-caret-position="238">
+          <caret line="225" column="28" selection-start-line="220" selection-start-column="12" selection-end-line="225" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding>
+            <marker date="1473154897420" expanded="true" signature="6631:6648" ph="..." />
+            <marker date="1473154897420" expanded="true" signature="6631:6670" ph="..." />
+            <marker date="1473154897420" expanded="true" signature="6631:6681" ph="..." />
+            <marker date="1473154897420" expanded="true" signature="6631:6722" ph="..." />
+            <marker date="1473154897420" expanded="true" signature="6631:6738" ph="..." />
+            <marker date="1473154897420" expanded="true" signature="9823:9834" ph="..." />
           </folding>
         </state>
       </provider>

@@ -299,7 +299,7 @@
     <div id="flat">
         <div id="time"></div>
         <div id='tile'><div id="draggable-0" class='raw-audio' style='background-image:url("waves/guitar.png"); width :3738.88px; left:39px; background-color: royalblue; '></div></div>
-        <div id='tile'><div id='draggable-1' class='raw-audio' style='background-image:url("waves/drum.png"); width : 3685.76px; left:34px; background-color: #BA55D3; '></div></div>
+        <div id='tile'><div id='draggable-1' class='raw-audio' style='background-image:url("waves/drum.png"); width : 3685.76px; left:33px; background-color: #BA55D3; '></div></div>
         <div id='tile'><div id='draggable-2' class='raw-audio' style='background-image:url("waves/piano.png"); width :3734.88px; left:14px; background-color: #7FFFD4; '></div></div>
         <div id='tile'><div id='draggable-3' class='raw-audio' style='background-image:url("waves/string.png"); width : 3094.88px; left:670px; background-color:#EE6AA7;'></div></div>
         <div id='tile'><div id='draggable-4' class='raw-audio' style='background-image:url("waves/vocal.png"); width : 3423.2px; left:315px; background-color: #9AFF9A; '></div></div>

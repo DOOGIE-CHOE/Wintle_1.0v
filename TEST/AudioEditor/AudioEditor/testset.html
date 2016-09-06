@@ -4,23 +4,37 @@
 <head>
 
     <title>OS Detection</title>
+    <style>
+        #arrow {
+            width: 16px;
+            height: 14px;
+            background-color: cornflowerblue;
+            position: relative;
+        }
+        #arrow:after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-top: 8px solid cornflowerblue;
+        }
+        #arrow:before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 9px solid transparent;
+            border-top: 8px solid cornflowerblue;
+        }
+
+    </style>
 </head>
 <body>
-<script type="text/javascript">
-    var OS_Name = navigator.appVersion;
-    if (OS_Name.indexOf("Win") != -1) {
-        document.write("Windows Operating System ");
-    } else if (OS_Name.indexOf("Mac") != -1) {
-        document.write("Mac Operating System ");
-    } else if (OS_Name.indexOf("X11") != -1) {
-        document.write("Unix Operating System ");
-    } else if (OS_Name.indexOf("Linux") != -1) {
-        document.write("Linux Operating System ");
-    } else if (OS_Name.indexOf("SunOS") != -1) {
-        document.write("Solaris Operating System ");
-    } else {
-        document.write("Unknown Operation System ");
-    }
-</script>
+<div id="arrow"></div>
 </body>
 </html>

@@ -52,16 +52,73 @@
             height:125px;
             z-index: 10;
         }
-
-        #bar{
+        #line{
             position:absolute;
             top:0;
-            left:0;
+            left:-8px;
             z-index: 80;
+            height:100%;
+        }
+
+        /*#arrow{
+            position:relative;
+            margin:auto;
+            right:0;
+            left:0;
+            top:0;
+            z-index: 81;
+        }
+
+        #arrow #arrow-box{
+            width:16px;
+            height:14px;
+            background: #2C3E50;
+        }
+
+        #arrow #arrow-down{
+            width: 0;
+            height:0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 12px solid #2C3E50;
+        }*/
+
+        #arrow {
+            width: 16px;
+            height: 14px;
+            background-color: black;
+            position: relative;
+        }
+        #arrow:after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-top: 8px solid black;
+        }
+        #arrow:before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 9px solid transparent;
+            border-top: 8px solid black;
+        }
+
+        #bar{
+            position:relative;
             border-style:solid;
             border-width: 1px;
             height:100%;
             width:0;
+            right:0;
+            left:0;
+            margin:auto;
             background: black;
         }
 
@@ -102,12 +159,20 @@
             border-radius: 8px;
         }
 
+        #time{
+            position:relative;
+            height:25px;
+            width:3000px;
+            background-color: #1FB5BF;
+        }
+
+
 
     </style>
     <script>
         var timer = 0;
         var RemToPx = 16;
-        var _increase = 0;
+        var _increase = -80;
         var interval;
         var playlist =["#draggable-0","#draggable-1","#draggable-2","#draggable-3","#draggable-4"];
         var audioElement = [];
@@ -149,13 +214,13 @@
             timer += 0.1;
             timer = timer.toFixed(1);
             timer = parseFloat(timer);
-            $("#bar").css("left", _increase / 10 + "px");
+            $("#line").css("left", _increase / 10 + "px");
         }
 
         function resetBarProgress() {
-            _increase = 0;
+            _increase = -80;
             timer = 0;
-            $("#bar").css("left", "0");
+            $("#line").css("left", "-8px");
             document.getElementById("button").value = "start";
             clearInterval(interval);
             resetAllAudio();
@@ -186,15 +251,6 @@
                     }
                 }
             }
-        }
-
-        function test(){
-            var a = $("#draggable-0").css("left");
-            var b = $("#draggable-1").css("left");
-            var c = $("#draggable-2").css("left");
-            var d = $("#draggable-3").css("left");
-            var e = $("#draggable-4").css("left");
-            alert(a+b+c+d+e);
         }
 
         $(document).ready(function(){
@@ -231,9 +287,7 @@
     <img src="logo.png">
 </div>
 
-<div class="option-space">
-
-</div>
+<div class="option-space"></div>
 
 </br>
 <div class="cssload-overlay">
@@ -243,12 +297,17 @@
 </div>
 <div id="mp">
     <div id="flat">
+        <div id="time"></div>
         <div id='tile'><div id="draggable-0" class='raw-audio' style='background-image:url("waves/guitar.png"); width :3738.88px; left:39px; background-color: royalblue; '></div></div>
         <div id='tile'><div id='draggable-1' class='raw-audio' style='background-image:url("waves/drum.png"); width : 3685.76px; left:34px; background-color: #BA55D3; '></div></div>
         <div id='tile'><div id='draggable-2' class='raw-audio' style='background-image:url("waves/piano.png"); width :3734.88px; left:14px; background-color: #7FFFD4; '></div></div>
-        <div id='tile'><div id='draggable-3' class='raw-audio' style='background-image:url("waves/string.png"); width : 3094.88px; left:668px; background-color:#EE6AA7;'></div></div>
+        <div id='tile'><div id='draggable-3' class='raw-audio' style='background-image:url("waves/string.png"); width : 3094.88px; left:670px; background-color:#EE6AA7;'></div></div>
         <div id='tile'><div id='draggable-4' class='raw-audio' style='background-image:url("waves/vocal.png"); width : 3423.2px; left:315px; background-color: #9AFF9A; '></div></div>
-        <div id="bar">
+
+        <div id="line">
+            <div id="arrow">
+            </div>
+            <div id="bar"></div>
         </div>
     </div>
 </div>
@@ -257,7 +316,6 @@
     <div id="buttons">
         <div id="buttons-align">
             <input type="file" value="upload" name="audio[]" id="audio" multiple>
-            <input type="button" value="test" onclick="test()">
             <input type="button" value="start" id="button" onclick="bar()">
             <input type="button" value="reset" id="reset" onclick="resetBarProgress()">
         </div>

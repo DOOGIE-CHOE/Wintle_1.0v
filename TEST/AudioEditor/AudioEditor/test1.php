@@ -228,9 +228,11 @@
             $('#audio').on('change',function(){
                 $('#upload-audio').ajaxForm({
                     beforeSubmit:function(e){
+                        //loading gif on
                         $('.cssload-overlay').css("visibility","visible");
                     },
                     success:function(e){
+                        //loading gif off
                         $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
                         if(data[1] == true){/*error alert here*/}

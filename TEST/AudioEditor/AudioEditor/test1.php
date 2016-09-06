@@ -155,9 +155,11 @@
 
     </style>
     <script>
+        const REMTOPX = 16;
+        const OPTIONWIDTH = 300;
+        const ARROWBOXHALFWIDTH = 8;
+        var runtime = 0;
         var timer = 0;
-        var RemToPx = 16;
-        var _increase = -80;
         var interval;
         var playlist =[];
         var audioElement = [];
@@ -165,7 +167,7 @@
         function bar(){
             if(document.getElementById("button").value == "start") {
                 document.getElementById("button").value = "stop";
-                interval = setInterval(function(){  barProgress(_increase);  },100);
+                interval = setInterval(function(){  barProgress();  },100);
                 playAllAudio();
             }else{
                 document.getElementById("button").value = "start";
@@ -194,18 +196,19 @@
             }
         }
 
-        function barProgress(increase) {
-            _increase = parseInt(increase) + RemToPx;
+        function barProgress() {
             timer += 0.1;
             timer = timer.toFixed(1);
             timer = parseFloat(timer);
-            $("#line").css("left", _increase / 10 + "px");
+            var line = $("#line");
+            var tmp = line.css("left").substring(0, line.css("left").length - 2);
+            tmp = parseFloat(tmp) + REMTOPX/10;
+            line.css("left", tmp + "px");
         }
 
         function resetBarProgress() {
-            _increase = -80;
             timer = 0;
-            $("#line").css("left", "-8px");
+            $("#line").css("left", -ARROWBOXHALFWIDTH+"px");
             document.getElementById("button").value = "start";
             clearInterval(interval);
             resetAllAudio();
@@ -251,7 +254,7 @@
             var audio = document.createElement('audio');
             audio.setAttribute('src', _path);
             audio.load();
-            audioElement.push(audio);
+            audioElement.push(audio); //call by reference//
             //audioElement[audioElement.length-1].load();
         }
 
@@ -265,12 +268,31 @@
                 }
             }
         }
+        function timeHandler(){
+            var bar = $("#bar");
+            var tmp = $("#bar").css("left")
+
+        }
+
 
         $(document).ready(function(){
-            $("#line").draggable ({
+            var line = $("#line");
+
+            line.draggable ({
                 axis : "x",
                 cursorAt:{left:8},
                 containment:[294]
+            });
+
+            line.mousedown(function (){
+                clearInterval(interval);
+            });
+
+            line.mouseup(function(event){
+                line.css("left",event.pageX - OPTIONWIDTH - ARROWBOXHALFWIDTH+"px");
+                if(document.getElementById("button").value == "stop") {
+                    interval = setInterval(function(){  barProgress(); },100);
+                }
             });
 
             $('#audio').on('change',function(){
@@ -302,6 +324,7 @@
 
             // it works like a threading function
             setInterval("audioHandler()",50);
+            timeHandler();
         });
 
     </script>

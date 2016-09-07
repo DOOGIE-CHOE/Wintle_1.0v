@@ -109,11 +109,11 @@
             height:100%;
         }
         #arrow {
-             width: 16px;
-             height: 14px;
-             background-color: black;
-             position: relative;
-         }
+            width: 16px;
+            height: 14px;
+            background-color: black;
+            position: relative;
+        }
         #arrow:after {
             content: '';
             position: absolute;
@@ -158,7 +158,7 @@
         const REMTOPX = 16;
         const OPTIONWIDTH = 300;
         const ARROWBOXHALFWIDTH = 8;
-        var runtime = 0;
+        var isBarProgressing = false;
         var timer = 0;
         var interval;
         var playlist =[];
@@ -173,6 +173,7 @@
                 document.getElementById("button").value = "start";
                 stopAllAudio();
                 clearInterval(interval);
+                isBarProgressing = false;
             }
         }
 
@@ -197,6 +198,7 @@
         }
 
         function barProgress() {
+            isBarProgressing = true;
             timer += 0.1;
             timer = timer.toFixed(1);
             timer = parseFloat(timer);
@@ -211,14 +213,16 @@
             $("#line").css("left", -ARROWBOXHALFWIDTH+"px");
             document.getElementById("button").value = "start";
             clearInterval(interval);
+            isBarProgressing = false;
             resetAllAudio();
         }
 
-        function calculateLeftToPx(id){
+        function calculateLeftToTime(id){
             var tmp = $(id).css("left");
             tmp = tmp.substring(0, tmp.length-2);
-            tmp = parseFloat(tmp)/16;
+            tmp = tmp/REMTOPX;
             tmp = tmp.toFixed(1);
+            tmp = parseFloat(tmp);
             return tmp;
         }
 
@@ -262,18 +266,12 @@
             if(playlist.length == 0){
             }else{
                 for(var i=0;i<playlist.length;i++){
-                    if(timer == calculateLeftToPx(playlist[i])){
+                    if(timer >= calculateLeftToTime(playlist[i]) && isBarProgressing){
                         audioElement[i].play();
                     }
                 }
             }
         }
-        function timeHandler(){
-            var bar = $("#bar");
-            var tmp = $("#bar").css("left")
-
-        }
-
 
         $(document).ready(function(){
             var line = $("#line");
@@ -286,12 +284,29 @@
 
             line.mousedown(function (){
                 clearInterval(interval);
+                isBarProgressing = false;
             });
 
             line.mouseup(function(event){
                 line.css("left",event.pageX - OPTIONWIDTH - ARROWBOXHALFWIDTH+"px");
                 if(document.getElementById("button").value == "stop") {
                     interval = setInterval(function(){  barProgress(); },100);
+                }
+
+
+                var time = calculateLeftToTime("#line");
+                time += 0.5;
+                timer = time;
+                for(var i =0; i<audioElement.length; i++){
+                    var tmp = calculateLeftToTime(playlist[i]);
+                    if(time > tmp && audioElement[i].currentTime < time - tmp){
+                        audioElement[i].currentTime = time - tmp;
+                    }else if(time > tmp && audioElement[i].currentTime > time - tmp){
+                        audioElement[i].currentTime = time - tmp;
+                    }else if(time < tmp && audioElement[i].currentTime > 0 ){
+                        audioElement[i].currentTime = 0;
+                        audioElement[i].pause();
+                    }
                 }
             });
 
@@ -324,7 +339,6 @@
 
             // it works like a threading function
             setInterval("audioHandler()",50);
-            timeHandler();
         });
 
     </script>

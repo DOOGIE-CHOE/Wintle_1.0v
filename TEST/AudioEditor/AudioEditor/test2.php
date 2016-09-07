@@ -171,21 +171,24 @@
     </style>
     <script>
         var timer = 0;
-        var RemToPx = 16;
-        var _increase = -80;
         var interval;
         var playlist =["#draggable-0","#draggable-1","#draggable-2","#draggable-3","#draggable-4"];
         var audioElement = [];
+        const REMTOPX = 16;
+        const OPTIONWIDTH = 300;
+        const ARROWBOXHALFWIDTH = 8;
+        var isBarProgressing = false;
 
         function bar(){
             if(document.getElementById("button").value == "start") {
                 document.getElementById("button").value = "stop";
-                interval = setInterval(function(){  barProgress(_increase);  },100);
+                interval = setInterval(function(){  barProgress();  },100);
                 playAllAudio();
             }else{
                 document.getElementById("button").value = "start";
                 stopAllAudio();
                 clearInterval(interval);
+                isBarProgressing = false;
             }
         }
 
@@ -209,28 +212,33 @@
             }
         }
 
-        function barProgress(increase) {
-            _increase = parseInt(increase) + RemToPx;
+        function barProgress() {
+            isBarProgressing = true;
             timer += 0.1;
             timer = timer.toFixed(1);
             timer = parseFloat(timer);
-            $("#line").css("left", _increase / 10 + "px");
+            var line = $("#line");
+            var tmp = line.css("left").substring(0, line.css("left").length - 2);
+            tmp = parseFloat(tmp) + REMTOPX/10;
+            line.css("left", tmp + "px");
         }
 
         function resetBarProgress() {
-            _increase = -80;
             timer = 0;
-            $("#line").css("left", "-8px");
+            $("#line").css("left", -ARROWBOXHALFWIDTH+"px");
             document.getElementById("button").value = "start";
             clearInterval(interval);
+            isBarProgressing = false;
             resetAllAudio();
         }
 
-        function calculateLeftToPx(id){
+
+        function calculateLeftToTime(id){
             var tmp = $(id).css("left");
             tmp = tmp.substring(0, tmp.length-2);
-            tmp = parseFloat(tmp)/16;
+            tmp = tmp/REMTOPX;
             tmp = tmp.toFixed(1);
+            tmp = parseFloat(tmp);
             return tmp;
         }
 
@@ -246,7 +254,7 @@
             if(playlist.length == 0){
             }else{
                 for(var i=0;i<playlist.length;i++){
-                    if(timer == calculateLeftToPx(playlist[i])){
+                    if(timer >= calculateLeftToTime(playlist[i]) && isBarProgressing){
                         audioElement[i].play();
                     }
                 }
@@ -276,6 +284,41 @@
                 axis : "x"
             });
 
+
+            var line = $("#line");
+
+            line.draggable ({
+                axis : "x",
+                cursorAt:{left:8},
+                containment:[294]
+            });
+
+            line.mousedown(function (){
+                clearInterval(interval);
+                isBarProgressing = false;
+            });
+
+            line.mouseup(function(event){
+                line.css("left",event.pageX - OPTIONWIDTH - ARROWBOXHALFWIDTH+"px");
+                if(document.getElementById("button").value == "stop") {
+                    interval = setInterval(function(){  barProgress(); },100);
+                }
+
+                var time = calculateLeftToTime("#line");
+                time += 0.5;
+                timer = time;
+                for(var i =0; i<audioElement.length; i++){
+                    var tmp = calculateLeftToTime(playlist[i]);
+                    if(time > tmp && audioElement[i].currentTime < time - tmp){
+                        audioElement[i].currentTime = time - tmp;
+                    }else if(time > tmp && audioElement[i].currentTime > time - tmp){
+                        audioElement[i].currentTime = time - tmp;
+                    }else if(time < tmp && audioElement[i].currentTime > 0 ){
+                        audioElement[i].currentTime = 0;
+                        audioElement[i].pause();
+                    }
+                }
+            });
             // it works like a threading function
             setInterval("audioHandler()",50);
         });

@@ -1,6 +1,5 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'].'/application/controllers/mypage/mypage.php');
-testtest();
+require_once($_SERVER['DOCUMENT_ROOT'] . '/application/controllers/mypage/mypage.php');
 ?>
 
 
@@ -64,7 +63,7 @@ testtest();
     <div class="user-board">
         <div class="sb userinfo">
             <div class="label"></div>
-            <a href="/application/views/test/test.php"></a><input type="button">
+            <a href="/application/views/back/test/test/test.php"></a><input type="button">
         </div>
 
         <div class="sb follower">

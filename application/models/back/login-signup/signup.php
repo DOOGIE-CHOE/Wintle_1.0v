@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ($_SERVER['DOCUMENT_ROOT'].'/library/model.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');
 
 /**
  * Created by PhpStorm.

@@ -198,8 +198,8 @@ function signOut(){
     <body>
     <header>
         <div class="info-content">
-            <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>
-            <!--<div class="introbtn">시작하기</div>-->
+           <!-- <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
+            <div class="introbtn">시작하기</div>
         </div>
         <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
             <source src="background/file.webm">

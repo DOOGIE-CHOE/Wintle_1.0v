@@ -16,17 +16,6 @@ if(isset($_SESSION['loggedIn'])){
     $top_fst_link = "";
     $top_snd_link = "";
 }
-/*
-function signOut(){
-    echo "<script>alert('test')</script>";
-    $old_user = $_SESSION['valid_user'];
-    unset($_SESSION['valid_user']);
-    session_destroy();
-
-    if(!empty($old_user)){
-       // echo "<script>window.location.replace(\"index.php\");</script>";
-    }
-}*/
 
 ?>
 
@@ -36,7 +25,6 @@ function signOut(){
         <!------------jquery import ----------->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-
 
 
         <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
@@ -198,7 +186,7 @@ function signOut(){
     <body>
     <header>
         <div class="info-content">
-           <!-- <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
+           <!-- <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe> -->
             <div class="introbtn">시작하기</div>
         </div>
         <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">

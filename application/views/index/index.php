@@ -58,7 +58,7 @@
     <div class="user-board">
         <div class="sb userinfo">
             <div class="label"></div>
-            <a href="/application/views/back/test/test/test.php"></a><input type="button">
+            <input type="button";>
         </div>
 
         <div class="sb follower">

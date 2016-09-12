@@ -18,7 +18,15 @@ class Session
 		if (isset($_SESSION[$key]))
 		return $_SESSION[$key];
 	}
-	
+
+	public static function isSessionSet($key){
+        if (isset($_SESSION[$key])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 	public static function destroy()
 	{
 		//unset($_SESSION);

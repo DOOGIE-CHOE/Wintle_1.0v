@@ -57,6 +57,13 @@ function callHook() {
             return false;
         }
 
+        if(Session::isSessionSet("loggedIn")){
+
+        }else{
+
+
+        }
+
         $controller = new $url[0];
         $controller->index();
         $controller->loadModel($url[0]);
@@ -84,9 +91,9 @@ function callHook() {
 
 /** Autoload any classes that are required **/
 
-function __autoload($className) {
-    if (file_exists(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php')) {
-        require_once(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php');
+function __autoload($className) {;
+    if (file_exists(ROOT . DS . 'library' . DS . $className . '.class.php')) {
+        require_once(ROOT . DS . 'library' . DS . $className . '.class.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php');
     } else {
@@ -95,8 +102,8 @@ function __autoload($className) {
 }
 
 function error() {
-    //$controller = new Error();
-    //$controller->index();
+    $controller = new ErrorPage();
+    $controller->index();
     return false;
 }
 

@@ -11,7 +11,8 @@ class Index extends Controller {
         parent::__construct();
     }
 
-    function index(){
-        $this->view->render("index/index");
+    function index($noInclude = false, $loggedIn = false){
+        $this->view->render("index/index", $noInclude, $loggedIn);
     }
+
 }

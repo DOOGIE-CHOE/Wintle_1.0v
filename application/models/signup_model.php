@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');
+/*session_start();
+require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');*/
 
 /**
  * Created by PhpStorm.
@@ -40,12 +40,12 @@ try{
     $data['error'] = $e->getMessage();
 }finally{
     echo json_encode($data);
-}*/
+}
+*/
 
 
-/*
-Class SignUp{
-    private $model;*/
+Class SignUp_Model extends Model {
+  //  private $model;
     /*
      * It's better to inherit Model class at here.
      * But it doesn't work by that and It works if you create Model object in constructor.
@@ -88,8 +88,8 @@ Class SignUp{
             //echo "Error: " . $sql . "<br>" . $conn->error;
             throw new Exception("Failed to sign up,.. :( Please, try it later");
         }
-    }
-}*/
+    }*/
+}
 /*
 class Verification
 {

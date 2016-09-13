@@ -50,25 +50,25 @@ function callHook() {
     $url = isset($_GET['url']) ? $_GET['url'] : null;
     $url = rtrim($url, '/');
     $url = explode('/', $url);
+    $isloggedin = false;
+    $isnoinclude = false;
 
         if (empty($url[0])) {
             $controller = new Index();
-            $controller->index();
-            return false;
+        }else{
+            $controller = new $url[0];
         }
 
         if(Session::isSessionSet("loggedIn")){
-
+            $isloggedin = true;
         }else{
-
-
+            $isloggedin = false;
         }
 
-        $controller = new $url[0];
-        $controller->index();
+        $controller->index($isnoinclude,$isloggedin);
         $controller->loadModel($url[0]);
 
-        // calling methods
+    // calling methods
         if (isset($url[2])) {
             if (method_exists($controller, $url[1])) {
                 $controller->{$url[1]}($url[2]);
@@ -83,7 +83,7 @@ function callHook() {
                     error();
                 }
             } else {
-                $controller->index();
+               // $controller->index();
             }
         }
 }
@@ -91,11 +91,13 @@ function callHook() {
 
 /** Autoload any classes that are required **/
 
-function __autoload($className) {;
+function __autoload($className) {
     if (file_exists(ROOT . DS . 'library' . DS . $className . '.class.php')) {
         require_once(ROOT . DS . 'library' . DS . $className . '.class.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php');
+    } else if (file_exists(ROOT . DS . 'application' . DS .'models' . DS . strtolower($className) . '.php')) {
+        require_once(ROOT . DS . 'application' . DS .'models' . DS . strtolower($className) . '.php');
     } else {
         /* Error Generation Code Here */
     }

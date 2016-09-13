@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');
+//session_start();
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');
  * Date: 8/15/2016
  * Time: 3:01 PM
  */
-
+/*
 $data = array();
 $data['success'] = false;
 $data['error'] = null;
@@ -71,4 +71,4 @@ class LogIn {
             return $data['username'];
         }
     }
-}
+}*/

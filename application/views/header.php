@@ -23,9 +23,7 @@ if(isset($_SESSION['loggedIn'])){
     <html>
     <head>
         <!------------jquery import ----------->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -240,7 +238,7 @@ if(isset($_SESSION['loggedIn'])){
         </div>
 
         <!-- Sign up/Log in form -->
-        <form id="login-signup-form">
+        <form id="login-signup-form" action ="" method="post">
             <div class="popup" id="popup">
                     <span class="SignUp">
                         <img style="margin-left:28px; margin-top:18px; height:47px;" src="img/social_login.png"/>

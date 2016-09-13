@@ -5,7 +5,7 @@ class Controller {
 	function __construct() {
 		$this->view = new View();
 	}
-	
+
 	public function loadModel($name) {
 		
 		$path = ROOT.DS. 'application'. DS. 'models'. DS . $name.'_model.php';
@@ -15,5 +15,4 @@ class Controller {
 			$this->model = new $modelName();
 		}		
 	}
-
 }

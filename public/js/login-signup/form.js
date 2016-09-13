@@ -82,13 +82,13 @@ function signUp(){
     }
 
 
-  /*  //reCAPTCHA by google
-    var response = grecaptcha.getResponse();
-    if (response <= 0) {
-        errorDisplay("Are you a robot ?");
-        return false;
-    }
-*/
+    /*  //reCAPTCHA by google
+     var response = grecaptcha.getResponse();
+     if (response <= 0) {
+     errorDisplay("Are you a robot ?");
+     return false;
+     }
+     */
     return true;
 }
 
@@ -133,6 +133,7 @@ function check() {
     }
     else if(button.value == "LOG IN"){
         if(logIn()){
+            $("#login-signup-form").attr("action","http://localhost/login/calllogin");
             return true;
         }
     }
@@ -178,61 +179,80 @@ $(function(){
     }
 
 
-
     //Ajax lyrics upload
-    var request;
     $("#login-signup-form").submit(function(event){
-        var type;
-        var submit = document.getElementById("submit");
-        if(submit.value == "LOG IN"){
-            type = 'login';
-        }else if (submit.value == "SIGN UP"){
-            type = 'signup';
-        }else{
-            return false;
-        }
         //abort any request before get started
-        if(request){
-            request.abort();
-        }
-        //get variables
-        var $form = $(this);
 
-        var $inputs = $form.find("input, textarea");
 
-        //Serialize variables to send
-        var serializedData = $form.serialize() + "&type=" + type;
-
-        //Block any inputs during working ajax
-        $inputs.prop("disabled",true);
+        var url = $(this).attr('action');
+        alert(url);
+        var data = $(this).serialize();
 
         //send ajax request
-        request = $.ajax({
-            url: "../ajax.php",
-            type:"post",
-            data : serializedData,
-            dataType : "json",
-            success : function(data){
-                if(data.success){
-                    if(submit.value == "SIGN UP"){
-                        alert('Signed up successfully');
-                    }
-                    window.location.replace("index.php");
-                }else{
-                    errorDisplay(data.error);
-                }
+        $.post(url, data, function(o) {
+            if(o.data == "asd"){
+                alert("asd");
             }
-        });
+        }, 'json');
 
-        request.always(function () {
-            // Reenable the inputs
-            $inputs.prop("disabled", false);
-        });
-
-        // Prevent default posting of form
-        event.preventDefault();
+        return false;
     });
 
-
-
 });
+
+
+
+/*
+ //Ajax lyrics upload
+ var request;
+ $("#login-signup-form").submit(function(event){
+ var type;
+ var submit = document.getElementById("submit");
+ if(submit.value == "LOG IN"){
+ type = 'login';
+ }else if (submit.value == "SIGN UP"){
+ type = 'signup';
+ }else{
+ return false;
+ }
+ //abort any request before get started
+ if(request){
+ request.abort();
+ }
+ //get variables
+ var $form = $(this);
+
+ var $inputs = $form.find("input, textarea");
+
+ //Serialize variables to send
+ var serializedData = $form.serialize() + "&type=" + type;
+
+ //Block any inputs during working ajax
+ $inputs.prop("disabled",true);
+
+ //send ajax request
+ request = $.ajax({
+ url: "../ajax.php",
+ type:"post",
+ data : serializedData,
+ dataType : "json",
+ success : function(data){
+ if(data.success){
+ if(submit.value == "SIGN UP"){
+ alert('Signed up successfully');
+ }
+ window.location.replace("index.php");
+ }else{
+ errorDisplay(data.error);
+ }
+ }
+ });
+
+ request.always(function () {
+ // Reenable the inputs
+ $inputs.prop("disabled", false);
+ });
+
+ // Prevent default posting of form
+ event.preventDefault();
+ });*/

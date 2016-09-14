@@ -58,7 +58,6 @@
     <div class="user-board">
         <div class="sb userinfo">
             <div class="label"></div>
-            <input type="button";>
         </div>
 
         <div class="sb follower">

@@ -208,7 +208,7 @@ if(Session::isSessionSet("loggedIn")){
 -->
         <div id="header-gnb">
             <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-                <a href="index.php"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
+                <a href="index"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
             </div>
             <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>

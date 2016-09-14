@@ -3,11 +3,34 @@ create table user(
 user_email varchar(40) primary key,
 name varchar(20) not null,
 password varchar(70) not null,
-authority_id int default '0',
+authority_id int default '0' foreign key reference authority(authority_id),
 user_delete boolean default '0',
 sign_up_date timestamp default current_timestamp, 
 last_login_date timestamp default '0000-00-00 00:00:00',
 login_count int default '0');
+
+create table user_profile(
+user_email varchar(40) primary key,
+profile_photo_path varchar(255),
+cover_photo_path varchar(255),
+profile_upload_date timestamp default '0000-00-00 00:00:00',
+cover_upload_date timestamp default '0000-00-00 00:00:00',
+foreign key(user_email) references user(user_email)
+);
+
+create table user_info_total(
+user_email varchar(40) primary key,
+like_total int default '0',
+follower_total int default '0',
+following total int default '0',
+money_total int default '0',
+foreign key(user_email) references user_profile(user_email)
+);
+
+create table authority(
+authority_id int primary key,
+name varchar(20) not null
+);
 
 create table profilephoto(
 email_address varchar(20) primary key,

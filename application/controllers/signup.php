@@ -9,5 +9,8 @@
 class SignUp extends Controller {
     function index($noInclude = false, $loggedIn = false){}
 
+    function callSignUp(){
+        $this->model->signUp();
+    }
 
 }

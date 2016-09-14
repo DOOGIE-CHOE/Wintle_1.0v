@@ -1,64 +1,47 @@
 <?php
-/*session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/Model.class.php');*/
-
 /**
  * Created by PhpStorm.
  * User: Daniel
  * Date: 8/14/2016
  * Time: 9:56 PM
  */
-/*
-$data = array();
-$data['success'] = false;
-$data['error'] = null;
-
-
-try{
-    $response = $_POST['g-recaptcha-response'];
-
-
-    $db = new SignUp();
-
-    $cap = new Verification();
-    //$verified = $cap->VerifyCaptcha($response);
-    //if reCAPTCHA is verified
-    //if ($verified) {
-
-    if ($db->VerifyUsername($_POST['username'])) {
-        if ($db->VerifyEmail($_POST['email_address'])) {
-            if($db->RegisterUser($_POST['username'],$_POST['email_address'],$_POST['password'])){
-                $data['success'] = true;
-            }
-        }
-    }
-    //} else {
-    //    throw new Exception("Our system recognized you as a robot.");
-    //}
-    //}
-}catch(Exception $e){
-    $data['error'] = $e->getMessage();
-}finally{
-    echo json_encode($data);
-}
-*/
-
 
 Class SignUp_Model extends Model {
-  //  private $model;
-    /*
-     * It's better to inherit Model class at here.
-     * But it doesn't work by that and It works if you create Model object in constructor.
-     * Need to figure it out and modify it later;
-     * */
- /*   function __construct() {
-        $this->model = new Model();
+
+    function __construct() {
+        parent::__construct();
     }
 
+    function signUp() {
+        $data = array();
 
-    function VerifyUsername($_username) {
-        $sql = "SELECT count(username) as usernumber from users where username = '$_username'";
-        $result = $this->model->conn->query($sql);
+        try {
+            //$response = $_POST['g-recaptcha-response'];
+            //$cap = new Verification();
+            //$verified = $cap->VerifyCaptcha($response);
+            //if reCAPTCHA is verified
+            //if ($verified) {
+
+            if ($this->VerifyUsername($_POST['name'])) {
+                if ($this->VerifyEmail($_POST['user_email'])) {
+                    if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                        $data['success'] = true;
+                    }
+                }
+            }
+            //else {
+            //    throw new Exception("Our system recognized you as a robot.");
+           // }
+        }catch(Exception $e){
+            $data['error'] = $e->getMessage();
+        }finally{
+            echo json_encode($data);
+        }
+    }
+
+    function VerifyUsername($_name) {
+        $sql = "SELECT count(name) as usernumber from user where name = '$_name'";
+        $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
         if ($data['usernumber'] == 0) {
             return true;
@@ -67,9 +50,9 @@ Class SignUp_Model extends Model {
         }
     }
 
-    function VerifyEmail($_email_address) {
-        $sql = "SELECT count(email_address) as emailnumber from users where email_address = '$_email_address'";
-        $result = $this->model->conn->query($sql);
+    function VerifyEmail($_user_email) {
+        $sql = "SELECT count(user_email) as emailnumber from user where user_email = '$_user_email'";
+        $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
         if ($data['emailnumber'] == 0) {
             return true;
@@ -78,19 +61,19 @@ Class SignUp_Model extends Model {
         }
     }
 
-    function RegisterUser($_username, $_email_address, $_password) {
-        $hash = $this->model->GetHashCode($_password);
-        $sql = "INSERT INTO users (username, email_address, password)
-                VALUES ('$_username', '$_email_address', '$hash')";
-        if ($this->model->conn->query($sql) === TRUE) {
+    function RegisterUser($_name, $_user_email, $_password) {
+        $hash = $this->GetHashCode($_password);
+        $sql = "INSERT INTO user (name, user_email, password)
+                VALUES ('$_name', '$_user_email', '$hash')";
+        if ($this->db->conn->query($sql) === TRUE) {
             return true;
         } else {
             //echo "Error: " . $sql . "<br>" . $conn->error;
             throw new Exception("Failed to sign up,.. :( Please, try it later");
         }
-    }*/
+    }
 }
-/*
+
 class Verification
 {
     //Google recaptcha API url
@@ -116,6 +99,6 @@ class Verification
         else
             return FALSE;
     }
-}*/
+}
 
 ?>

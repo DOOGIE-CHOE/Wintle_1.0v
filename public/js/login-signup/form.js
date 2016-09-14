@@ -9,8 +9,8 @@ function isValidEmail(email) {
     return re.test(email);
 }
 
-function isValidUsername(username) {
-    return /^\w+$/.test(username);
+function isValidUsername(name) {
+    return /^\w+$/.test(name);
 }
 
 function isValidPassword(password) {
@@ -48,18 +48,18 @@ function mark(oj, id, tf) {
 function signUp(){
 
     //get all elements we need
-    var username = document.getElementById("username");
-    var email = document.getElementById("email_address");
+    var name = document.getElementById("name");
+    var email = document.getElementById("user_email");
     var password = document.getElementById("password");
 
     //username
-    if (!isValidUsername(username.value)) {
-        mark(username, 'username_wrong', false);
+    if (!isValidUsername(name.value)) {
+        mark(name, 'name_wrong', false);
         errorDisplay("Invalid Username. Please check it again");
         return false;
     }
     else {
-        mark(username, 'username_wrong', true);
+        mark(name, 'name_wrong', true);
     }
 
     //email
@@ -94,10 +94,10 @@ function signUp(){
 
 
 function logIn(){
-    var username = document.getElementById("username");
-    var email = document.getElementById("email_address");
+    var name = document.getElementById("name");
+    var email = document.getElementById("user_email");
     var password = document.getElementById("password");
-    username.value=" ";
+    name.value=" ";
 
     //email
     if (!isValidEmail(email.value)) {
@@ -128,6 +128,7 @@ function check() {
 
     if(button.value == "SIGN UP"){
         if(signUp()){
+            $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
             return true;
         }
     }
@@ -152,7 +153,7 @@ $(function(){
     $("#signup-text, #top_signup").click(function (e){
         $(".arrow-up-left").css("right","117px");
         $("#popup").css("height","550px");
-        $("#username").show("fast");
+        $("#name").show("fast");
         $("#g-recaptcha").show("fast");
         $(".SignUpText").show("fast");
         $("#submit").prop("value","SIGN UP");
@@ -172,26 +173,24 @@ $(function(){
     function setLogInForm(){
         $(".arrow-up-left").css("right","calc(100% - 143px)");
         $("#popup").css("height","325px");
-        $("#username").hide("fast");
+        $("#name").hide("fast");
         $("#g-recaptcha").hide("fast");
         $(".SignUpText").hide("fast");
         $("#submit").prop("value","LOG IN");
     }
 
 
-    //Ajax lyrics upload
+    //Ajax login/signup
     $("#login-signup-form").submit(function(event){
-        //abort any request before get started
-
-
         var url = $(this).attr('action');
-        alert(url);
         var data = $(this).serialize();
 
         //send ajax request
         $.post(url, data, function(o) {
-            if(o.data == "asd"){
-                alert("asd");
+            if(o.success == true){
+                window.location.replace("index.php");
+            }else{
+                errorDisplay(o.error);
             }
         }, 'json');
 

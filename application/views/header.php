@@ -1,20 +1,16 @@
 ﻿<?php
 
-if(!isset($_SESSION))
-{
-    session_start();
-}
-
 $top_fst_text = "Log In";
 $top_snd_text = "Sign Up";
 $top_fst_link = "#popup1";
 $top_snd_link = "#popup1";
 
-if(isset($_SESSION['loggedIn'])){
+
+if(Session::isSessionSet("loggedIn")){
     $top_fst_text = "";
-    $top_snd_text = "";
+    $top_snd_text = "Log Out";
     $top_fst_link = "";
-    $top_snd_link = "";
+    $top_snd_link = "logout/callLogOut";
 }
 
 ?>
@@ -216,7 +212,7 @@ if(isset($_SESSION['loggedIn'])){
             </div>
             <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
-                <a href="<?php if($top_snd_text == "Sign Up"){ echo "#popup1"; }else{/*new signOut(); */}?>" id="top_signup">&nbsp;&nbsp;<?php echo $top_snd_text?></a>
+                <a href="<?php echo $top_snd_link?>" id="top_login"><?php echo $top_snd_text?></a>
             </div>
             <div style="position:absolute; right:25px; height:50px;">
                 <a href="../TEST/AudioEditor/AudioEditor/test2.php"><img src="img/beta.png" style="height:50px"></a>
@@ -245,13 +241,13 @@ if(isset($_SESSION['loggedIn'])){
                         <div class="divider">
                             <hr class="left"/>OR<hr class="right" />
                         </div>
-                        <span name="wrong" id="username_wrong" style="display: none"
-                              onclick="document.getElementById('username').value =''"><img
-                                src="img/x.png"></span><input type="text" name="username" id="username" required
-                                                              placeholder="Your Username" autocomplete="off">
+                        <span name="wrong" id="name_wrong" style="display: none"
+                              onclick="document.getElementById('name').value =''"><img
+                                src="img/x.png"></span><input type="text" name="name" id="name" required
+                                                              placeholder="Your username" autocomplete="off">
                                                     <span name="wrong" id="email_wrong" style="display: none"
-                                                          onclick="document.getElementById('email_address').value =''"><img
-                                                            src="img/x.png"></span><input type="text" name="email_address" id="email_address" required
+                                                          onclick="document.getElementById('user_email').value =''"><img
+                                                            src="img/x.png"></span><input type="text" name="user_email" id="user_email" required
                                                                                           placeholder="Your email address" autocomplete="off">
                                                     <span name="wrong" id="password_wrong"
                                                           style="display: none"

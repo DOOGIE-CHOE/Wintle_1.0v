@@ -184,7 +184,6 @@ $(function(){
     $("#login-signup-form").submit(function(event){
         var url = $(this).attr('action');
         var data = $(this).serialize();
-
         //send ajax request
         $.post(url, data, function(o) {
             if(o.success == true){

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.tomato.exerd.export.ModelExportWizardDialog">
+		<item value="803" key="DIALOG_WIDTH"/>
+		<item value="/exerd/wintle.html" key="destinationPath"/>
+		<item value="26" key="DIALOG_Y_ORIGIN"/>
+		<item value="748" key="DIALOG_HEIGHT"/>
+		<item value="568" key="DIALOG_X_ORIGIN"/>
+		<item value="Table Specification HTML(Built-in)" key="lastUsedTemplateName"/>
+		<item value="file" key="sendType"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="com.tomato.exerd.export.ExportModelWizard">
+		<list key="templateContents">
+		</list>
+		<list key="templateNames">
+		</list>
+	</section>
+</section>

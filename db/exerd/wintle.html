@@ -1,0 +1,2347 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Table Specification(HTML)</title>
+<style type="text/css">
+<!--
+.entity{
+	width: 1024px;
+	margin-bottom: 50px;
+	page-break-before: always;
+}
+.entity-header tr td, .entity-header tr th{
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+.entity-header{
+	border-spacing: 0px;
+	border-top: solid 2px black;
+	margin:0px;
+}
+.column-list{
+	width: 100%;
+	border-spacing: 0px;
+	margin: 0px;
+	border-bottom: solid 2px black;
+}
+.column-list th{
+	border-bottom: solid 2px black;
+	border-top: solid 2px black;
+	text-align: left;
+}
+.column-list th, .column-list td{
+	padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+.under-line{
+	border-bottom: solid 1px gray;
+}
+.right-line{
+	border-right: solid 1px gray;
+}
+.left-line{
+	border-left: solid 1px gray;
+}
+th{
+	background-color: #eee;
+}
+-->
+</style>
+</head>
+<body>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">user</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_name</td>
+						<td class="right-line">name</td>
+						<td class="right-line">Name</td>
+						<td class="right-line">VARCHAR(20)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">user_password</td>
+						<td class="right-line">password</td>
+						<td class="right-line">Password</td>
+						<td class="right-line">VARCHAR(70)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">authority_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">user_delete</td>
+						<td class="right-line">Boolean</td>
+						<td class="right-line">BOOLEAN</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">user_signup_date</td>
+						<td class="right-line">sign_up_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">7</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">last_login_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">8</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">login_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user_hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">user_profile_hashtag</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">lyrics</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyr_id</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">lyrics_hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_hashtag</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">lyrics_content</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_content</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyrics_title</td>
+						<td class="right-line">title</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">lyrics_content</td>
+						<td class="right-line">content</td>
+						<td class="right-line">Content</td>
+						<td class="right-line">VARCHAR(1000)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">lyrics_upload_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">modify_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">view_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">7</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">like</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user_profile</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">user_profile</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">profile_photo_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">cover_photo_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">profile_upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">cover_upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user_playlist</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">user_playlist</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">playlist_id</td>
+						<td class="right-line">playlist_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">playlist_name</td>
+						<td class="right-line">playlist_name</td>
+						<td class="right-line">Name</td>
+						<td class="right-line">VARCHAR(20)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">playlist</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">playlist</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">playlist_id</td>
+						<td class="right-line">playlist_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">music</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">music_path</td>
+						<td class="right-line">music_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">music_image</td>
+						<td class="right-line">image_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">like</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">music_hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_hashtag</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">music_comment</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_commnet</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">comment_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">music_comment</td>
+						<td class="right-line">comment</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">music_comment_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">music_creator</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_creator</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">user_like</td>
+						<td class="right-line">like</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">lyrics_comment</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_commnet2</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">comment_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">music_comment</td>
+						<td class="right-line">comment</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">music_comment_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">melody_hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_hashtag2</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">melody_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">melody_content</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_content2</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">melody_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyrics_title</td>
+						<td class="right-line">title</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">melody_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">waveform_path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">lyrics_content</td>
+						<td class="right-line">content</td>
+						<td class="right-line">Content</td>
+						<td class="right-line">VARCHAR(1000)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">lyrics_upload_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">7</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">modify_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">8</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">view_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">9</td>
+						<td class="right-line">COL5</td>
+						<td class="right-line">like</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">melody_comment</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_commnet3</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">melody_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">comment_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">music_comment_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">music_comment</td>
+						<td class="right-line">comment</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">melody</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics2</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyr_id</td>
+						<td class="right-line">melody_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">albumcover</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics3</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyr_id</td>
+						<td class="right-line">albumcover_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">albumcover_content</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_content3</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">albumcover_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">lyrics_title</td>
+						<td class="right-line">title</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">path</td>
+						<td class="right-line">Path</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">lyrics_content</td>
+						<td class="right-line">content</td>
+						<td class="right-line">Content</td>
+						<td class="right-line">VARCHAR(1000)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">lyrics_upload_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">modify_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">7</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">view_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">8</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">like</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">albumcover_hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">lyrics_hashtag3</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">lyrics_id</td>
+						<td class="right-line">albumcover_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">albumcover_comment</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">music_commnet4</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">music_id</td>
+						<td class="right-line">albumcover_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">comment_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">music_comment</td>
+						<td class="right-line">comment</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">music_comment_date</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user_follow</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE2</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">following_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">followed_user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">followed_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">user_info_total</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE4</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">like_total</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">follower_total</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">following_total</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">money_total</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">project</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE5</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">user_email</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">project_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">hashtag</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE7</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">hashtag</td>
+						<td class="right-line">Hashtag</td>
+						<td class="right-line">VARCHAR(140)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL6</td>
+						<td class="right-line">type</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">ref_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">first_upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">COL5</td>
+						<td class="right-line">last_ref_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">hashtag_record</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE8</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">hashtag_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PFK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL5</td>
+						<td class="right-line">info_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">hashtag</td>
+						<td class="right-line">Hashtag</td>
+						<td class="right-line">VARCHAR(140)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL6</td>
+						<td class="right-line">type</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">ref_count</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">upload_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">authority</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE9</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">authority_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">name</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">report</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE10</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">report_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL8</td>
+						<td class="right-line">type_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td>FK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">3</td>
+						<td class="right-line">COL3</td>
+						<td class="right-line">content</td>
+						<td class="right-line">Content</td>
+						<td class="right-line">VARCHAR(1000)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">4</td>
+						<td class="right-line">COL4</td>
+						<td class="right-line">reporter</td>
+						<td class="right-line">Email</td>
+						<td class="right-line">VARCHAR(40)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">5</td>
+						<td class="right-line">COL5</td>
+						<td class="right-line">reported_content_id</td>
+						<td class="right-line">Id</td>
+						<td class="right-line">VARCHAR(50)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">6</td>
+						<td class="right-line">COL6</td>
+						<td class="right-line">report_date</td>
+						<td class="right-line">Date</td>
+						<td class="right-line">DATE</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table class="entity" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" class="entity-header">
+					<tr>
+						<th class="under-line right-line" width="140px">Entity Type</th>
+						<td class="under-line right-line">report_type</td>
+						<th class="under-line right-line" width="70px">Creation Date</th>
+						<td class="under-line">20xx xx xx</td>
+					</tr>
+					<tr>
+						<th class="under-line right-line">Table Name</th>
+						<td class="under-line right-line">TABLE11</td>
+						<th class="under-line right-line">Author</th>
+						<td class="under-line">Someone</td>
+					</tr>
+					<tr>
+						<th class="right-line">Table Description</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="column-list">
+					<tr>
+						<th class="right-line" width="40px">No</th>
+						<th class="right-line">Column</th>
+						<th class="right-line">Property</th>
+						<th class="right-line">Domain</th>
+						<th class="right-line">Datatype</th>
+						<th class="right-line">Nullable</th>
+						<th class="right-line">Default Value</th>
+						<th>KEY</th>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">1</td>
+						<td class="right-line">COL</td>
+						<td class="right-line">type_id</td>
+						<td class="right-line">Number</td>
+						<td class="right-line">INTEGER</td>
+						<td class="right-line">Not Null</td>
+						<td class="right-line"></td>
+						<td>PK</td>
+					</tr>
+					<tr>
+						<td class="right-line" style="text-align:right;">2</td>
+						<td class="right-line">COL2</td>
+						<td class="right-line">type</td>
+						<td class="right-line">String</td>
+						<td class="right-line">VARCHAR(255)</td>
+						<td class="right-line"></td>
+						<td class="right-line"></td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

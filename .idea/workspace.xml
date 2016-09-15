@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/analyticstracking.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/bootstrap.php" afterPath="$PROJECT_DIR$/library/bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/login-signup/form.js" afterPath="$PROJECT_DIR$/public/js/login-signup/form.js" />
     </list>
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +48,8 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="552">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -652,7 +642,7 @@
       <workItem from="1473788856400" duration="10746000" />
       <workItem from="1473938559981" duration="750000" />
       <workItem from="1473964217344" duration="743000" />
-      <workItem from="1473965444323" duration="7000" />
+      <workItem from="1473965444323" duration="96000" />
     </task>
     <servers />
   </component>
@@ -665,7 +655,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="546292000" />
+    <option name="totallyTimeSpent" value="546381000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,7 +667,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1038" extended-state="0" />
+    <frame x="-8" y="0" width="1932" height="1038" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26131466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1042,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="552">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

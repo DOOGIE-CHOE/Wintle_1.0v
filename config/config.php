@@ -21,5 +21,4 @@ define("DBSERVERNAME", "localhost");     // The host you want to connect to.
 define("DBUSERNAME", "root");    // The database username.
 define("DBPASSWORD", "daniel12066@@!");    // The database password.
 define("DBNAME", "wintle");    // The database name.
-
 define("URL","http://localhost/");

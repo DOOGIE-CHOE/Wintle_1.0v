@@ -101,19 +101,23 @@
             left:100px;
             border-radius: 8px;
         }
+
         #line{
             position:absolute;
             top:0;
             left:-8px;
             z-index: 80;
             height:100%;
+            cursor:e-resize;
         }
+
         #arrow {
             width: 16px;
             height: 14px;
             background-color: black;
             position: relative;
         }
+
         #arrow:after {
             content: '';
             position: absolute;
@@ -124,6 +128,7 @@
             border: 8px solid transparent;
             border-top: 8px solid black;
         }
+
         #arrow:before {
             content: '';
             position: absolute;
@@ -146,11 +151,30 @@
             margin:auto;
             background: black;
         }
+
         #time{
             position:relative;
             height:25px;
             width:3000px;
             background-color: #1FB5BF;
+        }
+
+        #page-option{
+            position:absolute;
+            top:30px;
+            left:320px;
+        }
+        #page-option a{
+            display:inline-block;
+            font-size: 20px;
+        }
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color:black;
+            text-decoration: none;
         }
 
     </style>
@@ -295,9 +319,10 @@
 
 
                 var time = calculateLeftToTime("#line");
-                time += 0.5;
+                time += 0.5; //line's left is initialized -0.5
                 timer = time;
                 for(var i =0; i<audioElement.length; i++){
+                    // Compare block position, bar position by left
                     var tmp = calculateLeftToTime(playlist[i]);
                     if(time > tmp && audioElement[i].currentTime < time - tmp){
                         audioElement[i].currentTime = time - tmp;
@@ -346,10 +371,13 @@
 <body>
 <div id="logo">
     <img src="logo.png">
+    <div id="page-option">
+        <a href="test1.php" style="font-weight: bold; text-decoration: underline">Web Studio</a>
+        <a>&nbsp</a>
+        <a href="test2.php">Sample page</a>
+    </div>
 </div>
-
 <div class="option-space">
-
 </div>
 
 </br>

@@ -58,6 +58,7 @@
             left:-8px;
             z-index: 80;
             height:100%;
+            cursor:e-resize;
         }
 
         /*#arrow{
@@ -164,6 +165,25 @@
             height:25px;
             width:3000px;
             background-color: #1FB5BF;
+        }
+
+
+        #page-option{
+            position:absolute;
+            top:30px;
+            left:320px;
+        }
+        #page-option a{
+            display:inline-block;
+            font-size: 20px;
+        }
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color:black;
+            text-decoration: none;
         }
 
 
@@ -293,6 +313,10 @@
                 containment:[294]
             });
 
+            line.mouseover(function(){
+
+            });
+
             line.mousedown(function (){
                 clearInterval(interval);
                 isBarProgressing = false;
@@ -328,6 +352,11 @@
 <body>
 <div id="logo">
     <img src="logo.png">
+    <div id="page-option">
+        <a href="test1.php">Web Studio</a>
+        <a>&nbsp</a>
+        <a href="test2.php"style="font-weight: bold; text-decoration: underline">Sample page</a>
+    </div>
 </div>
 
 <div class="option-space"></div>
@@ -358,7 +387,7 @@
 <form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="uploadaudio.php" >
     <div id="buttons">
         <div id="buttons-align">
-            <input type="file" value="upload" name="audio[]" id="audio" multiple>
+           <!-- <input type="file" value="upload" name="audio[]" id="audio" multiple>-->
             <input type="button" value="start" id="button" onclick="bar()">
             <input type="button" value="reset" id="reset" onclick="resetBarProgress()">
         </div>

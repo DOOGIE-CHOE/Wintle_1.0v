@@ -50,6 +50,12 @@ function callHook() {
     Session::init();
 
     $url = isset($_GET['url']) ? $_GET['url'] : null;
+
+    if($url == "TEST/AudioEditor/AudioEditor/test1.php"){
+        require (ROOT.DS."TEST/AudioEditor/AudioEditor/test1.php");
+        return false;
+    }
+
     $url = rtrim($url, '/');
     $url = explode('/', $url);
     $isloggedin = false;

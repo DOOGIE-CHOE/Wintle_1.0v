@@ -82,13 +82,16 @@ function signUp(){
     }
 
 
-    /*  //reCAPTCHA by google
-     var response = grecaptcha.getResponse();
-     if (response <= 0) {
-     errorDisplay("Are you a robot ?");
-     return false;
-     }
-     */
+    //reCAPTCHA by google
+    // for server
+    // client should annotate this part
+    var response = grecaptcha.getResponse();
+    if (response <= 0) {
+        errorDisplay("Are you a robot ?");
+        return false;
+    }
+
+
     return true;
 }
 
@@ -128,12 +131,14 @@ function check() {
 
     if(button.value == "SIGN UP"){
         if(signUp()){
-            $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
+          //  $("#login-signup-form").attr("action","http://wintle.co.kr/signup/callsignup");
+             $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
             return true;
         }
     }
     else if(button.value == "LOG IN"){
         if(logIn()){
+            //$("#login-signup-form").attr("action","http://wintle.co.kr/login/calllogin");
             $("#login-signup-form").attr("action","http://localhost/login/calllogin");
             return true;
         }

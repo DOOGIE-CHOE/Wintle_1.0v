@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="" />
+    <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/ffmpeg_server/ffmpeg-git-64bit-static.tar.xz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/.bash_history" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.htaccess_back" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/index.php" afterPath="$PROJECT_DIR$/application/views/index/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/signup_model.php" afterPath="$PROJECT_DIR$/application/models/signup_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/login-signup/form.js" afterPath="$PROJECT_DIR$/public/js/login-signup/form.js" />
+    </list>
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -21,57 +41,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="shared.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/shared.php">
+      <file leaf-file-name="form.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/login-signup/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
-              <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+            <state relative-caret-position="2424">
+              <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test1.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+            <state relative-caret-position="168">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="860">
+              <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SERVER_CLIENT_SETTING" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/SERVER_CLIENT_SETTING">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1848">
+              <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/signup_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2520">
+              <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1474096869736" expanded="true" signature="7337:7428" ph="..." />
+                <marker date="1474098664032" expanded="true" signature="1599:1663" ph="SELECT count... user" />
+                <marker date="1474098664032" expanded="true" signature="1997:2080" ph="SELECT count... user" />
+                <marker date="1474098664032" expanded="true" signature="2488:2592" ph="INSERT INTO user... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="60" selection-end-column="28" />
+            <state relative-caret-position="4440">
+              <caret line="185" column="53" selection-start-line="185" selection-start-column="53" selection-end-line="185" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="576">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test3.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test3.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/test/test.php" />
         <option value="$PROJECT_DIR$/application/views/mainpage/main.php" />
         <option value="$PROJECT_DIR$/test/test.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadAudio.js" />
@@ -106,7 +144,6 @@
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/script.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test.js" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/testset.html" />
-        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/tutorila.js" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/tutorial.js" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
@@ -129,22 +166,24 @@
         <option value="$PROJECT_DIR$/application/controllers/logout.php" />
         <option value="$PROJECT_DIR$/application/models/back/login-signup/signup.php" />
         <option value="$PROJECT_DIR$/application/controllers/signup.php" />
-        <option value="$PROJECT_DIR$/application/models/signup_model.php" />
         <option value="$PROJECT_DIR$/application/models/login_model.php" />
-        <option value="$PROJECT_DIR$/application/views/index/index.php" />
-        <option value="$PROJECT_DIR$/application/views/header.php" />
         <option value="$PROJECT_DIR$/application/views/header_loggedin.php" />
         <option value="$PROJECT_DIR$/application/controllers/test.php" />
-        <option value="$PROJECT_DIR$/public/js/login-signup/form.js" />
         <option value="$PROJECT_DIR$/library/bootstrap.php" />
         <option value="$PROJECT_DIR$/library/analyticstracking.php" />
         <option value="$PROJECT_DIR$/library/shared.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test3.php" />
+        <option value="$PROJECT_DIR$/application/models/signup_model.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php" />
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php" />
+        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php" />
+        <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php" />
+        <option value="$PROJECT_DIR$/config/SERVER_CLIENT_SETTING" />
         <option value="$PROJECT_DIR$/config/config.php" />
+        <option value="$PROJECT_DIR$/application/views/header.php" />
+        <option value="$PROJECT_DIR$/public/js/login-signup/form.js" />
+        <option value="$PROJECT_DIR$/application/views/index/index.php" />
       </list>
     </option>
   </component>
@@ -211,6 +250,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,25 +279,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TEST" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AudioEditor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Wintle_1.0v" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Wintle_1.0v" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -271,13 +297,34 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,17 +354,14 @@
       <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_1.0v\public\img" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.test3.php">
-    <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/public/index.php">
-      <method />
-    </configuration>
-    <configuration default="false" name="header_loggedin.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/application/views/header_loggedin.php">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.index.php (1)">
     <configuration default="false" name="test1.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/TEST/AudioEditor/AudioEditor/test1.php">
       <method />
     </configuration>
-    <configuration default="false" name="test3.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/TEST/AudioEditor/AudioEditor/test3.php">
+    <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/public/index.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="index.php (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/application/views/index/index.php">
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -369,18 +413,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.header_loggedin.php" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.test3.php" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.test3.php" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.header_loggedin.php" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
       </list>
     </recent_temporary>
   </component>
@@ -509,7 +551,8 @@
       <workItem from="1473965444323" duration="96000" />
       <workItem from="1473966222392" duration="17000" />
       <workItem from="1474009115599" duration="1723000" />
-      <workItem from="1474089525447" duration="7707000" />
+      <workItem from="1474089525447" duration="18608000" />
+      <workItem from="1474188577325" duration="7000" />
     </task>
     <servers />
   </component>
@@ -522,7 +565,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="555828000" />
+    <option name="totallyTimeSpent" value="566736000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -537,22 +580,22 @@
     <frame x="-8" y="0" width="1932" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27262932" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27640086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29898074" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31823328" sideWeight="0.5125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16838488" sideWeight="0.47291666" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20385051" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2446206" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3556059" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16838488" sideWeight="0.47291666" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18213059" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -571,33 +614,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/errorMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style/pc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/account/signup_check.js" />
     <entry file="file://$PROJECT_DIR$/public/js/dropupload/jquery.fileupload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -655,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,9 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,20 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/signup_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -728,7 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,9 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,22 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <marker date="1473843250465" expanded="true" signature="844:927" ph="SELECT count... users" />
-            <marker date="1473843250465" expanded="true" signature="1278:1322" ph="SELECT passw... user" />
-            <marker date="1473843250465" expanded="true" signature="1278:1324" ph="SELECT passw... user" />
-            <marker date="1473843250465" expanded="true" signature="1278:1337" ph="SELECT passw... users" />
-            <marker date="1473843250465" expanded="true" signature="1336:1337" ph="SELECT passw... users" />
-            <marker date="1473843250465" expanded="true" signature="1793:1847" ph="SELECT name user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/login-signup/form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4440">
-          <caret line="185" column="39" selection-start-line="185" selection-start-column="39" selection-end-line="185" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,9 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,7 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,9 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,15 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -821,15 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="12" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="34" column="26" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,15 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/jquery.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5054">
-          <caret line="939" column="17" selection-start-line="939" selection-start-column="17" selection-end-line="939" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,23 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1416">
           <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess_back">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,17 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="60" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,25 +814,122 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1392">
           <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="278" column="9" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/jquery.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="939" column="17" selection-start-line="939" selection-start-column="17" selection-end-line="939" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/errorMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/JustWave.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1474096869736" expanded="true" signature="7337:7428" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="346" column="48" selection-start-line="346" selection-start-column="48" selection-end-line="346" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/uploadaudio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="576">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/SERVER_CLIENT_SETTING">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/signup_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+          <folding>
+            <marker date="1474098664032" expanded="true" signature="1599:1663" ph="SELECT count... user" />
+            <marker date="1474098664032" expanded="true" signature="1997:2080" ph="SELECT count... user" />
+            <marker date="1474098664032" expanded="true" signature="2488:2592" ph="INSERT INTO user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/login-signup/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2424">
+          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4440">
+          <caret line="185" column="53" selection-start-line="185" selection-start-column="53" selection-end-line="185" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
           <folding />
         </state>
       </provider>

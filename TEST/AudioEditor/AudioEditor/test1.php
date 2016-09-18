@@ -345,7 +345,8 @@
                         //loading gif off
                         $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
-                        if(data[1] == true){/*error alert here*/}
+                        if(data[1] != false){
+                            errorDisplay(data[1]);}
                         var dataLength = data[0].length;
                         var count =0;
                         while($("#draggable-"+count).length != 0){

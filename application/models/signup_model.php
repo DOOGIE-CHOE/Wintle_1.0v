@@ -16,23 +16,36 @@ Class SignUp_Model extends Model {
         $data = array();
 
         try {
-            //$response = $_POST['g-recaptcha-response'];
-            //$cap = new Verification();
-            //$verified = $cap->VerifyCaptcha($response);
+            //for server
+            $response = $_POST['g-recaptcha-response'];
+            $cap = new Verification();
+            $verified = $cap->VerifyCaptcha($response);
             //if reCAPTCHA is verified
-            //if ($verified) {
-
-            if ($this->VerifyUsername($_POST['name'])) {
-                if ($this->VerifyEmail($_POST['user_email'])) {
-                    if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
-                        $data['success'] = true;
+            if ($verified) {
+                if ($this->VerifyUsername($_POST['name'])) {
+                    if ($this->VerifyEmail($_POST['user_email'])) {
+                        if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                            $data['success'] = true;
+                        }
                     }
                 }
+            } else {
+                throw new Exception("Our system recognized you as a robot.");
             }
-            //else {
-            //    throw new Exception("Our system recognized you as a robot.");
-           // }
-        }catch(Exception $e){
+
+
+            /*
+            //for client
+                if ($this->VerifyUsername($_POST['name'])) {
+                    if ($this->VerifyEmail($_POST['user_email'])) {
+                        if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                            $data['success'] = true;
+                        }
+                    }
+                }
+            }*/
+        }
+        catch(Exception $e){
             $data['error'] = $e->getMessage();
         }finally{
             echo json_encode($data);

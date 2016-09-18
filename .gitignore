@@ -1,2 +1,5 @@
 audio/
 config/
+config/config.php
+db/.metadata
+*.resources

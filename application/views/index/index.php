@@ -48,12 +48,19 @@
         .body{
             margin-top : 30px;
         }
+        #bg{
+            position:absolute;
+            height:100%;
+            width:100%;
+            background-color: rgba(189,189,189,0.5);
+        }
 
     </style>
 </head>
 <body class="body">
-
-
+<!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
+-->
+<div id="bg">
 <div class="main-board">
     <div class="user-board">
         <div class="sb userinfo">
@@ -79,4 +86,5 @@
     <div class="music-board">
 
     </div>
+</div>
 </div>

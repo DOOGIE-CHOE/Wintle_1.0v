@@ -180,7 +180,7 @@ if(Session::isSessionSet("loggedIn")){
     <body>
     <header>
         <div class="info-content">
-           <!-- <iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe> -->
+           <!--<iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
             <div class="introbtn">시작하기</div>
         </div>
         <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">

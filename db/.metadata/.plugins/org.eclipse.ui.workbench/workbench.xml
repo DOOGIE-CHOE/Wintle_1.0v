@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="8" version="2.0">
+<workbench progressCount="12" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="128" y="128">
 <fastViewData fastViewLocation="1024"/>
@@ -118,7 +118,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.17935872" ratioLeft="179" ratioRight="819" relationship="2" relative="leftFolder"/>
+<info part="org.eclipse.ui.editorss" ratio="0.118910424" ratioLeft="227" ratioRight="1682" relationship="2" relative="leftFolder"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1371566" ratio="0.92588305" ratioLeft="1599" ratioRight="128" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.thumbnail" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="Thumbnail"/>

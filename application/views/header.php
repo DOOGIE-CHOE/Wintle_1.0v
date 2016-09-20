@@ -42,6 +42,9 @@ if(Session::isSessionSet("loggedIn")){
 
         <link rel="stylesheet" href="css/style.css">
 
+        <!-- Tile Display -->
+        <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
+
         <style>
             /* background video
              * --------------------------------------- */

@@ -29,12 +29,14 @@
         margin-right:15px;
     }
 
+
     .line-arrow.right {
-        border-top: 3px solid black;
-        border-right: 3px solid black;
-        transform: rotate(45deg) skew(0deg);
-        margin-left:15px;
+        border-top: 1px solid #a9a9a9;
+        border-right: 1px solid #a9a9a9;
+        transform: rotate(54deg) skew(20deg);
+        right: 20px;
     }
+
 </style>
 
 </head>

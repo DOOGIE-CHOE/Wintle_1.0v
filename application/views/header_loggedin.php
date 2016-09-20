@@ -17,7 +17,7 @@ if(Session::isSessionSet("loggedIn")){
 <html>
 <head>
     <!------------jquery import ----------->
-    <script src="<?echo ROOT.DS.'public'.DS.'js'.DS.'jquery'.DS.'jquery-3.1.0.js'?>" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <!-- css Plug In -->
     <link href="css/css_reset.css" rel="stylesheet" />
 
@@ -26,6 +26,9 @@ if(Session::isSessionSet("loggedIn")){
     <link media="handheld" href="css/style/mobile.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tile Display -->
+    <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
 
 </head>
 <header style="height: 50px;">

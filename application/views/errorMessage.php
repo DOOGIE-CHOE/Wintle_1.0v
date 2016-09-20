@@ -10,7 +10,7 @@
 <style>
     .alert {
         display:none;
-        position:absolute;
+        position:fixed;
         padding: 20px;
         background-color: #f44336;
         color: white;

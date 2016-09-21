@@ -65,7 +65,7 @@
             height:100%;
             width:7%;
             background-color: rgba(189,189,189,0.7);
-            z-index:100;
+            z-index:1;
         }
 
         .line-arrow {
@@ -135,7 +135,7 @@
     var cellinfo = [];
     for (var i = 0; i < limitItem; ++i) {
         //w = 200 +  200 * Math.random() << 0;
-        h = w = (Math.floor(Math.random() * 2) + 1) * 200;
+        h = w = (Math.floor(Math.random() * 2) + 1) * 150;
         //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
         html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1);
         //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
@@ -146,8 +146,8 @@
     wall.reset({
         selector: '.cell',
         animate: true,
-        cellW: 200,
-        cellH: 200,
+        cellW: 150,
+        cellH: 150,
         onResize: function() {
             wall.fitWidth();
         }

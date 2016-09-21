@@ -2,51 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/13.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/14.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/15.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/16.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/17.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/18.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/19.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/20.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/21.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/22.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/i/9.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/bg/bg1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/bg/bg2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/albumartall.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/albumart/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tiledisplay/freewall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.markers.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.projects/exerd/.syncinfo.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.resources/.snap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/exerd/wintle.exerd" afterPath="$PROJECT_DIR$/db/exerd/wintle.exerd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test3.php" afterPath="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/errorMessage.php" afterPath="$PROJECT_DIR$/application/views/errorMessage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header_loggedin.php" afterPath="$PROJECT_DIR$/application/views/header_loggedin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/albumart/index.php" afterPath="$PROJECT_DIR$/application/views/albumart/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/index.php" afterPath="$PROJECT_DIR$/application/views/index/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/com.tomato.exerd.core/dialog_settings.xml" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/com.tomato.exerd.core/dialog_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.browser.prefs" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.browser.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.ui.workbench/workbench.xml" afterPath="$PROJECT_DIR$/db/.metadata/.plugins/org.eclipse.ui.workbench/workbench.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/exerd/wintle.html" afterPath="$PROJECT_DIR$/db/exerd/wintle.html" />
     </list>
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +50,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/albumart/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="-420">
+              <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
               </folding>
@@ -104,11 +62,11 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+            <state relative-caret-position="234">
+              <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
               <folding>
-                <marker date="1474368286623" expanded="true" signature="3280:3308" ph="..." />
-                <marker date="1474368286623" expanded="true" signature="3323:3458" ph="..." />
+                <marker date="1474369143819" expanded="true" signature="3278:3306" ph="..." />
+                <marker date="1474369143819" expanded="true" signature="3321:3456" ph="..." />
               </folding>
             </state>
           </provider>
@@ -385,6 +343,82 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albumart" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wintle_1.0v" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -617,7 +651,7 @@
       <workItem from="1474089525447" duration="18608000" />
       <workItem from="1474188577325" duration="4018000" />
       <workItem from="1474263590002" duration="3443000" />
-      <workItem from="1474344510993" duration="8042000" />
+      <workItem from="1474344510993" duration="9403000" />
     </task>
     <servers />
   </component>
@@ -630,7 +664,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="582232000" />
+    <option name="totallyTimeSpent" value="583593000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1011,8 +1045,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/albumart/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="-420">
+          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
           </folding>
@@ -1021,11 +1055,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+        <state relative-caret-position="234">
+          <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
           <folding>
-            <marker date="1474368286623" expanded="true" signature="3280:3308" ph="..." />
-            <marker date="1474368286623" expanded="true" signature="3323:3458" ph="..." />
+            <marker date="1474369143819" expanded="true" signature="3278:3306" ph="..." />
+            <marker date="1474369143819" expanded="true" signature="3321:3456" ph="..." />
           </folding>
         </state>
       </provider>

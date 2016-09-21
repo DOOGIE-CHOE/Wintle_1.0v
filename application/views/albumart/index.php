@@ -31,13 +31,15 @@
             background-color: #2b2e31;
         }
 
+
         #bg{
-            position:absolute;
+            position:fixed;
             height:100%;
             width:100%;
-            background-color: rgba(189,189,189,0.5);
+            background-repeat: no-repeat;
+            background-image: url("img/bg/bg2.jpg");
+            background-size: cover;
         }
-
         .body{
             margin-top : 30px;
         }

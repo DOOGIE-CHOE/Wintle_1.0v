@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/albumart/index.php" afterPath="$PROJECT_DIR$/application/views/albumart/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/index.php" afterPath="$PROJECT_DIR$/application/views/index/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
     </list>
     <ignored path="wintle.iws" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="albumartall.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/albumartall.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="24">
               <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
@@ -40,34 +40,45 @@
       <file leaf-file-name="shared.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library/shared.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+            <state relative-caret-position="758">
+              <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/albumart/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
-              <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+            <state relative-caret-position="540">
+              <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
+                <marker date="1474534821365" expanded="true" signature="1641:1776" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+            <state relative-caret-position="588">
+              <caret line="161" column="9" selection-start-line="130" selection-start-column="0" selection-end-line="161" selection-end-column="9" />
               <folding>
                 <marker date="1474369143819" expanded="true" signature="3278:3306" ph="..." />
                 <marker date="1474369143819" expanded="true" signature="3321:3456" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header_loggedin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/header_loggedin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +126,7 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="3912">
               <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
               <folding />
             </state>
@@ -189,8 +200,8 @@
         <option value="$PROJECT_DIR$/TEST/AudioEditor/AudioEditor/test3.php" />
         <option value="$PROJECT_DIR$/application/controllers/albumart.php" />
         <option value="$PROJECT_DIR$/application/controllers/albumartall.php" />
-        <option value="$PROJECT_DIR$/application/views/albumart/index.php" />
         <option value="$PROJECT_DIR$/application/views/index/index.php" />
+        <option value="$PROJECT_DIR$/application/views/albumart/index.php" />
       </list>
     </option>
   </component>
@@ -256,7 +267,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -421,6 +431,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -451,7 +462,7 @@
       <recent name="C:\Users\Daniel\Documents\GitHub\Wintle_1.0v\public\img" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.php">
+  <component name="RunManager" selected="JavaScript Debug.index.php (2)">
     <configuration default="false" name="test1.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/TEST/AudioEditor/AudioEditor/test1.php">
       <method />
     </configuration>
@@ -459,6 +470,9 @@
       <method />
     </configuration>
     <configuration default="false" name="index.php (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/application/views/index/index.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="index.php (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/application/views/albumart/index.php">
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -510,16 +524,18 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.test1.php" />
       </list>
     </recent_temporary>
   </component>
@@ -652,6 +668,7 @@
       <workItem from="1474188577325" duration="4018000" />
       <workItem from="1474263590002" duration="3443000" />
       <workItem from="1474344510993" duration="9403000" />
+      <workItem from="1474534554956" duration="369000" />
     </task>
     <servers />
   </component>
@@ -664,7 +681,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583593000" />
+    <option name="totallyTimeSpent" value="583962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -679,7 +696,7 @@
     <frame x="-8" y="0" width="1932" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28502154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28933188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29898074" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31823328" sideWeight="0.5125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -876,7 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1848">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,14 +911,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header_loggedin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/i/23.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -912,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="38" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,11 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-312">
           <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <marker date="1473843250465" expanded="true" signature="844:927" ph="SELECT count... user" />
-            <marker date="1473843250465" expanded="true" signature="1278:1337" ph="SELECT passw... user" />
-            <marker date="1473843250465" expanded="true" signature="1793:1847" ph="SELECT name user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -964,11 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-192">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1474098664032" expanded="true" signature="1599:1663" ph="SELECT count... user" />
-            <marker date="1474098664032" expanded="true" signature="1997:2080" ph="SELECT count... user" />
-            <marker date="1474098664032" expanded="true" signature="2488:2592" ph="INSERT INTO user... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,7 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="202" column="0" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +1001,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/albumartall.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="24">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
@@ -1022,17 +1017,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/shared.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="3912">
           <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
           <folding />
         </state>
@@ -1043,23 +1030,40 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/albumart/index.php">
+    <entry file="file://$PROJECT_DIR$/library/shared.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="758">
+          <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header_loggedin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/index/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+        <state relative-caret-position="588">
+          <caret line="161" column="9" selection-start-line="130" selection-start-column="0" selection-end-line="161" selection-end-column="9" />
           <folding>
             <marker date="1474369143819" expanded="true" signature="3278:3306" ph="..." />
             <marker date="1474369143819" expanded="true" signature="3321:3456" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/albumart/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+            <marker date="1474534821365" expanded="true" signature="1641:1776" ph="..." />
           </folding>
         </state>
       </provider>

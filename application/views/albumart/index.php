@@ -16,10 +16,18 @@
         }
 
         .main-board{
-            height:1000px;
+            height:100%;
             width:85%;
             background-color: ghostwhite;
             margin:auto;
+        }
+
+        .main-board .seed-board{
+            display:inline-block;
+            position:fixed;
+            height:100%;
+            width:20%;
+            background-color: rgba(0,0,0,0.3);
         }
 
         .main-board .music-board{
@@ -41,9 +49,8 @@
             background-size: cover;
         }
         .body{
-            margin-top : 30px;
+            margin-top : 50px;
         }
-
 
         .line-arrow {
             position: absolute;
@@ -62,31 +69,42 @@
             left:50px;
         }
 
+        #to-albums{
+            position:fixed;
+            left:0;
+            top:50px;
+            height:100%;
+            width:7%;
+            background-color: rgba(189,189,189,0.7);
+            z-index:1;
+        }
+
     </style>
 </head>
 
 <body class="body">
-<div id="bg">
-    <div class="main-board">
-        <div class="music-board"></div>
-    </div>
-    <div id="to-albums">
-        <?php echo "<a href='" .URL."index'";?>  <div class="line-arrow left"></div> </a>
-
-    </div>
+<div id="bg"></div>
+<div class="main-board">
+    <div class="music-board"></div>
+    <div class="seed-board"></div>
 </div>
+
+<div id="to-albums">
+    <?php echo "<a href='" .URL."index'>";?>  <div class="line-arrow left"></div> </a>
+</div>
+
 </body>
 
 
 <script type="text/javascript">
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
-    var w = 1, h = 1,html = '', limitItem = 49;
+    var w = 1, h = 1,html = '', limitItem = 47;
     var cellinfo = [];
-    for (var i = 0; i < limitItem; ++i) {
+    for (var i = 1; i < limitItem; i++) {
         //w = 200 +  200 * Math.random() << 0;
         h = w = (Math.floor(Math.random() * 2) + 1) * 150;
         //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
-        html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1);
+        html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
         //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
     }
     $(".music-board").html(html);

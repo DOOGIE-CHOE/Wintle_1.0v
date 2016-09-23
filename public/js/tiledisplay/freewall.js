@@ -559,6 +559,7 @@
             var cellW = runtime.cellW;
             var totalWidth = Math.max(0, cellW * totalCol - gutterX);
             var totalHeight = Math.max(0, cellH * totalRow - gutterY);
+           // var totalHeight = Math.max(0, cellH * (totalRow - gutterY)/1.5);
 
             container.attr({
                 'data-total-col': totalCol,

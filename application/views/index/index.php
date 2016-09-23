@@ -7,7 +7,7 @@
             overflow-x:hidden;
         }
         .main-board{
-            height:1000px;
+            height:100%;
             width:85%;
             background-color: ghostwhite;
             margin:auto;
@@ -44,11 +44,10 @@
             background-color: #6d95e0;
             width:20px;
             height:100%;
-
         }
 
         .body{
-            margin-top : 30px;
+            margin-top : 50px;
         }
         #bg{
             position:fixed;
@@ -58,6 +57,7 @@
             background-image: url("img/bg/bg1.jpg");
             background-size: cover;
         }
+
         #to-albumart{
             position:fixed;
             right:0;
@@ -126,18 +126,18 @@
         <div class="music-board"></div>
     </div>
     <div id="to-albumart">
-    <?php echo "<a href='" .URL."albumartall'";?><div class="line-arrow right"></div></a>
+    <?php echo "<a href='" .URL."albumartall'>";?><div class="line-arrow right"></div></a>
     </div>
 
 <script type="text/javascript">
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
-    var w = 1, h = 1,html = '', limitItem = 49;
+    var w = 1, h = 1,html = '', limitItem = 47;
     var cellinfo = [];
-    for (var i = 0; i < limitItem; ++i) {
+    for (var i = 1; i < limitItem; i++) {
         //w = 200 +  200 * Math.random() << 0;
         h = w = (Math.floor(Math.random() * 2) + 1) * 150;
         //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
-        html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1);
+        html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
         //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
     }
     $(".music-board").html(html);

@@ -32,16 +32,24 @@
 
         .sb{
             position:relative;
-            background-color: #3d4043;
+            background-color: #222222;
             width:100%;
             height:120px;
             margin-top:30px;
+            margin-bottom:30px;
+        }
+
+        .sub{
+            background-color: #444444;
+            width:95%;
+            float:right;
+            margin:0 0 20px 0;
         }
 
         .label{
             position:relative;
             float:left;
-            background-color: #6d95e0;
+            background-color: rgb(65,126,141);
             width:20px;
             height:100%;
         }
@@ -93,6 +101,11 @@
             right: 50px;
         }
 
+        #label-info{
+            margin-left:30px;
+            color: rgb(65,126,141);
+        }
+
 
     </style>
 </head>
@@ -103,24 +116,30 @@
 
 <div class="main-board">
         <div class="user-board">
+
             <div class="sb userinfo">
-                <div class="label"></div>
+                <div class="label" style="background-color: #6d95e0"></div>
             </div>
 
-            <div class="sb follower">
+            <h2 style="margin:0;">My Info</h2>
+            <div class="sb sub follower">
                 <div class="label"></div>
+                <h3 id="label-info">Follower</h3>
             </div>
 
-            <div class="sb playlist">
+            <div class="sb sub playlist">
                 <div class="label"></div>
+                <h3 id="label-info">Playlist</h3>
             </div>
 
-            <div class="sb library">
+            <div class="sb sub library">
                 <div class="label"></div>
+                <h3 id="label-info">Library</h3>
             </div>
 
-            <div class="sb myproject">
+            <div class="sb sub myproject">
                 <div class="label"></div>
+                <h3 id="label-info">MyProject</h3>
             </div>
         </div>
         <div class="music-board"></div>

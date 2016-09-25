@@ -1,6 +1,5 @@
-<html>
+
 <head>
-    <title>Wintle</title>
 
     <style>
         html body{
@@ -147,7 +146,7 @@
     <div id="to-albumart">
     <?php echo "<a href='" .URL."albumartall'>";?><div class="line-arrow right"></div></a>
     </div>
-
+</body>
 <script type="text/javascript">
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
     var w = 1, h = 1,html = '', limitItem = 47;

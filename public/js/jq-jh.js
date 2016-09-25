@@ -31,6 +31,8 @@
             height: header_height
         }, playtime);
         $('.hidden').css('display', 'block');
+
+        $(".body").css("margin-top","30px");
     })
 
 

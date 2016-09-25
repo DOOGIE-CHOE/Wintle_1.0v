@@ -180,7 +180,6 @@ if(Session::isSessionSet("loggedIn")){
         </style>
 
     </head>
-    <body>
     <header>
         <div class="info-content">
            <!--<iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
@@ -267,7 +266,7 @@ if(Session::isSessionSet("loggedIn")){
         </form>
     </div>
 
-
+<!--
     <script type="text/javascript" src="js/mainpage/javascript.fullPage.js"></script>
     <script type="text/javascript">
         fullpage.initialize('#fullpage', {
@@ -275,6 +274,5 @@ if(Session::isSessionSet("loggedIn")){
             menu: '#menu',
             css3: true
         });
-    </script>
-    </body>
-    </html>
+    </script>-->
+

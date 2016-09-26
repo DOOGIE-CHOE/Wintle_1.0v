@@ -176,6 +176,15 @@
             color:black;
             text-decoration: none;
         }
+        .co-op{
+            position:fixed;
+            float: right;
+            top:20px;
+            right:15px;
+            z-index:10;
+            height:50px;
+            width:50px;
+        }
 
     </style>
     <script>
@@ -380,6 +389,7 @@
 </div>
 <div class="option-space">
 </div>
+<div class="co-op"><img src="groups.png"></div>
 
 </br>
 <div class="cssload-overlay">

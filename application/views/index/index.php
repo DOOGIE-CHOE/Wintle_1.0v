@@ -120,6 +120,7 @@
                 <div class="label" style="background-color: #6d95e0"></div>
             </div>
 
+
             <h2 style="margin:0;">My Info</h2>
             <div class="sb sub follower">
                 <div class="label"></div>

@@ -10,7 +10,6 @@ $data = array(array());
 $error = false;
 $directory = "waves/";
 $audiopath = 'audio/';
-$keys = array();
 $i = 0;
 
 $length = count($_FILES['audio']['name']);

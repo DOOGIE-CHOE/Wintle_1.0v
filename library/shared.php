@@ -51,10 +51,10 @@ function callHook() {
 
     $url = isset($_GET['url']) ? $_GET['url'] : null;
 
-    if($url == "TEST/AudioEditor/AudioEditor/test1.php"){
+   /* if($url == "TEST/AudioEditor/AudioEditor/test1.php"){
         require (ROOT.DS."TEST/AudioEditor/AudioEditor/test1.php");
         return false;
-    }
+    }*/
 
     $url = rtrim($url, '/');
     $url = explode('/', $url);
@@ -73,6 +73,11 @@ function callHook() {
             $isloggedin = false;
         }
 
+        if($url[0] == "webstudio"){
+            $isnoinclude = true;
+        }
+
+
         $controller->index($isnoinclude,$isloggedin);
         $controller->loadModel($url[0]);
 
@@ -85,10 +90,12 @@ function callHook() {
             }
         } else {
             if (isset($url[1])) {
-                if (method_exists($controller, $url[1])) {
-                    $controller->{$url[1]}();
-                } else {
-                    error();
+                if($url[1] != 'index'){
+                    if (method_exists($controller, $url[1])) {
+                        $controller->{$url[1]}();
+                    } else {
+                        error();
+                    }
                 }
             } else {
                // $controller->index();

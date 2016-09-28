@@ -8,7 +8,7 @@ class Model {
 
 
     function GetHashCode($password, $salt = false) {
-        //set cost (higher number, higher security but slow processing time
+        //set cost (hdigher number, higher security but slow processing time
         $cost = 10;
         if ($salt == false) {
             // Create a random salt

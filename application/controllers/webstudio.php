@@ -13,8 +13,13 @@ class WebStudio extends Controller {
         parent::__construct();
     }
 
-    function index($noInclude = false, $loggedIn = false){
+    public function index($noInclude = false, $loggedIn = false){
         $this->view->render("webstudio/index", $noInclude, $loggedIn);
     }
+
+    public function uploadAudio(){
+        $this->model->uploadAudio();
+    }
+
 
 }

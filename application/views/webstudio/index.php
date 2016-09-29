@@ -7,16 +7,20 @@
     <!------------jquery import ----------->
     <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
 
+    <!-- draggable import -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
     <meta charset="utf-8">
     <title>WebStudio - Wintle</title>
 
-    <!-- <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-   --> <!-- draggable import -->
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <!-- draggable import -->
 
-    <link href="css/loadingSpinner.css" rel="stylesheet">
-<!--
-    <script type="text/javascript" src="jquery.form.js"></script>
--->
+    <link href="<?php echo URL?>public/css/loadingSpinner.css" rel="stylesheet">
+
+
     <style>
         body, html{
             margin:0;
@@ -47,7 +51,7 @@
 
         #tile{
             position:relative;
-            background-image: url("tile.png");
+           /* background-image: url("img/tile.png");*/
             background-size:16px;
             background-repeat: repeat-x;
             width:100%;
@@ -314,13 +318,16 @@
         }
 
         $(document).ready(function(){
+
             var line = $("#line");
+
 
             line.draggable ({
                 axis : "x",
                 cursorAt:{left:8},
                 containment:[294]
             });
+
 
             line.mousedown(function (){
                 clearInterval(interval);
@@ -351,6 +358,7 @@
                 }
             });
 
+
             $('#audio').on('change',function(){
                 $('#upload-audio').ajaxForm({
                     beforeSubmit:function(e){
@@ -362,7 +370,8 @@
                         $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
                         if(data[1] != false){
-                            errorDisplay(data[1]);}
+                            errorDisplay(data[1]);
+                        }
                         var dataLength = data[0].length;
                         var count =0;
                         while($("#draggable-"+count).length != 0){
@@ -415,15 +424,16 @@
     </div>
 </div>
 
-<form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="uploadaudio.php" >
+<form name="upload-audio" id="upload-audio" method="post" enctype="multipart/form-data" action="<?php echo URL?>webstudio/uploadaudio">
     <div id="buttons">
         <div id="buttons-align">
-            <input type="file" value="upload" name="audio[]" id="audio">
+            <input type="file" value="upload" name="audio" id="audio">
             <input type="button" value="start" id="button" onclick="bar()">
             <input type="button" value="reset" id="reset" onclick="resetBarProgress()">
         </div>
     </div>
 </form>
+
 <div>
     <p id="left"></p>
     <p id="left-div"></p>

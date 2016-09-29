@@ -77,7 +77,6 @@ function callHook() {
             $isnoinclude = true;
         }
 
-
         $controller->index($isnoinclude,$isloggedin);
         $controller->loadModel($url[0]);
 

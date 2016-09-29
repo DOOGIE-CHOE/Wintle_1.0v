@@ -5,15 +5,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>jQuery UI Droppable - Default functionality</title>
+    <title>WebStudio - Wintle</title>
     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
     <!-- draggable import -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-    <link href="loadingSpinner.css" rel="stylesheet">
+    <!------------jquery import ----------->
+    <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="jquery.form.js"></script>
+    <link href="<?php echo URL?>public/css/loadingSpinner.css" rel="stylesheet">
 
     <style>
         body, html{
@@ -45,7 +47,7 @@
 
         #tile{
             position:relative;
-            background-image: url("tile.png");
+            background-image: url("http://localhost/public/img/tile.png");
             background-size:16px;
             background-repeat: repeat-x;
             width:100%;
@@ -351,12 +353,14 @@
 </head>
 <body>
 <div id="logo">
-    <img src="logo.png">
+    <img src="<?php echo URL?>img/pavicon/logo.png">
     <div id="page-option">
-        <a href="index.php">Web Studio</a>
+        <a href="<?php echo URL?>webstudio">Web Studio</a>
         <a>&nbsp</a>
-        <a href="sample.php" style="font-weight: bold; text-decoration: underline">Sample page</a>
+        <a href="<?php echo URL?>webstudio/sample" style="font-weight: bold; text-decoration: underline">Sample page</a>
     </div>
+</div>
+<div class="option-space">
 </div>
 
 <div class="option-space"></div>

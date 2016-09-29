@@ -17,6 +17,10 @@ class WebStudio extends Controller {
         $this->view->render("webstudio/index", $noInclude, $loggedIn);
     }
 
+    public function sample(){
+        $this->view->render("webstudio/sample", true, false);
+    }
+
     public function uploadAudio(){
         $this->model->uploadAudio();
     }

@@ -4,19 +4,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!------------jquery import ----------->
-    <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+
+    <meta charset="utf-8">
+    <title>WebStudio - Wintle</title>
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
     <!-- draggable import -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-
-    <meta charset="utf-8">
-    <title>WebStudio - Wintle</title>
-
-    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-    <!-- draggable import -->
+    <!------------jquery import ----------->
+    <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
 
     <link href="<?php echo URL?>public/css/loadingSpinner.css" rel="stylesheet">
 
@@ -51,7 +49,7 @@
 
         #tile{
             position:relative;
-           /* background-image: url("img/tile.png");*/
+            background-image: url("http://wintle.co.kr/public/img/tile.png");
             background-size:16px;
             background-repeat: repeat-x;
             width:100%;
@@ -370,8 +368,7 @@
                         $('.cssload-overlay').css("visibility","hidden");
                         var data = $.parseJSON(e);
                         if(data[1] != false){
-                            errorDisplay(data[1]);
-                        }
+                            errorDisplay(data[1]);}
                         var dataLength = data[0].length;
                         var count =0;
                         while($("#draggable-"+count).length != 0){
@@ -383,6 +380,7 @@
                         }
                     },
                     error:function(e){
+
                     }
 
                 }).submit();

@@ -77,7 +77,6 @@ function callHook() {
             $isnoinclude = true;
         }
 
-        $controller->index($isnoinclude,$isloggedin);
         $controller->loadModel($url[0]);
 
     // calling methods
@@ -97,7 +96,7 @@ function callHook() {
                     }
                 }
             } else {
-               // $controller->index();
+                $controller->index($isnoinclude,$isloggedin);
             }
         }
 }

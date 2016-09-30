@@ -100,7 +100,7 @@
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
     var w = 1, h = 1,html = '', limitItem = 47;
     var cellinfo = [];
-    for (var i = 1; i < limitItem; i++) {
+    for (var i = 2; i < limitItem; i++) {
         //w = 200 +  200 * Math.random() << 0;
         h = w = (Math.floor(Math.random() * 2) + 1) * 150;
         //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);

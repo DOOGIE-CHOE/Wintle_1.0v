@@ -105,8 +105,15 @@
             color: rgb(65,126,141);
         }
 
-
     </style>
+
+    <script>
+        function ttt(){
+            history.pushState({}, '', "http://localhost/albumartall");
+            $("body").load("http://localhost/albumartall");
+        }
+
+    </script>
 </head>
 <body class="body">
 <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
@@ -145,7 +152,9 @@
         <div class="music-board"></div>
     </div>
     <div id="to-albumart">
-    <?php echo "<a href='" .URL."albumartall'>";?><div class="line-arrow right"></div></a>
+   <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
+        <div class="line-arrow right" onclick="ttt();"></div>
+
     </div>
 </body>
 <script type="text/javascript">

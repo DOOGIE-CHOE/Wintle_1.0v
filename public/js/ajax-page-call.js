@@ -12,6 +12,6 @@ function pageCall(url){
     * you have to load all pages by ajax.
     *
     * */
-
+   location.href = url;
 
 }

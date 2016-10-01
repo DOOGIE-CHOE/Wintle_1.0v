@@ -80,24 +80,36 @@
         }
 
     </style>
+
+    <script>
+        function ttt(){
+            history.pushState({}, '', "http://localhost/index");
+            $("body").load("http://localhost/index");
+        }
+
+    </script>
 </head>
 
-<body class="body">
-<div id="bg"></div>
+<body class="body"><!--
+<div id="bg"></div>-->
 <div class="main-board">
     <div class="music-board"></div>
     <div class="seed-board"></div>
 </div>
+<!--
+<div id="to-albums">
+    <?php /*echo "<a href='" .URL."index'>";*/?>  <div class="line-arrow left"></div> </a>
+</div>-->
 
 <div id="to-albums">
-    <?php echo "<a href='" .URL."index'>";?>  <div class="line-arrow left"></div> </a>
+    <div class="line-arrow left" onclick="ttt();"></div>
 </div>
 
 </body>
 
 
 <script type="text/javascript">
-    var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
+   /* var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
     var w = 1, h = 1,html = '', limitItem = 47;
     var cellinfo = [];
     for (var i = 2; i < limitItem; i++) {
@@ -125,5 +137,5 @@
 
     function a(id){
         errorDisplay(id.index);
-    }
+    }*/
 </script>

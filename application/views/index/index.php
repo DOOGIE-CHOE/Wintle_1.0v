@@ -154,7 +154,6 @@
     <div id="to-albumart">
    <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
         <div class="line-arrow right" onclick="ttt();"></div>
-
     </div>
 </body>
 <script type="text/javascript">

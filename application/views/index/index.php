@@ -108,10 +108,43 @@
     </style>
 
     <script>
+        $.pagehandler = $.pagehandler || {};
+        $.pagehandler.loadContent = function (url) {
+            var pageUrl = url;
+            // $('.ajax-loader').show();
+            $.ajax({
+                //url: pageUrl + '?type=ajax',
+                url: pageUrl,
+                success: function (data) {
+                    $('html').html(data);
+                    // hide ajax loader
+                    //   $('.ajax-loader').hide();
+                }
+            });
+            if (pageUrl != window.location) {
+                window.history.pushState({ path: pageUrl }, '', pageUrl);
+            }
+        };
+
+
+        $.pagehandler.backForwardButtons = function () {
+            $(window).on('popstate', function () {
+                if(!window.location.href.indexOf("#")){
+                    $.ajax({
+                        url: location.pathname,
+                        success: function (data) {
+                            $('html').html(data);
+                        }
+                    });
+                }
+            });
+        };
+
         function ttt(){
-            history.pushState({}, '', "http://localhost/albumartall");
-            $("body").load("http://localhost/albumartall");
+           $.pagehandler.loadContent("http://localhost/albumartall");
         }
+        $.pagehandler.backForwardButtons();
+
 
     </script>
 </head>
@@ -121,41 +154,41 @@
 <!--<div id="bg"></div>
 -->
 <div class="main-board">
-        <div class="user-board">
+    <div class="user-board">
 
-            <div class="sb userinfo">
-                <div class="label" style="background-color: #6d95e0"></div>
-            </div>
-
-
-            <h2 style="margin:0;">My Info</h2>
-            <div class="sb sub follower">
-                <div class="label"></div>
-                <h3 id="label-info">Follower</h3>
-            </div>
-
-            <div class="sb sub playlist">
-                <div class="label"></div>
-                <h3 id="label-info">Playlist</h3>
-            </div>
-
-            <div class="sb sub library">
-                <div class="label"></div>
-                <h3 id="label-info">Library</h3>
-            </div>
-
-            <div class="sb sub myproject">
-                <div class="label"></div>
-                <h3 id="label-info">MyProject</h3>
-            </div>
+        <div class="sb userinfo">
+            <div class="label" style="background-color: #6d95e0"></div>
         </div>
-        <div class="music-board"></div>
-    </div>
-    <div id="to-albumart">
-   <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-        <div class="line-arrow right" onclick="ttt();"></div>
 
+
+        <h2 style="margin:0;">My Info</h2>
+        <div class="sb sub follower">
+            <div class="label"></div>
+            <h3 id="label-info">Follower</h3>
+        </div>
+
+        <div class="sb sub playlist">
+            <div class="label"></div>
+            <h3 id="label-info">Playlist</h3>
+        </div>
+
+        <div class="sb sub library">
+            <div class="label"></div>
+            <h3 id="label-info">Library</h3>
+        </div>
+
+        <div class="sb sub myproject">
+            <div class="label"></div>
+            <h3 id="label-info">MyProject</h3>
+        </div>
     </div>
+    <div class="music-board"></div>
+</div>
+<div id="to-albumart">
+    <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
+    <div class="line-arrow right" onclick="ttt();"></div>
+
+</div>
 </body>
 <script type="text/javascript">
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";

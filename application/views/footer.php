@@ -7,3 +7,5 @@
  */
 
 echo "footer</br>";
+
+echo "</html>";

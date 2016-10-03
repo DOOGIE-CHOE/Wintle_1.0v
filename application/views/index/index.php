@@ -184,11 +184,10 @@
     </div>
     <div class="music-board"></div>
 </div>
-<div id="to-albumart">
-    <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-    <div class="line-arrow right" onclick="ttt();"></div>
-
-</div>
+    <div id="to-albumart">
+   <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
+        <div class="line-arrow right" onclick="ttt();"></div>
+    </div>
 </body>
 <script type="text/javascript">
     var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";

@@ -6,13 +6,16 @@
 
 $.pagehandler = $.pagehandler || {};
 $.pagehandler.loadContent = function (url) {
-   var pageUrl = url;
+    var pageUrl = url;
+   // $("#body").load(pageUrl);
+
    // $('.ajax-loader').show();
    $.ajax({
       //url: pageUrl + '?type=ajax',
       url: pageUrl,
-      success: function (data) {
-         $('html').html(data);
+      success: function (data){
+          $("#all").html($(data).filter("#all").html());
+         //$('#body').html();
          // hide ajax loader
          //   $('.ajax-loader').hide();
       }
@@ -23,16 +26,20 @@ $.pagehandler.loadContent = function (url) {
 };
 
 
+
+
 $.pagehandler.backForwardButtons = function () {
    $(window).on('popstate', function () {
       if(window.location.href.indexOf("#") == -1){
          $.ajax({
             url: location.pathname,
             success: function (data) {
-               $('html').html(data);
+               $('#all').html($(data).filter("#all").html());
             }
          });
       }
    });
 };
+
 $.pagehandler.backForwardButtons();
+

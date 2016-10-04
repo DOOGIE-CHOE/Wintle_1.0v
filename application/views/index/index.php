@@ -1,4 +1,4 @@
-
+<div id="all">
 <head>
 
     <style>
@@ -53,7 +53,7 @@
             height:100%;
         }
 
-        .body{
+        #body{
             margin-top : 50px;
         }
         #bg{
@@ -112,7 +112,7 @@
 
     </script>
 </head>
-<body class="body">
+<body id="body">
 <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
 -->
 <!--<div id="bg"></div>
@@ -184,3 +184,4 @@
         errorDisplay(id.index);
     }
 </script>
+</div>

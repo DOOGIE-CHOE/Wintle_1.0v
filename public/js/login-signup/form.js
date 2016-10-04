@@ -191,8 +191,9 @@ $(function(){
         var data = $(this).serialize();
         //send ajax request
         $.post(url, data, function(o) {
+            alert(1);
             if(o.success == true){
-                window.location.replace("http://localhost/index");
+                window.location.replace("index");
             }else{
                 errorDisplay(o.error);
             }

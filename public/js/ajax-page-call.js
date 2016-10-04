@@ -2,8 +2,6 @@
  * Created by Daniel on 9/25/2016.
  */
 
-
-
 $.pagehandler = $.pagehandler || {};
 $.pagehandler.loadContent = function (url) {
     var pageUrl = url;
@@ -24,7 +22,6 @@ $.pagehandler.loadContent = function (url) {
       window.history.pushState({ path: pageUrl }, '', pageUrl);
    }
 };
-
 
 
 

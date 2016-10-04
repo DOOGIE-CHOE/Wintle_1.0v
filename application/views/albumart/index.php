@@ -82,10 +82,6 @@
     </style>
 
     <script>
-        function ttt(){
-            history.pushState({}, '', "http://localhost/index");
-            $("body").load("http://localhost/index");
-        }
 
     </script>
 </head>
@@ -96,46 +92,9 @@
     <div class="music-board"></div>
     <div class="seed-board"></div>
 </div>
-<!--
-<div id="to-albums">
-    <?php /*echo "<a href='" .URL."index'>";*/?>  <div class="line-arrow left"></div> </a>
-</div>-->
 
 <div id="to-albums">
-    <div class="line-arrow left" onclick="ttt();"></div>
+    <div class="line-arrow left" onclick="$.pagehandler.loadContent('http://localhost/index');"></div>
 </div>
 
 </body>
-
-
-<script type="text/javascript">
-   /* var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
-    var w = 1, h = 1,html = '', limitItem = 47;
-    var cellinfo = [];
-    for (var i = 2; i < limitItem; i++) {
-        //w = 200 +  200 * Math.random() << 0;
-        h = w = (Math.floor(Math.random() * 2) + 1) * 150;
-        //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
-        html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
-        //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
-    }
-    $(".music-board").html(html);
-
-    var wall = new Freewall(".music-board");
-    wall.reset({
-        selector: '.cell',
-        animate: true,
-        cellW: 150,
-        cellH: 150,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-    wall.fitWidth();
-    // for scroll bar appear;
-    $(window).trigger("resize");
-
-    function a(id){
-        errorDisplay(id.index);
-    }*/
-</script>

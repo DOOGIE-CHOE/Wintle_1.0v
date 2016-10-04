@@ -23,13 +23,14 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- css custom -->
     <link media="screen" href="css/style/pc.css" rel="stylesheet" />
-    <link media="handheld" href="css/style/mobile.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Tile Display -->
     <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
 
+    <!-- page handler-->
+    <script type="text/javascript" src="js/ajax-page-call.js"></script>
 </head>
 <header style="height: 50px;">
     <div id="header-gnb">

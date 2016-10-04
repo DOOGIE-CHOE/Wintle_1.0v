@@ -32,7 +32,6 @@ if(Session::isSessionSet("loggedIn")){
 
         <!-- css custom -->
         <link media="screen" href="css/style/pc.css" rel="stylesheet" />
-        <link media="handheld" href="css/style/mobile.css" rel="stylesheet" />
 
         <!-- Javascript custom -->
         <script src="js/jq-jh.js"></script>

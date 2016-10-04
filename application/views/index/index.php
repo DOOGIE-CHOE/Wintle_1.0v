@@ -108,42 +108,6 @@
     </style>
 
     <script>
-        $.pagehandler = $.pagehandler || {};
-        $.pagehandler.loadContent = function (url) {
-            var pageUrl = url;
-            // $('.ajax-loader').show();
-            $.ajax({
-                //url: pageUrl + '?type=ajax',
-                url: pageUrl,
-                success: function (data) {
-                    $('html').html(data);
-                    // hide ajax loader
-                    //   $('.ajax-loader').hide();
-                }
-            });
-            if (pageUrl != window.location) {
-                window.history.pushState({ path: pageUrl }, '', pageUrl);
-            }
-        };
-
-
-        $.pagehandler.backForwardButtons = function () {
-            $(window).on('popstate', function () {
-                if(!window.location.href.indexOf("#")){
-                    $.ajax({
-                        url: location.pathname,
-                        success: function (data) {
-                            $('html').html(data);
-                        }
-                    });
-                }
-            });
-        };
-
-        function ttt(){
-           $.pagehandler.loadContent("http://localhost/albumartall");
-        }
-        $.pagehandler.backForwardButtons();
 
 
     </script>
@@ -186,7 +150,7 @@
 </div>
     <div id="to-albumart">
    <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-        <div class="line-arrow right" onclick="ttt();"></div>
+        <div class="line-arrow right" onclick="$.pagehandler.loadContent('http://localhost/albumartall');"></div>
     </div>
 </body>
 <script type="text/javascript">

@@ -3,15 +3,36 @@
  */
 
 
-function pageCall(url){
 
-    /*
-    *
-    * This will be called every time you navigate through pages
-    * Because to constantly play musics when you load another page,
-    * you have to load all pages by ajax.
-    *
-    * */
-   location.href = url;
+$.pagehandler = $.pagehandler || {};
+$.pagehandler.loadContent = function (url) {
+   var pageUrl = url;
+   // $('.ajax-loader').show();
+   $.ajax({
+      //url: pageUrl + '?type=ajax',
+      url: pageUrl,
+      success: function (data) {
+         $('html').html(data);
+         // hide ajax loader
+         //   $('.ajax-loader').hide();
+      }
+   });
+   if (pageUrl != window.location) {
+      window.history.pushState({ path: pageUrl }, '', pageUrl);
+   }
+};
 
-}
+
+$.pagehandler.backForwardButtons = function () {
+   $(window).on('popstate', function () {
+      if(window.location.href.indexOf("#") == -1){
+         $.ajax({
+            url: location.pathname,
+            success: function (data) {
+               $('html').html(data);
+            }
+         });
+      }
+   });
+};
+$.pagehandler.backForwardButtons();

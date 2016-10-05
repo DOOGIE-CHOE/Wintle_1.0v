@@ -86,8 +86,8 @@
 
     </script>
 </head>
-<body id="body"><!--
-<div id="bg"></div>-->
+<body id="body">
+<div id="bg"></div>
 
 
 <div class="main-board">

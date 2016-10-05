@@ -92,6 +92,7 @@ function signUp(){
     }
 
 
+
     return true;
 }
 
@@ -132,7 +133,7 @@ function check() {
     if(button.value == "SIGN UP"){
         if(signUp()){
           //  $("#login-signup-form").attr("action","http://wintle.co.kr/signup/callsignup");
-             $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
+            $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
             return true;
         }
     }
@@ -191,9 +192,8 @@ $(function(){
         var data = $(this).serialize();
         //send ajax request
         $.post(url, data, function(o) {
-            alert(1);
             if(o.success == true){
-                window.location.replace("index");
+                window.location.replace("index.php");
             }else{
                 errorDisplay(o.error);
             }

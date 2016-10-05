@@ -18,6 +18,11 @@ if(Session::isSessionSet("loggedIn")){
 <head>
     <!------------jquery import ----------->
     <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- draggable import -->
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
     <!-- css Plug In -->
     <link href="css/css_reset.css" rel="stylesheet" />
 

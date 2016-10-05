@@ -18,8 +18,14 @@ if(Session::isSessionSet("loggedIn")){
     <!DOCTYPE html>
     <html>
     <head>
+
+
         <!------------jquery import ----------->
         <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <!-- draggable import -->
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

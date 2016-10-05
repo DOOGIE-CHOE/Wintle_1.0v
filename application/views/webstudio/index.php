@@ -9,8 +9,8 @@
     <title>WebStudio - Wintle</title>
     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
-    <!-- draggable import -->
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- draggable import --><!--
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>-->
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
     <!------------jquery import ----------->

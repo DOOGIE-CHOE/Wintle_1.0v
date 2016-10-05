@@ -16,6 +16,8 @@ class View {
             }
             require_once ROOT.DS.'application'.DS.'views'.DS.'errorMessage.php';
             require_once ROOT.DS.'application'.DS.'views'.DS.  $name . '.php';
+
+            require_once ROOT.DS.'application'.DS.'views'.DS.'musicplayer.php';
             require_once ROOT.DS.'application'.DS.'views'.DS.'footer.php';
         }
 	}

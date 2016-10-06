@@ -32,10 +32,21 @@
             top:5px;
         }
 
-        #play-info{
+        #play-info-all{
             position:absolute;
             height:10px;
-            width:40%;
+            width:50%;
+            margin:auto;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+
+        #play-info{
+            position:relative;
+            height:10px;
+            width:80%;
             margin:auto;
             top:0;
             left:0;
@@ -88,6 +99,7 @@
         });
 
         function musicPlay(){
+            console.log(audio.currentTime);
             if(isPlaying(audio)){
                 audio.pause();
                 $("#play").attr("src","img/play.png");
@@ -119,11 +131,14 @@
         <input type="image" src="img/forwards.png" onclick="musicBackwards()">
     </div>
 
-    <div id="play-info">
-        <div id="play-bar">
-            <div id="played"></div>
+    <div id="play-info-all">
+        <div id="played-time">0:00</div>
+        <div id="play-info">
+            <div id="play-bar">
+                <div id="played"></div>
+            </div>
+            <div id="play-bar-button"></div>
         </div>
-        <div id="play-bar-button"></div>
     </div>
 
 </div>

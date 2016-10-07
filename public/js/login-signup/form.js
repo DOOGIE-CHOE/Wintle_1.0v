@@ -193,7 +193,7 @@ $(function(){
         //send ajax request
         $.post(url, data, function(o) {
             if(o.success == true){
-                window.location.replace("index.php");
+                window.location.replace("index");
             }else{
                 errorDisplay(o.error);
             }

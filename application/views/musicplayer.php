@@ -99,43 +99,41 @@
     </style>
     <script>
 
-
         var audio = document.createElement('audio');
         var duration;
         var progressrate;
         var PLAYBARWIDTH = 800;
         var playinterval;
+        var barbutton;
+
         $(function(){
             audio.setAttribute('src', "audio/4.mp3");
-
+            //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
+                barbutton = $("#play-bar-button");
                 displayTime(document.getElementById("duration-time"),duration);
+                //calculate px that will progress per sec
                 progressrate = Math.round((PLAYBARWIDTH / (duration*10)) * 100) / 100;
+
             });
 
             $("#play-bar-button").draggable({
                 axis : "x",
                 containment:"parent",
                 drag: function() {
-                    $("#played").css("width",(parseInt($("#play-bar-button").css("left")) + 5)+"px");
-
-                    var playedsec = parseFloat($("#play-bar-button").css("left")) / (progressrate * 10);
-                    audio.currentTime = parseInt(playedsec);
-                    displayTime(document.getElementById("played-time"), playedsec);
+                    var left = parseInt(barbutton.css("left"));
+                    setPlayedBar(left);
+                    var currentTime = left / (progressrate * 10);
+                    audio.currentTime = parseInt(currentTime);
+                    displayTime(document.getElementById("played-time"), currentTime);
+                    displayTime(document.getElementById("duration-time"), duration - currentTime);
                 }
             });
-            //   console.log(toFixed(audio.duration,2));
-            // $("#duration-time").innerHTML=toFixed(audio.duration,2);
-
-            $("#play-bar-button").change(function(){
-                console.log(1);
-            })
-
         });
 
         function displayTime(target, second){
-            var min = ~~(second / 60);
+            var min = ~~(second / 60); // shorthand of Math.float
             var sec = ~~(second % 60);
             if(sec < 10) target.innerHTML = min + ":0" + sec;
             else target.innerHTML = min + ":" + sec;
@@ -153,49 +151,32 @@
             }
         }
 
-        $("#play-bar-button").change(function(){
-            alert(1);
-        });
-
         function isPlaying(audelem) { return !audelem.paused; }
 
         function playBarButtonProgress(){
-            var barbutton = $("#play-bar-button");
-            var tmp = (barbutton.css("left")).substring(0,barbutton.css("left").length-2);
-            tmp = parseFloat(tmp) + progressrate;
-            setPlayedBar(tmp);
-            if(tmp >= PLAYBARWIDTH){
+            var left = parseFloat(barbutton.css("left"));
+            left += progressrate;
+            setPlayedBar(left);
+            if(left >= PLAYBARWIDTH){
                 audio.pause();
                 audio.currentTime = 0;
                 $("#play").attr("src","img/play.png");
                 $("#play-bar-button").css("left","0px");
                 setPlayedBar(0);
                 clearInterval(playinterval);
+                displayTime(document.getElementById("played-time"), 0);
+                displayTime(document.getElementById("duration-time"), duration);
                 return;
             }
-            barbutton.css("left",tmp + "px");
+            barbutton.css("left",left + "px");
+            displayTime(document.getElementById("played-time"), audio.currentTime);
+            displayTime(document.getElementById("duration-time"), duration - audio.currentTime);
         }
 
         function setPlayedBar(width){
+            width += 5;
             $("#played").css("width",width + "px");
         }
-
-        /*
-
-         function toFixed(value, precision) {
-         var precision = precision || 0,
-         power = Math.pow(10, precision),
-         absValue = Math.abs(Math.round(value * power)),
-         result = (value < 0 ? '-' : '') + String(Math.floor(absValue / power));
-
-         if (precision > 0) {
-         var fraction = String(absValue % power),
-         padding = new Array(Math.max(precision - fraction.length, 0) + 1).join('0');
-         result += '.' + padding + fraction;
-         }
-         return result;
-         }
-         */
 
     </script>
 </head>

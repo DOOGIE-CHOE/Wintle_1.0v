@@ -122,6 +122,17 @@
 
         <div class="sb userinfo">
             <div class="label" style="background-color: #6d95e0"></div>
+            <?php
+                if(Session::get("loggedIn") != true){
+                    echo "Please log in";
+                }else{
+                        ?>
+
+                    <script>
+                        getProfilePhoto();
+                    </script>
+             <?php } ?>
+
         </div>
 
 

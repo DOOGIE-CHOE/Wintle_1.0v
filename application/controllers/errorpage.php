@@ -8,7 +8,7 @@ class ErrorPage extends Controller {
 	
 	function index() {
 		$this->view->msg = 'This page doesnt exist';
-		$this->view->render('error/index');
+		$this->view->render('error/index',true);
 	}
 
 }

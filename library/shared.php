@@ -34,13 +34,13 @@ function removeMagicQuotes() {
 function unregisterGlobals() {
     if (ini_get('register_globals')) {
         $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
-         foreach ($array as $value) {
-             foreach ($GLOBALS[$value] as $key => $var) {
-                 if ($var === $GLOBALS[$key]) {
-                     unset($GLOBALS[$key]);
-                 }
-             }
-         }
+        foreach ($array as $value) {
+            foreach ($GLOBALS[$value] as $key => $var) {
+                if ($var === $GLOBALS[$key]) {
+                    unset($GLOBALS[$key]);
+                }
+            }
+        }
     }
 }
 
@@ -51,54 +51,54 @@ function callHook() {
 
     $url = isset($_GET['url']) ? $_GET['url'] : null;
 
-   /* if($url == "TEST/AudioEditor/AudioEditor/test1.php"){
-        require (ROOT.DS."TEST/AudioEditor/AudioEditor/test1.php");
-        return false;
-    }*/
-
     $url = rtrim($url, '/');
     $url = explode('/', $url);
     $isloggedin = false;
     $isnoinclude = false;
 
-        if (empty($url[0])) {
-            $controller = new Index();
-        }else{
+    if (empty($url[0])) {
+        $controller = new Index();
+    }else{
+        if (class_exists($url[0])){
             $controller = new $url[0];
-        }
-
-        if(Session::isSessionSet("loggedIn")){
-            $isloggedin = true;
         }else{
-            $isloggedin = false;
+            error();
+            return false;
         }
+    }
 
-        if($url[0] == "webstudio"){
-            $isnoinclude = true;
-        }
+    if(Session::isSessionSet("loggedIn")){
+        $isloggedin = true;
+    }else{
+        $isloggedin = false;
+    }
 
-        $controller->loadModel($url[0]);
+    if($url[0] == "webstudio"){
+        $isnoinclude = true;
+    }
+
+    $controller->loadModel($url[0]);
 
     // calling methods
-        if (isset($url[2])) {
-            if (method_exists($controller, $url[1])) {
-                $controller->{$url[1]}($url[2]);
-            } else {
-                error();
+    if (isset($url[2])) {
+        if (method_exists($controller, $url[1])) {
+            $controller->{$url[1]}($url[2]);
+        } else {
+            error();
+        }
+    } else {
+        if (isset($url[1])) {
+            if($url[1] != 'index'){
+                if (method_exists($controller, $url[1])) {
+                    $controller->{$url[1]}();
+                } else {
+                    error();
+                }
             }
         } else {
-            if (isset($url[1])) {
-                if($url[1] != 'index'){
-                    if (method_exists($controller, $url[1])) {
-                        $controller->{$url[1]}();
-                    } else {
-                        error();
-                    }
-                }
-            } else {
-                $controller->index($isnoinclude,$isloggedin);
-            }
+            $controller->index($isnoinclude,$isloggedin);
         }
+    }
 }
 
 

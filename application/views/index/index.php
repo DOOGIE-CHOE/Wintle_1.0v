@@ -127,12 +127,19 @@
                     echo "Please log in";
                 }else{
                         ?>
-
                     <script>
-                        getProfilePhoto();
+                       $.get("index/getProfilePhoto", function(o){
+                           var value = jQuery.parseJSON(o);
+                           if(value.profile_photo_path == null){
+                               $("#profilephoto").html("<img src = 'profileimages/default.png' style='height:120px;'>");
+                           }else{
+                               $("#profilephoto").html("<img src = '"+value.profile_photo_path+"' style='height:120px;'>");
+                           }
+                       });
                     </script>
              <?php } ?>
 
+            <div id="profilephoto"></div>
         </div>
 
 

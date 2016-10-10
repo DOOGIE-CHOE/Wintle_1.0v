@@ -15,4 +15,8 @@ class Index extends Controller {
         $this->view->render("index/index", $noInclude, $loggedIn);
     }
 
+    function getProfilePhoto(){
+        $a = $this->model->getProfilePhoto();
+        echo json_encode($a);
+    }
 }

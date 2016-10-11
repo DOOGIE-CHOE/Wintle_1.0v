@@ -175,9 +175,39 @@
                 height:20px;
                 float:right;
             }
+
+
+            #test-button{
+                display:none;
+                position:absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                margin:auto;
+                height:50%;
+                width:50%;
+            }
+            #test-button:hover{
+                display: block;
+            }
         </style>
 
         <script>
+
+            $(function(){
+                $(".cell").mouseover(function(){
+                    if( $(this).find("#test-button").length == 0){
+                        $(this).html("<img id='test-button' src='img/play_grey.png'>");
+                        $(this).find("#test-button").fadeIn(300);
+                    }
+                }).mouseleave(function(){
+                    if( $(this).find("#test-button").length > 0) {
+                        $(this).find("#test-button").fadeOut(200);
+                        $(this).html("");
+                    }
+                });
+            });
 
 
         </script>

@@ -61,6 +61,26 @@
                 top:117px;
                 left:60px;
             }
+
+            #test-parent{
+                position:relative;
+                background-color: forestgreen;
+                top:100px;
+                left:100px;
+                height:280px;
+                width:280px
+            }
+
+            #test-button{
+                position:absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                margin:auto;
+                height:50%;
+                width:50%;
+            }
         </style>
 
     </head>
@@ -91,9 +111,15 @@
             <div id="cover-photo">
                 <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
             </div>
-            <div id="user-info"></div>
+            <div id="user-info">
+                <div id="test-parent">
+
+                </div>
+            </div>
         </div>
     </div>
+
+
     </body>
 
 

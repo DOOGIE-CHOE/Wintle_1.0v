@@ -26,14 +26,14 @@
 
         #control-buttons{
             position:relative;
-            top:5px;
+            top:8px;
             left:70px;
         }
 
         #control-buttons input{
             display: inline-block;
             margin-left:10px;
-            height:40px;
+            height:35px;
         }
 
         #play-info-all{
@@ -53,7 +53,7 @@
             top:0;
             left:0;
             right:0;
-            bottom:0;
+            bottom:6px;
             height:10px;
             width:1000px;
         }

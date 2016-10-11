@@ -56,13 +56,14 @@ function callHook() {
     $isloggedin = false;
     $isnoinclude = false;
 
-    if (empty($url[0])) {
+
+    if (empty($url[0]) || $url[0] == "favicon.ico") {
         $controller = new Index();
     }else{
         if (class_exists($url[0])){
             $controller = new $url[0];
         }else{
-            error();
+            error("index");
             return false;
         }
     }
@@ -71,6 +72,12 @@ function callHook() {
         $isloggedin = true;
     }else{
         $isloggedin = false;
+    }
+
+    if($url[0] == "mypage"){
+        if($isloggedin == false){
+            error("loggedInService");
+        }
     }
 
     if($url[0] == "webstudio"){
@@ -84,7 +91,7 @@ function callHook() {
         if (method_exists($controller, $url[1])) {
             $controller->{$url[1]}($url[2]);
         } else {
-            error();
+            error("index");
         }
     } else {
         if (isset($url[1])) {
@@ -92,7 +99,7 @@ function callHook() {
                 if (method_exists($controller, $url[1])) {
                     $controller->{$url[1]}();
                 } else {
-                    error();
+                    error("index");
                 }
             }
         } else {
@@ -116,9 +123,9 @@ function __autoload($className) {
     }
 }
 
-function error() {
+function error($view) {
     $controller = new ErrorPage();
-    $controller->index();
+    $controller->{$view}();
     return false;
 }
 

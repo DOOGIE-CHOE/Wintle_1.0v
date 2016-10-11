@@ -11,4 +11,9 @@ class ErrorPage extends Controller {
 		$this->view->render('error/index',true);
 	}
 
+	function loggedInService(){
+        $this->view->msg = 'You need to log in to use this service.';
+        $this->view->render('error/loggedinservice',true);
+    }
+
 }

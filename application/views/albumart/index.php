@@ -18,7 +18,7 @@
 
         .main-board{
             height:100%;
-            width:85%;
+            width:1222px;
             background-color: ghostwhite;
             margin:auto;
         }
@@ -50,7 +50,7 @@
             background-size: cover;
         }
         #body{
-            margin-top : 50px;
+            margin-top : 37px;
         }
 
         .line-arrow {
@@ -73,7 +73,7 @@
         #to-albums{
             position:fixed;
             left:0;
-            top:50px;
+            top:37px;
             height:100%;
             width:7%;
             background-color: rgba(189,189,189,0.7);
@@ -107,7 +107,7 @@
     var cellinfo = [];
     for (var i = limitItem; i >= 1; i--) {
         //w = 200 +  200 * Math.random() << 0;
-        h = w = (Math.floor(Math.random() * 2) + 1) * 150;
+        h = w = (Math.floor(Math.random() * 2) + 1) * 140;
         //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
         html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
         //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
@@ -118,8 +118,8 @@
     wall.reset({
         selector: '.cell',
         animate: true,
-        cellW: 150,
-        cellH: 150,
+        cellW: 140,
+        cellH: 140,
         onResize: function() {
             wall.fitWidth();
         }

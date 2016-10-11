@@ -37,17 +37,17 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="js/ajax-page-call.js"></script>
 </head>
-<header style="height: 50px;">
+<header style="height: 37px;">
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <a href="index"><img src="img/pavicon/logo_white_scaled.png" style="height:50px"></a>
+            <img src="img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('index');">
         </div>
-        <div class="MemberShipBtn1">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
+        <div class="MemberShipBtn1" style="top:10px">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
             <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
             <a href="<?php echo $top_snd_link?>" id="top_login"><?php echo $top_snd_text?></a>
         </div>
-        <div style="position:absolute; right:25px; height:50px;">
-            <a href="webstudio"><img src="img/beta.png" style="height:50px"></a>
+        <div style="position:absolute; right:25px; height:37px;">
+            <a href="webstudio"><img src="img/beta.png" style="height:37px"></a>
         </div>
     </div>
 </header>

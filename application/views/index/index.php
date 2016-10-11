@@ -7,7 +7,7 @@
             }
             .main-board{
                 height:100%;
-                width:1630px;
+                width:1222px;
                 background-color: ghostwhite;
                 margin:auto;
             }
@@ -16,7 +16,7 @@
                 display:inline-block;
                 position:relative;
                 height:100%;
-                width: 400px;
+                width: 300px;
                 background-color: rgba(0,0,0,0.3);
             }
 
@@ -33,16 +33,16 @@
                 position:relative;
                 background-color: #222222;
                 width:100%;
-                height:120px;
-                margin-top:30px;
-                margin-bottom:30px;
+                height:90px;
+                margin-top:22px;
+                margin-bottom:22px;
             }
 
             .sub{
                 background-color: #444444;
                 width:95%;
                 float:right;
-                margin:0 0 20px 0;
+                margin:0 0 15px 0;
             }
 
             .label{
@@ -50,12 +50,12 @@
                 position:relative;
                 float:left;
                 background-color: rgb(65,126,141);
-                width:20px;
+                width:15px;
                 height:100%;
             }
 
             #body{
-                margin-top : 50px;
+                margin-top : 37px;
             }
             #bg{
                 position:fixed;
@@ -69,7 +69,7 @@
             #to-albumart{
                 position:fixed;
                 right:0;
-                top:50px;
+                top:37px;
                 height:100%;
                 width:7%;
                 background-color: rgba(189,189,189,0.7);
@@ -102,7 +102,7 @@
             }
 
             #label-info{
-                margin-left:30px;
+                margin-left:20px;
                 color: rgb(65,126,141);
             }
             #shortcut{
@@ -122,9 +122,9 @@
             #username{
                 position:absolute;
                 margin:auto;
-                font-size: 30px;
-                left:50px;
-                top:20px;
+                font-size: 22px;
+                left:7px;
+                top:15px;
             }
 
             #shortcut-info{
@@ -141,8 +141,8 @@
             #shortcut-info-icon img{
                 position:relative;
                 display: inline-block;
-                margin:18px 35px 15px 13px;
-                height:26px;
+                margin:13px 26px 11px 9px;
+                height:19px;
             }
 
             #shortcut-info-number{
@@ -155,17 +155,25 @@
             }
 
             #number-likes{
-                margin:22px 20px 20px 50px;
+                margin:16px 15px 15px 37px;
             }
             #number-followers{
-                margin:22px 20px 20px 130px;
+                margin:16px 15px 15px 97px;
             }
             #number-projects{
-                margin:22px 20px 20px 210px;
+                margin:16px 15px 15px 157px;
             }
 
             #profilephoto{
                 display: inline-block;
+            }
+
+            #setting{
+                position:relative;
+                top:5px;
+                right:5px;
+                height:20px;
+                float:right;
             }
         </style>
 
@@ -193,18 +201,19 @@
                         $.get("index/getProfilePhoto", function(o){
                             var value = jQuery.parseJSON(o);
                             if(value.profile_photo_path == null){
-                                $("#profilephoto").append("<img src = 'profileimages/default.png' style='height:120px;'>");
+                                $("#profilephoto").append("<img src = 'profileimages/default.png' style='height:90px;'>");
                             }else{
-                                $("#profilephoto").append("<img src = '"+value.profile_photo_path+"' style='height:120px;'>");
+                                $("#profilephoto").append("<img src = '"+value.profile_photo_path+"' style='height:90px;'>");
                             }
                         });
                     </script>
                 <?php } ?>
 
-                <div id="profilephoto"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('mypage');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
                         <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
+                        <img id="setting" src="img/setting.svg">
                     </div>
                     <div id="shortcut-info">
                         <div id="shortcut-info-icon">
@@ -222,25 +231,25 @@
             </div>
 
 
-            <h2 style="margin:0;">My Info</h2>
+            <h3 style="margin:0;">My Info</h3>
             <div class="sb sub follower">
                 <div class="label"></div>
-                <h3 id="label-info">Follower</h3>
+                <h4 id="label-info">Follower</h4>
             </div>
 
             <div class="sb sub playlist">
                 <div class="label"></div>
-                <h3 id="label-info">Playlist</h3>
+                <h4 id="label-info">Playlist</h4>
             </div>
 
             <div class="sb sub library">
                 <div class="label"></div>
-                <h3 id="label-info">Library</h3>
+                <h4 id="label-info">Library</h4>
             </div>
 
             <div class="sb sub myproject">
                 <div class="label"></div>
-                <h3 id="label-info">MyProject</h3>
+                <h4 id="label-info">MyProject</h4>
             </div>
         </div>
         <div class="music-board"></div>
@@ -255,7 +264,7 @@
         var cellinfo = [];
         for (var i = 1; i < limitItem; i++) {
             //w = 200 +  200 * Math.random() << 0;
-            h = w = (Math.floor(Math.random() * 2) + 1) * 150;
+            h = w = (Math.floor(Math.random() * 2) + 1) * 140;
             //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
             html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
             //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
@@ -266,8 +275,8 @@
         wall.reset({
             selector: '.cell',
             animate: true,
-            cellW: 150,
-            cellH: 150,
+            cellW: 140,
+            cellH: 140,
             onResize: function() {
                 wall.fitWidth();
             }

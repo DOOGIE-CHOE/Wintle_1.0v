@@ -37,7 +37,7 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="js/ajax-page-call.js"></script>
 </head>
-<header style="height: 37px;">
+<header style="height: 37px; z-index:100;">
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
             <img src="img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('index');">

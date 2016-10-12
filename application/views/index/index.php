@@ -230,10 +230,14 @@
                     <script>
                         $.get("index/getProfilePhoto", function(o){
                             var value = jQuery.parseJSON(o);
+                            var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
-                                $("#profilephoto").append("<img src = 'profileimages/default.png' style='height:90px;'>");
+                                if(photo.find("img").length == 0)
+                                    photo.append("<img src = 'profileimages/default.png' style='height:90px;'>");
                             }else{
-                                $("#profilephoto").append("<img src = '"+value.profile_photo_path+"' style='height:90px;'>");
+                                //display image as a circular image
+                                if(photo.find("img").length == 0)
+                                    photo.append("<img src = '"+value.profile_photo_path+"' style='width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
                             }
                         });
                     </script>

@@ -16,7 +16,8 @@ header {
   height: 100%;
   background: #417e8d;
   box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;
-  overflow: hidden; }
+  overflow: hidden;
+}
   header div.info-content iframe {
     position: absolute;
     border: 0;

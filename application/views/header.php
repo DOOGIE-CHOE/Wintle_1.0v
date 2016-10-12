@@ -185,7 +185,7 @@ if(Session::isSessionSet("loggedIn")){
         </style>
 
     </head>
-    <header>
+    <header style="z-index:100;">
         <div class="info-content">
            <!--<iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
             <div class="introbtn">시작하기</div>

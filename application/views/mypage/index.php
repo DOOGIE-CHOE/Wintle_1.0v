@@ -22,20 +22,12 @@
                 margin:auto;
             }
 
-            .main-board .list-board{
-                display:inline-block;
-                position:relative;
-                height:100%;
-                width: 300px;
-                background-color: rgba(0,0,0,0.3);
-            }
-
             .main-board .user-board{
                 display:inline-block;
                 position:relative;
                 float:right;
                 height:100%;
-                width:922px;
+                width:1222px;
                 background-color: #2b2e31;
             }
 
@@ -47,49 +39,63 @@
                 position:relative;
                 width:100%;
                 height:210px;
+                background: black;
             }
+
             #user-info{
-                position:relative;
-                background: dimgrey;
+                position:absolute;
+                height:200px;
                 width:100%;
-                height:100%;
+                top:117px;
+                z-index: 10;
+            }
+            #profile{
+                position:absolute;
+                height:200px;
+                width:250px;
             }
 
             #profilephoto{
-                position:absolute;
-                z-index: 10;
-                top:117px;
-                left:60px;
-            }
-
-            #test-parent{
                 position:relative;
-                background-color: forestgreen;
-                top:100px;
-                left:100px;
-                height:280px;
-                width:280px
+                z-index: 10;
+                top:5px;
+                left:50px;
             }
 
-            #test-button{
+            #username, #user-hashtag{
+                position:relative;
+                height:100px;
+                width:972px;
+                z-index:20;
+                float:right;
+            }
+            #username #name{
                 position:absolute;
-                left:0;
-                right:0;
-                top:0;
-                bottom:0;
-                margin:auto;
-                height:50%;
-                width:50%;
+                font-size: 50px;
+                bottom:10px;
+                left:10px;
+            }
+
+            #user-hashtag #hashtag{
+                position:absolute;
+                top:10px;
+                left:10px;
+                font-size: 30px;
+            }
+
+            #content{
+                position:relative;
+                width:100%;
+                height:500px;
+                top:200px;
+                background-color: #2c90c6;
             }
         </style>
 
     </head>
 
-    <?echo "this is my page"?>
     <body id="body">
     <div class="main-board">
-        <div class="list-board">
-        </div>
         <div class="user-board">
             <?php
             if(Session::get("loggedIn") != true){
@@ -99,23 +105,32 @@
                 <script>
                     $.get("index/getProfilePhoto", function(o){
                         var value = jQuery.parseJSON(o);
+                        var photo = $("#profilephoto");
                         if(value.profile_photo_path == null){
-                            $("#profilephoto").append("<img src = 'profileimages/default.png' style='height:187px;'>");
+                            //display default image
+                            if(photo.find("img").length == 0)
+                                photo.append("<img src = 'profileimages/default.png'>");
                         }else{
-                            $("#profilephoto").append("<img src = '"+value.profile_photo_path+"' style='height:187px;'>");
+                            //display image as a circular image
+                            if(photo.find("img").length == 0)
+                                photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
                         }
                     });
                 </script>
             <?php } ?>
-            <div id="profilephoto"></div>
-            <div id="cover-photo">
-                <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
-            </div>
             <div id="user-info">
-                <div id="test-parent">
-
-                </div>
+                <div id="profile"><div id="profilephoto"></div></div>
+                <div id="username"><?php echo "<div id='name'>".Session::get('user_name')."</div>"?></div>
+                <div id="user-hashtag"><div id="hashtag">#test, #test2, #test3</div></div>
             </div>
+
+            <div id="cover-photo">
+
+            </div>
+
+            <div id="content"></div>
+
+
         </div>
     </div>
 

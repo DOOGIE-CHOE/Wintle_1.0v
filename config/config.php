@@ -4,6 +4,7 @@
 
 define ('DEVELOPMENT_ENVIRONMENT',true);
 
+date_default_timezone_set("Asia/Seoul");
 
 /* SERVER CONFIG */
 /*

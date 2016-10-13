@@ -10,12 +10,12 @@ class LogIn_Model extends Model {
         $data = array();
 
         try{
-            if($this->CheckId($_POST['user_email'])){
-                if($this->CheckPassword($_POST['user_email'],$_POST['password'])){
+            if($this->checkId($_POST['user_email'])){
+                if($this->checkPassword($_POST['user_email'],$_POST['password'])){
                     Session::init();
                     Session::set("user_email",$_POST['user_email']);
                     Session::set("loggedIn",true);
-                    Session::set("user_name",$this->GetUsernameByEmail($_POST['user_email']));
+                    Session::set("user_name",$this->getUsernameByEmail($_POST['user_email']));
                     $data['success']=true;
                 }
             }
@@ -26,7 +26,7 @@ class LogIn_Model extends Model {
         }
     }
 
-    function CheckId($_user_email){
+    function checkId($_user_email){
         $sql = "SELECT count(user_email) as emailnumber from user where user_email = '$_user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -37,12 +37,12 @@ class LogIn_Model extends Model {
         }
     }
 
-    function CheckPassword($_user_email,$_password) {
+    function checkPassword($_user_email,$_password) {
         $sql = "SELECT password from user where user_email = '$_user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
         if ($data['password'] != null) {
-            $tmp = $this->GetHashCode($_password, $data['password']);
+            $tmp = $this->getHashCode($_password, $data['password']);
             if ($tmp == $data['password']) {
                 return true;
             }
@@ -50,7 +50,7 @@ class LogIn_Model extends Model {
         throw new Exception("Username or password is wrong. Please, check it again");
     }
 
-    function GetUsernameByEmail($user_email) {
+    function getUsernameByEmail($user_email) {
         $sql = "SELECT name from user where user_email = '$user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();

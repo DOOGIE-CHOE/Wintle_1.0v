@@ -7,7 +7,7 @@ class Model {
 	}
 
 
-    function GetHashCode($password, $salt = false) {
+    function getHashCode($password, $salt = false) {
         //set cost (hdigher number, higher security but slow processing time
         $cost = 10;
         if ($salt == false) {
@@ -21,5 +21,18 @@ class Model {
         $hash = crypt($password, $salt);
 
         return $hash;
+    }
+
+    function createContentName($type){
+        $time = getdate();
+        $ran = rand(1000,9999);
+        $contentid = $time['year'].$time['mon'].$time['mday'].$time['hours'].$time['minutes'].$time['seconds'].$ran;
+
+        if($type == "image"){
+            return $contentid;
+        }
+        else if($type == "lyrics"){
+            return "L".$contentid;
+        }
     }
 }

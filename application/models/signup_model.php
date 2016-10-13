@@ -19,12 +19,12 @@ Class SignUp_Model extends Model {
             //for server
             $response = $_POST['g-recaptcha-response'];
             $cap = new Verification();
-            $verified = $cap->VerifyCaptcha($response);
+            $verified = $cap->verifyCaptcha($response);
             //if reCAPTCHA is verified
             if ($verified) {
-                if ($this->VerifyUsername($_POST['name'])) {
-                    if ($this->VerifyEmail($_POST['user_email'])) {
-                        if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                if ($this->verifyUsername($_POST['name'])) {
+                    if ($this->verifyEmail($_POST['user_email'])) {
+                        if ($this->registerUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
                             $data['success'] = true;
                         }
                     }
@@ -52,7 +52,7 @@ Class SignUp_Model extends Model {
         }
     }
 
-    function VerifyUsername($_name) {
+    function verifyUsername($_name) {
         $sql = "SELECT count(name) as usernumber from user where name = '$_name'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -63,7 +63,7 @@ Class SignUp_Model extends Model {
         }
     }
 
-    function VerifyEmail($_user_email) {
+    function verifyEmail($_user_email) {
         $sql = "SELECT count(user_email) as emailnumber from user where user_email = '$_user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -74,7 +74,7 @@ Class SignUp_Model extends Model {
         }
     }
 
-    function RegisterUser($_name, $_user_email, $_password) {
+    function registerUser($_name, $_user_email, $_password) {
         $hash = $this->GetHashCode($_password);
         $sql = "INSERT INTO user (name, user_email, password)
                 VALUES ('$_name', '$_user_email', '$hash')";
@@ -93,7 +93,7 @@ class Verification
     private $google_url = "https://www.google.com/recaptcha/api/siteverify";
     private $secret = '6LcZwyATAAAAAFzPeCoBRL-ptF9gnGs-tP5-Bdik';
 
-    public function VerifyCaptcha($response)
+    public function verifyCaptcha($response)
     {
         $url = $this->google_url . "?secret=" . $this->secret . "&response=" . $response;
         $curl = curl_init();

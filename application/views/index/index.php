@@ -166,6 +166,7 @@
 
             #profilephoto{
                 display: inline-block;
+                margin-left: 3px;
             }
 
             #setting{
@@ -228,7 +229,7 @@
                 }else{
                     ?>
                     <script>
-                        $.get("index/getProfilePhoto", function(o){
+                        $.get("common/getProfilePhoto", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){

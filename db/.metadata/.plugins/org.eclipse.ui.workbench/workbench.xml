@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="1038" width="976" x="-8" y="0">
+<window height="1038" maximized="true" minimized="true" width="976" x="-8" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -31,7 +31,7 @@
 </folder>
 </info>
 </editorArea>
-<editor focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="wintle.exerd" partName="wintle.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/wintle.exerd" title="wintle.exerd" tooltip="exerd/wintle.exerd" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="wintle.exerd" partName="wintle.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/wintle.exerd" title="wintle.exerd" tooltip="exerd/wintle.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/wintle.exerd"/>
 </editor>
 </editors>
@@ -70,7 +70,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.tomato.exerd.ui.views.domain" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -145,7 +145,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomFolder" ratio="0.14955357" ratioLeft="134" ratioRight="762" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomFolder" ratio="0.86754966" ratioLeft="786" ratioRight="120" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.domain" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="Domain"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="Review"/>

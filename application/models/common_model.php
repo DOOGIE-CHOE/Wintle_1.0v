@@ -27,13 +27,14 @@ class Common_Model extends Model{
     function uploadProfilePhoto(){
         $success = false;
         $error = null;
+
         $permitted = array('jpg', 'jpeg', 'png', 'gif');
         $file_name = $_FILES['image']['name'];
         $file_size = $_FILES['image']['size'];
         $file_tmp = $_FILES['image']['tmp_name'];
         $folder = "profileimages/";
-
         $count = 0;
+
         //get extension
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         foreach($permitted as $extension){
@@ -41,12 +42,14 @@ class Common_Model extends Model{
                 $count++;
         }
 
+        //check if uploaded file is an image
         if($count == 0){
             $error = "You can upload only image file";
             echo json_encode(array($success,$error));
             exit;
         }
 
+        //check if it is multiple uploaded
         if($count != 1){
             $error = "You can upload only one image file";
             echo json_encode(array($success,$error));
@@ -65,8 +68,6 @@ class Common_Model extends Model{
                 if($this->uploadProfilePhotoQuery(Session::get("user_email"), $filepath)){
                     $success = true;
                 }
-            }else{
-                throw new Exception("Error occurs during deleting existing profile photo");
             }
         }catch(Exception $e){
             $error = $e->getMessage();
@@ -82,21 +83,21 @@ class Common_Model extends Model{
         $tmp = $data['profile_photo_path'];
         if (file_exists($tmp)) {
             if (unlink($tmp)) {
-                $sql = "UPDATE user_profile set profile_photo_path = null where user_email = '$user_email'";
-                if ($this->db->conn->query($sql)) {
-                    return true;
-                } else
-                    throw new Exception("Error occurs during deleting existing profile photo");
+            }else{
+                throw new Exception("Error occurs during deleting existing profile photo");
             }
         }
-        return false;
+        $sql = "UPDATE user_profile set profile_photo_path = null where user_email = '$user_email'";
+        if ($this->db->conn->query($sql)) {
+            return true;
+        } else
+            throw new Exception("Error occurs during deleting existing profile photo");
     }
 
     function uploadProfilePhotoQuery($user_email, $imagepath) {
+        //get current time
         $date = date('Y/m/d H:i:s', time());
-
         $sql = "UPDATE user_profile set profile_photo_path = '$imagepath', profile_upload_date = '$date'  where user_email = '$user_email'";
-
         if ($this->db->conn->query($sql) === TRUE) {
             return true;
         } else {

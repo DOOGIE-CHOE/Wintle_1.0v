@@ -229,10 +229,10 @@
                                 photo.append("<div style='background-image: url("+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
                         }
                     });
-                </script>
+                </script>s
             <?php } ?>
             <div id="user-info">
-                <form id="upload-profile-form" action="common/uploadProfilePhoto" method="POST" enctype="multipart/form-data" >
+                <form id="upload-profile-form" action="<?php echo URL?>common/uploadProfilePhoto" method="POST" enctype="multipart/form-data" >
                     <div id="profile">
                         <div id="profilephoto">
                             <div id='edit-profile'><p>EDIT</p></div>

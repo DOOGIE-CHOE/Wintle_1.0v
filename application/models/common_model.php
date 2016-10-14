@@ -12,10 +12,16 @@ class Common_Model extends Model{
         parent::__construct();
     }
 
-    function getProfilePhoto(){
+    function getProfilePhoto($type){
         if(Session::isSessionSet("user_email")){
+            if($type == 'profile'){
+                $attr = "profile_photo_path";
+            }else if($type == "cover"){
+                $attr = "cover_photo_path";
+            }
+
             $user_email = Session::get("user_email");
-            $sql = "SELECT profile_photo_path from user_profile where user_email = '$user_email'";
+            $sql = "SELECT $attr from user_profile where user_email = '$user_email'";
             $result = $this->db->conn->query($sql);
             $data = $result->fetch_assoc();
             return $data;
@@ -23,87 +29,5 @@ class Common_Model extends Model{
             return null;
         }
     }
-
-    function uploadProfilePhoto(){
-        $success = false;
-        $error = null;
-
-        $permitted = array('jpg', 'jpeg', 'png', 'gif');
-        $file_name = $_FILES['image']['name'];
-        $file_size = $_FILES['image']['size'];
-        $file_tmp = $_FILES['image']['tmp_name'];
-        $folder = "profileimages/";
-        $count = 0;
-
-        //get extension
-        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-        foreach($permitted as $extension){
-            if($extension == $ext)
-                $count++;
-        }
-
-        //check if uploaded file is an image
-        if($count == 0){
-            $error = "You can upload only image file";
-            echo json_encode(array($success,$error));
-            exit;
-        }
-
-        //check if it is multiple uploaded
-        if($count != 1){
-            $error = "You can upload only one image file";
-            echo json_encode(array($success,$error));
-            exit;
-        }
-
-        $refilename = $this->createContentName("image");
-        $refilename .= '.'.$ext;
-        $filepath = $folder.$refilename;
-
-        try{
-            //if the photo's existing, delete it
-            if($this->deleteProfilePhoto(Session::get("user_email"))){
-                //file upload
-                move_uploaded_file($file_tmp, $filepath);
-                if($this->uploadProfilePhotoQuery(Session::get("user_email"), $filepath)){
-                    $success = true;
-                }
-            }
-        }catch(Exception $e){
-            $error = $e->getMessage();
-        }finally{
-            echo json_encode(array($success,$error));
-        }
-    }
-
-    function deleteProfilePhoto($user_email) {
-        $sql = "SELECT profile_photo_path  from user_profile where user_email = '$user_email'";
-        $result = $this->db->conn->query($sql);
-        $data = $result->fetch_assoc();
-        $tmp = $data['profile_photo_path'];
-        if (file_exists($tmp)) {
-            if (unlink($tmp)) {
-            }else{
-                throw new Exception("Error occurs during deleting existing profile photo");
-            }
-        }
-        $sql = "UPDATE user_profile set profile_photo_path = null where user_email = '$user_email'";
-        if ($this->db->conn->query($sql)) {
-            return true;
-        } else
-            throw new Exception("Error occurs during deleting existing profile photo");
-    }
-
-    function uploadProfilePhotoQuery($user_email, $imagepath) {
-        //get current time
-        $date = date('Y/m/d H:i:s', time());
-        $sql = "UPDATE user_profile set profile_photo_path = '$imagepath', profile_upload_date = '$date'  where user_email = '$user_email'";
-        if ($this->db->conn->query($sql) === TRUE) {
-            return true;
-        } else {
-            throw new Exception("Failed to upload profile photo.. :( Please, try it later");
-        }
-    }
-
 
 }

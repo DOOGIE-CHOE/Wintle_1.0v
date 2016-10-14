@@ -40,6 +40,9 @@
                 width:100%;
                 height:210px;
                 background: black;
+                background-repeat: no-repeat;
+                -webkit-background-size:;
+                background-size:cover;
             }
 
             #cover-photo p{
@@ -132,7 +135,7 @@
                             background: black;
                             z-index: 11;
                         }*/
-            #edit-profile {
+            #edit-profile-photo {
                 position: absolute;
                 display:none;
                 bottom:0;
@@ -140,7 +143,7 @@
                 width: 187px;
                 overflow: hidden;
             }
-            #edit-profile:before {
+            #edit-profile-photo:before {
                 content: '';
                 position: absolute;
                 height: 187px;
@@ -150,7 +153,7 @@
                 background: rgba(0,0,0,0.5);
             }
 
-            #edit-profile p{
+            #edit-profile-photo p{
                 position:relative;
                 text-align : center;
                 vertical-align:middle;
@@ -170,9 +173,9 @@
         <script>
             $(function(){
                 $("#profilephoto").mouseover(function(){
-                    $("#edit-profile").fadeIn(200);
+                    $("#edit-profile-photo").fadeIn(200);
                 }).mouseleave(function(){
-                    $("#edit-profile").fadeOut(0);
+                    $("#edit-profile-photo").fadeOut(0);
                 });
 
                 $("#cover-photo").mouseover(function(){
@@ -182,11 +185,15 @@
                 });
 
 
-                $("#edit-profile").click(function(){
-                    $("#image-input").trigger("click");
+                $("#edit-profile-photo").click(function(){
+                    $("#profile-photo-input").trigger("click");
                 });
 
-                $('#image-input').on('change',function(){
+                $("#edit-cover-photo").click(function(){
+                    $("#cover-photo-input").trigger("click");
+                });
+
+                $('#profile-photo-input').on('change',function(){
                     $('#upload-profile-form').ajaxForm({
                         success:function(e) {
                             var data = $.parseJSON(e);
@@ -200,6 +207,19 @@
                     }).submit();
                 });
 
+                $("#cover-photo-input").on('change',function(){
+                    $('#upload-cover-form').ajaxForm({
+                        success:function(e) {
+                            var data = $.parseJSON(e);
+                            if(data[0] == false){
+                                errorDisplay(data[1]);
+                                return false;
+                            }else{
+                                $.pagehandler.loadContent('mypage');
+                            }
+                        }
+                    }).submit();
+                });
 
             });
         </script>
@@ -215,7 +235,7 @@
             }else{
                 ?>
                 <script>
-                    $.get("common/getProfilePhoto", function(o){
+                    $.get("common/getProfilePhoto/profile", function(o){
                         var value = jQuery.parseJSON(o);
                         var photo = $("#profilephoto");
                         if(value.profile_photo_path == null){
@@ -224,29 +244,50 @@
                                 photo.append("<img src = 'profileimages/default.png'>");
                         }else{
                             //display image as a circular image
-                            if(photo.find("img").length == 0)
+                            if(photo.find("#photo").length == 0)
                             // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                                photo.append("<div style='background-image: url("+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
+                                photo.append("<div id='photo' style='background-image: url("+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
                         }
                     });
-                </script>s
+                </script>
             <?php } ?>
             <div id="user-info">
-                <form id="upload-profile-form" action="<?php echo URL?>common/uploadProfilePhoto" method="POST" enctype="multipart/form-data" >
+                <form id="upload-profile-form" action="<?php echo URL?>mypage/uploadProfilePhoto/profile" method="POST" enctype="multipart/form-data" >
                     <div id="profile">
                         <div id="profilephoto">
-                            <div id='edit-profile'><p>EDIT</p></div>
-                            <input type='file' id='image-input' name="image" style="display: none;">
+                            <div id='edit-profile-photo'><p>EDIT</p></div>
+                            <input type='file' id='profile-photo-input' name="image" style="display: none;">
                         </div>
                     </div>
                 </form>
                 <div id="username"><?php echo "<div id='name'>".Session::get('user_name')."</div>"?></div>
                 <div id="user-hashtag"><div id="hashtag">#test, #test2, #test3</div></div>
             </div>
+            <?php
+            if(Session::get("loggedIn") != true){
+                echo "Please Log In";
+            }else{
+                ?>
+                <script>
+                    $.get("common/getProfilePhoto/cover", function(o){
+                        var value = jQuery.parseJSON(o);
+                        var photo = $("#cover-photo");
+                        if(value.cover_photo_path == null){
+                            //display default image
+                        }else{
+                                // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                                photo.css('background-image', 'url(' + value.cover_photo_path + ')');
+                        }
+                    });
+                </script>
+            <?php } ?>
 
-            <div id="cover-photo">
-                <p>EDIT</p>
-            </div>
+            <form id="upload-cover-form" action="<?php echo URL?>mypage/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
+                <div id="cover-photo">
+                    <div id="edit-cover-photo"><p>EDIT</p></div>
+                    <input type='file' id='cover-photo-input' name="image" style="display: none;">
+                </div>
+            </form>
 
             <div id="contents-set">
                 <div id="category">

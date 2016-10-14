@@ -19,4 +19,9 @@ class MyPage extends Controller{
         $this->view->render("mypage/index", $noInclude, $loggedIn);
     }
 
+    public function uploadProfilePhoto($type){
+        $this->model->uploadProfilePhoto($type);
+    }
+
+
 }

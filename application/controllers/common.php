@@ -10,13 +10,9 @@ class Common extends Controller{
 
     function index($noInclude = false, $loggedIn = false){}
 
-    public function getProfilePhoto(){
-        $data = $this->model->getProfilePhoto();
+    public function getProfilePhoto($type){
+        $data = $this->model->getProfilePhoto($type);
         echo json_encode($data);
-    }
-
-    public function uploadProfilePhoto(){
-        $this->model->uploadProfilePhoto();
     }
 
 }

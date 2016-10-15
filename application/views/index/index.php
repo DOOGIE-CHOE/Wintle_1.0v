@@ -229,7 +229,7 @@
                 }else{
                     ?>
                     <script>
-                        $.get("common/getProfilePhoto", function(o){
+                        $.get("common/getProfilePhoto/profile", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){

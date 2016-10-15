@@ -50,6 +50,12 @@ if(Session::isSessionSet("loggedIn")){
         <!-- Tile Display -->
         <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
 
+
+        <!-- Tag it -->
+        <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+        <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+        <script src="js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
         <style>
             /* background video
              * --------------------------------------- */

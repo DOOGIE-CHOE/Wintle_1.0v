@@ -29,7 +29,7 @@ class MyPage_Model extends Model{
         //get extension
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         foreach($permitted as $extension){
-            if($extension == $ext)
+            if($extension == strtolower($ext))
                 $count++;
         }
 

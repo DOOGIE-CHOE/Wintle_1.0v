@@ -221,6 +221,21 @@
                     }).submit();
                 });
 
+                $("#HashTags").tagit({
+                    //evert for after putting tags
+                    afterTagAdded: function(evt, ui) {
+                        var tags = $("#HashTags").tagit("assignedTags");
+                        //check whether the first charactor is #
+                        if(tags[tags.length-1].charAt(0) != '#'){
+
+                            //put # charactor at first then replace it with without-sharp tag
+                            var tagswithsharp = '#'+tags[tags.length-1];
+                            $("#HashTags").tagit("removeTagByLabel",tags[tags.length-1]);
+                            $("#HashTags").tagit("createTag",tagswithsharp);
+                        }
+                    }
+                });
+
             });
         </script>
 
@@ -261,7 +276,7 @@
                     </div>
                 </form>
                 <div id="username"><?php echo "<div id='name'>".Session::get('user_name')."</div>"?></div>
-                <div id="user-hashtag"><div id="hashtag">#test, #test2, #test3</div></div>
+                <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
             </div>
             <?php
             if(Session::get("loggedIn") != true){

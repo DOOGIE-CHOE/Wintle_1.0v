@@ -37,6 +37,13 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- page handler-->
     <script type="text/javascript" src="js/ajax-page-call.js"></script>
+
+    <!-- Tag it -->
+    <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+    <script src="js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
+
 </head>
 <header style="height: 37px; z-index:100;">
     <div id="header-gnb">

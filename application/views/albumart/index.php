@@ -96,7 +96,7 @@
 </div>
 
 <div id="to-albums">
-    <div class="line-arrow left" onclick="$.pagehandler.loadContent('http://localhost/index');"></div>
+    <div class="line-arrow left" onclick="$.pagehandler.loadContent('http://localhost/index','all');"></div>
 </div>
 </body>
 

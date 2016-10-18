@@ -6,7 +6,7 @@
  * Time: 4:27 PM
  */
 
-class MyPage extends Controller{
+class Profile extends Controller{
 
     function __construct() {
         parent::__construct();
@@ -16,7 +16,7 @@ class MyPage extends Controller{
         if($loggedIn == false){
             return false;
         }
-        $this->view->render("mypage/index", $noInclude, $loggedIn);
+        $this->view->render("profile/index", $noInclude, $loggedIn);
     }
 
     public function uploadProfilePhoto($type){

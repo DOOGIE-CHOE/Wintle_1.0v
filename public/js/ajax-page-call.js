@@ -3,8 +3,15 @@
  */
 
 $.pagehandler = $.pagehandler || {};
-$.pagehandler.loadContent = function (url) {
+$.pagehandler.loadContent = function (url, type) {
     var pageUrl = url;
+    var id;
+    if(type == "all"){
+        id = "#all";
+    }else if(type == "contents"){
+        id = "#contents";
+    }
+
    // $("#body").load(pageUrl);
 
    // $('.ajax-loader').show();
@@ -12,7 +19,7 @@ $.pagehandler.loadContent = function (url) {
       //url: pageUrl + '?type=ajax',
       url: pageUrl,
       success: function (data){
-          $("#all").html($(data).filter("#all").html());
+          $(id).html($(data).filter("#all").html());
          //$('#body').html();
          // hide ajax loader
          //   $('.ajax-loader').hide();

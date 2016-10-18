@@ -6,7 +6,7 @@
  * Time: 11:18 AM
  */
 
-class MyPage_Model extends Model{
+class Profile_Model extends Model{
     function __construct() {
         parent::__construct();
     }

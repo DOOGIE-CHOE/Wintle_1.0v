@@ -244,7 +244,7 @@
                     </script>
                 <?php } ?>
 
-                <div id="profilephoto" onclick="$.pagehandler.loadContent('mypage');"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('profile','all');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
                         <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
@@ -291,7 +291,7 @@
     </div>
     <div id="to-albumart">
         <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-        <div class="line-arrow right" onclick="$.pagehandler.loadContent('http://localhost/albumartall');"></div>
+        <div class="line-arrow right" onclick="$.pagehandler.loadContent('http://localhost/albumartall','all');"></div>
     </div>
     <script type="text/javascript">
         var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";

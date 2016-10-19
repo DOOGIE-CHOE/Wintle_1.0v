@@ -107,7 +107,7 @@
         var barbutton;
 
         $(function(){
-            audio.setAttribute('src', "audio/4.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/4.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
@@ -142,12 +142,12 @@
         function musicPlay(){
             if(isPlaying(audio)){
                 audio.pause();
-                $("#play").attr("src","img/play.png");
+                $("#play").attr("src","<?php echo URL?>img/play.png");
                 clearInterval(playinterval);
             }else{
                 audio.play();
                 playinterval = setInterval(function(){  playBarButtonProgress();  },100);
-                $("#play").attr("src","img/pause.png");
+                $("#play").attr("src","<?php echo URL?>img/pause.png");
             }
         }
 
@@ -160,7 +160,7 @@
             if(left >= PLAYBARWIDTH){
                 audio.pause();
                 audio.currentTime = 0;
-                $("#play").attr("src","img/play.png");
+                $("#play").attr("src","<?php echo URL?>img/play.png");
                 $("#play-bar-button").css("left","0px");
                 setPlayedBar(0);
                 clearInterval(playinterval);
@@ -189,9 +189,9 @@
     </audio>-->
     <div id="play-info-all">
         <div id="control-buttons">
-            <input type="image" src="img/backwards.png" onclick="musicForwards()">
-            <input id="play" type="image" src="img/play.png" onclick="musicPlay()">
-            <input type="image" src="img/forwards.png" onclick="musicBackwards()">
+            <input type="image" src="<?php echo URL?>img/backwards.png" onclick="musicForwards()">
+            <input id="play" type="image" src="<?php echo URL?>img/play.png" onclick="musicPlay()">
+            <input type="image" src="<?php echo URL?>img/forwards.png" onclick="musicBackwards()">
         </div>
 
         <div id="play-info-time">

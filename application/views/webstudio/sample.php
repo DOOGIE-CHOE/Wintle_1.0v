@@ -13,9 +13,9 @@
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
     <!------------jquery import ----------->
-    <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
+    <script src="<?php echo URL?>js/jquery/jquery.form.js" type="text/javascript"></script>
 
-    <link href="<?php echo URL?>public/css/loadingSpinner.css" rel="stylesheet">
+    <link href="<?php echo URL?>css/loadingSpinner.css" rel="stylesheet">
 
     <style>
         body, html{
@@ -47,7 +47,7 @@
 
         #tile{
             position:relative;
-            background-image: url("http://localhost/public/img/tile.png");
+            background-image: url("<?php echo URL?>img/tile.png");
             background-size:16px;
             background-repeat: repeat-x;
             width:100%;

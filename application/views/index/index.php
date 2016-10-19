@@ -62,7 +62,7 @@
                 height:100%;
                 width:100%;
                 background-repeat: no-repeat;
-                background-image: url("img/bg/bg1.jpg");
+                background-image: url("<?php echo URL?>img/bg/bg1.jpg");
                 background-size: cover;
             }
 
@@ -199,7 +199,7 @@
             $(function(){
                 $(".cell").mouseover(function(){
                     if( $(this).find("#test-button").length == 0){
-                        $(this).html("<img id='test-button' src='img/play_grey.png'>");
+                        $(this).html("<img id='test-button' src='<?php echo URL?>img/play_grey.png'>");
                         $(this).find("#test-button").fadeIn(300);
                     }
                 }).mouseleave(function(){
@@ -229,32 +229,32 @@
                 }else{
                     ?>
                     <script>
-                        $.get("common/getProfilePhoto/profile", function(o){
+                        $.get("<?php echo URL?>common/getProfilePhoto/profile", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
                                 if(photo.find("img").length == 0)
-                                    photo.append("<img src = 'profileimages/default.png' style='height:90px;'>");
+                                    photo.append("<img src = '<?php echo URL?>profileimages/default.png' style='height:90px;'>");
                             }else{
                                 //display image as a circular image
                                 if(photo.find("img").length == 0)
-                                    photo.append("<img src = '"+value.profile_photo_path+"' style='width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                                    photo.append("<img src = '<?php echo URL?>"+value.profile_photo_path+"' style='width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
                             }
                         });
                     </script>
                 <?php } ?>
 
-                <div id="profilephoto" onclick="$.pagehandler.loadContent('profile','all');"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL?>profile','all');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
                         <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
-                        <img id="setting" src="img/setting.svg">
+                        <img id="setting" src="<?php echo URL?>img/setting.svg">
                     </div>
                     <div id="shortcut-info">
                         <div id="shortcut-info-icon">
-                            <img src="img/like.svg">
-                            <img src="img/social.svg">
-                            <img src="img/file.svg">
+                            <img src="<?php echo URL?>img/like.svg">
+                            <img src="<?php echo URL?>img/social.svg">
+                            <img src="<?php echo URL?>img/file.svg">
                         </div>
                         <div id="shortcut-info-number">
                             <div id="number-likes">---</div>
@@ -291,10 +291,10 @@
     </div>
     <div id="to-albumart">
         <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-        <div class="line-arrow right" onclick="$.pagehandler.loadContent('http://localhost/albumartall','all');"></div>
+        <div class="line-arrow right" onclick="$.pagehandler.loadContent('<?php echo URL?>albumartall','all');"></div>
     </div>
     <script type="text/javascript">
-        var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
+        var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(<?php echo URL?>i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
         var w = 1, h = 1,html = '', limitItem = 47;
         var cellinfo = [];
         for (var i = 1; i < limitItem; i++) {

@@ -56,8 +56,11 @@ function callHook() {
     $isloggedin = false;
     $isnoinclude = false;
 
+    if($url[0] == "favicon.ico"){
+        return false;
+    }
 
-    if (empty($url[0]) || $url[0] == "favicon.ico") {
+    if (empty($url[0])) {
         $controller = new Index();
     }else{
         if (class_exists($url[0])){
@@ -74,7 +77,7 @@ function callHook() {
         $isloggedin = false;
     }
 
-    if($url[0] == "mypage"){
+    if($url[0] == "profile"){
         if($isloggedin == false){
             error("loggedInService");
         }

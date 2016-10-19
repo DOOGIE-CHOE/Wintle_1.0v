@@ -14,9 +14,9 @@
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
     <!------------jquery import ----------->
-    <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
+    <script src="<?php echo URL?>js/jquery/jquery.form.js" type="text/javascript"></script>
 
-    <link href="<?php echo URL?>public/css/loadingSpinner.css" rel="stylesheet">
+    <link href="<?php echo URL?>css/loadingSpinner.css" rel="stylesheet">
 
 
     <style>
@@ -49,7 +49,7 @@
 
         #tile{
             position:relative;
-            background-image: url("http://wintle.co.kr/public/img/tile.png");
+            background-image: url("<?php echo URL?>img/tile.png");
             background-size:16px;
             background-repeat: repeat-x;
             width:100%;
@@ -289,7 +289,7 @@
 
         function drawWavefroms(_sequence, _path, _width){
             playlist.push("#draggable-"+_sequence);
-            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url("+_path+"); width:"+_width+"; background-color: "+getRandomColor()+"; '></div></div>");
+            $("#flat").append("<div id='tile'><div id='draggable-"+_sequence+"' class='raw-audio' style='background-image:url(<?php echo URL?>"+_path+"); width:"+_width+"; background-color: "+getRandomColor()+"; '></div></div>");
             $("#draggable-"+_sequence).draggable ({
                 axis : "x",
                 containment:"parent"

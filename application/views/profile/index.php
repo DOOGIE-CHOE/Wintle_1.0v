@@ -201,7 +201,7 @@
                                 errorDisplay(data[1]);
                                 return false;
                             }else{
-                                $.pagehandler.loadContent('mypage');
+                                $.pagehandler.loadContent('<?php echo URL?>profile',"all");
                             }
                         }
                     }).submit();
@@ -215,7 +215,7 @@
                                 errorDisplay(data[1]);
                                 return false;
                             }else{
-                                $.pagehandler.loadContent('mypage');
+                                $.pagehandler.loadContent('<?php echo URL?>profile',"all");
                             }
                         }
                     }).submit();
@@ -250,24 +250,24 @@
             }else{
                 ?>
                 <script>
-                    $.get("common/getProfilePhoto/profile", function(o){
+                    $.get("<?php echo URL?>common/getProfilePhoto/profile", function(o){
                         var value = jQuery.parseJSON(o);
                         var photo = $("#profilephoto");
                         if(value.profile_photo_path == null){
                             //display default image
                             if(photo.find("img").length == 0)
-                                photo.append("<img src = 'profileimages/default.png'>");
+                                photo.append("<img src = '<?php echo URL?>profileimages/default.png'>");
                         }else{
                             //display image as a circular image
                             if(photo.find("#photo").length == 0)
                             // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                                photo.append("<div id='photo' style='background-image: url("+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
+                                photo.append("<div id='photo' style='background-image: url(<?php echo URL?>"+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
                         }
                     });
                 </script>
             <?php } ?>
             <div id="user-info">
-                <form id="upload-profile-form" action="<?php echo URL?>mypage/uploadProfilePhoto/profile" method="POST" enctype="multipart/form-data" >
+                <form id="upload-profile-form" action="<?php echo URL?>profile/uploadProfilePhoto/profile" method="POST" enctype="multipart/form-data" >
                     <div id="profile">
                         <div id="profilephoto">
                             <div id='edit-profile-photo'><p>EDIT</p></div>
@@ -284,20 +284,20 @@
             }else{
                 ?>
                 <script>
-                    $.get("common/getProfilePhoto/cover", function(o){
+                    $.get("<?php echo URL?>common/getProfilePhoto/cover", function(o){
                         var value = jQuery.parseJSON(o);
                         var photo = $("#cover-photo");
                         if(value.cover_photo_path == null){
                             //display default image
                         }else{
                                 // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                                photo.css('background-image', 'url(' + value.cover_photo_path + ')');
+                                photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
                         }
                     });
                 </script>
             <?php } ?>
 
-            <form id="upload-cover-form" action="<?php echo URL?>mypage/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
+            <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">
                     <div id="edit-cover-photo"><p>EDIT</p></div>
                     <input type='file' id='cover-photo-input' name="image" style="display: none;">
@@ -307,7 +307,7 @@
             <div id="contents-set">
                 <div id="category">
                     <div style="margin-left:50px;">Home</div>
-                    <div>PlayLists</div>
+                    <div  onclick="$.pagehandler.loadContent('<?php echo URL?>profile/projects','contents');" >PlayLists</div>
                     <div>Projects</div>
                     <div>Friends</div>
                     <div>Following</div>

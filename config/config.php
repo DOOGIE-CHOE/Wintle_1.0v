@@ -13,8 +13,8 @@ date_default_timezone_set("Asia/Seoul");
  define("DBPASSWORD", "wintle1091!");    // The database password.
  define("DBNAME", "pollo112");    // The database name.
 
- define("URL","http://wintle.co.kr/");
-*/
+ define("URL","http://wintle.co.kr/");*/
+
 
 
 /* WINDOWS TEST CONFIG */

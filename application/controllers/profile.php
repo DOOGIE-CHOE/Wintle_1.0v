@@ -19,6 +19,14 @@ class Profile extends Controller{
         $this->view->render("profile/index", $noInclude, $loggedIn);
     }
 
+    function projects($noInclude = false, $loggedIn = false){
+        if($loggedIn == false){
+            return false;
+        }
+        $noInclude = true;
+        $this->view->render("profile/projects", $noInclude, $loggedIn);
+    }
+
     public function uploadProfilePhoto($type){
         $this->model->uploadProfilePhoto($type);
     }

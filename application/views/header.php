@@ -22,7 +22,7 @@ if(Session::isSessionSet("loggedIn")){
 
         <!------------jquery import ----------->
         <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
 
         <!-- draggable import -->
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -34,27 +34,27 @@ if(Session::isSessionSet("loggedIn")){
                                 css reset, Java script, JS PlugIn
 
         <!-- css Plug In -->
-        <link href="css/css_reset.css" rel="stylesheet" />
+        <link href="<?php echo URL?>css/css_reset.css" rel="stylesheet" />
 
         <!-- css custom -->
-        <link media="screen" href="css/style/pc.css" rel="stylesheet" />
+        <link media="screen" href="<?php echo URL?>css/style/pc.css" rel="stylesheet" />
 
         <!-- Javascript custom -->
-        <script src="js/jq-jh.js"></script>
+        <script src="<?php echo URL?>js/jq-jh.js"></script>
 
         <!-- Form process -->
-        <script src="js/login-signup/form.js"></script>
+        <script src="<?php echo URL?>js/login-signup/form.js"></script>
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="<?php echo URL?>css/style.css">
 
         <!-- Tile Display -->
-        <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
+        <script type="text/javascript" src="<?php echo URL?>js/tiledisplay/freewall.js"></script>
 
 
         <!-- Tag it -->
-        <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
-        <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
-        <script src="js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
+        <link href="<?php echo URL?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo URL?>css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+        <script src="<?php echo URL?>js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
         <style>
             /* background video
@@ -221,14 +221,14 @@ if(Session::isSessionSet("loggedIn")){
 -->
         <div id="header-gnb">
             <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-                <img src="img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('index','all');">
+                <img src="<?php echo URL?>img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
             </div>
             <div class="MemberShipBtn1" style="top:10px">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
                 <a href="<?php echo $top_snd_link?>" id="top_login"><?php echo $top_snd_text?></a>
             </div>
             <div style="position:absolute; right:25px; height:37px;">
-                <a href="webstudio"><img src="img/beta.png" style="height:37px"></a>
+                <a href="<?php echo URL?>webstudio"><img src="<?php echo URL?>img/beta.png" style="height:37px"></a>
             </div>
         </div>
     </header>
@@ -236,7 +236,7 @@ if(Session::isSessionSet("loggedIn")){
     <div id="popup1" class="overlay">
         <a class="close" href="#">×</a>
         <div class="header">
-            <a href="index.php"><img src="img/pavicon/logo_explain.png"></a>
+            <a href="index.php"><img src="<?php echo URL?>img/pavicon/logo_explain.png"></a>
         </div>
         <div class="login-signup-block" id="login-signup-block">
             <div class="login-signup-text">
@@ -250,22 +250,22 @@ if(Session::isSessionSet("loggedIn")){
         <form id="login-signup-form" action ="" method="post">
             <div class="popup" id="popup">
                     <span class="SignUp">
-                        <img style="margin-left:28px; margin-top:18px; height:47px;" src="img/social_login.png"/>
+                        <img style="margin-left:28px; margin-top:18px; height:47px;" src="<?php echo URL?>img/social_login.png"/>
                         <div class="divider">
                             <hr class="left"/>OR<hr class="right" />
                         </div>
                         <span name="wrong" id="name_wrong" style="display: none"
                               onclick="document.getElementById('name').value =''"><img
-                                src="img/x.png"></span><input type="text" name="name" id="name" required
+                                src="<?php echo URL?>img/x.png"></span><input type="text" name="name" id="name" required
                                                               placeholder="Your username" autocomplete="off">
                                                     <span name="wrong" id="email_wrong" style="display: none"
                                                           onclick="document.getElementById('user_email').value =''"><img
-                                                            src="img/x.png"></span><input type="text" name="user_email" id="user_email" required
+                                                            src="<?php echo URL?>img/x.png"></span><input type="text" name="user_email" id="user_email" required
                                                                                           placeholder="Your email address" autocomplete="off">
                                                     <span name="wrong" id="password_wrong"
                                                           style="display: none"
                                                           onclick="document.getElementById('password').value =''"><img
-                                                            src="img/x.png"></span><input type="password" name="password" id="password" required
+                                                            src="<?php echo URL?>img/x.png"></span><input type="password" name="password" id="password" required
                                                                                           placeholder="Enter a password" autocomplete="off">
                         <p class="SignUpText">Use at least one letter<br> one numeral, and seven characters.</p>
 

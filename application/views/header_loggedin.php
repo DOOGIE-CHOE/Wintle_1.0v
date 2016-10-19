@@ -17,45 +17,45 @@ if(Session::isSessionSet("loggedIn")){
 <html>
 <head>
     <!------------jquery import ----------->
-    <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo URL?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
+    <script src="<?php echo URL?>js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL?>js/jquery/jquery.form.js" type="text/javascript"></script>
 
     <!-- draggable import -->
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 
     <!-- css Plug In -->
-    <link href="css/css_reset.css" rel="stylesheet" />
+    <link href="<?php echo URL?>css/css_reset.css" rel="stylesheet" />
 
     <!-- css custom -->
-    <link media="screen" href="css/style/pc.css" rel="stylesheet" />
+    <link media="screen" href="<?php echo URL?>css/style/pc.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo URL?>css/style.css">
 
     <!-- Tile Display -->
-    <script type="text/javascript" src="js/tiledisplay/freewall.js"></script>
+    <script type="text/javascript" src="<?php echo URL?>js/tiledisplay/freewall.js"></script>
 
     <!-- page handler-->
-    <script type="text/javascript" src="js/ajax-page-call.js"></script>
+    <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
 
     <!-- Tag it -->
-    <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
-    <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
-    <script src="js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
+    <link href="<?php echo URL?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL?>css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo URL?>js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
 
 </head>
 <header style="height: 37px; z-index:100;">
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('index','all');">
+            <img src="<?php echo URL?>img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
         <div class="MemberShipBtn1" style="top:10px">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
             <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
             <a href="<?php echo $top_snd_link?>" id="top_login"><?php echo $top_snd_text?></a>
         </div>
         <div style="position:absolute; right:25px; height:37px;">
-            <a href="webstudio"><img src="img/beta.png" style="height:37px"></a>
+            <a href="<?php echo URL?>webstudio"><img src="<?php echo URL?>img/beta.png" style="height:37px"></a>
         </div>
     </div>
 </header>

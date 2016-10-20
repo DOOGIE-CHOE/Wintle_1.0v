@@ -1,8 +1,5 @@
 <?php
 
-    if(Session::get("loggedIn") != true){
-
-    }
     $id = Session::get("user_email");
 ?>
 <div id="all">
@@ -236,12 +233,12 @@
                 }else{
                     ?>
                     <script>
-                        $.get("<?php echo URL?>common/getProfilePhoto/profile?id=<?php echo $id?>", function(o){
+                        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
                                 if(photo.find("img").length == 0)
-                                    photo.append("<img src = '<?php echo URL?>profileimages/default.png' style='height:90px;'>");
+                                    photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
                             }else{
                                 //display image as a circular image
                                 if(photo.find("img").length == 0)
@@ -251,7 +248,7 @@
                     </script>
                 <?php } ?>
 
-                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL?>profile?id=<?php echo $id?>','all');"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL.Session::get("my_profile")?>','all');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
                         <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>

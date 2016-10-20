@@ -9,14 +9,12 @@ class View {
 		if ($noInclude == true) {
 			require_once ROOT.DS.'application'.DS.'views'.DS. $name . '.php';
 		} else{
-            if($loggedIn == true){
-                require_once ROOT.DS.'application'.DS.'views'.DS.'header_loggedin.php';
-            }else {
-                require_once ROOT . DS . 'application' . DS . 'views' . DS . 'header.php';
+            require_once ROOT . DS . 'application' . DS . 'views' . DS . 'header.php';
+            if($loggedIn == false){
+                require_once ROOT.DS.'application'.DS.'views'.DS.'loginpopup.php';
             }
             require_once ROOT.DS.'application'.DS.'views'.DS.'errorMessage.php';
             require_once ROOT.DS.'application'.DS.'views'.DS.  $name . '.php';
-
             require_once ROOT.DS.'application'.DS.'views'.DS.'musicplayer.php';
             require_once ROOT.DS.'application'.DS.'views'.DS.'footer.php';
         }

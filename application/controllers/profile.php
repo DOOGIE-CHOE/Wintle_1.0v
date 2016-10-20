@@ -13,9 +13,6 @@ class Profile extends Controller{
     }
 
     function index($noInclude = false, $loggedIn = false){
-        if($loggedIn == false){
-            return false;
-        }
         $this->view->render("profile/index", $noInclude, $loggedIn);
     }
 

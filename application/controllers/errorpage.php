@@ -16,4 +16,5 @@ class ErrorPage extends Controller {
         $this->view->render('error/loggedinservice',true);
     }
 
+
 }

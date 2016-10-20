@@ -1,5 +1,12 @@
 
 
+/*
+    popup,
+    login,
+    signup,
+    main page
+
+*/
 /* Custom CSS
  * --------------------------------------- */
 body {
@@ -211,3 +218,135 @@ header {
 .right {
     float:right;
 }
+
+/* background video
+        * --------------------------------------- */
+#video {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Section 1
+ * --------------------------------------- */
+.intro {
+    position: absolute;
+    margin: auto;
+    padding-bottom: 50px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    height: auto;
+    z-index: -1;
+}
+
+.paper_cap {
+    position: absolute;
+    bottom: 0;
+    float: left;
+    width: 100%;
+}
+
+#section0 {
+    background: none;
+}
+
+#section0 h1 {
+    color: #444;
+}
+
+#section0 p {
+    color: #333;
+    opacity: 0.4;
+}
+
+/* Section 2
+ * --------------------------------------- */
+#section1 {
+    background-color: rgb(255, 255, 255);
+}
+
+#section1 h1 {
+    color: #fff;
+}
+
+#section1 p {
+    opacity: 0.8;
+}
+
+/* Section 3
+ * --------------------------------------- */
+#section2 {
+    background-color: #2C3E50;
+}
+
+#section2 h1 {
+    color: #F2F2F2;
+}
+
+#section2 p {
+    opacity: 0.6;
+}
+
+.login-signup-text{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+    text-align: center;
+}
+.login-signup-text span{
+    font-size: 17px;
+    cursor:pointer;
+}
+
+.login-signup-text #login-text{
+    margin-right:40px;
+}
+
+.login-signup-text #signup-text{
+    margin-left:40px;
+}
+
+.login-signup-block {
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    height: 40px;
+    width: 400px;
+    position: relative;
+    transition: all 5s ease-in-out;
+    padding-bottom: 0;
+}
+
+.arrow-up-left{
+    margin-top:10px;
+    position:absolute;
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 15px solid white;
+    transition:0.2s;
+    -webkit-transition:0.2s;
+    -moz-transition:0.2s;
+    right:calc(100% - 143px);
+}
+
+.SignUp{
+    vertical-align: top;
+    display: inline-block;
+    width:400px;
+}
+

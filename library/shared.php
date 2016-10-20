@@ -59,18 +59,20 @@ function callHook() {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
+
         $isloggedin = false;
         $isnoinclude = false;
 
-        if (empty($url[0])) {
-            $controller = new Index();
-        }
 
         if($url[0] == "favicon.ico"){
             return false;
         }
 
-        if(Session::isSessionSet("loggedIn")){
+        if (empty($url[0])) {
+            $controller = new Index();
+        }
+
+        if(Session::get("loggedIn") == true){
             $isloggedin = true;
         }else{
             $isloggedin = false;
@@ -89,7 +91,15 @@ function callHook() {
             $controller->loadModel($url[0]);
 
             // calling methods
-            if (isset($url[2])) {
+            if(isset($url[3])){
+                if(isset($url[2])){
+                    if (method_exists($controller, $url[1])) {
+                        $controller->{$url[1]}($url[2],$url[3]);
+                    } else {
+                        error("index");
+                    }
+                }
+            }else if (isset($url[2])) {
                 if (method_exists($controller, $url[1])) {
                     $controller->{$url[1]}($url[2]);
                 } else {
@@ -112,7 +122,7 @@ function callHook() {
             if(isExistingProfile($url[0])){
                 $controller = new Profile();
                 $controller->loadModel("Profle");
-                $controller->index($isnoinclude,true);
+                $controller->index($isnoinclude);
             }else{
                 error("index");
             }

@@ -12,22 +12,17 @@ class Common_Model extends Model{
         parent::__construct();
     }
 
-    function getProfilePhoto($type){
-        if(Session::isSessionSet("user_email")){
+    function getProfilePhoto($type,$useremail){
             if($type == 'profile'){
                 $attr = "profile_photo_path";
             }else if($type == "cover"){
                 $attr = "cover_photo_path";
             }
 
-            $user_email = $_GET["id"];
-            $sql = "SELECT $attr from user_profile where user_email = '$user_email'";
+            $sql = "SELECT $attr from user_profile where user_email = '$useremail'";
             $result = $this->db->conn->query($sql);
             $data = $result->fetch_assoc();
             return $data;
-        }else{
-            return null;
-        }
     }
 
     function checkProfileUrl($profileurl){

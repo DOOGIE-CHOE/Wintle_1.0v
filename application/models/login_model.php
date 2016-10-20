@@ -15,6 +15,7 @@ class LogIn_Model extends Model {
                     Session::set("user_email",$_POST['user_email']);
                     Session::set("loggedIn",true);
                     Session::set("user_name",$this->getUsernameByEmail($_POST['user_email']));
+                    Session::set("my_profile",$this->getProfileUrl($_POST['user_email']));
                     $data['success']=true;
                 }
             }
@@ -56,5 +57,12 @@ class LogIn_Model extends Model {
         if ($data['name'] != null) {
             return $data['name'];
         }
+    }
+
+    function getProfileUrl($user_email){
+        $sql = "SELECT profile_url from user_profile where user_email = '$user_email'";
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data['profile_url'];
     }
 }

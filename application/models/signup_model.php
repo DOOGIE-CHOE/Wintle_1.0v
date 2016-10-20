@@ -17,33 +17,33 @@ Class SignUp_Model extends Model {
 
         try {
             //for server
-            $response = $_POST['g-recaptcha-response'];
-            $cap = new Verification();
-            $verified = $cap->verifyCaptcha($response);
-            //if reCAPTCHA is verified
-            if ($verified) {
-                if ($this->verifyUsername($_POST['name'])) {
-                    if ($this->verifyEmail($_POST['user_email'])) {
-                        if ($this->registerUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
-                            $data['success'] = true;
-                        }
+            /* $response = $_POST['g-recaptcha-response'];
+             $cap = new Verification();
+             $verified = $cap->verifyCaptcha($response);
+             //if reCAPTCHA is verified
+             if ($verified) {
+                 if ($this->verifyUsername($_POST['name'])) {
+                     if ($this->verifyEmail($_POST['user_email'])) {
+                         if ($this->registerUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                             $data['success'] = true;
+                         }
+                     }
+                 }
+             } else {
+                 throw new Exception("Our system recognized you as a robot.");
+             }*/
+
+
+
+            //for client
+            if ($this->VerifyUsername($_POST['name'])) {
+                if ($this->VerifyEmail($_POST['user_email'])) {
+                    if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
+                        $data['success'] = true;
                     }
                 }
-            } else {
-                throw new Exception("Our system recognized you as a robot.");
             }
 
-
-            /*
-            //for client
-                if ($this->VerifyUsername($_POST['name'])) {
-                    if ($this->VerifyEmail($_POST['user_email'])) {
-                        if ($this->RegisterUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
-                            $data['success'] = true;
-                        }
-                    }
-                }
-            }*/
         }
         catch(Exception $e){
             $data['error'] = $e->getMessage();

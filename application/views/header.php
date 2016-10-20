@@ -269,8 +269,8 @@ if(Session::isSessionSet("loggedIn")){
                                                                                           placeholder="Enter a password" autocomplete="off">
                         <p class="SignUpText">Use at least one letter<br> one numeral, and seven characters.</p>
 
-                        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
-
+<!--                        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcZwyATAAAAACFru_oAaZX_UCjGySRbcPFiN9Ye"></div>
+-->
                         <input id="submit" type="submit" name="submit" value="LOG IN" style="margin-bottom: 30px" onclick="return check()">
                     </span>
             </div>

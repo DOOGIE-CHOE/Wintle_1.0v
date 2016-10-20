@@ -6,6 +6,11 @@
  * Time: 4:29 PM
  */
 
+    if(Session::isSessionSet("profile_id")){
+        $id = Session::get("profile_id");
+    }else{
+        error("index");
+    }
 ?>
 
 <div id="all">
@@ -120,7 +125,7 @@
                 margin:15px;
             }
 
-            #content{
+            #contents{
                 position:relative;
                 width:100%;
                 height:1000px;
@@ -250,13 +255,15 @@
             }else{
                 ?>
                 <script>
-                    $.get("<?php echo URL?>common/getProfilePhoto/profile", function(o){
+                    $.get("<?php echo URL?>common/getProfilePhoto/profile?id=<?php echo $id?>", function(o){
                         var value = jQuery.parseJSON(o);
                         var photo = $("#profilephoto");
                         if(value.profile_photo_path == null){
                             //display default image
-                            if(photo.find("img").length == 0)
-                                photo.append("<img src = '<?php echo URL?>profileimages/default.png'>");
+                            if(photo.find("#photo").length == 0)
+                            //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
+                                photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
+
                         }else{
                             //display image as a circular image
                             if(photo.find("#photo").length == 0)
@@ -284,7 +291,7 @@
             }else{
                 ?>
                 <script>
-                    $.get("<?php echo URL?>common/getProfilePhoto/cover", function(o){
+                    $.get("<?php echo URL?>common/getProfilePhoto/cover?id=<?php echo $id?>", function(o){
                         var value = jQuery.parseJSON(o);
                         var photo = $("#cover-photo");
                         if(value.cover_photo_path == null){
@@ -314,7 +321,7 @@
                     <div>Followers</div>
                     <div>Incomes</div>
                 </div>
-                <div id="content">
+                <div id="contents">
 
                 </div>
             </div>

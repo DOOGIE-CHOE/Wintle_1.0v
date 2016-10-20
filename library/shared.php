@@ -47,70 +47,107 @@ function unregisterGlobals() {
 /** Main Call Function **/
 
 function callHook() {
+    //Session initiate
     Session::init();
 
-    $url = isset($_GET['url']) ? $_GET['url'] : null;
+    try{
+        //all error will be paased to this method
+        set_error_handler(function($errno, $errstr, $errfile, $errline ){
+            throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+        });
 
-    $url = rtrim($url, '/');
-    $url = explode('/', $url);
-    $isloggedin = false;
-    $isnoinclude = false;
+        $url = isset($_GET['url']) ? $_GET['url'] : null;
+        $url = rtrim($url, '/');
+        $url = explode('/', $url);
+        $isloggedin = false;
+        $isnoinclude = false;
 
-    if($url[0] == "favicon.ico"){
-        return false;
-    }
+        if (empty($url[0])) {
+            $controller = new Index();
+        }
 
-    if (empty($url[0])) {
-        $controller = new Index();
-    }else{
-        if (class_exists($url[0])){
-            $controller = new $url[0];
-        }else{
-            error("index");
+        if($url[0] == "favicon.ico"){
             return false;
         }
-    }
 
-    if(Session::isSessionSet("loggedIn")){
-        $isloggedin = true;
-    }else{
-        $isloggedin = false;
-    }
-
-    if($url[0] == "profile"){
-        if($isloggedin == false){
-            error("loggedInService");
+        if(Session::isSessionSet("loggedIn")){
+            $isloggedin = true;
+        }else{
+            $isloggedin = false;
         }
-    }
 
-    if($url[0] == "webstudio"){
-        $isnoinclude = true;
-    }
+        if(isReservedName($url[0])){
+            if($url[0] == "profile"){
+                Session::set("profile_id",Session::get("user_email"));
+            }
 
-    $controller->loadModel($url[0]);
+            if($url[0] == "webstudio"){
+                $isnoinclude = true;
+            }
 
-    // calling methods
-    if (isset($url[2])) {
-        if (method_exists($controller, $url[1])) {
-            $controller->{$url[1]}($url[2]);
-        } else {
-            error("index");
-        }
-    } else {
-        if (isset($url[1])) {
-            if($url[1] != 'index'){
+            $controller = new $url[0];
+            $controller->loadModel($url[0]);
+
+            // calling methods
+            if (isset($url[2])) {
                 if (method_exists($controller, $url[1])) {
-                    $controller->{$url[1]}();
+                    $controller->{$url[1]}($url[2]);
                 } else {
                     error("index");
                 }
+            } else {
+                if (isset($url[1])) {
+                    if($url[1] != 'index'){
+                        if (method_exists($controller, $url[1])) {
+                            $controller->{$url[1]}();
+                        } else {
+                            error("index");
+                        }
+                    }
+                } else {
+                    $controller->index($isnoinclude,$isloggedin);
+                }
             }
-        } else {
-            $controller->index($isnoinclude,$isloggedin);
+        }else {
+            if(isExistingProfile($url[0])){
+                $controller = new Profile();
+                $controller->loadModel("Profle");
+                $controller->index($isnoinclude,true);
+            }else{
+                error("index");
+            }
         }
+
+    }catch(Exception $e){
+       if($e->getCode() == 8){
+           echo "Undefined Index";
+       }
     }
 }
 
+function isExistingProfile($profileurl){
+    $controller = new Common();
+    $controller->loadModel("Common");
+    $data = $controller->checkProfileUrl($profileurl);
+    if($data == null){
+        return false;
+    }
+    else{
+        Session::set("profile_id",$data);
+        return true;
+    }
+}
+
+function profilecall($profileurl){
+
+}
+
+function isReservedName($name){
+    if(file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($name) . '.php')){
+        return true;
+    }
+    return false;
+}
 
 /** Autoload any classes that are required **/
 

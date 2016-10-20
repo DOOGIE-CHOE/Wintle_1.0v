@@ -20,7 +20,7 @@ class Common_Model extends Model{
                 $attr = "cover_photo_path";
             }
 
-            $user_email = Session::get("user_email");
+            $user_email = $_GET["id"];
             $sql = "SELECT $attr from user_profile where user_email = '$user_email'";
             $result = $this->db->conn->query($sql);
             $data = $result->fetch_assoc();
@@ -28,6 +28,13 @@ class Common_Model extends Model{
         }else{
             return null;
         }
+    }
+
+    function checkProfileUrl($profileurl){
+        $sql = "SELECT user_email from user_profile where profile_url = '$profileurl'";
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data['user_email'];
     }
 
 }

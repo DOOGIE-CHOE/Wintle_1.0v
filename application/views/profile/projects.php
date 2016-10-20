@@ -8,4 +8,4 @@
 
 ?>
 
-<div id="contents">this is a project </div>
+<div id="contents" style="color:black; top:100px;">this is a projects</div>

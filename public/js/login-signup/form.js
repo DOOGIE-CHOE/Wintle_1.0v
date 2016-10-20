@@ -85,12 +85,12 @@ function signUp(){
     //reCAPTCHA by google
     // for server
     // client should annotate this part
-    var response = grecaptcha.getResponse();
+  /*  var response = grecaptcha.getResponse();
     if (response <= 0) {
         errorDisplay("Are you a robot ?");
         return false;
     }
-
+*/
 
 
     return true;

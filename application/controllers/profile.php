@@ -20,10 +20,6 @@ class Profile extends Controller{
     }
 
     function projects($noInclude = false, $loggedIn = false){
-        if($loggedIn == false){
-            return false;
-        }
-        $noInclude = true;
         $this->view->render("profile/projects", $noInclude, $loggedIn);
     }
 

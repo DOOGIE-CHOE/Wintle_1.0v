@@ -12,7 +12,6 @@ class LogIn_Model extends Model {
         try{
             if($this->checkId($_POST['user_email'])){
                 if($this->checkPassword($_POST['user_email'],$_POST['password'])){
-                    Session::init();
                     Session::set("user_email",$_POST['user_email']);
                     Session::set("loggedIn",true);
                     Session::set("user_name",$this->getUsernameByEmail($_POST['user_email']));

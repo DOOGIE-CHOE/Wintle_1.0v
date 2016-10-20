@@ -1,3 +1,10 @@
+<?php
+
+    if(Session::get("loggedIn") != true){
+
+    }
+    $id = Session::get("user_email");
+?>
 <div id="all">
     <head>
 
@@ -229,7 +236,7 @@
                 }else{
                     ?>
                     <script>
-                        $.get("<?php echo URL?>common/getProfilePhoto/profile", function(o){
+                        $.get("<?php echo URL?>common/getProfilePhoto/profile?id=<?php echo $id?>", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
@@ -244,7 +251,7 @@
                     </script>
                 <?php } ?>
 
-                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL?>profile','all');"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL?>profile?id=<?php echo $id?>','all');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
                         <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>

@@ -15,4 +15,8 @@ class Common extends Controller{
         echo json_encode($data);
     }
 
+    public function checkProfileUrl($profileurl) {
+        $data = $this->model->checkProfileUrl($profileurl);
+        return $data;
+    }
 }

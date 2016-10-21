@@ -12,38 +12,37 @@ $.pagehandler.loadContent = function (url, type) {
         id = "#contents";
     }
 
-   // $("#body").load(pageUrl);
+    // $("#body").load(pageUrl);
 
-   // $('.ajax-loader').show();
-   $.ajax({
-      //url: pageUrl + '?type=ajax',
-      url: pageUrl,
-      success: function (data){
-          console.log(data);
-          $(id).html($(data).filter(id).html());
-         //$('#body').html();
-         // hide ajax loader
-         //   $('.ajax-loader').hide();
-      }
-   });
-   if (pageUrl != window.location) {
-      window.history.pushState({ path: pageUrl }, '', pageUrl);
-   }
+    // $('.ajax-loader').show();
+    $.ajax({
+        //url: pageUrl + '?type=ajax',
+        url: pageUrl,
+        success: function (data){
+            $(id).html($(data).filter(id).html());
+            //$('#body').html();
+            // hide ajax loader
+            //   $('.ajax-loader').hide();
+        }
+    });
+    if (pageUrl != window.location) {
+        window.history.pushState({ path: pageUrl }, '', pageUrl);
+    }
 };
 
 
 
 $.pagehandler.backForwardButtons = function () {
-   $(window).on('popstate', function () {
-      if(window.location.href.indexOf("#") == -1){
-         $.ajax({
-            url: location.pathname,
-            success: function (data) {
-               $('#all').html($(data).filter("#all").html());
-            }
-         });
-      }
-   });
+    $(window).on('popstate', function () {
+        if(window.location.href.indexOf("#") == -1){
+            $.ajax({
+                url: location.pathname,
+                success: function (data) {
+                    $('#all').html($(data).filter("#all").html());
+                }
+            });
+        }
+    });
 };
 
 $.pagehandler.backForwardButtons();

@@ -32,4 +32,13 @@ class Common_Model extends Model{
         return $data['user_email'];
     }
 
+
+    function getUsernameByEmail($user_email) {
+        $sql = "SELECT name from user where user_email = '$user_email'";
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+        if ($data['name'] != null) {
+            return $data['name'];
+        }
+    }
 }

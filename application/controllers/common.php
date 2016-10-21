@@ -19,4 +19,9 @@ class Common extends Controller{
         $data = $this->model->checkProfileUrl($profileurl);
         return $data;
     }
+
+    public function getUsernameByEmail($useremail){
+        $data = $this->model->getUsernameByEmail($useremail);
+        echo json_encode($data);
+    }
 }

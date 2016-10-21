@@ -44,8 +44,6 @@ function unregisterGlobals() {
     }
 }
 
-/** Main Call Function **/
-
 function callHook() {
     //Session initiate
     Session::init();
@@ -72,7 +70,7 @@ function callHook() {
             $controller = new Index();
         }
 
-        if(Session::get("loggedIn") == true){
+        if(Session::isSessionSet("loggedIn") == true){
             $isloggedin = true;
         }else{
             $isloggedin = false;
@@ -89,50 +87,57 @@ function callHook() {
 
             $controller = new $url[0];
             $controller->loadModel($url[0]);
+            methodHandler($controller,$url,$isnoinclude,$isloggedin);
 
-            // calling methods
-            if(isset($url[3])){
-                if(isset($url[2])){
-                    if (method_exists($controller, $url[1])) {
-                        $controller->{$url[1]}($url[2],$url[3]);
-                    } else {
-                        error("index");
-                    }
-                }
-            }else if (isset($url[2])) {
-                if (method_exists($controller, $url[1])) {
-                    $controller->{$url[1]}($url[2]);
-                } else {
-                    error("index");
-                }
-            } else {
-                if (isset($url[1])) {
-                    if($url[1] != 'index'){
-                        if (method_exists($controller, $url[1])) {
-                            $controller->{$url[1]}();
-                        } else {
-                            error("index");
-                        }
-                    }
-                } else {
-                    $controller->index($isnoinclude,$isloggedin);
-                }
-            }
         }else {
             if(isExistingProfile($url[0])){
                 $controller = new Profile();
                 $controller->loadModel("Profle");
                 $controller->index($isnoinclude);
+                methodHandler($controller,$url,$isnoinclude,$isloggedin);
+
             }else{
                 error("index");
             }
         }
 
     }catch(Exception $e){
-       if($e->getCode() == 8){
-           echo "Undefined Index";
-       }
+        if($e->getCode() == 8){
+            echo "Undefined Index";
+        }
     }
+}
+
+// calling methods
+function methodHandler($controller,$url,$isnoinclude = false,$isloggedin = false){
+    if(isset($url[3])){
+        if(isset($url[2])){
+            if (method_exists($controller, $url[1])) {
+                $controller->{$url[1]}($url[2],$url[3]);
+            } else {
+                error("index");
+            }
+        }
+    }else if (isset($url[2])) {
+        if (method_exists($controller, $url[1])) {
+            $controller->{$url[1]}($url[2]);
+        } else {
+            error("index");
+        }
+    } else {
+        if (isset($url[1])) {
+            if($url[1] != 'index'){
+                if (method_exists($controller, $url[1])) {
+                    $controller->{$url[1]}();
+                } else {
+                    error("index");
+                }
+            }
+        } else {
+            $controller->index($isnoinclude,$isloggedin);
+        }
+    }
+
 }
 
 function isExistingProfile($profileurl){
@@ -144,13 +149,11 @@ function isExistingProfile($profileurl){
     }
     else{
         Session::set("profile_id",$data);
+        Session::set("profile_url",$profileurl);
         return true;
     }
 }
 
-function profilecall($profileurl){
-
-}
 
 function isReservedName($name){
     if(file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($name) . '.php')){

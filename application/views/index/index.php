@@ -1,6 +1,6 @@
 <?php
 
-    $id = Session::get("user_email");
+$id = Session::get("user_email");
 ?>
 <div id="all">
     <head>
@@ -237,12 +237,16 @@
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
-                                if(photo.find("img").length == 0)
+                                //display default image
+                                if(photo.find("#photo").length == 0)
+                                //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
                                     photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
+
                             }else{
                                 //display image as a circular image
-                                if(photo.find("img").length == 0)
-                                    photo.append("<img src = '<?php echo URL?>"+value.profile_photo_path+"' style='width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                                if(photo.find("#photo").length == 0)
+                                // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                                    photo.append("<div id='photo' style='background-image: url(<?php echo URL?>"+value.profile_photo_path+");width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
                             }
                         });
                     </script>

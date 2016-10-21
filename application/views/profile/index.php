@@ -174,7 +174,47 @@ if(Session::isSessionSet("profile_id")){
 
         </style>
         <script>
+
+            $.get("<?php echo URL?>common/getUsernameByEmail/<?php echo $id?>", function(o){
+                var value = jQuery.parseJSON(o);
+                if(value == null){
+                    //display default image
+                }else{
+                    $("#username").append("<div id='name'>"+value+"</div>");
+                }
+            });
+
+            $.get("<?php echo URL?>common/getProfilePhoto/cover/<?php echo $id?>", function(o){
+                var value = jQuery.parseJSON(o);
+                var photo = $("#cover-photo");
+                if(value.cover_photo_path == null){
+                    //display default image
+                }else{
+                    // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                    photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
+                }
+            });
+
+            $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>",function(o){
+                var value = jQuery.parseJSON(o);
+                var photo = $("#profilephoto");
+                if (value.profile_photo_path == null) {
+                    //display default image
+                    if (photo.find("#photo").length == 0)
+                    //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
+                        photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
+
+                } else {
+                    //display image as a circular image
+                    if (photo.find("#photo").length == 0)
+                    // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                        photo.append("<div id='photo' style='background-image: url(<?php echo URL?>" + value.profile_photo_path + ");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
+                }
+
+            });
+
             $(function(){
+
                 $("#profilephoto").mouseover(function(){
                     $("#edit-profile-photo").fadeIn(200);
                 }).mouseleave(function(){
@@ -240,6 +280,8 @@ if(Session::isSessionSet("profile_id")){
                 });
 
             });
+
+
         </script>
 
     </head>
@@ -248,22 +290,6 @@ if(Session::isSessionSet("profile_id")){
     <div class="main-board">
         <div class="user-board">
             <script>
-                $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>", function(o){
-                    var value = jQuery.parseJSON(o);
-                    var photo = $("#profilephoto");
-                    if(value.profile_photo_path == null){
-                        //display default image
-                        if(photo.find("#photo").length == 0)
-                        //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
-                            photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
-
-                    }else{
-                        //display image as a circular image
-                        if(photo.find("#photo").length == 0)
-                        // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                            photo.append("<div id='photo' style='background-image: url(<?php echo URL?>"+value.profile_photo_path+");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
-                    }
-                });
             </script>
             <div id="user-info">
                 <form id="upload-profile-form" action="<?php echo URL?>profile/uploadProfilePhoto/profile" method="POST" enctype="multipart/form-data" >
@@ -276,20 +302,13 @@ if(Session::isSessionSet("profile_id")){
                         </div>
                     </div>
                 </form>
-                <div id="username"><?php echo "<div id='name'>".Session::get('user_name')."</div>"?></div>
+                <div id="username">
+                    <script>
+                    </script>
+                </div>
                 <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
             </div>
             <script>
-                $.get("<?php echo URL?>common/getProfilePhoto/cover/<?php echo $id?>", function(o){
-                    var value = jQuery.parseJSON(o);
-                    var photo = $("#cover-photo");
-                    if(value.cover_photo_path == null){
-                        //display default image
-                    }else{
-                        // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                        photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
-                    }
-                });
             </script>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">

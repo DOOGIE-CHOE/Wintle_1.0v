@@ -93,7 +93,6 @@ function callHook() {
             if(isExistingProfile($url[0])){
                 $controller = new Profile();
                 $controller->loadModel("Profle");
-                $controller->index($isnoinclude);
                 methodHandler($controller,$url,$isnoinclude,$isloggedin);
 
             }else{

@@ -175,25 +175,7 @@ if(Session::isSessionSet("profile_id")){
         </style>
         <script>
 
-            $.get("<?php echo URL?>common/getUsernameByEmail/<?php echo $id?>", function(o){
-                var value = jQuery.parseJSON(o);
-                if(value == null){
-                    //display default image
-                }else{
-                    $("#username").append("<div id='name'>"+value+"</div>");
-                }
-            });
 
-            $.get("<?php echo URL?>common/getProfilePhoto/cover/<?php echo $id?>", function(o){
-                var value = jQuery.parseJSON(o);
-                var photo = $("#cover-photo");
-                if(value.cover_photo_path == null){
-                    //display default image
-                }else{
-                    // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                    photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
-                }
-            });
 
             $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>",function(o){
                 var value = jQuery.parseJSON(o);
@@ -303,13 +285,18 @@ if(Session::isSessionSet("profile_id")){
                     </div>
                 </form>
                 <div id="username">
-                    <script>
-                    </script>
+                    <?php
+                    $username = json_decode(file_get_contents(URL."common/getUsernameByEmail/".$id));
+                    echo "<div id='name'>$username</div>";
+                    ?>
                 </div>
                 <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
             </div>
-            <script>
-            </script>
+            <?php
+            $a = json_decode(file_get_contents(URL."common/getProfilePhoto/cover/".$id));
+            echo $a;
+            //echo "<script>$('#cover-photo').css('background-image', 'url($coverphoto)')</script>";
+            ?>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">
                     <?php if(Session::get("loggedIn") == true && Session::get("user_email") == Session::get("profile_id")){ ?>

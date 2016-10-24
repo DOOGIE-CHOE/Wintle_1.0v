@@ -90,7 +90,7 @@ if(Session::isSessionSet("profile_id")){
                 z-index:20;
                 float:right;
             }
-            #username #name{
+            #username #user-name{
                 position:absolute;
                 font-size: 50px;
                 bottom:10px;
@@ -286,15 +286,16 @@ if(Session::isSessionSet("profile_id")){
                 </form>
                 <div id="username">
                     <?php
-                    $username = json_decode(file_get_contents(URL."common/getUsernameByEmail/".$id));
-                    echo "<div id='name'>$username</div>";
+           ///         $username = json_decode(file_get_contents(URL."common/getUsernameByEmail/".$id));
+            //        echo "<div id='user-name'>$username</div>";
                     ?>
                 </div>
                 <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
             </div>
             <?php
-            $a = json_decode(file_get_contents(URL."common/getProfilePhoto/cover/".$id));
-            echo $a;
+     //       $a = json_decode(file_get_contents(URL."common/getProfilePhoto/cover/".$id));
+      //      print_r($a);
+           // echo $a;
             //echo "<script>$('#cover-photo').css('background-image', 'url($coverphoto)')</script>";
             ?>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >

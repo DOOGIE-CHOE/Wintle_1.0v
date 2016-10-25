@@ -13,11 +13,31 @@ class Profile extends Controller{
     }
 
     function index($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn);
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/home");
+    }
+
+    function home($noInclude = false, $loggedIn = false){
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/home");
+    }
+
+    function playlists($noInclude = false, $loggedIn = false){
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/playlists");
     }
 
     function projects($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/projects", $noInclude, $loggedIn);
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/projects");
+    }
+
+    function friends($noInclude = false, $loggedIn = false){
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/friends");
+    }
+
+    function following($noInclude = false, $loggedIn = false){
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/following");
+    }
+
+    function followers($noInclude = false, $loggedIn = false){
+        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/followers");
     }
 
     public function uploadProfilePhoto($type){

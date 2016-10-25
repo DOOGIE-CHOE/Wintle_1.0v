@@ -317,27 +317,13 @@ if(Session::isSessionSet("profile_id")){
 
             <div id="contents-set">
                 <div id="category">
-                    <div style="margin-left:50px;">Home</div>
-                    <div  onclick="$.pagehandler.loadContent('<?php echo URL?>profile/projects','contents');" >PlayLists</div>
-                    <div>Projects</div>
-                    <div>Friends</div>
-                    <div>Following</div>
-                    <div>Followers</div>
-                    <div>Incomes</div>
+                    <div style="margin-left:50px;" onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/home"?>','contents');">Home</div>
+                    <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/playlists"?>','contents');" >PlayLists</div>
+                    <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/projects"?>','contents');">Projects</div>
+                    <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/friends"?>','contents');">Friends</div>
+                    <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/following"?>','contents');">Following</div>
+                    <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/followers"?>','contents');">Followers</div>
                 </div>
-                <div id="contents">
 
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    </body>
-
-
-
-</div>
 
 

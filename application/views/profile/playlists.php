@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: Daniel
- * Date: 10/25/2016
- * Time: 1:51 PM
+ * Date: 10/17/2016
+ * Time: 6:06 PM
  */
 
 ?>
 
 <div id="contents">
     <div>
-    <p>this is projects</p>
+        <p>this is playlists</p>
     </div>
 </div>
 

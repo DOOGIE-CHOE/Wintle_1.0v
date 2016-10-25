@@ -10,7 +10,7 @@
 
 <div id="contents">
     <div>
-    <p>this is projects</p>
+    <p>this is home</p>
     </div>
 </div>
 

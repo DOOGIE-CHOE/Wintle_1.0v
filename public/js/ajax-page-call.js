@@ -19,8 +19,10 @@ $.pagehandler.loadContent = function (url, type) {
         //url: pageUrl + '?type=ajax',
         url: pageUrl,
         success: function (data){
-            console.log(data);
-            $(id).html($(data).filter(id).html());
+            if(id == "#all")
+                $(id).html($(data).filter(id).html());
+            else if(id == "#contents")
+                $(id).html($(data).find(id).html());
             //$('#body').html();
             // hide ajax loader
             //   $('.ajax-loader').hide();

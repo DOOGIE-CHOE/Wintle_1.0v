@@ -83,6 +83,15 @@ if(Session::isSessionSet("profile_id")){
                 left:50px;
             }
 
+            #profilephoto #photo{
+                width: 187px;
+                height: 187px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: auto;
+            }
+
             #username, #user-hashtag{
                 position:relative;
                 height:100px;
@@ -174,25 +183,32 @@ if(Session::isSessionSet("profile_id")){
 
         </style>
         <script>
-
-
-
+            $.get("<?php echo URL?>common/getUsernameByEmail/<?php echo $id?>", function(o){
+                var value = jQuery.parseJSON(o);
+                if(value == null){
+                    //display default image
+                }else{
+                    $("#username").append("<div id='user-name'>"+value+"</div>");
+                }
+            });
+            $.get("<?php echo URL?>common/getProfilePhoto/cover/<?php echo $id?>", function(o){
+                var value = jQuery.parseJSON(o);
+                var photo = $("#cover-photo");
+                if(value.cover_photo_path == null){
+                    //display default image
+                }else{
+                    // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                    photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
+                }
+            });
             $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>",function(o){
                 var value = jQuery.parseJSON(o);
                 var photo = $("#profilephoto");
-                if (value.profile_photo_path == null) {
+                if (value.profile_photo_path != null) {
                     //display default image
-                    if (photo.find("#photo").length == 0)
-                    //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
-                        photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
-
-                } else {
-                    //display image as a circular image
-                    if (photo.find("#photo").length == 0)
                     // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                        photo.append("<div id='photo' style='background-image: url(<?php echo URL?>" + value.profile_photo_path + ");width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
+                    $("#photo").css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')').css("background-size","cover");
                 }
-
             });
 
             $(function(){
@@ -281,23 +297,15 @@ if(Session::isSessionSet("profile_id")){
                                 <div id='edit-profile-photo'><p>EDIT</p></div>
                                 <input type='file' id='profile-photo-input' name="image" style="display: none;">
                             <?php }?>
+                            <div id='photo' style='background-color:#222222;'>
+                            </div>
                         </div>
                     </div>
                 </form>
                 <div id="username">
-                    <?php
-           ///         $username = json_decode(file_get_contents(URL."common/getUsernameByEmail/".$id));
-            //        echo "<div id='user-name'>$username</div>";
-                    ?>
                 </div>
                 <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
             </div>
-            <?php
-     //       $a = json_decode(file_get_contents(URL."common/getProfilePhoto/cover/".$id));
-      //      print_r($a);
-           // echo $a;
-            //echo "<script>$('#cover-photo').css('background-image', 'url($coverphoto)')</script>";
-            ?>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">
                     <?php if(Session::get("loggedIn") == true && Session::get("user_email") == Session::get("profile_id")){ ?>

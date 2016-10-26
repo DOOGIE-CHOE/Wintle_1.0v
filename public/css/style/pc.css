@@ -16,72 +16,85 @@ header {
   background: #417e8d;
   box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;
   overflow: hidden;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently*/
 }
-  header div.info-content iframe {
-    position: absolute;
-    border: 0;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-  header div.info-content .introbtn {
-    position: absolute;
-    font-size: x-large;
-    color: lightgray;
-    width: 150px;
-    text-align: center;
-    line-height: 50px;
-    height: 50px;
-    left: 0;
-    right: 0;
-    bottom: 15%;
-    margin: auto;
-    border: 3px solid lightgray;
-    border-radius: 50px;
-    cursor: pointer;
-    opacity: .8; }
-  header #header-gnb {
-    background-color:#417e8d;
-    position: absolute;
-    margin: auto;
-    width: 1200px;
-    min-width: 400px;
-    height: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-right:10%;
-    padding-left:10%;
+header div.info-content iframe {
+  position: absolute;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+header div.info-content .introbtn {
+  position: absolute;
+  font-size: x-large;
+  color: lightgray;
+  width: 150px;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  margin: auto;
+  border: 3px solid lightgray;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: .8; }
+header #header-gnb {
+  background-color:#417e8d;
+  position: absolute;
+  margin: auto;
+  width: 1200px;
+  min-width: 400px;
+  height: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-right:10%;
+  padding-left:10%;
 
-  }
-    header #header-gnb > div {
-      position: relative; }
-    header #header-gnb [class^=HeaderImg] {
-      cursor: pointer;
-      float: left;
-      left: 0;
-      bottom: 0;
-      overflow: hidden; }
-      header #header-gnb [class^=HeaderImg] > a {
-        font-size: 0;
-        position: absolute;
-        width: 100%;
-        height: 100%; }
-    header #header-gnb .HeaderImg0 {
-      background: url("../img/btnicon/home.png");
-      background-size: 50px 50px;
-      width: 50px;
-      height: 50px; }
-    header #header-gnb .HeaderImg1 {
-      height: 37px; }
-    header #header-gnb [class^=MemberShipBtn] {
-      float: right; }
-      header #header-gnb [class^=MemberShipBtn] > * {
-        font-size: 20px; }
-      header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
-        cursor: pointer; }
-    header #header-gnb .MemberShipBtn0 > * {
-      color: black; }
-    header #header-gnb .MemberShipBtn1 > * {
-      color: lightgray; }
+}
+header #header-gnb > div {
+  position: relative; }
+header #header-gnb [class^=HeaderImg] {
+  cursor: pointer;
+  float: left;
+  left: 0;
+  bottom: 0;
+  overflow: hidden; }
+header #header-gnb [class^=HeaderImg] > a {
+  font-size: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+header #header-gnb .HeaderImg1 {
+  height: 37px; }
+header #header-gnb [class = MemberShipBtn0] {
+  float:left;
+  left:160px;
+}
+header #header-gnb [class = MemberShipBtn1] {
+  float: right; }
+header #header-gnb [class^=MemberShipBtn] > * {
+  font-size: 20px; }
+header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
+  cursor: pointer; }
+header #header-gnb .MemberShipBtn0 > * {
+  display:inline-block;
+  color: lightgray;
+  margin:9px 13px 0 2px;
+  cursor:pointer;
+}
+header #header-gnb .MemberShipBtn1 > * {
+  color: lightgray; }
+
+header #header-gnb [class ^= MemberShipBtn] > *:hover{
+  color:white;
+}

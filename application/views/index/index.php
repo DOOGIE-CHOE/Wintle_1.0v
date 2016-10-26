@@ -70,41 +70,6 @@ $id = Session::get("user_email");
                 background-size: cover;
             }
 
-            #to-albumart{
-                position:fixed;
-                right:0;
-                top:37px;
-                height:100%;
-                width:7%;
-                background-color: rgba(189,189,189,0.7);
-                z-index:1;
-            }
-
-            .line-arrow {
-                position: absolute;
-                overflow: hidden;
-                display: inline-block;
-                font-size: 10px; /*set the size for arrow*/
-                width: 4em;
-                height: 4em;
-                top:45%;
-            }
-
-            .line-arrow.left {
-                border-top: 3px solid black;
-                border-left: 3px solid black;
-                transform: rotate(-45deg) skew(0deg);
-                margin-right:15px;
-            }
-
-
-            .line-arrow.right {
-                border-top: 3px solid black;
-                border-right: 3px solid black;
-                transform: rotate(54deg) skew(20deg);
-                right: 50px;
-            }
-
             #label-info{
                 margin-left:20px;
                 color: rgb(65,126,141);
@@ -296,10 +261,6 @@ $id = Session::get("user_email");
             </div>
         </div>
         <div class="music-board"></div>
-    </div>
-    <div id="to-albumart">
-        <!-- <?php /*echo "<a href='" .URL."albumartall'>";*/?><div class="line-arrow right"></div></a>-->
-        <div class="line-arrow right" onclick="$.pagehandler.loadContent('<?php echo URL?>albumartall','all');"></div>
     </div>
     <script type="text/javascript">
         var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(<?php echo URL?>i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";

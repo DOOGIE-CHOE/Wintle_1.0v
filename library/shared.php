@@ -67,7 +67,8 @@ function callHook() {
         }
 
         if (empty($url[0])) {
-            $controller = new Index();
+            $url[0] = "index";
+            $controller = new $url[0];
         }
 
         if(Session::isSessionSet("loggedIn") == true){

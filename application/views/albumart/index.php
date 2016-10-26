@@ -53,32 +53,6 @@
             margin-top : 37px;
         }
 
-        .line-arrow {
-            position: absolute;
-            overflow: hidden;
-            display: inline-block;
-            font-size: 10px; /*set the size for arrow*/
-            width: 4em;
-            height: 4em;
-            top:45%;
-        }
-
-        .line-arrow.left {
-            border-top: 3px solid black;
-            border-left: 3px solid black;
-            transform: rotate(-54deg) skew(-20deg);
-            left:50px;
-        }
-
-        #to-albums{
-            position:fixed;
-            left:0;
-            top:37px;
-            height:100%;
-            width:7%;
-            background-color: rgba(189,189,189,0.7);
-            z-index:1;
-        }
 
     </style>
 
@@ -93,10 +67,6 @@
 <div class="main-board">
     <div class="music-board"></div>
     <div class="seed-board"></div>
-</div>
-
-<div id="to-albums">
-    <div class="line-arrow left" onclick="$.pagehandler.loadContent('http://localhost/index','all');"></div>
 </div>
 </body>
 

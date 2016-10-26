@@ -304,7 +304,7 @@ if(Session::isSessionSet("profile_id")){
                 </form>
                 <div id="username">
                 </div>
-                <div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>
+                <!--<div id="user-hashtag"><div id="hashtag"><input name="HashTags" id="HashTags" required placeholder="Add hashtags"></div></div>-->
             </div>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">
@@ -324,6 +324,4 @@ if(Session::isSessionSet("profile_id")){
                     <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/following"?>','contents');">Following</div>
                     <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/followers"?>','contents');">Followers</div>
                 </div>
-
-
 

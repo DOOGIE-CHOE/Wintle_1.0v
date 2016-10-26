@@ -60,7 +60,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
-
+    <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/untitled.png">
 </head>
 <header style="z-index:100;">
     <?php if(Session::isSessionSet("intro") == false){ ?>
@@ -101,6 +101,10 @@ if(Session::isSessionSet("loggedIn")){
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
             <img src="<?php echo URL?>img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+        </div>
+        <div class="MemberShipBtn0">
+            <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php echo URL."index"?>','all');">Page A</p>
+            <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php echo URL."albumartall"?>','all');">Page B</p>
         </div>
         <div class="MemberShipBtn1" style="top:10px">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
             <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>

@@ -24,3 +24,7 @@ define("DBUSERNAME", "root");    // The database username.
 define("DBPASSWORD", "daniel12066@@!");    // The database password.
 define("DBNAME", "wintle");    // The database name.
 define("URL","http://localhost/");
+
+set_error_handler(function($errno, $errstr, $errfile, $errline ){
+    throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+});

@@ -5,4 +5,8 @@ define('ROOT', dirname(dirname(__FILE__)));
 
 require_once (ROOT . DS . 'library' . DS . 'bootstrap.php');
 
-$url = $_GET['url'];
+if(isset($_GET['url'])){
+    $url = $_GET['url'];
+}else{
+    $url = null;
+}

@@ -50,11 +50,8 @@ function callHook() {
 
     try{
         //all error will be paased to this method
-        set_error_handler(function($errno, $errstr, $errfile, $errline ){
-            throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
-        });
 
-        $url = isset($_GET['url']) ? $_GET['url'] : null;
+        $url = isset($_GET['url']) ? $_GET['url'] : "index";
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
@@ -65,11 +62,11 @@ function callHook() {
         if($url[0] == "favicon.ico"){
             return false;
         }
-
+/*
         if (empty($url[0])) {
             $url[0] = "index";
             $controller = new $url[0];
-        }
+        }*/
 
         if(Session::isSessionSet("loggedIn") == true){
             $isloggedin = true;

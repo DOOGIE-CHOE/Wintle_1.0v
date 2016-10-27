@@ -9,6 +9,33 @@ $id = Session::get("user_email");
             html body{
                 overflow-x:hidden;
             }
+            .tap{
+                position:relative;
+                height:100%;
+                background: black;
+            }
+
+            #list{
+                position:relative;
+                left:270px;
+                width:1222px;
+            }
+            #list p{
+                display:inline-block;
+                font-size:24px;
+                margin:20px;
+             }
+            #sort{
+                display: inline-block;
+                position:absolute;
+                right:20px;
+            }
+
+            #sort p{
+                display:inline-block;
+                font-size:15px;
+                margin:20px;
+            }
             .main-board{
                 height:100%;
                 width:1222px;
@@ -29,7 +56,8 @@ $id = Session::get("user_email");
                 position:relative;
                 float:right;
                 height:100%;
-                width:75%;
+                /*  width:75%;*/
+                width:100%;
                 background-color: #2b2e31;
             }
 
@@ -186,48 +214,59 @@ $id = Session::get("user_email");
     <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
     -->
     <div id="bg"></div>
+    <div class="tap">
+        <div id="list">
+            <p>Top Chart</p>
+            <p>New</p>
+            <p>Recommended</p>
+            <div id="sort">
+                <p>장르선택</p>
+                <p>인기순</p>
+                <p>최신순</p>
+            </div>
+        </div>
 
-    <div class="main-board">
+        <div class="main-board"><!--
         <div class="user-board">
 
             <div class="sb userinfo">
                 <div class="label" style="background-color: #6d95e0"></div>
                 <?php
-                if(Session::get("loggedIn") != true){
-                    echo "Please Log In";
-                }else{
-                    ?>
+            /*                if(Session::get("loggedIn") != true){
+                                echo "Please Log In";
+                            }else{
+                                */?>
                     <script>
-                        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>", function(o){
+                        $.get("<?php /*echo URL*/?>common/getProfilePhoto/profile/<?php /*echo $id*/?>", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){
                                 //display default image
                                 if(photo.find("#photo").length == 0)
-                                //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php echo URL?>profileimages/default.png'>");
-                                    photo.append("<div id='photo' style='background-image: url(<?php echo URL?>profileimages/default.png);width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
+                                //    photo.append("<img style='width: 220px; height: 220px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;' src = '<?php /*echo URL*/?>profileimages/default.png'>");
+                                    photo.append("<div id='photo' style='background-image: url(<?php /*echo URL*/?>profileimages/default.png);width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: auto;'><div>");
 
                             }else{
                                 //display image as a circular image
                                 if(photo.find("#photo").length == 0)
                                 // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                                    photo.append("<div id='photo' style='background-image: url(<?php echo URL?>"+value.profile_photo_path+");width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
+                                    photo.append("<div id='photo' style='background-image: url(<?php /*echo URL*/?>"+value.profile_photo_path+");width: 90px; height: 90px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'><div>");
                             }
                         });
                     </script>
-                <?php } ?>
+                <?php /*} */?>
 
-                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php echo URL.Session::get("my_profile")?>','all');"></div>
+                <div id="profilephoto" onclick="$.pagehandler.loadContent('<?php /*echo URL.Session::get("my_profile")*/?>','all');"></div>
                 <div id="shortcut">
                     <div id="shortcut-username">
-                        <?php echo "<div id='username'>".Session::get('user_name')."</div>"?>
-                        <img id="setting" src="<?php echo URL?>img/setting.svg">
+                        <?php /*echo "<div id='username'>".Session::get('user_name')."</div>"*/?>
+                        <img id="setting" src="<?php /*echo URL*/?>img/setting.svg">
                     </div>
                     <div id="shortcut-info">
                         <div id="shortcut-info-icon">
-                            <img src="<?php echo URL?>img/like.svg">
-                            <img src="<?php echo URL?>img/social.svg">
-                            <img src="<?php echo URL?>img/file.svg">
+                            <img src="<?php /*echo URL*/?>img/like.svg">
+                            <img src="<?php /*echo URL*/?>img/social.svg">
+                            <img src="<?php /*echo URL*/?>img/file.svg">
                         </div>
                         <div id="shortcut-info-number">
                             <div id="number-likes">---</div>
@@ -259,8 +298,9 @@ $id = Session::get("user_email");
                 <div class="label"></div>
                 <h4 id="label-info">MyProject</h4>
             </div>
+        </div>-->
+            <div class="music-board"></div>
         </div>
-        <div class="music-board"></div>
     </div>
     <script type="text/javascript">
         var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(<?php echo URL?>i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";

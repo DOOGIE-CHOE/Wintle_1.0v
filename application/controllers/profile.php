@@ -12,32 +12,32 @@ class Profile extends Controller{
         parent::__construct();
     }
 
-    function index($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/home");
+    function index(){
+        $this->view->render("profile/index",false,false,"profile/home");
     }
 
-    function home($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/home");
+    function home(){
+        $this->view->render("profile/index",false,false,"profile/home");
     }
 
-    function playlists($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/playlists");
+    function playlists(){
+        $this->view->render("profile/index",false,false,"profile/playlists");
     }
 
-    function projects($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/projects");
+    function projects(){
+        $this->view->render("profile/index",false,false,"profile/projects");
     }
 
-    function friends($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/friends");
+    function friends(){
+        $this->view->render("profile/index",false,false,"profile/friends");
     }
 
-    function following($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/following");
+    function following(){
+        $this->view->render("profile/index",false,false,"profile/following");
     }
 
-    function followers($noInclude = false, $loggedIn = false){
-        $this->view->render("profile/index", $noInclude, $loggedIn,"profile/followers");
+    function followers(){
+        $this->view->render("profile/index",false,false,"profile/followers");
     }
 
     public function uploadProfilePhoto($type){

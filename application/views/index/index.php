@@ -24,7 +24,7 @@ $id = Session::get("user_email");
                 display:inline-block;
                 font-size:24px;
                 margin:20px;
-             }
+            }
             #sort{
                 display: inline-block;
                 position:absolute;
@@ -194,9 +194,21 @@ $id = Session::get("user_email");
         <script>
 
             $(function(){
+                /*$(".cell").mouseover(function(){
+                 if( $(this).find("#test-button").length == 0){
+                 $(this).html("<img id='test-button' src='img/play_grey.png'>");
+                 $(this).find("#test-button").fadeIn(300);
+                 }
+                 }).mouseleave(function(){
+                 if( $(this).find("#test-button").length > 0) {
+                 $(this).find("#test-button").fadeOut(200);
+                 $(this).html("");
+                 }
+                 });*/
+
                 $(".cell").mouseover(function(){
                     if( $(this).find("#test-button").length == 0){
-                        $(this).html("<img id='test-button' src='<?php echo URL?>img/play_grey.png'>");
+                        $(this).html("<div style='position:absolute; right:0px; width:100px; height:100%; background-color: black'></div>");
                         $(this).find("#test-button").fadeIn(300);
                     }
                 }).mouseleave(function(){
@@ -205,6 +217,7 @@ $id = Session::get("user_email");
                         $(this).html("");
                     }
                 });
+
             });
 
 

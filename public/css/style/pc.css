@@ -13,7 +13,7 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #417e8d;
+  background: #261030;
   box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;
   overflow: hidden;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -48,7 +48,7 @@ header div.info-content .introbtn {
   cursor: pointer;
   opacity: .8; }
 header #header-gnb {
-  background-color:#417e8d;
+  background-color:#200630;
   position: absolute;
   margin: auto;
   width: 1200px;

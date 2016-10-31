@@ -35,7 +35,7 @@ if(Session::isSessionSet("profile_id")){
             }
 
             #body{
-                margin-top:37px;
+                margin-top:50px;
             }
 
             #cover-photo{

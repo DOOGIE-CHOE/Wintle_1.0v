@@ -28,9 +28,14 @@ header {
     z-index: 10;
     position: fixed;
     top: 0;
+    background: black;
     /*background-color: rgba(65, 126, 141, 1);*/
     width: 100%;
     float: left;
+}
+
+p:link, a:link{
+    text-decoration: none;
 }
 
 .contaner {

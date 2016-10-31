@@ -103,6 +103,8 @@ function callHook() {
         if($e->getCode() == 8){
             echo "Undefined Index";
         }
+
+        // syntax error
     }
 }
 

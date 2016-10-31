@@ -1,5 +1,5 @@
 ﻿<?php
-
+/*
 $top_fst_text = "Log In";
 $top_snd_text = "Sign Up";
 $top_fst_link = "#popup1";
@@ -11,7 +11,7 @@ if(Session::isSessionSet("loggedIn")){
     $top_snd_text = "";
     $top_fst_link = "";
     $top_snd_link = "";
-}
+}*/
 
 ?>
 
@@ -61,7 +61,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
-    <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/untitled.png">
+    <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
 </head>
 <header style="z-index:100;">
     <?php if(Session::isSessionSet("intro") == false){ ?>
@@ -72,7 +72,7 @@ if(Session::isSessionSet("loggedIn")){
     <?php }else{ ?>
         <script>
             $(".info-content").css("display","hide");
-            $("header").css("height","37px");
+            $("header").css("height","50px");
         </script>
     <?php } ?>
 
@@ -95,51 +95,44 @@ if(Session::isSessionSet("loggedIn")){
 
     </div>-->
 
-    <!-- <div class="info-content">
-         <div class="introbtn">뮤지션에 도전하기</div>
-     </div>
--->
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/logo_white_scaled.png" style="height:37px"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">
             <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php /*echo URL."index"*/?>','all');">Page A</p>
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
-
-        <div style="position:absolute; left:340px; height:30px; top:0;">
-            <img src="img/fire.png" style="width:40px;">
+        <div class="MemberShipBtn0" style="top:10px; right:110px;">
+            <p style="font-size:19px;">.Album</p>
+            <p style="font-size:19px;">.Hub</p>
         </div>
 
-        <div style="position:absolute; left:400px; height:30px; top:5px;">
-            <img src="img/seed.png" style="width:30px;">
-        </div>
+        <?php if(Session::isSessionSet("loggedIn") == false){ ?>
+            <div class="MemberShipBtn1" style="top:18px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
+                <a href="#popup1" id="top_login" style="margin-right:10px; font-size:19px;">Log In</a>
+                <a href="#popup1" id="top_login" style="font-size:19px;">Sign Up</a>
+                <!--<a style="right:10px">user name</a>-->
+            </div>
+        <?php } else{?>
+            <div class="MemberShipBtn2" style="top:18px; right:0;">
+                    <img src="img/setting.svg" style="width:25px;">
+            </div>
+            <!-- <div class="MemberShipBtn1" style="position:relative;display:inline-block; right:120px; top:7px;">
+                 <img src="img/groups.png" style="width:25px">
+             </div>-->
+            <!--
+                    <div style="position:absolute; right:213px; height:30px; top:7px;">
+                        <img src="img/warning.svg" style="width:25px;">
+                    </div>
+-->
 
-        <div  style="position:absolute; left:500px; height:30px; top:5px;">
-            <img src="img/searchbar.png" style="height:26px; width:100%">
-        </div>
 
-        <div class="MemberShipBtn1" style="top:10px; right:110px;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
-            <a href="<?php echo $top_fst_link?>" id="top_login"><?php echo $top_fst_text?></a>
-            <a href="<?php echo $top_snd_link?>" id="top_login"><?php echo $top_snd_text?></a>
-            <a style="right:10px">Daniel Choi</a>
-        </div>
-        <div class="MemberShipBtn1" style="position:relative;display:inline-block; right:120px; top:7px;">
-            <img src="img/groups.png" style="width:25px">
-        </div>
+        <?php }?>
 
-        <div style="position:absolute; right:213px; height:30px; top:7px;">
-            <img src="img/warning.svg" style="width:25px;">
-        </div>
-
-        <div style="position:absolute; right:160px; height:30px; top:7px;">
-            <img src="img/setting.svg" style="width:25px;">
-        </div>
-
-        <div style="position:absolute; right:25px; height:37px;">
-            <a href="<?php echo URL?>webstudio"><img src="<?php echo URL?>img/beta.png" style="height:37px"></a>
+        <div style="position:absolute;top:15px; right:25px; height:50px;">
+            <a href="<?php echo URL?>webstudio"><img src="<?php echo URL?>img/beta.png" style="height:30px"></a>
         </div>
     </div>
     </div>

@@ -11,7 +11,7 @@
 <div id="popup1" class="overlay">
     <a class="close" href="#">×</a>
     <div class="header">
-        <a href="index.php"><img src="<?php echo URL?>img/pavicon/logo_explain.png"></a>
+        <a href="index"><img src="<?php echo URL?>img/pavicon/logo_explain.png"></a>
     </div>
     <div class="login-signup-block" id="login-signup-block">
         <div class="login-signup-text">

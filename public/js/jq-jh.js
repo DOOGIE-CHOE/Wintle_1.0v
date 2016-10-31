@@ -18,7 +18,7 @@
             header_height = '100px';
         } else {
             // pc
-            header_height = '37px';
+            header_height = '50px';
         }
     }
 

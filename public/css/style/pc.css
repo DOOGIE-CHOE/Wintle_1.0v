@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* 변수 지정 */
 /* 함수 */
-html {
+/*html {
   width: 100%;
   height: 100%;
-  background-size: cover; }
+  background-size: cover; }*/
 
 /* ***************************
             헤더 영역 
@@ -13,7 +13,6 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: black;
   /*box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;*/
   overflow: hidden;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -75,12 +74,14 @@ header #header-gnb [class^=HeaderImg] > a {
   width: 100%;
   height: 100%; }
 header #header-gnb .HeaderImg1 {
-  height: 37px; }
+  height: 50px; }
 header #header-gnb [class = MemberShipBtn0] {
   float:left;
   left:30px;
 }
 header #header-gnb [class = MemberShipBtn1] {
+  float: right; }
+header #header-gnb [class = MemberShipBtn2] {
   float: right; }
 header #header-gnb [class^=MemberShipBtn] > * {
   font-size: 20px; }

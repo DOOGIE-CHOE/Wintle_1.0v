@@ -50,7 +50,7 @@
             background-size: cover;
         }
         #body{
-            margin-top : 37px;
+            margin-top : 50px;
         }
 
 

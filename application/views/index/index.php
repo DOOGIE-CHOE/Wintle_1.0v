@@ -87,7 +87,7 @@ $id = Session::get("user_email");
             }
 
             #body{
-                margin-top : 37px;
+                margin-top : 50px;
             }
             #bg{
                 position:fixed;

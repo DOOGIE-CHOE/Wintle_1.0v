@@ -28,7 +28,7 @@ header {
     z-index: 10;
     position: fixed;
     top: 0;
-    background-color: rgba(65, 126, 141, 1);
+    /*background-color: rgba(65, 126, 141, 1);*/
     width: 100%;
     float: left;
 }

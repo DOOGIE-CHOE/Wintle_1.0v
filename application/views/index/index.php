@@ -189,6 +189,18 @@ $id = Session::get("user_email");
             #test-button:hover{
                 display: block;
             }
+
+            #albummenu{
+                display:none;
+                position:absolute;
+                width:70px;
+                height:100%;
+                background-color: black;
+                opacity:1;
+                right:-70px;
+                z-index:10;
+            }
+
         </style>
 
         <script>
@@ -207,17 +219,16 @@ $id = Session::get("user_email");
                  });*/
 
                 $(".cell").mouseover(function(){
-                    if( $(this).find("#test-button").length == 0){
-                        $(this).html("<div style='position:absolute; right:0px; width:100px; height:100%; background-color: black'></div>");
-                        $(this).find("#test-button").fadeIn(300);
+                    if( $(this).find("#albummenu").length == 0) {
+                        $(this).html("<div id='albummenu'><div>");
+                        $(this).find("#albummenu").show("slide", {direction: "left"}, 200);
                     }
                 }).mouseleave(function(){
-                    if( $(this).find("#test-button").length > 0) {
-                        $(this).find("#test-button").fadeOut(200);
+                    if( $(this).find("#albummenu").length > 0) {
+                        $(this).find("#albummenu").hide("slide", {direction: "right"}, 200);
                         $(this).html("");
                     }
                 });
-
             });
 
 
@@ -321,7 +332,7 @@ $id = Session::get("user_email");
         var cellinfo = [];
         for (var i = 1; i < limitItem; i++) {
             //w = 200 +  200 * Math.random() << 0;
-            h = w = (Math.floor(Math.random() * 2) + 1) * 140;
+            h = w = (Math.floor(Math.random() * 1) + 2) * 140;
             //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
             html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
             //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));

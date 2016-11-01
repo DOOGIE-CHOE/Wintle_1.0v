@@ -13,18 +13,9 @@ $id = Session::get("user_email");
                 position:relative;
                 height:100%;
                 background: black;
+                top:40px;
             }
 
-            #list{
-                position:relative;
-                left:270px;
-                width:1222px;
-            }
-            #list p{
-                display:inline-block;
-                font-size:24px;
-                margin:20px;
-            }
             #sort{
                 display: inline-block;
                 position:absolute;
@@ -238,17 +229,24 @@ $id = Session::get("user_email");
     <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
     -->
     <div id="bg"></div>
-    <div class="tap">
-        <div id="list">
-            <p>Top Chart</p>
-            <p>New</p>
-            <p>Recommended</p>
+
+
+    <div id="sub-header">
+        <div id="container">
+            <div id="subclass">
+                <p>Top Chart</p>
+                <p>New</p>
+                <p>Recommended</p>
+            </div>
+
             <div id="sort">
-                <p>장르선택</p>
-                <p>인기순</p>
-                <p>최신순</p>
             </div>
         </div>
+    </div>
+
+
+    <div class="tap">
+
 
         <div class="main-board"><!--
         <div class="user-board">

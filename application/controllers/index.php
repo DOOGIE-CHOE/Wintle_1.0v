@@ -11,8 +11,26 @@ class Index extends Controller {
         parent::__construct();
     }
 
-    function index($noInclude = false, $loggedIn = false){
-        $this->view->render("index/index", $noInclude, $loggedIn);
+    function index(){
+
+
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+
+        if(Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+
+        array_push($list,
+            "index/index",
+            "musicplayer",
+            "footer"
+        );
+
+        $this->view->test($list);
     }
 
 }

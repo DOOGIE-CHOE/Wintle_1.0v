@@ -50,9 +50,9 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- Tile Display -->
     <script type="text/javascript" src="<?php echo URL?>js/tiledisplay/freewall.js"></script>
-
     <!-- Error Message -->
     <link rel="stylesheet" href="<?php echo URL?>css/errormessage.css">
+
 
     <!-- Tag it -->
     <link href="<?php echo URL?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
@@ -63,6 +63,7 @@ if(Session::isSessionSet("loggedIn")){
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
 </head>
+
 <header style="z-index:100;">
     <?php if(Session::isSessionSet("intro") == false){ ?>
         <div class="info-content">
@@ -97,7 +98,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+               <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">
@@ -105,8 +106,8 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
         <div class="MemberShipBtn0" style="top:10px; right:110px;">
-            <p style="font-size:19px;">.Album</p>
-            <p style="font-size:19px;">.Hub</p>
+            <a href="#" style="font-size:19px;" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Album</a>
+            <a href="#" style="font-size:19px;">.Hub</a>
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>
@@ -117,7 +118,7 @@ if(Session::isSessionSet("loggedIn")){
             </div>
         <?php } else{?>
             <div class="MemberShipBtn2" style="top:18px; right:0;">
-                    <img src="img/setting.svg" style="width:25px;">
+                <img src="img/setting.svg" style="width:25px;">
             </div>
             <!-- <div class="MemberShipBtn1" style="position:relative;display:inline-block; right:120px; top:7px;">
                  <img src="img/groups.png" style="width:25px">

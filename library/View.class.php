@@ -4,7 +4,7 @@ class View {
 
     function __construct() {
     }
-
+/*
     public function render($name, $noInclude = false, $loggedIn = false, $contents = null) {
         if ($noInclude == true) {
             require_once ROOT.DS.'application'.DS.'views'.DS. $name . '.php';
@@ -23,6 +23,13 @@ class View {
             require_once ROOT.DS.'application'.DS.'views'.DS.'musicplayer.php';
             require_once ROOT.DS.'application'.DS.'views'.DS.'footer.php';
         }
-    }
+    }*/
 
+    public function render($list = array()){
+        foreach($list as $page){
+            if(file_exists(ROOT.DS.'application'.DS.'views'.DS.$page.".php")){
+                require_once ROOT.DS.'application'.DS.'views'.DS.$page.".php";
+            }
+        }
+    }
 }

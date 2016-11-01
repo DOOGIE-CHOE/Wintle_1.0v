@@ -50,7 +50,7 @@ header #header-gnb {
   background-color:black;
   position: absolute;
   margin: auto;
-  width: 1200px;
+  width: 1222px;
   min-width: 400px;
   height: auto;
   left: 0;
@@ -68,11 +68,11 @@ header #header-gnb [class^=HeaderImg] {
   left: 0;
   bottom: 0;
   overflow: hidden; }
-header #header-gnb [class^=HeaderImg] > a {
+/*header #header-gnb [class^=HeaderImg] > a {
   font-size: 0;
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 100%; }*/
 header #header-gnb .HeaderImg1 {
   height: 50px; }
 header #header-gnb [class = MemberShipBtn0] {
@@ -89,13 +89,55 @@ header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
   cursor: pointer; }
 header #header-gnb .MemberShipBtn0 > * {
   display:inline-block;
-  color: lightgray;
+  color: gray;
   margin:9px 13px 0 2px;
   cursor:pointer;
 }
 header #header-gnb .MemberShipBtn1 > * {
-  color: lightgray; }
+  color: gray; }
 
 header #header-gnb [class ^= MemberShipBtn] > *:hover{
   color:white;
+}
+
+#sub-header{
+    position:fixed;
+    width:100%;
+    background-color: #161030;
+    opacity:0.8;
+    height:40px;
+    z-index:100;
+}
+#sub-header #container{
+    width:1222px;
+    margin: 0 auto;
+    height:100%;
+}
+
+#sub-header #subclass{
+    margin: 0 auto;
+    width: 315px;
+}
+#sub-header #subclass p{
+    display:inline-block;
+    font-size:18px;
+    margin:10px;
+    opacity:1;
+}
+#sub-header > *{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+#sub-header #container #subclass{
+  color:gray;
+}
+
+#sub-header #container #subclass > *:hover {
+  color:white;
+  cursor:pointer;
 }

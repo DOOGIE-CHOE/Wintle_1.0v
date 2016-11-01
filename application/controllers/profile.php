@@ -12,8 +12,26 @@ class Profile extends Controller{
         parent::__construct();
     }
 
-    function index(){
-        $this->view->render("profile/index",false,false,"profile/home");
+    function index($noInclude = false, $loggedIn = false){
+        //  $this->view->render("profile/index",false,false,"profile/home");
+
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if($loggedIn == false){
+            array_push($list,"loginpopup");
+        }
+        array_push($list,
+            "profile/index",
+            "profile/home",
+            "musicplayer",
+            "footer"
+        );
+
+
+        $this->view->test($list);
     }
 
     function home(){

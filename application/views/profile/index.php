@@ -5,7 +5,6 @@
  * Date: 10/11/2016
  * Time: 4:29 PM
  */
-
 if(Session::isSessionSet("profile_id")){
     $id = Session::get("profile_id");
 }
@@ -17,14 +16,12 @@ if(Session::isSessionSet("profile_id")){
             html body{
                 overflow-x:hidden;
             }
-
             .main-board{
                 height:100%;
                 width:1222px;
                 background-color: ghostwhite;
                 margin:auto;
             }
-
             .main-board .user-board{
                 display:inline-block;
                 position:relative;
@@ -33,11 +30,9 @@ if(Session::isSessionSet("profile_id")){
                 width:1222px;
                 background-color: #2b2e31;
             }
-
             #body{
-                margin-top:50px;
-            }
 
+            }
             #cover-photo{
                 position:relative;
                 width:100%;
@@ -47,7 +42,6 @@ if(Session::isSessionSet("profile_id")){
                 -webkit-background-size:;
                 background-size:cover;
             }
-
             #cover-photo p{
                 position:absolute;
                 display: none;
@@ -62,7 +56,6 @@ if(Session::isSessionSet("profile_id")){
                 -moz-user-select: none;
                 user-select: none;
             }
-
             #user-info{
                 position:absolute;
                 height:200px;
@@ -75,14 +68,12 @@ if(Session::isSessionSet("profile_id")){
                 height:200px;
                 width:250px;
             }
-
             #profilephoto{
                 position:relative;
                 z-index: 10;
                 top:5px;
                 left:50px;
             }
-
             #profilephoto #photo{
                 width: 187px;
                 height: 187px;
@@ -91,7 +82,6 @@ if(Session::isSessionSet("profile_id")){
                 background-position: center center;
                 background-size: auto;
             }
-
             #username, #user-hashtag{
                 position:relative;
                 height:100px;
@@ -105,21 +95,18 @@ if(Session::isSessionSet("profile_id")){
                 bottom:10px;
                 left:10px;
             }
-
             #user-hashtag #hashtag{
                 position:absolute;
                 top:10px;
                 left:10px;
                 font-size: 30px;
             }
-
             #contents-set{
                 position:relative;
                 top:170px;
                 width:100%;
                 height:auto;
             }
-
             #category{
                 position:relative;
                 width:100%;
@@ -131,7 +118,6 @@ if(Session::isSessionSet("profile_id")){
                 font-size: 20px;
                 margin:15px;
             }
-
             #contents{
                 position:relative;
                 width:100%;
@@ -164,7 +150,6 @@ if(Session::isSessionSet("profile_id")){
                 bottom: 0;
                 background: rgba(0,0,0,0.5);
             }
-
             #edit-profile-photo p{
                 position:relative;
                 text-align : center;
@@ -174,13 +159,11 @@ if(Session::isSessionSet("profile_id")){
                 font-weight: bold;
                 cursor:pointer;
                 z-index: 20;
-
                 /*disable cursor dragging*/
                 -webkit-user-select: none;
                 -moz-user-select: none;
                 user-select: none;
             }
-
         </style>
         <script>
             $.get("<?php echo URL?>common/getUsernameByEmail/<?php echo $id?>", function(o){
@@ -210,30 +193,23 @@ if(Session::isSessionSet("profile_id")){
                     $("#photo").css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')').css("background-size","cover");
                 }
             });
-
             $(function(){
-
                 $("#profilephoto").mouseover(function(){
                     $("#edit-profile-photo").fadeIn(200);
                 }).mouseleave(function(){
                     $("#edit-profile-photo").fadeOut(0);
                 });
-
                 $("#cover-photo").mouseover(function(){
                     $("#cover-photo p").fadeIn(200);
                 }).mouseleave(function(){
                     $("#cover-photo p").fadeOut(0);
                 });
-
-
                 $("#edit-profile-photo").click(function(){
                     $("#profile-photo-input").trigger("click");
                 });
-
                 $("#edit-cover-photo").click(function(){
                     $("#cover-photo-input").trigger("click");
                 });
-
                 $('#profile-photo-input').on('change',function(){
                     $('#upload-profile-form').ajaxForm({
                         success:function(e) {
@@ -247,7 +223,6 @@ if(Session::isSessionSet("profile_id")){
                         }
                     }).submit();
                 });
-
                 $("#cover-photo-input").on('change',function(){
                     $('#upload-cover-form').ajaxForm({
                         success:function(e) {
@@ -261,14 +236,12 @@ if(Session::isSessionSet("profile_id")){
                         }
                     }).submit();
                 });
-
                 $("#HashTags").tagit({
                     //evert for after putting tags
                     afterTagAdded: function(evt, ui) {
                         var tags = $("#HashTags").tagit("assignedTags");
                         //check whether the first charactor is #
                         if(tags[tags.length-1].charAt(0) != '#'){
-
                             //put # charactor at first then replace it with without-sharp tag
                             var tagswithsharp = '#'+tags[tags.length-1];
                             $("#HashTags").tagit("removeTagByLabel",tags[tags.length-1]);
@@ -276,10 +249,7 @@ if(Session::isSessionSet("profile_id")){
                         }
                     }
                 });
-
             });
-
-
         </script>
 
     </head>
@@ -324,4 +294,3 @@ if(Session::isSessionSet("profile_id")){
                     <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/following"?>','contents');">Following</div>
                     <div onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('profile_url')."/followers"?>','contents');">Followers</div>
                 </div>
-

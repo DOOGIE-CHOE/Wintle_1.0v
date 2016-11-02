@@ -8,13 +8,21 @@ class ErrorPage extends Controller {
 	
 	function index() {
 		$this->view->msg = 'This page doesnt exist';
-		$this->view->render('error/index',true);
+
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if(Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+        array_push($list,
+            "error/index",
+            "musicplayer",
+            "footer"
+        );
+        $this->view->render($list);
 	}
-
-	function loggedInService(){
-        $this->view->msg = 'You need to log in to use this service.';
-        $this->view->render('error/loggedinservice',true);
-    }
-
 
 }

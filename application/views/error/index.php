@@ -5,4 +5,10 @@
  * Date: 9/12/2016
  * Time: 5:07 PM
  */
-echo $this->msg;
+?>
+
+<div id="all">
+    <body id="body">
+        <?php echo $this->msg;?>
+    </body>
+</div>

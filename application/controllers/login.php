@@ -8,7 +8,7 @@
 
 class LogIn extends Controller{
 
-    function index($noInclude = false, $loggedIn = false){}
+    function index(){}
 
     function callLogIn(){
         $this->model->logIn();

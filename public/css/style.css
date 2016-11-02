@@ -1,65 +1,21 @@
 
-
 /*
     popup,
     login,
     signup,
     main page
-
 */
 /* Custom CSS
  * --------------------------------------- */
 body {
     font-family: arial, helvetica;
     color: #F2F2F2;
+    margin-top:50px;
 }
 
-h1 {
-    font-size: 6em;
-}
-
-p {
-    font-size: 2em;
-}
-
-
-/* haeder Align */
-header {
-    z-index: 10;
-    position: fixed;
-    top: 0;
-    background: black;
-    /*background-color: rgba(65, 126, 141, 1);*/
-    width: 100%;
-    float: left;
-}
 
 p:link, a:link{
     text-decoration: none;
-}
-
-.contaner {
-    width: 90%;
-    margin: auto;
-}
-
-.company {
-    float: left;
-}
-
-.login {
-    margin: 10.5px;
-    float: right;
-}
-
-.login a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-#headerlogo {
-    height: 38px;
-    margin-top: 2px;
 }
 
 /* ------------ popup control -----------*/
@@ -354,4 +310,3 @@ p:link, a:link{
     display: inline-block;
     width:400px;
 }
-

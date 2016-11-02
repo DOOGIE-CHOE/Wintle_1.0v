@@ -77,9 +77,6 @@ $id = Session::get("user_email");
                 height:100%;
             }
 
-            #body{
-                margin-top : 50px;
-            }
             #bg{
                 position:fixed;
                 height:100%;
@@ -225,7 +222,7 @@ $id = Session::get("user_email");
 
         </script>
     </head>
-    <body id="body">
+    <body>
     <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
     -->
     <div id="bg"></div>

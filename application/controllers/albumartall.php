@@ -11,15 +11,13 @@ class AlbumArtAll extends Controller {
         parent::__construct();
     }
 
-    function index($noInclude = false, $loggedIn = false){
-        //$this->view->render("albumart/index", $noInclude, $loggedIn);
-
+    function index(){
         $list = array();
         array_push($list,
             "header",
             "errorMessage"
         );
-        if($loggedIn == false){
+        if(Session::isSessionSet("loggedIn")){
             array_push($list,"loginpopup");
         }
         array_push($list,
@@ -27,9 +25,7 @@ class AlbumArtAll extends Controller {
             "musicplayer",
             "footer"
         );
-
-
-        $this->view->test($list);
+        $this->view->render($list);
     }
 
 }

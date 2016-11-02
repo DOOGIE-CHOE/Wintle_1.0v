@@ -31,7 +31,7 @@ class Profile extends Controller{
         );
 
 
-        $this->view->test($list);
+        $this->view->render($list);
     }
 
     function home(){

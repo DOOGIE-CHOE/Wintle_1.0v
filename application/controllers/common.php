@@ -8,7 +8,7 @@
 
 class Common extends Controller{
 
-    function index($noInclude = false, $loggedIn = false){}
+    function index(){}
 
     public function getProfilePhoto($type,$useremail){
         $data = $this->model->getProfilePhoto($type,$useremail);

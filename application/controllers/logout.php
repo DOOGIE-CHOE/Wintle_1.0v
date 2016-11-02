@@ -8,7 +8,7 @@
 
 class LogOut extends Controller {
 
-    function index($noInclude = false, $loggedIn = false){}
+    function index(){}
 
     function callLogOut(){
         Session::destroy();

@@ -63,9 +63,6 @@ header #header-gnb {
     left: 0;
     right: 0;
     bottom: 0;
-    padding-right:10%;
-    padding-left:10%;
-
 }
 header #header-gnb > div {
     position: relative; }
@@ -82,14 +79,24 @@ header #header-gnb [class^=HeaderImg] {
   height: 100%; }*/
 header #header-gnb .HeaderImg1 {
     height: 50px; }
-header #header-gnb [class = MemberShipBtn0] {
+header #header-gnb [class = MemberShipBtn0] { /* logo */
     float:left;
     left:30px;
 }
-header #header-gnb [class = MemberShipBtn1] {
+header #header-gnb [class = MemberShipBtn1] { /* login sign up */
     float: right; }
-header #header-gnb [class = MemberShipBtn2] {
-    float: right; }
+header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
+    display: inline-block;
+    float:right;
+    font-size:20px;
+}
+header #header-gnb [class = MemberShipBtn3] { /* setting buttons */
+    display: inline-block;
+    float: right;
+}
+header #header-gnb [class = MemberShipBtn3] img {
+    margin-left:15px;
+}
 header #header-gnb [class^=MemberShipBtn] > * {
     font-size: 20px; }
 header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
@@ -113,7 +120,7 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
     width:100%;
     background-color: #161030;
     opacity:0.8;
-    height:40px;
+    height:28px;
     z-index:99;
 }
 #sub-header #container{
@@ -123,14 +130,25 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
 }
 
 #sub-header #subclass{
-    margin: 0 auto;
-    width: 315px;
+    position:absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    width: 465px;
+    height:100%;
 }
-#sub-header #subclass p{
+#sub-header #subclass div{
     display:inline-block;
-    font-size:18px;
-    margin:10px;
     opacity:1;
+    height:100%;
+    padding-left:20px;
+    padding-right:20px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+#sub-header #subclass p{
+    position:relative; top:5px;
 }
 #sub-header #container #subclass{
     color:gray;

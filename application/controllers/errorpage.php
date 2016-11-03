@@ -14,7 +14,7 @@ class ErrorPage extends Controller {
             "header",
             "errorMessage"
         );
-        if(Session::isSessionSet("loggedIn")){
+        if(!Session::isSessionSet("loggedIn")){
             array_push($list,"loginpopup");
         }
         array_push($list,

@@ -98,7 +98,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-               <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">
@@ -117,9 +117,26 @@ if(Session::isSessionSet("loggedIn")){
                 <!--<a style="right:10px">user name</a>-->
             </div>
         <?php } else{?>
-            <div class="MemberShipBtn2" style="top:18px; right:0;">
-                <img src="img/setting.svg" style="width:25px;">
+
+            <div class="MemberShipBtn3" style="top:18px; right:5px;">
+                <img src="img/email.png" style="width:25px;">
+                <img src="img/melody.png" style="width:25px;">
+                <img src="img/story.png" style="width:25px;">
             </div>
+
+            <div class="MemberShipBtn2" style="top:20px; right:50px;">
+                <div style="float:right;">
+                    <?php
+                        if(strlen(Session::get("user_name")) >= 10){
+                            echo substr(Session::get("user_name"),0,10)."...";
+                        }else{
+                            echo Session::get("user_name");
+                        }
+
+                    ?>
+                </div>
+            </div>
+
             <!-- <div class="MemberShipBtn1" style="position:relative;display:inline-block; right:120px; top:7px;">
                  <img src="img/groups.png" style="width:25px">
              </div>-->
@@ -132,10 +149,9 @@ if(Session::isSessionSet("loggedIn")){
 
         <?php }?>
 
-        <div style="position:absolute;top:15px; right:25px; height:50px;">
-            <a href="<?php echo URL?>webstudio"><img src="<?php echo URL?>img/beta.png" style="height:30px"></a>
-        </div>
-    </div>
+        <!--<div style="position:absolute;top:15px; right:25px; height:50px;">
+            <a href="<?php /*echo URL*/?>webstudio"><img src="<?php /*echo URL*/?>img/beta.png" style="height:30px"></a>
+        </div>-->
     </div>
 </header>
 <!--

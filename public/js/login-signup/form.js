@@ -51,11 +51,14 @@ function signUp(){
     var name = document.getElementById("name");
     var email = document.getElementById("user_email");
     var password = document.getElementById("password");
-
-    //username
-    if (!isValidUsername(name.value)) {
+     //username
+     if (!isValidUsername(name.value)) {
         mark(name, 'name_wrong', false);
         errorDisplay("Invalid Username. Please check it again");
+        return false;
+    }else if(name.value.length > 20){
+        mark(name, 'name_wrong', false);
+        errorDisplay("Maximum username length is up to 20");
         return false;
     }
     else {
@@ -66,6 +69,11 @@ function signUp(){
     if (!isValidEmail(email.value)) {
         mark(email, 'email_wrong', false);
         errorDisplay("Invalid Email Address. Please check it again");
+
+        return false;
+    }else if(email.value.length > 40){
+        mark(email, 'email_wrong', true);
+        errorDisplay("Maximum Email length is up to 40");
         return false;
     }
     else {

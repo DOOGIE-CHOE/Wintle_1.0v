@@ -12,6 +12,7 @@
     <style>
 
         #mini-music-player{
+            display:none;
             position:fixed;
             height:40px;
             width:100%;

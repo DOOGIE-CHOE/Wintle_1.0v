@@ -13,20 +13,16 @@ $id = Session::get("user_email");
                 position:relative;
                 height:100%;
                 background: black;
-                top:40px;
+                top:28px;
             }
 
             #sort{
+                position:relative;
+                float:right;
                 display: inline-block;
-                position:absolute;
-                right:20px;
+                top:5px;
             }
 
-            #sort p{
-                display:inline-block;
-                font-size:15px;
-                margin:20px;
-            }
             .main-board{
                 height:100%;
                 width:1222px;
@@ -194,6 +190,7 @@ $id = Session::get("user_email");
         <script>
 
             $(function(){
+                //Mou
                 /*$(".cell").mouseover(function(){
                  if( $(this).find("#test-button").length == 0){
                  $(this).html("<img id='test-button' src='img/play_grey.png'>");
@@ -206,7 +203,7 @@ $id = Session::get("user_email");
                  }
                  });*/
 
-                $(".cell").mouseover(function(){
+               /* $(".cell").mouseover(function(){
                     if( $(this).find("#albummenu").length == 0) {
                         $(this).html("<div id='albummenu'><div>");
                         $(this).find("#albummenu").show("slide", {direction: "left"}, 200);
@@ -216,7 +213,7 @@ $id = Session::get("user_email");
                         $(this).find("#albummenu").hide("slide", {direction: "right"}, 200);
                         $(this).html("");
                     }
-                });
+                });*/
             });
 
 
@@ -226,25 +223,22 @@ $id = Session::get("user_email");
     <!--<iframe style="position:absolute" width="100%" height="100%" src="https://www.youtube.com/embed/hG2ekffXMhs?list=RDhG2ekffXMhs&showinfo=0&autoplay=1&loop=1&controls=0&disablekb=0" frameborder="0" allowfullscreen></iframe>
     -->
     <div id="bg"></div>
-
-
     <div id="sub-header">
         <div id="container">
             <div id="subclass">
-                <p>Top Chart</p>
-                <p>New</p>
-                <p>Recommended</p>
+                <div style="background: #551231"><p>New</p></div>
+                <div><p>Top Chart</p></div>
+                <div><p>Recommended</p></div>
             </div>
 
             <div id="sort">
+                <img src="<?php echo URL?>img/search.png" style="height:18px; right:0; margin-right:10px;">
+                <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">
             </div>
         </div>
     </div>
 
-
     <div class="tap">
-
-
         <div class="main-board"><!--
         <div class="user-board">
 
@@ -327,7 +321,7 @@ $id = Session::get("user_email");
         var cellinfo = [];
         for (var i = 1; i < limitItem; i++) {
             //w = 200 +  200 * Math.random() << 0;
-            h = w = (Math.floor(Math.random() * 1) + 2) * 140;
+            h = w = (Math.floor(Math.random() * 3) + 1) * 110;
             //html += temp.replace(/\{height\}/g, 200).replace(/\{width\}/g, w).replace("{index}", i + 1);
             html += temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i );
             //     cellinfo.push(temp.replace(/\{height\}/g, h).replace(/\{width\}/g, w).replace("{index}", i + 1));
@@ -338,8 +332,8 @@ $id = Session::get("user_email");
         wall.reset({
             selector: '.cell',
             animate: true,
-            cellW: 140,
-            cellH: 140,
+            cellW: 110,
+            cellH: 110,
             onResize: function() {
                 wall.fitWidth();
             }

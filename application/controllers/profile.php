@@ -12,55 +12,51 @@ class Profile extends Controller{
         parent::__construct();
     }
 
-    function index($noInclude = false, $loggedIn = false){
-        //  $this->view->render("profile/index",false,false,"profile/home");
-
-        $list = array();
-        array_push($list,
-            "header",
-            "errorMessage"
-        );
-        if($loggedIn == false){
-            array_push($list,"loginpopup");
-        }
-        array_push($list,
-            "profile/index",
-            "profile/home",
-            "musicplayer",
-            "footer"
-        );
-
-
-        $this->view->render($list);
+    function index(){
+        $this->profileRender("home");
     }
 
     function home(){
-        $this->view->render("profile/index",false,false,"profile/home");
+        $this->profileRender("home");
     }
 
     function playlists(){
-        $this->view->render("profile/index",false,false,"profile/playlists");
+        $this->profileRender("playlists");
     }
 
     function projects(){
-        $this->view->render("profile/index",false,false,"profile/projects");
+        $this->profileRender("projects");
     }
 
     function friends(){
-        $this->view->render("profile/index",false,false,"profile/friends");
+        $this->profileRender("friends");
     }
 
     function following(){
-        $this->view->render("profile/index",false,false,"profile/following");
+        $this->profileRender("following");
     }
 
     function followers(){
-        $this->view->render("profile/index",false,false,"profile/followers");
+        $this->profileRender("followers");
     }
 
     public function uploadProfilePhoto($type){
         $this->model->uploadProfilePhoto($type);
     }
 
+    function profileRender($contents){
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if(!Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+        array_push($list,"profile/index");
+        array_push($list,"profile/".$contents);
+        array_push($list,"musicplayer","footer");
+        $this->view->render($list);
+    }
 
 }

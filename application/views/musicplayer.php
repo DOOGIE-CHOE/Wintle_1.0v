@@ -12,12 +12,11 @@
     <style>
 
         #mini-music-player{
-            display:none;
             position:fixed;
             height:40px;
             width:100%;
             bottom:0;
-            background-color: #1FB5BF;
+            background-color: #222222;
             z-index:10;
         }
 
@@ -26,15 +25,18 @@
         }
 
         #control-buttons{
+            display: inline-block;
             position:relative;
             top:5px;
             left:70px;
+            height:100%;
+            width:150px;
         }
 
         #control-buttons input{
             display: inline-block;
-            margin-left:13px;
-            height:32px;
+            margin:3px 10px 6px 10px;
+            height:25px;
         }
 
         #play-info-all{
@@ -49,14 +51,12 @@
         }
 
         #play-info-time{
-            position:absolute;
-            margin:auto;
-            top:0;
-            left:0;
-            right:0;
-            bottom:17px;
+            display: inline-block;
+            position:relative;
+            left:150px;
+            bottom:8px;
             height:10px;
-            width:1000px;
+            width:950px;
         }
         #play-info{
             display:inline-block;
@@ -89,14 +89,25 @@
             position:relative;
             height:100%;
             width:0;
-            background-color: blue;
+            background-color: #551231;
         }
 
         #played-time, #duration-time{
             display:inline-block;
             margin:0 10px 0 10px;
+            font-size:0.9rem;
         }
 
+        #album-mini{
+            position:relative;
+            display:inline-block;
+            height:38px;
+            width:38px;
+            left:120px;
+            background-image:url('<?php echo URL?>i/1.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
     </style>
     <script>
 
@@ -190,10 +201,12 @@
     </audio>-->
     <div id="play-info-all">
         <div id="control-buttons">
-            <input type="image" src="<?php echo URL?>img/backwards.png" onclick="musicForwards()">
+            <input type="image"src="<?php echo URL?>img/backwards.png" onclick="musicForwards()">
             <input id="play" type="image" src="<?php echo URL?>img/play.png" onclick="musicPlay()">
             <input type="image" src="<?php echo URL?>img/forwards.png" onclick="musicBackwards()">
         </div>
+
+        <div id="album-mini"></div>
 
         <div id="play-info-time">
             <div id="played-time">0:00</div>

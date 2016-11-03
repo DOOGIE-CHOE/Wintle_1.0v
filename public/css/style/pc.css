@@ -90,6 +90,18 @@ header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
     float:right;
     font-size:20px;
 }
+header #header-gnb [class = MemberShipBtn2] #profile-mini{
+    display:inline-block;
+    top:50px;
+    right:10px;
+    height:30px;
+    width:30px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
 header #header-gnb [class = MemberShipBtn3] { /* setting buttons */
     display: inline-block;
     float: right;

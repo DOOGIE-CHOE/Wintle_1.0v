@@ -62,6 +62,19 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
+    <script>
+
+        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_email')?>",function(o){
+            var value = jQuery.parseJSON(o);
+            var photo = $("#profile-mini");
+            if (value.profile_photo_path != null) {
+                //display default image
+                // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
+            }
+        });
+
+    </script>
 </head>
 
 <header style="z-index:100;">
@@ -121,19 +134,22 @@ if(Session::isSessionSet("loggedIn")){
             <div class="MemberShipBtn3" style="top:18px; right:5px;">
                 <img src="img/email.png" style="width:25px;">
                 <img src="img/melody.png" style="width:25px;">
-                <img src="img/story.png" style="width:25px;">
+                <a href="<?php URL?>logout/calllogout"><img src="img/story.png" style="width:25px;"></a>
             </div>
 
-            <div class="MemberShipBtn2" style="top:20px; right:50px;">
-                <div style="float:right;">
-                    <?php
+            <div class="MemberShipBtn2" style="top:12px; right:30px;">
+                <div style="float:right; height:100%;">
+                    <a href="#"><div id="profile-mini" onclick="$.pagehandler.loadContent('<?php echo URL?>daniel-57528761','all');" style="background-image: url('<?php echo URL?>img/defaultprofile.png');"></div></a>
+                    <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
+                        <?php
                         if(strlen(Session::get("user_name")) >= 10){
                             echo substr(Session::get("user_name"),0,10)."...";
                         }else{
                             echo Session::get("user_name");
                         }
 
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
 

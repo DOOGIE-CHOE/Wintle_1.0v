@@ -39,8 +39,8 @@ if(Session::isSessionSet("profile_id")){
                 height:210px;
                 background: black;
                 background-repeat: no-repeat;
-                -webkit-background-size:;
-                background-size:cover;
+                background-position: center center;
+                background-size: cover;
             }
             #cover-photo p{
                 position:absolute;
@@ -80,7 +80,7 @@ if(Session::isSessionSet("profile_id")){
                 border-radius: 50%;
                 background-repeat: no-repeat;
                 background-position: center center;
-                background-size: auto;
+                background-size: cover;
             }
             #username, #user-hashtag{
                 position:relative;
@@ -176,21 +176,19 @@ if(Session::isSessionSet("profile_id")){
             });
             $.get("<?php echo URL?>common/getProfilePhoto/cover/<?php echo $id?>", function(o){
                 var value = jQuery.parseJSON(o);
-                var photo = $("#cover-photo");
                 if(value.cover_photo_path == null){
                     //display default image
                 }else{
                     // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                    photo.css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
+                    $("#cover-photo").css('background-image', 'url(<?php echo URL?>' + value.cover_photo_path + ')');
                 }
             });
             $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo $id?>",function(o){
                 var value = jQuery.parseJSON(o);
-                var photo = $("#profilephoto");
                 if (value.profile_photo_path != null) {
                     //display default image
                     // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                    $("#photo").css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')').css("background-size","cover");
+                    $("#photo").css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
                 }
             });
             $(function(){

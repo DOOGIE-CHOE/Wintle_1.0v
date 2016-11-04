@@ -133,7 +133,7 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
     background-color: #161030;
     opacity:0.8;
     height:28px;
-    z-index:99;
+    z-index:98;
 }
 #sub-header #container{
     width:1222px;

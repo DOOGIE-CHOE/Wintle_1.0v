@@ -21,7 +21,7 @@ p:link, a:link{
 /* ------------ popup control -----------*/
 
 .overlay {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top: 0;
     bottom: 0;
@@ -49,7 +49,6 @@ p:link, a:link{
     width: 400px;
     position: relative;
     transition: all 5s ease-in-out;
-
     -webkit-transition-property: height; /* Safari */
     -webkit-transition-duration: 0.2s; /* Safari */
     transition-property: height;
@@ -83,8 +82,8 @@ p:link, a:link{
 }
 
 .header img{
-    height:100px;
-    margin-top:100px;
+    height:90px;
+    margin-top:45px;
     display: block;
     margin-left: auto;
     margin-right: auto;

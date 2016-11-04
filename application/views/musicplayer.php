@@ -27,8 +27,8 @@
         #control-buttons{
             display: inline-block;
             position:relative;
-            top:5px;
-            left:70px;
+            bottom:2px;
+            left:100px;
             height:100%;
             width:150px;
         }
@@ -36,7 +36,7 @@
         #control-buttons input{
             display: inline-block;
             margin:3px 10px 6px 10px;
-            height:25px;
+            height:23px;
         }
 
         #play-info-all{
@@ -53,15 +53,15 @@
         #play-info-time{
             display: inline-block;
             position:relative;
-            left:150px;
-            bottom:8px;
+            left:130px;
+            bottom:13px;
             height:10px;
             width:950px;
         }
         #play-info{
             display:inline-block;
             position:relative;
-            height:10px;
+            height:9px;
             width:800px;
         }
 
@@ -103,11 +103,27 @@
             display:inline-block;
             height:38px;
             width:38px;
-            left:120px;
+            left:115px;
             background-image:url('<?php echo URL?>i/1.jpg');
             background-repeat: no-repeat;
             background-size:cover;
         }
+
+        #play-options{
+            display:inline-block;
+            position:relative;
+            float:right;
+            right:50px;
+            height:100%;
+            width:200px;
+        }
+        #play-options img{
+            display:inline-block;
+            position: relative;
+            height:28px;
+            margin:5px;
+        }
+
     </style>
     <script>
 
@@ -217,6 +233,12 @@
                 <div id="play-bar-button"></div>
             </div>
             <div id="duration-time">0:00</div>
+        </div>
+
+        <div id="play-options">
+            <img src="<?php echo URL?>img/repeat_one.png">
+            <img src="<?php echo URL?>img/shuffle.png">
+            <img src="<?php echo URL?>img/arrow-up.png">
         </div>
     </div>
 

@@ -7,7 +7,6 @@
  */
 ?>
 
-
 <div id="popup1" class="overlay">
     <a class="close" href="#">×</a>
     <div class="header">

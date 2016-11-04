@@ -30,8 +30,13 @@ if(Session::isSessionSet("profile_id")){
                 width:1222px;
                 background-color: #2b2e31;
             }
-            #body{
-
+            #bg{
+                position:fixed;
+                height:100%;
+                width:100%;
+                background-repeat: no-repeat;
+                background-image: url("<?php echo URL?>img/bg/bg2.jpg");
+                background-size: cover;
             }
             #cover-photo{
                 position:relative;
@@ -253,6 +258,7 @@ if(Session::isSessionSet("profile_id")){
     </head>
 
     <body id="body">
+    <div id="bg"></div>
     <div class="main-board">
         <div class="user-board">
             <script>

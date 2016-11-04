@@ -139,7 +139,7 @@ if(Session::isSessionSet("loggedIn")){
 
             <div class="MemberShipBtn2" style="top:12px; right:30px;">
                 <div style="float:right; height:100%;">
-                    <a href="#"><div id="profile-mini" onclick="$.pagehandler.loadContent('<?php echo URL?>daniel-57528761','all');" style="background-image: url('<?php echo URL?>img/defaultprofile.png');"></div></a>
+                    <a href="#"><div id="profile-mini" onclick="$.pagehandler.loadContent('<?php echo URL.Session::get('my_profile');?>','all');" style="background-image: url('<?php echo URL?>img/defaultprofile.png');"></div></a>
                     <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
                         <?php
                         if(strlen(Session::get("user_name")) >= 10){

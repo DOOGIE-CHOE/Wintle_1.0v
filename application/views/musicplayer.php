@@ -89,7 +89,7 @@
             position:relative;
             height:100%;
             width:0;
-            background-color: #551231;
+            background-color: #ff8243;
         }
 
         #played-time, #duration-time{

@@ -78,7 +78,7 @@ $id = Session::get("user_email");
                 height:100%;
                 width:100%;
                 background-repeat: no-repeat;
-                background-image: url("<?php echo URL?>img/bg/bg1.jpg");
+                background-image: url("<?php echo URL?>img/bg/bg1.png");
                 background-size: cover;
             }
 
@@ -226,7 +226,7 @@ $id = Session::get("user_email");
     <div id="sub-header">
         <div id="container">
             <div id="subclass">
-                <div style="background: #551231"><p>New</p></div>
+                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;">New</p></div>
                 <div><p>Top Chart</p></div>
                 <div><p>Recommended</p></div>
             </div>

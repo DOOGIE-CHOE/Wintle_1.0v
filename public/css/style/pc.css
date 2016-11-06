@@ -115,24 +115,24 @@ header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
     cursor: pointer; }
 header #header-gnb .MemberShipBtn0 > * {
     display:inline-block;
-    color: gray;
+    color: white;
     margin:9px 13px 0 2px;
     cursor:pointer;
 }
 header #header-gnb .MemberShipBtn1 > * {
-    color: gray; }
+    color: white; }
 
 header #header-gnb [class ^= MemberShipBtn] > *:hover{
-    color:white;
+    color:#ff8243;
 }
 
 #sub-header{
     position:fixed;
     top:50px;
     width:100%;
-    background-color: #161030;
+    background-color: #111111;
     opacity:0.8;
-    height:28px;
+    height:30px;
     z-index:98;
 }
 #sub-header #container{
@@ -163,10 +163,10 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
     position:relative; top:5px;
 }
 #sub-header #container #subclass{
-    color:gray;
+    color:white;
 }
 
 #sub-header #container #subclass > *:hover {
-    color:white;
+    color:#ff8243;
     cursor:pointer;
 }

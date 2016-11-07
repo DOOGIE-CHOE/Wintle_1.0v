@@ -160,7 +160,9 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
 }
 
 #sub-header #subclass p{
-    position:relative; top:5px;
+    position:relative;
+    top:5px;
+    opacity:1;
 }
 #sub-header #container #subclass{
     color:white;

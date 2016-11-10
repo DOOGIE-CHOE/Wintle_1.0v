@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/topchart.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/topchart_model.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/index/topchart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style/pc.css" afterPath="$PROJECT_DIR$/public/css/style/pc.css" />
-    </list>
+    <list default="true" id="102ef2a4-7ea1-4d54-9f53-9fd16095aa26" name="Default" comment="" />
     <ignored path="wintle.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -675,7 +669,7 @@
       <workItem from="1478328442197" duration="1944000" />
       <workItem from="1478420177500" duration="5519000" />
       <workItem from="1478480851619" duration="2934000" />
-      <workItem from="1478520554295" duration="473000" />
+      <workItem from="1478520554295" duration="1012000" />
     </task>
     <servers />
   </component>
@@ -688,7 +682,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="932320000" />
+    <option name="totallyTimeSpent" value="932859000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -701,7 +695,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765158" sideWeight="0.49607182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32450897" sideWeight="0.49784946" order="3" side_tool="false" content_ui="tabs" />

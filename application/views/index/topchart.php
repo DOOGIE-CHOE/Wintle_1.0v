@@ -7,5 +7,6 @@
  */
 
 ?>
+<div id="all"></div>
 
 this is a top chart,

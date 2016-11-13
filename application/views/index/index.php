@@ -227,8 +227,8 @@ $id = Session::get("user_email");
         <div id="container">
             <div id="subclass">
                 <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;">New</p></div>
-                <div><p>Top Chart</p></div>
-                <div><p>Recommended</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>topchart','all');">Top Chart</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>recommend','all');">Recommended</p></div>
             </div>
 
             <div id="sort">

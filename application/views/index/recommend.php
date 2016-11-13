@@ -7,5 +7,6 @@
  */
 
 ?>
+<div id="all"></div>
 
 this is recommended music list page

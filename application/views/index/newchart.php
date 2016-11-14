@@ -9,4 +9,5 @@
 
 ?>
 
+<div id="all"></div>
 this is new chart :)

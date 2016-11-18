@@ -232,7 +232,7 @@ $id = Session::get("user_email");
             </div>
 
             <div id="sort">
-                <img src="<?php echo URL?>img/search.png" style="height:18px; right:0; margin-right:10px;">
+                <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
                 <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">
             </div>
         </div>

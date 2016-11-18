@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="14" version="2.0">
+<workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="1038" maximized="true" width="976" x="2878" y="-35">
+<window height="1038" maximized="true" width="976" x="-2400" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -71,6 +71,9 @@
 <view id="com.tomato.exerd.ui.views.domain" partName="Domain">
 <viewState/>
 </view>
+<view id="org.eclipse.help.ui.HelpView" partName="Help">
+<viewState pageId="context-help-page"/>
+</view>
 <view id="com.tomato.exerd.validate.ui.ValidateView" partName="Review">
 <viewState/>
 </view>
@@ -116,6 +119,7 @@
 <view id="com.tomato.exerd.ui.views.domain"/>
 <view id="com.tomato.exerd.validate.ui.ValidateView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.help.ui.HelpView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -130,15 +134,17 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@18a6890" ratio="0.749499" ratioLeft="748" ratioRight="250" relationship="2" relative="leftFolder">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.help.ui.HelpView" appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="Help"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.14650482" ratioLeft="350" ratioRight="2039" relationship="2" relative="leftFolder"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1371566" ratio="0.76933765" ratioLeft="1661" ratioRight="498" relationship="2" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.105337076" ratioLeft="225" ratioRight="1911" relationship="2" relative="leftFolder"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1371566" ratio="0.9444444" ratioLeft="1802" ratioRight="106" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.thumbnail" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="Thumbnail"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -147,7 +153,7 @@
 </folder>
 </info>
 <info folder="true" part="rightFolder" ratio="0.29761904" ratioLeft="350" ratioRight="826" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1371566">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -162,7 +168,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.7497879" ratioLeft="884" ratioRight="295" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.9753401" ratioLeft="1147" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.domain" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="Domain"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="Review"/>
@@ -195,6 +201,7 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/wintle.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle_1.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
 </editors>
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="1"/>
@@ -215,12 +222,6 @@
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="1"/>
 <item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="2"/>
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="2"/>
@@ -245,6 +246,12 @@
 <item historyLabel="wintle.exerd" index="4"/>
 <item historyLabel="wintle_1.exerd" index="5"/>
 <item historyLabel="wintle.exerd" index="4"/>
+<item historyLabel="wintle_1.exerd" index="5"/>
+<item historyLabel="wintle.exerd" index="6"/>
+<item historyLabel="wintle_1.exerd" index="5"/>
+<item historyLabel="wintle.exerd" index="6"/>
+<item historyLabel="wintle_1.exerd" index="5"/>
+<item historyLabel="wintle.exerd" index="6"/>
 <item active="true" historyLabel="wintle_1.exerd" index="5"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

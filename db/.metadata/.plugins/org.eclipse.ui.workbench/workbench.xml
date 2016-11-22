@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="1038" maximized="true" width="976" x="-2400" y="0">
+<window height="822" maximized="true" width="1906" x="-2091" y="-29">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -27,21 +27,17 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="wintle.exerd" partName="wintle.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/table/wintle.exerd" title="wintle.exerd" tooltip="exerd/table/wintle.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/table/wintle.exerd"/>
-</editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_1.exerd" partName="wintle_1.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/table/wintle_1.exerd" title="wintle_1.exerd" tooltip="exerd/table/wintle_1.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/table/wintle_1.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="copy_of_wintle_1.exerd" partName="copy_of_wintle_1.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/table/copy_of_wintle_1.exerd" title="copy_of_wintle_1.exerd" tooltip="exerd/table/copy_of_wintle_1.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/table/copy_of_wintle_1.exerd"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
-<viewState isPinned="false">
+<viewState isPinned="true">
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
@@ -168,7 +164,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.9753401" ratioLeft="1147" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.9529412" ratioLeft="648" ratioRight="32" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.domain" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="Domain"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="Review"/>
@@ -202,6 +198,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle_1.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/copy_of_wintle_1.exerd"/>
 </editors>
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="1"/>
@@ -218,10 +216,6 @@
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="1"/>
 <item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="2"/>
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="2"/>
@@ -252,7 +246,11 @@
 <item historyLabel="wintle.exerd" index="6"/>
 <item historyLabel="wintle_1.exerd" index="5"/>
 <item historyLabel="wintle.exerd" index="6"/>
-<item active="true" historyLabel="wintle_1.exerd" index="5"/>
+<item historyLabel="wintle_1.exerd" index="5"/>
+<item historyLabel="wintle.exerd" index="7"/>
+<item historyLabel="copy_of_wintle_1.exerd" index="8"/>
+<item historyLabel="wintle_1.exerd" index="5"/>
+<item active="true" historyLabel="copy_of_wintle_1.exerd" index="8"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -270,6 +268,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_1.exerd" tooltip="exerd/table/wintle_1.exerd">
+<persistable path="/exerd/table/wintle_1.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_1.exerd" tooltip="exerd/wintle_1.exerd">
 <persistable path="/exerd/wintle_1.exerd"/>
 </file>

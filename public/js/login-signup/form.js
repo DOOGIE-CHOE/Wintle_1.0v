@@ -48,21 +48,21 @@ function mark(oj, id, tf) {
 function signUp(){
 
     //get all elements we need
-    var name = document.getElementById("name");
+    var user_name = document.getElementById("user_name");
     var email = document.getElementById("user_email");
     var password = document.getElementById("password");
      //username
-     if (!isValidUsername(name.value)) {
-        mark(name, 'name_wrong', false);
+     if (!isValidUsername(user_name.value)) {
+        mark(user_name, 'user_name_wrong', false);
         errorDisplay("Invalid Username. Please check it again");
         return false;
-    }else if(name.value.length > 20){
-        mark(name, 'name_wrong', false);
+    }else if(user_name.value.length > 20){
+        mark(user_name, 'user_name_wrong', false);
         errorDisplay("Maximum username length is up to 20");
         return false;
     }
     else {
-        mark(name, 'name_wrong', true);
+        mark(user_name, 'user_name_wrong', true);
     }
 
     //email
@@ -106,10 +106,10 @@ function signUp(){
 
 
 function logIn(){
-    var name = document.getElementById("name");
+    var user_name = document.getElementById("user_name");
     var email = document.getElementById("user_email");
     var password = document.getElementById("password");
-    name.value=" ";
+    user_name.value=" ";
 
     //email
     if (!isValidEmail(email.value)) {
@@ -167,7 +167,7 @@ $(function(){
     $("#signup-text, #top_signup").click(function (e){
         $(".arrow-up-left").css("right","117px");
         $("#popup").css("height","550px");
-        $("#name").show("fast");
+        $("#user_name").show("fast");
         $("#g-recaptcha").show("fast");
         $(".SignUpText").show("fast");
         $("#submit").prop("value","SIGN UP");
@@ -187,7 +187,7 @@ $(function(){
     function setLogInForm(){
         $(".arrow-up-left").css("right","calc(100% - 143px)");
         $("#popup").css("height","325px");
-        $("#name").hide("fast");
+        $("#user_name").hide("fast");
         $("#g-recaptcha").hide("fast");
         $(".SignUpText").hide("fast");
         $("#submit").prop("value","LOG IN");

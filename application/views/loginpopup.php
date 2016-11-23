@@ -28,9 +28,9 @@
                         <div class="divider">
                             <hr class="left"/>OR<hr class="right" />
                         </div>
-                        <span name="wrong" id="name_wrong" style="display: none"
-                              onclick="document.getElementById('name').value =''"><img
-                                src="<?php echo URL?>img/x.png"></span><input type="text" name="name" id="name" required
+                        <span name="wrong" id="user_name_wrong" style="display: none"
+                              onclick="document.getElementById('user_name').value =''"><img
+                                src="<?php echo URL?>img/x.png"></span><input type="text" name="user_name" id="user_name" required
                                                                               placeholder="Your username" autocomplete="off">
                                                     <span name="wrong" id="email_wrong" style="display: none"
                                                           onclick="document.getElementById('user_email').value =''"><img

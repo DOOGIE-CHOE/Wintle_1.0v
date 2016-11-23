@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="822" maximized="true" width="1906" x="-2091" y="-29">
+<window height="822" maximized="true" width="1906" x="-2148" y="3">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -37,7 +37,7 @@
 </editors>
 <views>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
-<viewState isPinned="true">
+<viewState isPinned="false">
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
@@ -164,7 +164,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.9529412" ratioLeft="648" ratioRight="32" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13a828" ratio="0.8171769" ratioLeft="961" ratioRight="215" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.domain" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="Domain"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="Review"/>

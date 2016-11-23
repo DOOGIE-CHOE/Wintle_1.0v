@@ -4,13 +4,21 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_User_SignUp`(
 in _user_name varchar(50),
 in _user_email varchar(40),
 in _password varchar(255),
-out _return int)
+out _return varchar(255))
 BEGIN 
 
 	declare	result int default 0;
     declare sequence int default 0;
-	start transaction;
+    declare url varchar(255);
     
+    declare EXIT handler for sqlexception, sqlwarning
+    begin
+    rollback;
+    set _return = -100;
+    end;
+    
+	start transaction;
+         
     SELECT count(user_name) as usernumber into result from user where user_name = _user_name;
     
     if result = 0 then
@@ -22,6 +30,11 @@ BEGIN
                 end if;
         end if;
     end if;
+    
+    set url = concat(_user_name,'-',sequence);
+    
+	insert into user_profile(user_id, profile_url) values(sequence, url);
+    insert into user_login_info(user_id) values (sequence);
     
     if result = 1 or sequence = -1 then
 		set _return = -1;

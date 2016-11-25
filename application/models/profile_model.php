@@ -53,10 +53,10 @@ class Profile_Model extends Model{
 
         try{
             //if the photo's existing, delete it
-            if($this->deleteProfilePhoto(Session::get("user_email"),$type)){
+            if($this->deleteProfilePhoto(Session::get("user_id"),$type)){
                 //file upload
                 move_uploaded_file($file_tmp, $filepath);
-                if($this->uploadProfilePhotoQuery(Session::get("user_email"), $filepath, $type)){
+                if($this->uploadProfilePhotoQuery(Session::get("user_id"), $filepath, $type)){
                     $success = true;
                 }
             }
@@ -67,13 +67,13 @@ class Profile_Model extends Model{
         }
     }
 
-    function deleteProfilePhoto($user_email, $type) {
+    function deleteProfilePhoto($user_id, $type) {
         if($type == "profile"){
             $attr = "profile_photo_path";
         }else if($type == "cover"){
             $attr = "cover_photo_path";
         }
-        $sql = "SELECT $attr  from user_profile where user_email = '$user_email'";
+        $sql = "SELECT $attr from user_profile where user_id = '$user_id'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
         $tmp = $data[$attr];
@@ -83,14 +83,14 @@ class Profile_Model extends Model{
                 throw new Exception("Error occurs during deleting existing profile photo errorcode:1");
             }
         }
-        $sql = "UPDATE user_profile set $attr = null where user_email = '$user_email'";
+        $sql = "UPDATE user_profile set $attr = null where user_id = '$user_id'";
         if ($this->db->conn->query($sql)) {
             return true;
         } else
             throw new Exception("Error occurs during deleting existing profile errorcode:2");
     }
 
-    function uploadProfilePhotoQuery($user_email, $imagepath,$type) {
+    function uploadProfilePhotoQuery($user_id, $imagepath,$type) {
         if($type == "profile"){
             $attr = "profile_photo_path";
             $uploaddate = "profile_upload_date";
@@ -100,7 +100,7 @@ class Profile_Model extends Model{
         }
         //get current time
         $date = date('Y/m/d H:i:s', time());
-        $sql = "UPDATE user_profile set $attr = '$imagepath', $uploaddate = '$date'  where user_email = '$user_email'";
+        $sql = "UPDATE user_profile set $attr = '$imagepath', $uploaddate = '$date'  where user_id = '$user_id'";
         if ($this->db->conn->query($sql) === TRUE) {
             return true;
         } else {

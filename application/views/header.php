@@ -64,7 +64,7 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
     <script>
 
-        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_email')?>",function(o){
+        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>",function(o){
             var value = jQuery.parseJSON(o);
             var photo = $("#profile-mini");
             if (value.profile_photo_path != null) {

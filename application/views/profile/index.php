@@ -171,7 +171,7 @@ if(Session::isSessionSet("profile_id")){
             }
         </style>
         <script>
-            $.get("<?php echo URL?>common/getUsernameByEmail/<?php echo $id?>", function(o){
+            $.get("<?php echo URL?>common/getUsernameById/<?php echo $id?>", function(o){
                 var value = jQuery.parseJSON(o);
                 if(value == null){
                     //display default image
@@ -267,7 +267,7 @@ if(Session::isSessionSet("profile_id")){
                 <form id="upload-profile-form" action="<?php echo URL?>profile/uploadProfilePhoto/profile" method="POST" enctype="multipart/form-data" >
                     <div id="profile">
                         <div id="profilephoto">
-                            <?php if(Session::get("loggedIn") == true && Session::get("user_email") == Session::get("profile_id")){ ?>
+                            <?php if(Session::get("loggedIn") == true && Session::get("user_id") == Session::get("profile_id")){ ?>
                                 <div id='edit-profile-photo'><p>EDIT</p></div>
                                 <input type='file' id='profile-photo-input' name="image" style="display: none;">
                             <?php }?>
@@ -282,7 +282,7 @@ if(Session::isSessionSet("profile_id")){
             </div>
             <form id="upload-cover-form" action="<?php echo URL?>profile/uploadProfilePhoto/cover" method="POST" enctype="multipart/form-data" >
                 <div id="cover-photo">
-                    <?php if(Session::get("loggedIn") == true && Session::get("user_email") == Session::get("profile_id")){ ?>
+                    <?php if(Session::get("loggedIn") == true && Session::get("user_id") == Session::get("profile_id")){ ?>
                         <div id="edit-cover-photo"><p>EDIT</p></div>
                         <input type='file' id='cover-photo-input' name="image" style="display: none;">
                     <?php }?>

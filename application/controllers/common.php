@@ -10,8 +10,8 @@ class Common extends Controller{
 
     function index(){}
 
-    public function getProfilePhoto($type,$useremail){
-        $data = $this->model->getProfilePhoto($type,$useremail);
+    public function getProfilePhoto($type,$userid){
+        $data = $this->model->getProfilePhoto($type,$userid);
         echo json_encode($data);
     }
 
@@ -20,8 +20,8 @@ class Common extends Controller{
         return $data;
     }
 
-    public function getUsernameByEmail($useremail){
-        $data = $this->model->getUsernameByEmail($useremail);
+    public function getUsernameById($userid){
+        $data = $this->model->getUsernameById($userid);
         echo json_encode($data);
     }
 }

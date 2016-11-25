@@ -77,7 +77,7 @@ function callHook() {
 
         if(isReservedName($url[0])){
             if($url[0] == "profile"){
-                Session::set("profile_id",Session::get("user_email"));
+                Session::set("profile_id",Session::get("user_id"));
             }
 
             if($url[0] == "webstudio"){

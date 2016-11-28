@@ -16,14 +16,23 @@
             background-image: url("<?php echo URL?>img/bg/bg1.png");
             background-size: cover;
         }
+
+        #display-error{
+            position:relative;
+            width:500px;
+            height:350px;
+            background: rgba(0,0,0,0.5);
+            margin:auto;
+            top:70px;
+        }
     </style>
 </head>
 
-    <body id="body">add error handling on shared
+    <body id="body">
 
     <div id="bg"></div>
     <div>
-
+    <div id="display-error"></div>
 
 
     </div>

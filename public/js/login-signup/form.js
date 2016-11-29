@@ -109,7 +109,6 @@ function logIn(){
     var user_name = document.getElementById("user_name");
     var email = document.getElementById("user_email");
     var password = document.getElementById("password");
-    user_name.value=" ";
 
     //email
     if (!isValidEmail(email.value)) {
@@ -167,7 +166,7 @@ $(function(){
     $("#signup-text, #top_signup").click(function (e){
         $(".arrow-up-left").css("right","117px");
         $("#popup").css("height","550px");
-        $("#user_name").show("fast").text('a');
+        $("#user_name").show("fast").val("");
         $("#g-recaptcha").show("fast");
         $(".SignUpText").show("fast");
         $("#submit").prop("value","SIGN UP");
@@ -187,7 +186,7 @@ $(function(){
     function setLogInForm(){
         $(".arrow-up-left").css("right","calc(100% - 143px)");
         $("#popup").css("height","325px");
-        $("#user_name").hide("fast");
+        $("#user_name").hide("fast").val(' ');
         $("#g-recaptcha").hide("fast");
         $(".SignUpText").hide("fast");
         $("#submit").prop("value","LOG IN");

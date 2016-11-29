@@ -6,6 +6,11 @@
  * Time: 5:07 PM
  */
 ?>
+
+
+<div id="all">
+
+
 <head>
     <style>
         #bg{
@@ -28,16 +33,16 @@
     </style>
 </head>
 
-    <body id="body">
+<body id="body">
 
-    <div id="bg"></div>
-    <div>
+<div id="bg"></div>
+<div>
     <div id="display-error"></div>
 
 
-    </div>
-    <?php echo $this->msg;?>
-    </body>
+</div>
+<?php echo $this->msg;?>
+</body>
 </div>
 
-<div id="all">
+</div>

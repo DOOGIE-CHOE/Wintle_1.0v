@@ -41,6 +41,7 @@ if(Session::isSessionSet("profile_id")){
             #cover-photo{
                 position:relative;
                 width:100%;
+                margin:0;
                 height:210px;
                 background: black;
                 background-repeat: no-repeat;

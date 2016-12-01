@@ -83,6 +83,7 @@ header #header-gnb [class = MemberShipBtn0] { /* logo */
     float:left;
     left:30px;
 }
+
 header #header-gnb [class = MemberShipBtn1] { /* login sign up */
     float: right; }
 header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
@@ -116,8 +117,9 @@ header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
 header #header-gnb .MemberShipBtn0 > * {
     display:inline-block;
     color: white;
-    margin:9px 13px 0 2px;
+    margin:15px 13px 0 2px;
     cursor:pointer;
+    font-size:15px;
 }
 header #header-gnb .MemberShipBtn1 > * {
     color: white; }

@@ -108,8 +108,8 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
         <div class="MemberShipBtn0" style="top:10px; right:110px;">
-            <a href="#" style="font-size:19px;" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Album</a>
-            <a href="#" style="font-size:19px;">.Hub</a>
+            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Album</a>
+            <a href="#" >.Hub</a>
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>

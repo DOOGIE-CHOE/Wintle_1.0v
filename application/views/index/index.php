@@ -10,10 +10,11 @@ $id = Session::get("user_email");
                 overflow-x:hidden;
             }
             .tap{
-                position:relative;
+                position:fixed;
                 height:100%;
-                background: black;
+                width:100%;
                 top:31px;
+                background-color: rgba(0,0,0,0.3);
             }
 
             #sort{
@@ -24,8 +25,10 @@ $id = Session::get("user_email");
             }
 
             .main-board{
+                position:relative;
                 height:100%;
                 width:1222px;
+                top:31px;
                 background-color: ghostwhite;
                 margin:auto;
             }
@@ -35,7 +38,6 @@ $id = Session::get("user_email");
                 position:relative;
                 height:100%;
                 width: 300px;
-                background-color: rgba(0,0,0,0.3);
             }
 
             .main-board .music-board{
@@ -238,7 +240,7 @@ $id = Session::get("user_email");
         </div>
     </div>
 
-    <div class="tap">
+    <div class="tap"></div>
         <div class="main-board"><!--
         <div class="user-board">
 
@@ -314,7 +316,6 @@ $id = Session::get("user_email");
         </div>-->
             <div class="music-board"></div>
         </div>
-    </div>
     <script type="text/javascript">
         var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(<?php echo URL?>i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
         var w = 1, h = 1,html = '', limitItem = 47;

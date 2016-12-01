@@ -11,4 +11,19 @@ class Message extends Controller {
     function __construct() {
         parent::__construct();
     }
+
+
+    function index(){
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage",
+            "message/index",
+            "musicplayer",
+            "footer"
+        );
+
+        $this->view->render($list);
+    }
+
 }

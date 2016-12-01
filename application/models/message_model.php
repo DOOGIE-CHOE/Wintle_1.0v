@@ -5,11 +5,9 @@
  * Date: 11/30/2016
  * Time: 7:04 PM
  */
-class LogIn_Model extends Model {
+class Message_Model extends Model {
 
     function __construct() {
         parent::__construct();
     }
-
-
 }

@@ -18,6 +18,7 @@ if(Session::isSessionSet("loggedIn")){
 <!DOCTYPE html>
 <html>
 <head>
+    <title>wintle</title>
 
 
     <!------------jquery import ----------->
@@ -62,19 +63,7 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
-    <script>
 
-        $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>",function(o){
-            var value = jQuery.parseJSON(o);
-            var photo = $("#profile-mini");
-            if (value.profile_photo_path != null) {
-                //display default image
-                // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
-            }
-        });
-
-    </script>
 </head>
 
 <header style="z-index:100;">
@@ -130,6 +119,20 @@ if(Session::isSessionSet("loggedIn")){
                 <!--<a style="right:10px">user name</a>-->
             </div>
         <?php } else{?>
+
+            <script>
+
+                $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>",function(o){
+                    var value = jQuery.parseJSON(o);
+                    var photo = $("#profile-mini");
+                    if (value.profile_photo_path != null) {
+                        //display default image
+                        // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                        photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
+                    }
+                });
+
+            </script>
 
             <div class="MemberShipBtn3" style="top:18px; right:5px;">
                 <img src="img/email.png" style="width:25px;">

@@ -73,13 +73,17 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
-            <input type="text" id="username">
-            <input type="button" id="find" value="find"> <br><br><br><br>
-            <input type="text" id="msg" name="msg">
-            <input type="button" id="bt" value="send">
-
+            <form id="send-message-form" action ="" method="post">
+                <input type="text" id="username">
+                <input type="button" id="find" value="find"> <br><br><br><br>
+                <input type="text" id="msg" name="msg">
+                <input type="button" id="bt" value="send">
+            </form>
         </div>
     </div>
+
+
+
     </body>
 
 </div>

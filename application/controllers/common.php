@@ -24,4 +24,10 @@ class Common extends Controller{
         $data = $this->model->getUsernameById($userid);
         echo json_encode($data);
     }
+
+    public function checkUsername($username){
+        $data = $this->model->getUsernameById($username);
+        echo json_encode($data);
+    }
+
 }

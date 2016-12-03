@@ -11,6 +11,7 @@ class LogIn extends Controller{
     function index(){}
 
     function callLogIn(){
-        $this->model->logIn();
+        $data =  $this->model->logIn();
+        echo json_encode($data);
     }
 }

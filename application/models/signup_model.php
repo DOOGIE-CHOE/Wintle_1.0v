@@ -53,13 +53,11 @@ Class SignUp_Model extends Model {
             }else {
                 throw new Exception("System error occur :( please try it later");
             }
-
-            return $data['success'];
         }
         catch(Exception $e){
             $data['error'] = $e->getMessage();
         }finally{
-            echo json_encode($data);
+            return $data;
         }
     }
     /*

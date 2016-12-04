@@ -57,12 +57,37 @@
         </style>
 
         <script>
+
+            $('#send-message-form').ajaxForm({
+                success:function(e) {
+                    console.log(2);
+                    return false;
+                }
+            }).submit();
+/*
+            $("#send-message-form").submit(function(event){
+                var url = $(this).attr('action');
+                console.log(url);
+                var data = $(this).serialize();
+                console.log(data);
+                //send ajax request
+                /!*$.post(url, data, function(o) {
+                 if(o.success == true){
+                 window.location.replace("index");
+                 }else{
+                 errorDisplay(o.error);
+                 }
+                 }, 'json');*!/
+
+                return false;
+            });*/
+
             $(function(){
                 $("#username").blur(function(){
-
+                    $("#userid").val("this is user id");
+                    console.log(1);
                 });
             });
-
 
         </script>
 
@@ -73,11 +98,12 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
-            <form id="send-message-form" action ="" method="post">
-                <input type="text" id="username">
-                <input type="button" id="find" value="find"> <br><br><br><br>
-                <input type="text" id="msg" name="msg">
-                <input type="button" id="bt" value="send">
+            <form action="http://localhost/test" method="post"  enctype="multipart/form-data">
+                <input type="text" id="username" name="username" required>
+                <input type="text" id="userid" name="userid" style="display:none" required>
+                <br><br><br><br>
+                <input type="text" id="message" name="message" required>
+                <input type="submit" id="test" name="test" value="send">
             </form>
         </div>
     </div>

@@ -41,4 +41,14 @@ class Common_Model extends Model{
             return $data['user_name'];
         }
     }
+
+    function getUserIdByName($username){
+        $sql = "SELECT user_id from user where user_name = '$username'";
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+        if ($data['user_id'] != null) {
+            return $data['user_id'];
+        }
+    }
+
 }

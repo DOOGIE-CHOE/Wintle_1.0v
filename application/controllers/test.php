@@ -13,6 +13,9 @@ class Test extends Controller{
     }
 
     function index(){
+    }
+
+    function testtest(){
         $this->model->testtest();
     }
 

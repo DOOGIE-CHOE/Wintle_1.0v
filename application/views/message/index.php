@@ -58,12 +58,21 @@
 
         <script>
 
-            $('#send-message-form').ajaxForm({
-                success:function(e) {
-                    console.log(2);
-                    return false;
-                }
-            }).submit();
+            //Ajax login/signup
+            $("#send-message-form").submit(function(event){
+                var url = $(this).attr('action');
+                var data = $(this).serialize();
+                //send ajax request
+                $.post(url, data, function(o) {
+                    if(o.success == true){
+                        window.location.replace("index");
+                    }else{
+                        errorDisplay(o.error);
+                    }
+                }, 'json');
+
+                return false;
+            });
 /*
             $("#send-message-form").submit(function(event){
                 var url = $(this).attr('action');
@@ -84,11 +93,16 @@
 
             $(function(){
                 $("#username").blur(function(){
-                    $("#userid").val("this is user id");
-                    console.log(1);
+                    $.get("<?php echo URL?>common/getUserIdByName/"+$("#username").val(), function(o){
+                        var value = jQuery.parseJSON(o);
+                        if(value == null){
+                            errorDisplay("Cannot find the user");
+                        }else{
+                            $("#userid").val(value);
+                        }
+                    });
                 });
             });
-
         </script>
 
     </head>
@@ -98,7 +112,7 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
-            <form action="http://localhost/test" method="post"  enctype="multipart/form-data">
+            <form id="send-message-form" action="http://localhost/test/testtest" method="post"  enctype="multipart/form-data">
                 <input type="text" id="username" name="username" required>
                 <input type="text" id="userid" name="userid" style="display:none" required>
                 <br><br><br><br>

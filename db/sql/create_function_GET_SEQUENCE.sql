@@ -7,7 +7,7 @@ BEGIN
  declare num int;
 
  
- if (_type <> "user" and _type <> "lyrics" and _type <> "audio" and _type <> "image") then
+ if (_type <> "user" and _type <> "lyrics" and _type <> "audio" and _type <> "image" and _type <> "message") then
  RETURN (-1);	
  end if;
  	

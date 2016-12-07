@@ -58,51 +58,47 @@
 
         <script>
 
-            //Ajax login/signup
-            $("#send-message-form").submit(function(event){
-                var url = $(this).attr('action');
-                var data = $(this).serialize();
-                //send ajax request
-                $.post(url, data, function(o) {
-                    if(o.success == true){
-                        window.location.replace("index");
-                    }else{
-                        errorDisplay(o.error);
-                    }
-                }, 'json');
-
-                return false;
-            });
-/*
-            $("#send-message-form").submit(function(event){
-                var url = $(this).attr('action');
-                console.log(url);
-                var data = $(this).serialize();
-                console.log(data);
-                //send ajax request
-                /!*$.post(url, data, function(o) {
-                 if(o.success == true){
-                 window.location.replace("index");
-                 }else{
-                 errorDisplay(o.error);
-                 }
-                 }, 'json');*!/
-
-                return false;
-            });*/
-
             $(function(){
                 $("#username").blur(function(){
-                    $.get("<?php echo URL?>common/getUserIdByName/"+$("#username").val(), function(o){
-                        var value = jQuery.parseJSON(o);
-                        if(value == null){
-                            errorDisplay("Cannot find the user");
+                    if( !this.value ){ //if it's empty
+                        $("#userid").val('');
+                    }else{
+                        $.get("<?php echo URL?>common/getUserIdByName/"+$("#username").val(), function(o){
+                            var value = jQuery.parseJSON(o);
+                            if(value == null){
+                                errorDisplay("Cannot find the user");
+                                $("#userid").val('');   // clear userid
+                            }else{
+                                $("#userid").val(value);
+                            }
+                        });
+                    }
+                }).keypress(function( e ) {
+                    if(e.which === 32)
+                        return false;
+                });
+
+                //Ajax login/signup
+                $("#send-message-form").submit(function(event){
+                    alert(2);
+                    var url = $(this).attr('action');
+                    var data = $(this).serialize();
+                    //send ajax request
+                    $.post(url, data, function(o) {
+                        if(o.success == true){
+                            alert(1);
+                            window.location.replace("index");
+                            errorDisplay("Message is sent successfully !!!!!");
                         }else{
-                            $("#userid").val(value);
+                            errorDisplay(o.error);
                         }
-                    });
+                    }, 'json');
+
+                    return false;
                 });
             });
+
+
         </script>
 
     </head>
@@ -112,9 +108,9 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
-            <form id="send-message-form" action="http://localhost/test/testtest" method="post"  enctype="multipart/form-data">
-                <input type="text" id="username" name="username" required>
-                <input type="text" id="userid" name="userid" style="display:none" required>
+            <form id="send-message-form" action="http://localhost/message/sendmessage" method="post"  enctype="multipart/form-data">
+                <input type="text" id="username" name="user_name" required>
+                <input type="text" id="userid" name="receiver_id" style="display:none" required>
                 <br><br><br><br>
                 <input type="text" id="message" name="message" required>
                 <input type="submit" id="test" name="test" value="send">

@@ -12,7 +12,6 @@ class Message extends Controller {
         parent::__construct();
     }
 
-
     function index(){
         $list = array();
         array_push($list,
@@ -24,6 +23,11 @@ class Message extends Controller {
         );
 
         $this->view->render($list);
+    }
+
+    function sendMessage(){
+        $data =  $this->model->sendMessage();
+        echo json_encode($data);
     }
 
 }

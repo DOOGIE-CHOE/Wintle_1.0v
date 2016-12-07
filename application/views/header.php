@@ -115,7 +115,7 @@ if(Session::isSessionSet("loggedIn")){
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>
             <div class="MemberShipBtn1" style="top:18px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="#popup1" id="top_login" style="margin-right:10px; font-size:19px;">Log In</a>
-                <a href="#popup1" id="top_login" style="font-size:19px;">Sign Up</a>
+                <a href="#popup1" id="top_signup" style="font-size:19px;">Sign Up</a>
                 <!--<a style="right:10px">user name</a>-->
             </div>
         <?php } else{?>

@@ -167,7 +167,7 @@ $(function(){
     $("#signup-text, #top_signup").click(function (e){
         $(".arrow-up-left").css("right","117px");
         $("#popup").css("height","550px");
-        $("#user_name").show("fast").text('a');
+        $("#user_name").show("fast");
         $("#g-recaptcha").show("fast");
         $(".SignUpText").show("fast");
         $("#submit").prop("value","SIGN UP");

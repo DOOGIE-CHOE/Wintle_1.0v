@@ -57,6 +57,12 @@
         </style>
 
         <script>
+            $.get("<?php echo URL?>message/getmessageoverview", function(o){
+                var value = jQuery.parseJSON(o);
+                console.log(value);
+                console.log(value[0]);
+            });
+
 
             $(function(){
                 $("#username").blur(function(){

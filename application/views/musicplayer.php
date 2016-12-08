@@ -77,9 +77,10 @@
         #play-bar-button{
             position:absolute;
             top:0;
-            width: 10px;
-            height: 10px;
+            width: 6px;
+            height: 6px;
             background: black;
+            border: 2px solid #ff8243;
             -moz-border-radius: 50px;
             -webkit-border-radius: 50px;
             border-radius: 50px;

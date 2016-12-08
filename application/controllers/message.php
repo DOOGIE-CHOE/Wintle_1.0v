@@ -30,4 +30,9 @@ class Message extends Controller {
         echo json_encode($data);
     }
 
+    function getMessageOverView(){
+        $data =  $this->model->getMessageOverView();
+        echo json_encode($data);
+    }
+
 }

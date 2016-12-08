@@ -80,14 +80,11 @@
 
                 //Ajax login/signup
                 $("#send-message-form").submit(function(event){
-                    alert(2);
                     var url = $(this).attr('action');
                     var data = $(this).serialize();
                     //send ajax request
                     $.post(url, data, function(o) {
                         if(o.success == true){
-                            alert(1);
-                            window.location.replace("index");
                             errorDisplay("Message is sent successfully !!!!!");
                         }else{
                             errorDisplay(o.error);

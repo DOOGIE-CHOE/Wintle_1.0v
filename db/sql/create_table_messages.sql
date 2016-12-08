@@ -22,6 +22,7 @@ create table user_message(
 	user_id int not null,
     msg_group_id int not null,
     message varchar(1000) not null,
+    is_read boolean not null default 0,
     sent_on timestamp default current_timestamp,
     foreign key(user_id) references message_list(user_id),
     foreign key(msg_group_id) references message_list(msg_group_id)

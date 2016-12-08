@@ -3,7 +3,7 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_User_LogIn`(
 in _user_email varchar(40),
 in _password varchar(80),
-out _return varchar(255))
+out _return int)
 BEGIN 
 	
     declare _checkuser int default 0;

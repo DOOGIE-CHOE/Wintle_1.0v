@@ -4,7 +4,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_User_SignUp`(
 in _user_name varchar(50),
 in _user_email varchar(40),
 in _password varchar(255),
-out _return varchar(255))
+out _return int)
 BEGIN 
 
 	declare	name_result int default 0;

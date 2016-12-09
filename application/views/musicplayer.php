@@ -134,9 +134,10 @@
         var PLAYBARWIDTH = 800;
         var playinterval;
         var barbutton;
+        var currentMousePos = { x: -1, y: -1 };
 
         $(function(){
-            audio.setAttribute('src', "<?php echo URL?>audio/4.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/7.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
@@ -147,18 +148,42 @@
 
             });
 
+
             $("#play-bar-button").draggable({
                 axis : "x",
                 containment:"parent",
                 drag: function() {
-                    var left = parseInt(barbutton.css("left"));
-                    setPlayedBar(left);
-                    var currentTime = left / (progressrate * 10);
-                    audio.currentTime = parseInt(currentTime);
-                    displayTime(document.getElementById("played-time"), currentTime);
-                    displayTime(document.getElementById("duration-time"), duration - currentTime);
+                    setPlaybutton();
                 }
             });
+
+            function setPlaybutton(){
+                var left = parseInt(barbutton.css("left"));
+                setPlayedBar(left);
+                var currentTime = left / (progressrate * 10);
+                audio.currentTime = parseInt(currentTime);
+                displayTime(document.getElementById("played-time"), currentTime);
+                displayTime(document.getElementById("duration-time"), duration - currentTime);
+            }
+
+
+            $("#play-info").mousedown(function(event){
+                event.type = "mousedown.draggable"; //set event type
+                currentMousePos.x = event.pageX;
+
+               var offset = $("#play-bar").offset();
+
+                if(currentMousePos.x <= offset.left - 1){
+                    currentMousePos.x -= offset.left + 2;
+                }else{
+                    currentMousePos.x -= offset.left + 4;
+                }
+                if(currentMousePos.x >= -1 && currentMousePos.x <= 801){
+                    //console.log(currentMousePos.x);
+                    $("#play-bar-button").css("left",currentMousePos.x).trigger(event); //execute drag event
+                    setPlaybutton();
+                }
+            })
         });
 
         function displayTime(target, second){

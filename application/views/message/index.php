@@ -53,16 +53,38 @@
             #shortcut-info-number div{
                 position:absolute;
             }
+            #conv-list{
+                position:relative;
+                width:300px;
+                height:200px;
+                background: antiquewhite;
+            }
+            #conv{
+                position:relative;
+                width:30px;
+                height:30px;
+                background: darkorange;
+                margin:20px;
+            }
 
         </style>
 
         <script>
             $.get("<?php echo URL?>message/getmessageoverview", function(o){
                 var value = jQuery.parseJSON(o);
-                console.log(value);
-                console.log(value[0]);
+                for(var i = 0; i < value.length; i++){
+                    $("#conv-list").append("<div id='conv' onclick='getConversation("+value[i].msg_group_id+")'></div>");
+                }
             });
 
+            function getConversation(group_id){
+                $.get("<?php echo URL?>message/getConversationByGroupId/"+group_id, function(o){
+                 var value = jQuery.parseJSON(o);
+                    for(var i = 0; i < value.length; i++){
+                        $("#text").append(value[i].message + "<br><br>");
+                    }
+                 });
+            }
 
             $(function(){
                 $("#username").blur(function(){
@@ -118,6 +140,14 @@
                 <input type="text" id="message" name="message" required>
                 <input type="submit" id="test" name="test" value="send">
             </form>
+
+            <br><br><br>
+            <div id="conv-list">
+            </div>
+
+            <div id="text">
+
+            </div>
         </div>
     </div>
 

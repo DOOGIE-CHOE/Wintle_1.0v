@@ -46,30 +46,41 @@ class Message_Model extends Model {
                 where msg_group_id 
                 in(select msg_group_id from message_list where user_id = '$user_id')";
         $result = $this->db->conn->query($sql);
-
-        /*if (!empty($data)) {
-            return $data;
-        } else {
-            throw new Exception("Couldn't load message lists..");
-        }*/
-
-        $aa = array();
+        $msg = array();
         while ($data = $result->fetch_assoc())
         {
-            array_push($aa,$data);
+            array_push($msg,$data);
         }
-        return $aa;
-
-        /*
-        if($result->num_rows <= 0) {
-            return null;
-        }
-        else{
-
-        }*/
-
-/*
-        */
-
+        return $msg;
     }
+
+    function getConversationByGroupId($group_id){
+        $sql = "select * from user_message where msg_group_id ='$group_id'";
+        $result = $this->db->conn->query($sql);
+        $msg = array();
+        while ($data = $result->fetch_assoc())
+        {
+            array_push($msg,$data);
+        }
+        return $msg;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

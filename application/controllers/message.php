@@ -35,4 +35,9 @@ class Message extends Controller {
         echo json_encode($data);
     }
 
+    function getConversationByGroupId($group_id){
+        $data =  $this->model->getConversationByGroupId($group_id);
+        echo json_encode($data);
+    }
+
 }

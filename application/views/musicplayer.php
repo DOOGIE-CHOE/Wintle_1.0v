@@ -137,7 +137,7 @@
         var currentMousePos = { x: -1, y: -1 };
 
         $(function(){
-            audio.setAttribute('src', "<?php echo URL?>audio/7.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/8.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
@@ -215,7 +215,7 @@
                 audio.pause();
                 audio.currentTime = 0;
                 $("#play").attr("src","<?php echo URL?>img/play.png");
-                $("#play-bar-button").css("left","0px");
+                $("#play-bar-button").css("left","  0px");
                 setPlayedBar(0);
                 clearInterval(playinterval);
                 displayTime(document.getElementById("played-time"), 0);
@@ -227,8 +227,8 @@
             displayTime(document.getElementById("duration-time"), duration - audio.currentTime);
         }
 
-        function setPlayedBar(width){
-            width += 5;
+        function setPlayedBar(width){/*
+            width += 5;*/
             $("#played").css("width",width + "px");
         }
 

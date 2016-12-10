@@ -64,6 +64,19 @@ if(Session::isSessionSet("loggedIn")){
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
 
+
+    <style>
+        #detail-tab{
+            position:fixed;
+            display:inline-block;
+            background: white;
+            width:100px;
+            height:300px;
+            right:0;
+            z-index:1000;
+        }
+
+    </style>
 </head>
 
 <header style="z-index:100;">
@@ -171,6 +184,25 @@ if(Session::isSessionSet("loggedIn")){
         <!--<div style="position:absolute;top:15px; right:25px; height:50px;">
             <a href="<?php /*echo URL*/?>webstudio"><img src="<?php /*echo URL*/?>img/beta.png" style="height:30px"></a>
         </div>-->
+
+
+      <!--  <div id="detail-tab">
+            <div id="detail-info">
+                <a>home</a>
+            </div>
+            <div id="detail-info">
+                <a>home</a>
+            </div>
+            <div id="detail-info">
+                <a>home</a>
+            </div>
+            <div id="detail-info">
+                <a>home</a>
+            </div>
+            <div id="detail-info">
+                <a>home</a>
+            </div>
+        </div>-->
     </div>
 </header>
 <!--
@@ -182,4 +214,5 @@ if(Session::isSessionSet("loggedIn")){
             css3: true
         });
     </script>-->
+
 

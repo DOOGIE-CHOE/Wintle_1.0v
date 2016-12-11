@@ -137,7 +137,7 @@
         var currentMousePos = { x: -1, y: -1 };
 
         $(function(){
-            audio.setAttribute('src', "<?php echo URL?>audio/8.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/1.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
@@ -159,7 +159,7 @@
 
             function setPlaybutton(){
                 var left = parseInt(barbutton.css("left"));
-                setPlayedBar(left);
+                setPlayedBarAndButton(left);
                 var currentTime = left / (progressrate * 10);
                 audio.currentTime = parseInt(currentTime);
                 displayTime(document.getElementById("played-time"), currentTime);
@@ -171,7 +171,7 @@
                 event.type = "mousedown.draggable"; //set event type
                 currentMousePos.x = event.pageX;
 
-               var offset = $("#play-bar").offset();
+                var offset = $("#play-bar").offset();
 
                 if(currentMousePos.x <= offset.left - 1){
                     currentMousePos.x -= offset.left + 2;
@@ -210,26 +210,33 @@
         function playBarButtonProgress(){
             var left = parseFloat(barbutton.css("left"));
             left += progressrate;
-            setPlayedBar(left);
-            if(left >= PLAYBARWIDTH){
+            setPlayedBarAndButton();
+            console.log(left);
+            if(left >= (PLAYBARWIDTH - 2)){
                 audio.pause();
                 audio.currentTime = 0;
                 $("#play").attr("src","<?php echo URL?>img/play.png");
-                $("#play-bar-button").css("left","  0px");
-                setPlayedBar(0);
+                //$("#play-bar-button").css("left","  0px");
+                setPlayedBarAndButton(0);
                 clearInterval(playinterval);
                 displayTime(document.getElementById("played-time"), 0);
                 displayTime(document.getElementById("duration-time"), duration);
                 return;
             }
-            barbutton.css("left",left + "px");
             displayTime(document.getElementById("played-time"), audio.currentTime);
             displayTime(document.getElementById("duration-time"), duration - audio.currentTime);
         }
 
-        function setPlayedBar(width){/*
-            width += 5;*/
-            $("#played").css("width",width + "px");
+        function setPlayedBarAndButton(left = null){
+            var tmp;
+            if(left == null){
+                tmp = ~~ (audio.currentTime * 10);
+                tmp =  tmp * progressrate;
+            }else{
+                tmp = left;
+            }
+            barbutton.css("left",tmp + "px");
+            $("#played").css("width",tmp + "px");
         }
 
     </script>

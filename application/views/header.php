@@ -55,6 +55,7 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="stylesheet" href="<?php echo URL?>css/errormessage.css">
 
 
+
     <!-- Tag it -->
     <link href="<?php echo URL?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="<?php echo URL?>css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
@@ -91,6 +92,7 @@ if(Session::isSessionSet("loggedIn")){
             $("header").css("height","50px");
         </script>
     <?php } ?>
+
 
     <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
         <source src="background/file.webm">

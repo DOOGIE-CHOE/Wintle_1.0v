@@ -23,7 +23,7 @@ class NewChart extends Controller {
             array_push($list,"loginpopup");
         }
         array_push($list,
-            "index/newchart",
+            "album/newchart",
             "musicplayer",
             "footer"
         );

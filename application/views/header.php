@@ -38,6 +38,10 @@ if(Session::isSessionSet("loggedIn")){
     <!-- css Plug In -->
     <link href="<?php echo URL?>css/css_reset.css" rel="stylesheet" />
 
+
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
     <!-- css custom -->
     <link media="screen" href="<?php echo URL?>css/style/pc.css" rel="stylesheet" />
 
@@ -64,7 +68,6 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
-
 
     <style>
         #detail-tab{
@@ -123,8 +126,8 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
         <div class="MemberShipBtn0" style="top:10px; right:110px;">
-            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Album</a>
-            <a href="#" >.Hub</a>
+            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>newchart','all')">.Album</a>
+            <a href="#" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Hub</a>
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>

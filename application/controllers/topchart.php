@@ -22,7 +22,7 @@ class TopChart extends Controller {
             array_push($list,"loginpopup");
         }
         array_push($list,
-            "index/topchart",
+            "album/topchart",
             "musicplayer",
             "footer"
         );

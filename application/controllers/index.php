@@ -22,7 +22,6 @@ class Index extends Controller {
         }
         array_push($list,
             "index/index",
-            "musicplayer",
             "footer"
         );
         $this->view->render($list);

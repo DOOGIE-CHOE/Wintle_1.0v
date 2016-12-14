@@ -12,14 +12,12 @@ if(Session::isSessionSet("loggedIn")){
     $top_fst_link = "";
     $top_snd_link = "";
 }*/
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>wintle</title>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!------------jquery import ----------->
     <script src="<?php echo URL?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
@@ -30,7 +28,7 @@ if(Session::isSessionSet("loggedIn")){
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 
     <!-- -------------------------------------------------------------------------
                             css reset, Java script, JS PlugIn
@@ -68,6 +66,21 @@ if(Session::isSessionSet("loggedIn")){
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
     <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
+
+
+    <!--공통사용하는 기본속성-->
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <!--메인및작성되 화면 관리-->
+    <link href="css/wintle.css" rel="stylesheet" type="text/css" />
+    <!--추후 화면 확장성 위해 사용하는 프레임웍-->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="./common/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./common/js/jquery.min.js"></script>
+    -->
 
     <style>
         #detail-tab{

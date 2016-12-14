@@ -29,7 +29,7 @@ select{font-size: 1em;}
 hr {display: none;}
 legend {visibility:hidden; display:none; height:0; width:0; font-size:0;}
 
-caption{visibility:hidden; width:0; height:0; overflow:hidden; font:0;}
+caption{visibility:hidden; width:0; height:0; overflow:hidden; }
 textarea {border:1px solid #cdcdcd; font-size: 1em; width:98%;}
 select, textarea {vertical-align: middle; font-size:1em; font-family:Dotum,"돋움",sans-serif;}
 .search, .search_btn1 {vertical-align: middle; font-size:1em; font-family:Dotum,"돋움",sans-serif;}
@@ -39,44 +39,44 @@ select, textarea {vertical-align: middle; font-size:1em; font-family:Dotum,"돋�
   font-family: 'NanumGothic';
   font-style: normal;
   font-weight: 400;
-  src: url("/wintle/common/font/NanumGothic-Regular.eot");
-  src: url("/wintle/common/font/NanumGothic-Regular.eot?#iefix") format('embedded-opentype'),
-       url("/wintle/common/font/NanumGothic-Regular.woff2") format('woff2'),
-       url("/wintle/common/font/NanumGothic-Regular.woff") format('woff'),
-       url("/wintle/common/font/NanumGothic-Regular.ttf") format('truetype');
+  src: url("font/NanumGothic-Regular.eot");
+  src: url("font/NanumGothic-Regular.eot?#iefix") format('embedded-opentype'),
+       url("font/NanumGothic-Regular.woff2") format('woff2'),
+       url("font/NanumGothic-Regular.woff") format('woff'),
+       url("font/NanumGothic-Regular.ttf") format('truetype');
 }
  
 @font-face {
   font-family: 'NanumGothicBold';
   font-style: normal;
   font-weight: 700;
-  src: url("/wintle/common/font/NanumGothic-Bold.eot");
-  src: url("/wintle/common/font/NanumGothic-Bold.eot?#iefix") format('embedded-opentype'),
-       url("/wintle/common/font/NanumGothic-Bold.woff2") format('woff2'),
-       url("/wintle/common/font/NanumGothic-Bold.woff") format('woff'),
-       url("/wintle/common/font/NanumGothic-Bold.ttf") format('truetype');
+  src: url("font/NanumGothic-Bold.eot");
+  src: url("font/NanumGothic-Bold.eot?#iefix") format('embedded-opentype'),
+       url("font/NanumGothic-Bold.woff2") format('woff2'),
+       url("font/NanumGothic-Bold.woff") format('woff'),
+       url("font/NanumGothic-Bold.ttf") format('truetype');
 }
  
 @font-face {
   font-family: 'NanumGothicExtraBold';
   font-style: normal;
   font-weight: 800;
-  src: url("/wintle/common/font/NanumGothic-ExtraBold.eot");
-  src: url("/wintle/common/font/NanumGothic-ExtraBold.eot?#iefix") format('embedded-opentype'),
-       url("/wintle/common/font/NanumGothic-ExtraBold.woff2") format('woff2'),
-       url("/wintle/common/font/NanumGothic-ExtraBold.woff") format('woff'),
-       url("/wintle/common/font/NanumGothic-ExtraBold.ttf") format('truetype');
+  src: url("font/NanumGothic-ExtraBold.eot");
+  src: url("font/NanumGothic-ExtraBold.eot?#iefix") format('embedded-opentype'),
+       url("font/NanumGothic-ExtraBold.woff2") format('woff2'),
+       url("font/NanumGothic-ExtraBold.woff") format('woff'),
+       url("font/NanumGothic-ExtraBold.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'NanumMyeongjo'; 
   font-style: normal;
   font-weight: 800;
-  src: url("/wintle/common/font/NanumMyeongjo.eot");
-  src: url("/wintle/common/font/NanumMyeongjo.eot?#iefix") format('embedded-opentype'),
-       url("/wintle/common/font/NanumMyeongjo.woff2") format('woff2'),
-       url("/wintle/common/font/NanumMyeongjo.woff") format('woff'),
-       url("/wintle/common/font/NanumMyeongjo.ttf") format('truetype');
+  src: url("font/NanumMyeongjo.eot");
+  src: url("font/NanumMyeongjo.eot?#iefix") format('embedded-opentype'),
+       url("font/NanumMyeongjo.woff2") format('woff2'),
+       url("font/NanumMyeongjo.woff") format('woff'),
+       url("font/NanumMyeongjo.ttf") format('truetype');
 }
 
 
@@ -158,7 +158,7 @@ table caption 	{display:none;}
 .pdl_10 { padding-left:10px !important;}
 .pdl_13 { padding-left:13px !important;}
 .pdl_15 { padding-left:15px !important;}
-.pdl_17 { padding-left:17x !important;}
+.pdl_17 { padding-left:17px !important;}
 .pdl_20 { padding-left:20px !important;}
 .pdl_30 { padding-left:30px !important;}
 .pdl_40 { padding-left:40px !important;}

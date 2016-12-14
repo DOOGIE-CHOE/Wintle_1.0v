@@ -254,7 +254,7 @@ $id = Session::get("user_email");
                             }else{
                                 */?>
                     <script>
-                        $.get("<?php /*echo URL*/?>common/getProfilePhoto/profile/<?php /*echo $id*/?>", function(o){
+                        $.get("<?php /*echo URL*/?>getProfilePhoto/profile/<?php /*echo $id*/?>", function(o){
                             var value = jQuery.parseJSON(o);
                             var photo = $("#profilephoto");
                             if(value.profile_photo_path == null){

@@ -6,11 +6,4 @@
  * Time: 1:24 PM
  */
 
-echo "footer</br>";
-
 echo "</html>";
-
-echo "commit test !s";
-
-
-echo "commit test 2";

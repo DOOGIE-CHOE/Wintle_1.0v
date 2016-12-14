@@ -26,8 +26,8 @@
             fixSize: null, // resize + adjust = fill gap;
             //fixSize: 0, resize but keep ratio = no fill gap;
             //fixSize: 1, no resize + no adjust = no fill gap;
-            gutterX: 1, // width spacing between blocks;
-            gutterY: 1, // height spacing between blocks;
+            gutterX: 10, // width spacing between blocks;
+            gutterY: 10, // height spacing between blocks;
             keepOrder: false,
             selector: '> div',
             draggable: false,

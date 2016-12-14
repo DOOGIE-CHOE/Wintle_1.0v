@@ -211,7 +211,6 @@
             var left = parseFloat(barbutton.css("left"));
             left += progressrate;
             setPlayedBarAndButton();
-            console.log(left);
             if(left >= (PLAYBARWIDTH - 2)){
                 audio.pause();
                 audio.currentTime = 0;

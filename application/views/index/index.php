@@ -1,10 +1,25 @@
 <div id="all">
     <body class="body_bg02">
+    <div id="sub-header">
+        <div id="container">
+            <div id="subclass">
+                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;">All</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>topchart','all');">Seed</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>recommend','all');">Recommended</p></div>
+            </div>
+
+            <div id="sort">
+                <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
+                <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">
+            </div>
+        </div>
+    </div>
+
     <div id="wrapper">
         <div class="container bg_dgray">
 
             <!--앨범전체 AREA-->
-            <div class="grid mgt_40" data-layout-mode="masonry">
+            <div class="grid mgt_35" data-layout-mode="masonry">
 
                 <!--앨범-->
                 <div class="grid-item">
@@ -40,7 +55,7 @@
                 <!--노래가사가 짧은경우-->
                 <div class="grid-item">
                     <div class="albumT">
-                        사랑해 아직도<br>
+                        사랑해 아직도ddd<br>
                         왜너를 잊지 못 하니<br><br>
                         오랜 기억 속에 너를 생각하며<br>
                         달려온 시간들 속에<br><br>
@@ -576,6 +591,14 @@
 
                     <!--각 그리드 자동 가로정렬 필요함-->
                     <script>
+
+                        /*var tmp = parseFloat($(".albumT").css("height"));
+                        console.log(tmp);
+                        tmp += 500;
+                        $("#lyrics").css("height",tmp + "px");
+                        console.log($("#lyrics").css("height"));*/
+
+
                         var wall = new Freewall(".grid");
                         wall.reset({
                             selector: '.grid-item',
@@ -588,6 +611,7 @@
                         });
                         //put this instead of on load function;
                         wall.fitWidth();
+
 
 /*
                         //not working i dunno why..

@@ -30,7 +30,7 @@ $id = Session::get("user_email");
                 position:relative;
                 height:100%;
                 width:100%;
-                top:31px;
+                top:25px;
                 background-color: ghostwhite;
                 margin:auto;
             }
@@ -207,17 +207,17 @@ $id = Session::get("user_email");
                  }
                  });*/
 
-               /* $(".cell").mouseover(function(){
-                    if( $(this).find("#albummenu").length == 0) {
-                        $(this).html("<div id='albummenu'><div>");
-                        $(this).find("#albummenu").show("slide", {direction: "left"}, 200);
-                    }
-                }).mouseleave(function(){
-                    if( $(this).find("#albummenu").length > 0) {
-                        $(this).find("#albummenu").hide("slide", {direction: "right"}, 200);
-                        $(this).html("");
-                    }
-                });*/
+                /* $(".cell").mouseover(function(){
+                 if( $(this).find("#albummenu").length == 0) {
+                 $(this).html("<div id='albummenu'><div>");
+                 $(this).find("#albummenu").show("slide", {direction: "left"}, 200);
+                 }
+                 }).mouseleave(function(){
+                 if( $(this).find("#albummenu").length > 0) {
+                 $(this).find("#albummenu").hide("slide", {direction: "right"}, 200);
+                 $(this).html("");
+                 }
+                 });*/
             });
 
 
@@ -242,17 +242,16 @@ $id = Session::get("user_email");
         </div>
     </div>
 
-    <div class="tap"></div>
-        <div class="main-board"><!--
+    <div class="main-board"><!--
         <div class="user-board">
 
             <div class="sb userinfo">
                 <div class="label" style="background-color: #6d95e0"></div>
                 <?php
-            /*                if(Session::get("loggedIn") != true){
-                                echo "Please Log In";
-                            }else{
-                                */?>
+        /*                if(Session::get("loggedIn") != true){
+                            echo "Please Log In";
+                        }else{
+                            */?>
                     <script>
                         $.get("<?php /*echo URL*/?>getProfilePhoto/profile/<?php /*echo $id*/?>", function(o){
                             var value = jQuery.parseJSON(o);
@@ -316,8 +315,8 @@ $id = Session::get("user_email");
                 <h4 id="label-info">MyProject</h4>
             </div>
         </div>-->
-            <div class="music-board"></div>
-        </div>
+        <div class="music-board"></div>
+    </div>
     <script type="text/javascript">
         var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-image: url(<?php echo URL?>i/{index}.jpg); background-size:cover; background-repeat:no-repeat; margin:0' onclick='a({index})'></div>";
         var w = 1, h = 1,html = '', limitItem = 47;

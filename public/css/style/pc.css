@@ -130,7 +130,7 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
 
 #sub-header{
     position:fixed;
-    top:50px;
+    top:45px;
     width:100%;
     background-color: #111111;
     opacity:0.8;

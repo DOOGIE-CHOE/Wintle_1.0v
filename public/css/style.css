@@ -9,7 +9,7 @@
  * --------------------------------------- */
 body {
     font-family: arial, helvetica;
-    color: #F2F2F2;
+    color: black;
     margin-top:30px;
 }
 
@@ -168,17 +168,17 @@ p:link, a:link{
     color : gray;
 }
 
+
 .divider hr {
-    margin-left:auto;
-    margin-right:auto;
+    margin:8px;
     width:40%;
 }
 
-.left {
+.line-left {
     float:left;
 }
 
-.right {
+.line-right {
     float:right;
 }
 
@@ -273,10 +273,12 @@ p:link, a:link{
 
 .login-signup-text #login-text{
     margin-right:40px;
+    color:white;
 }
 
 .login-signup-text #signup-text{
     margin-left:40px;
+    color:white;
 }
 
 .login-signup-block {

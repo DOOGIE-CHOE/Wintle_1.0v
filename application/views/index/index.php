@@ -294,36 +294,7 @@
                         <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
                     </div>
                 </div>
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="eq_box">
-                        <div class="equalizer"><img src="image/eq.png" alt="" /></div>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">9</div>
-                            <img src="image/p5.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
+               <!--앨범-->
                 <div class="grid-item">
                     <div class="albumP"><img src="image/album_p6.jpg" alt="" /></div>
 

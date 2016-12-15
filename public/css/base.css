@@ -26,16 +26,15 @@ address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;}
 select{font-size: 1em;}
 .radio {margin-bottom:-2px;}
 
-hr {display: none;}
 legend {visibility:hidden; display:none; height:0; width:0; font-size:0;}
 
 caption{visibility:hidden; width:0; height:0; overflow:hidden; }
-textarea {border:1px solid #cdcdcd; font-size: 1em; width:98%;}
+textarea {border:1px solid #cdcdcd; font-size: 1em; width:98%;}/*
 select, textarea {vertical-align: middle; font-size:1em; font-family:Dotum,"돋움",sans-serif;}
-.search, .search_btn1 {vertical-align: middle; font-size:1em; font-family:Dotum,"돋움",sans-serif;}
+.search, .search_btn1 {vertical-align: middle; font-size:1em; font-family:Dotum,"돋움",sans-serif;}*/
 
 /* font */
-@font-face {
+/*@font-face {
   font-family: 'NanumGothic';
   font-style: normal;
   font-weight: 400;
@@ -77,7 +76,7 @@ select, textarea {vertical-align: middle; font-size:1em; font-family:Dotum,"돋�
        url("font/NanumMyeongjo.woff2") format('woff2'),
        url("font/NanumMyeongjo.woff") format('woff'),
        url("font/NanumMyeongjo.ttf") format('truetype');
-}
+}*/
 
 
 .left 		{ text-align: left !important; }
@@ -241,6 +240,7 @@ table caption 	{display:none;}
 .w100 { width:100% !important; }
 
 .w10px { width:10px !important; }
+.w15px { width:15px !important; }
 .w20px { width:20px !important; }
 .w25px { width:25px !important; }
 .w30px { width:30px !important; }

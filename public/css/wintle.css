@@ -8,24 +8,29 @@
 .rowAR { display:block; clear:both; margin-bottom:30px; padding:15px}
 
 
-/*앨범목록 그리드사용*/
+/*앨범목록 그리드사용(앨범및 가사제공)*/
 .grid-item         {border-radius: 10px; box-sizing:border-box; position: relative; float: left; width: 200px; min-height:309px; margin:1px; padding:0; background:#cccccc;}
 .grid-item .albumP     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:0 0 0 0 !important;}
 .grid-item .albumP img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; width:100%; height:auto; box-sizing:border-box; overflow:hidden}
-.grid-item .albumT     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:0 0 0 0 !important; display:block; padding:18px; box-sizing:border-box; max-height:370px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
-.grid-item .userinfo     { position:relative; padding:0 0 0 10px !important;  margin:10px 5px !important; box-sizing:border-box;}
-.grid-item .userinfo  .badge { position:absolute; top:0; left:0; z-index:3}
-.grid-item .userinfo  .userphoto { position:absolute; top:0; left:0; z-index:2}
-.grid-item .userinfo  .userphoto img { width:52px; height:52px; box-shadow: 0px 0px 8px 0px black; }
-.grid-item .eq_box { display: table;  background:#a59a67;  margin:3px; box-sizing:border-box}
-.grid-item .equalizer { display: table-cell;  width:100%; height:198px; vertical-align: middle; text-align: center; }
-.grid-item .equalizer  img { display: inline-block; width:100%; overflow:hidden}
+.grid-item .albumT     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:3px; !important; display:block; padding:18px; box-sizing:border-box; max-height:370px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
+
+/*앨범그리드 사운드파일제공 영역*/
+/*
+.grid-item .eq_box     { display: table; padding:3px !important;}
+.grid-item .equalizer  { display: table-cell;  background:#a59a67; width:192px; height:192px !important; overflow:hidden; vertical-align: middle; text-align: center; }
+.grid-item .equalizer  img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; width:100%; height:auto; box-sizing:border-box; overflow:hidden}
+*/
 
 
 
 
+/*앨범그리드 사용자프로필 제공*/
+.grid-item .userinfo     { position:relative; padding:0 0 0 10px !important;  margin:10px 5px !important; clear:both; display:block}
+.grid-item .userinfo  .badge { position:absolute; top:0; left:0; }
+.grid-item .userinfo  .userphoto { position:absolute; top:0; left:0; }
+.grid-item .userinfo  .userphoto img { width:48px; height:48px; box-shadow: 0px 0px 8px 0px black; }
 
-/*사용자 정보 및 앨범태그 관리*/
+/*앨범그리드 앨범제목및 태그제공*/
 .grid-item .userinfo  .musictext { padding-left:35px ;}
 .grid-item .userinfo  .musictext ul { margin:0 0 0 0 !important; padding:0 !important}
 .grid-item .userinfo  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}
@@ -33,35 +38,43 @@
 .music_name  { background:#000; color:#FFF; font-size:1.3em; padding:0 5px 0 10px }
 .music_tag   { padding:0 0 0 5px; }
 .music_tag span.label { font-size:0.85em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin:-1px !important}
+
+/*앨범그리드 하단 좋아요외 버튼제공*/
 .grid-item .btm_info     {border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; bottom:0; left:0; margin:0; padding:10px; height:40px; box-sizing:border-box;}
-.grid-item .btm_info img     { width:50px;}
-.userinfo_myP { width: 50px; height: 50px;margin-right: 15px; border-radius: 50%;border: 3px solid rgba(164, 113, 198, 0.1);overflow: hidden;float: none;}
-.userinfo_myP > img { width: 100%;height: auto;}
+/*.grid-item .btm_info img     { width:50px;}*/
+/*.userinfo_myP { width: 50px; height: 50px;margin-right: 15px; border-radius: 50%;border: 3px solid rgba(164, 113, 198, 0.1);overflow: hidden;float: none;}
+.userinfo_myP > img { width: 100%;height: auto;}*/
 
 
- /*(모달창)미디어 댓글*/
+/*앨범상세보기 모달창전체영역*/
 .modal {  background : rgba(0, 0, 0, 0.7)  !important; }
 .modal-content { background:#333 !important; border-radius:0 !important; }
 .modal_close { color:#FFF !important; font-size:5em !important; padding:0 10px; font-weight:100; text-shadow:none; position:absolute; right:0; top:-20px}
 .modal_close a { text-decoration:none !important; color:#FFF !important; }
+
+/*모달창 상단 앨범정보제공(앨범사진 및 앨범정보안내)*/
 .view_header { height:165px; padding:0; margin:0; box-sizing:border-box;
-                -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
- }
- 
- 
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
 .view_header  .album_p { width:160px; height:auto; padding:5px; float:left; box-sizing:border-box}
 .view_header  .album_con { width:410px; height:auto; padding:5px; float:left; box-sizing:border-box}
 .view_header .li_size01 { height:70px; list-style:none; clear:both}
 .view_header .li_size02 { height:80px; list-style:none; clear:both; background:#23194b; overflow:auto; color:#7d7892; padding:5px; box-sizing:border-box }
+
+/*상세보기이동버튼영역*/
 .de_view { display:table; right:0; top:0; float:right; background:#8f564a; width:20px; height:100%;}
-.de_view span {  display: table-cell; vertical-align:middle; text-align:center; color:#FFF; font-weight:100 !important;}  
+.de_view span {  display: table-cell; vertical-align:middle; text-align:center; color:#FFF; font-weight:100 !important;}
 .de_view a { text-decoration:none; color:#fff;}
+
+/*앨범상세보기 모달창 컨텐츠영역 및 댓글li구분값*/
 .view_body { box-sizing:border-box; clear:both; max-height:400px; overflow:auto; padding:15px 10px !important; width:100%; margin-bottom:30px;}
 .view_body ul { list-style:none; margin:0 !important; padding:0 !important}
+
 .view_body ul.media-list  { list-style:none; padding:0; margin:0; width:100%; color:#FFF; font-size:0.85em; }
 .view_body ul.media-list li { list-style:none; padding:3px 0; border-bottom:1px solid #000; margin:0; position:relative; min-height:65px; }
 .view_body ul.media-list li.comment { background:#282828; padding:5px 5px 5px 50px !important }
+/*댓글상세정보*/
 .media  {display:block}
 .media .wrt_mem { float:left;  position:absolute; top:3px; }
 .media .wrt_con { float:left; display:block; padding:4px 0 0 40px; color:#999 }
@@ -70,6 +83,7 @@
 .media .wrt_day span { clear:both !important; display:block; text-align:right}
 .media .wrt_day span a { text-decoration:none; color:#999}
 
+/*앨범상세보기 모달창 하단 글쓰기영역*/
 .view_footer { height:50px; position:relative; width:100%;}
 .view_footer .mem { position:absolute; left:10px; top:-10px;}
 .view_footer .wrt { position:absolute; right:10px; top:10px;}
@@ -109,22 +123,8 @@
 .like-grid .albumT_ar p {  text-align:center; vertical-align:middle; display: table-cell;}
 .like-grid .albumT_ar p span { font-size:1.85em; font-weight:400; color:#E69E64}
 
-  .modal {
-    text-align: center;
-    padding: 0!important;
-  }
-
-  .modal:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -4px;
-  }
-
-  .modal-dialog {
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
-  }
+/*모달창센터정력*/
+.modal { text-align: center; padding: 0!important;}
+.modal:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -4px;}
+.modal-dialog { display: inline-block; text-align: left; vertical-align: middle;}
 

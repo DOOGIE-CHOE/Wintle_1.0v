@@ -36,6 +36,15 @@ if(Session::isSessionSet("loggedIn")){
     <!-- css Plug In -->
     <link href="<?php echo URL?>css/css_reset.css" rel="stylesheet" />
 
+    <!--추후 화면 확장성 위해 사용하는 프레임웍-->
+    <link href="<?php echo URL?>css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!--공통사용하는 기본속성-->
+    <link href="<?php echo URL?>css/base.css" rel="stylesheet" type="text/css" />
+
+
+    <!--메인및작성되 화면 관리-->
+    <link href="<?php echo URL?>css/wintle.css" rel="stylesheet" type="text/css" />
 
     <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
@@ -65,22 +74,16 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL?>js/ajax-page-call.js"></script>
-    <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/logo_black.png">
+    <link rel="shortcut icon" href="<?php echo URL?>img/pavicon/favicon.ico">
 
 
-    <!--공통사용하는 기본속성-->
-    <link href="css/base.css" rel="stylesheet" type="text/css" />
-    <!--메인및작성되 화면 관리-->
-    <link href="css/wintle.css" rel="stylesheet" type="text/css" />
-    <!--추후 화면 확장성 위해 사용하는 프레임웍-->
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="./common/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./common/js/jquery.min.js"></script>
     -->
+
 
     <style>
         #detail-tab{
@@ -105,7 +108,7 @@ if(Session::isSessionSet("loggedIn")){
     <?php }else{ ?>
         <script>
             $(".info-content").css("display","hide");
-            $("header").css("height","50px");
+            $("header").css("height","45px");
         </script>
     <?php } ?>
 
@@ -131,7 +134,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:40px; top:5px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/logo_white_wintle.png" style="position:relative; height:28px; top:13px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">
@@ -144,9 +147,9 @@ if(Session::isSessionSet("loggedIn")){
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>
-            <div class="MemberShipBtn1" style="top:18px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
-                <a href="#popup1" id="top_login" style="margin-right:10px; font-size:19px;">Log In</a>
-                <a href="#popup1" id="top_signup" style="font-size:19px;">Sign Up</a>
+            <div class="MemberShipBtn1" style="top:22px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
+                <a href="#popup1" id="top_login" style="margin-right:19px; font-size:17px;">Log In</a>
+                <a href="#popup1" id="top_signup" style="font-size:17px;">Sign Up</a>
                 <!--<a style="right:10px">user name</a>-->
             </div>
         <?php } else{?>

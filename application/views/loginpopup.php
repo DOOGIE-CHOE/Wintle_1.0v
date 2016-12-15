@@ -26,7 +26,7 @@
                     <span class="SignUp">
                         <img style="margin-left:28px; margin-top:18px; height:47px;" src="<?php echo URL?>img/social_login.png"/>
                         <div class="divider">
-                            <hr class="left"/>OR<hr class="right" />
+                            <hr class="line-left"/>OR<hr class="line-right" />
                         </div>
                         <span name="wrong" id="user_name_wrong" style="display: none"
                               onclick="document.getElementById('user_name').value =''"><img

@@ -31,8 +31,8 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="copy_of_wintle_1.exerd" partName="copy_of_wintle_1.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/table/copy_of_wintle_1.exerd" title="copy_of_wintle_1.exerd" tooltip="exerd/table/copy_of_wintle_1.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/table/copy_of_wintle_1.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_2016_12.exerd" partName="wintle_2016_12.exerd" path="C:/Users/Daniel/Documents/GitHub/Wintle_1.0v/db/exerd/table/wintle_2016_12.exerd" title="wintle_2016_12.exerd" tooltip="exerd/table/wintle_2016_12.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/exerd/table/wintle_2016_12.exerd"/>
 </editor>
 </editors>
 <views>
@@ -54,7 +54,7 @@
 <element path="/exerd/table"/>
 </expanded>
 <selection>
-<element path="/exerd/table/wintle_1.exerd"/>
+<element path="/exerd/table/wintle_2016_12.exerd"/>
 </selection>
 </viewState>
 </view>
@@ -200,11 +200,11 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/copy_of_wintle_1.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/Copy of wintle_1.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/wintle_1_unarranged.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/exerd/table/copy_of_wintle_1.exerd"/>
 </editors>
-<item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
-<item historyLabel="wintle.exerd" index="0"/>
-<item historyLabel="wintle_1.exerd" index="1"/>
 <item historyLabel="wintle.exerd" index="0"/>
 <item historyLabel="wintle_1.exerd" index="1"/>
 <item historyLabel="wintle.exerd" index="0"/>
@@ -250,7 +250,11 @@
 <item historyLabel="wintle.exerd" index="7"/>
 <item historyLabel="copy_of_wintle_1.exerd" index="8"/>
 <item historyLabel="wintle_1.exerd" index="5"/>
-<item active="true" historyLabel="copy_of_wintle_1.exerd" index="8"/>
+<item historyLabel="copy_of_wintle_1.exerd" index="8"/>
+<item historyLabel="Copy of wintle_1.exerd" index="9"/>
+<item historyLabel="wintle.exerd" index="10"/>
+<item historyLabel="wintle_1_unarranged.exerd" index="11"/>
+<item active="true" historyLabel="copy_of_wintle_1.exerd" index="12"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -268,6 +272,18 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="copy_of_wintle_1.exerd" tooltip="exerd/table/copy_of_wintle_1.exerd">
+<persistable path="/exerd/table/copy_of_wintle_1.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_1_unarranged.exerd" tooltip="exerd/table/wintle_1_unarranged.exerd">
+<persistable path="/exerd/table/wintle_1_unarranged.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="wintle.exerd" tooltip="exerd/table/wintle.exerd">
+<persistable path="/exerd/table/wintle.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="Copy of wintle_1.exerd" tooltip="exerd/table/Copy of wintle_1.exerd">
+<persistable path="/exerd/table/Copy of wintle_1.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="wintle_1.exerd" tooltip="exerd/table/wintle_1.exerd">
 <persistable path="/exerd/table/wintle_1.exerd"/>
 </file>

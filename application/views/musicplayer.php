@@ -17,7 +17,7 @@
             width:100%;
             bottom:0;
             background-color: #222222;
-            z-index:10;
+            z-index:1060;
         }
 
         audio{

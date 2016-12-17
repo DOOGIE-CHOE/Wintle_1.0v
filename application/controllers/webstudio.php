@@ -13,12 +13,36 @@ class WebStudio extends Controller {
         parent::__construct();
     }
 
-    public function index($noInclude = false, $loggedIn = false){
-        $this->view->render("webstudio/index", $noInclude, $loggedIn);
+    function index(){
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if(!Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+        array_push($list,
+            "webstudio/index",
+            "footer"
+        );
+        $this->view->render($list);
     }
 
     public function sample(){
-        $this->view->render("webstudio/sample", true, false);
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if(!Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+        array_push($list,
+            "webstudio/sample",
+            "footer"
+        );
+        $this->view->render($list);
     }
 
     public function uploadAudio(){

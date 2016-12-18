@@ -22,8 +22,8 @@ class Recommend extends Controller{
             array_push($list,"loginpopup");
         }
         array_push($list,
-            "index/recommend",
             "musicplayer",
+            "index/recommend",
             "footer"
         );
         $this->view->render($list);

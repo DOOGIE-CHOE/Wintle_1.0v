@@ -6,7 +6,6 @@
  * Time: 11:48 AM
  */?>
 <div id="all">
-
     <script type="text/javascript" src="js/jquery/jquery.canvasjs.min.js"></script>
     <script type="text/javascript">
         $(function () {

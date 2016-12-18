@@ -77,8 +77,8 @@
         #play-bar-button{
             position:absolute;
             top:0;
-            width: 6px;
-            height: 6px;
+            width: 9px;
+            height: 9px;
             background: black;
             border: 2px solid #ff8243;
             -moz-border-radius: 50px;
@@ -132,21 +132,20 @@
         var audio = document.createElement('audio');
         var duration;
         var progressrate;
-        var PLAYBARWIDTH = 800;
+        var PLAYBARWIDTH = 800; //800px + error range
         var playinterval;
         var barbutton;
         var currentMousePos = { x: -1, y: -1 };
 
         $(function(){
-            audio.setAttribute('src', "<?php echo URL?>audio/1.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/6.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;
                 barbutton = $("#play-bar-button");
                 displayTime(document.getElementById("duration-time"),duration);
                 //calculate px that will progress per sec
-                progressrate = Math.round((PLAYBARWIDTH / (duration*10)) * 100) / 100;
-
+                progressrate = Math.round((PLAYBARWIDTH / (duration*10)) * 1000) / 1000;
             });
 
 
@@ -167,7 +166,8 @@
                 displayTime(document.getElementById("duration-time"), duration - currentTime);
             }
 
-
+            // Set the range of mousedown
+            // prevent clicking out of the play bar
             $("#play-info").mousedown(function(event){
                 event.type = "mousedown.draggable"; //set event type
                 currentMousePos.x = event.pageX;
@@ -212,7 +212,7 @@
             var left = parseFloat(barbutton.css("left"));
             left += progressrate;
             setPlayedBarAndButton();
-            if(left >= (PLAYBARWIDTH - 2)){
+            if(left >= (PLAYBARWIDTH - 2 )){
                 audio.pause();
                 audio.currentTime = 0;
                 $("#play").attr("src","<?php echo URL?>img/play.png");

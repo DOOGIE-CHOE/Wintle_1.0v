@@ -89,14 +89,15 @@ header #header-gnb [class = MemberShipBtn1] { /* login sign up */
 header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
     display: inline-block;
     float:right;
-    font-size:20px;
+    font-size:16px;
+    color:white;
 }
 header #header-gnb [class = MemberShipBtn2] #profile-mini{
     display:inline-block;
     top:50px;
     right:10px;
-    height:30px;
-    width:30px;
+    height:28px;
+    width:28px;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -110,8 +111,8 @@ header #header-gnb [class = MemberShipBtn3] { /* setting buttons */
 header #header-gnb [class = MemberShipBtn3] img {
     margin-left:15px;
 }
-header #header-gnb [class^=MemberShipBtn] > * {
-    font-size: 20px; }
+/*header #header-gnb [class^=MemberShipBtn] > * {
+    font-size: 20px; }*/
 header #header-gnb [class^=MemberShipBtn] > [class^=MemberShipBtn] {
     cursor: pointer; }
 header #header-gnb .MemberShipBtn0 > * {

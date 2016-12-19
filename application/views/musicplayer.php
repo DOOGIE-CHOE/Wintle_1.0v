@@ -236,7 +236,7 @@
                 tmp = left;
             }
             barbutton.css("left",tmp + "px");
-            $("#played").css("width",tmp + "px");
+            $("#played").css("width",tmp+5 + "px");
         }
 
     </script>

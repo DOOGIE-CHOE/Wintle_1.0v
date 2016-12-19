@@ -49,9 +49,6 @@ if(Session::isSessionSet("loggedIn")){
     <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
 
-    <!-- css custom -->
-    <link media="screen" href="<?php echo URL?>css/style/pc.css" rel="stylesheet" />
-
     <!-- Javascript custom -->
     <script src="<?php echo URL?>js/jq-jh.js"></script>
 
@@ -84,6 +81,9 @@ if(Session::isSessionSet("loggedIn")){
     <script type="text/javascript" src="./common/js/jquery.min.js"></script>
     -->
 
+
+    <!-- css custom -->
+    <link media="screen" href="<?php echo URL?>css/style/pc.css" rel="stylesheet" />
 
     <style>
         #detail-tab{

@@ -1,13 +1,13 @@
 DELIMITER $$ 
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_SEQUENCE`(
   _type VARCHAR(255)
-) RETURNS int
+) RETURNS int(11)
 BEGIN
 
- declare num int(20) default 0;
+ declare num int default 0;
 
  
- if (_type <> "user" and _type <> "lyrics" and _type <> "audio" and _type <> "image" and _type <> "message") then
+ if (_type <> "user" and _type <> "lyrics" and _type <> "audio" and _type <> "image" and _type <> "message" and _type <> "hashtag") then
  RETURN (-1);	
  end if;
  	

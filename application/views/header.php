@@ -170,7 +170,7 @@ if(Session::isSessionSet("loggedIn")){
 
             <div class="MemberShipBtn3" style="top:18px; right:5px;">
                 <img src="img/email.png" style="width:25px;" onclick="$.pagehandler.loadContent('<?php echo URL."message"?>','all');" >
-                <img src="img/melody.png" style="width:25px;">
+                <img src="img/melody.png" style="width:25px;" onclick="$.pagehandler.loadContent('<?php echo URL."upload"?>','all');">
                 <a href="<?php URL?>logout/calllogout"><img src="img/story.png" style="width:25px;"></a>
             </div>
 

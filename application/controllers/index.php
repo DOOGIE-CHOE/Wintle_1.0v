@@ -28,4 +28,9 @@ class Index extends Controller {
         $this->view->render($list);
     }
 
+    function loadNewContents($offset){
+        $data =  $this->model->loadNewContents($offset);
+        echo json_encode($data);
+    }
+
 }

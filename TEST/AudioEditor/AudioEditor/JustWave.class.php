@@ -670,4 +670,8 @@ class JustWave
         return $this->width;
     }
 
+    public function setWaveDir($path){
+        $this->waveDir = $path;
+    }
+
 } // JustWave class

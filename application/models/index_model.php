@@ -11,4 +11,18 @@ class Index_Model extends Model{
         parent::__construct();
     }
 
+    function loadNewContents($offset){
+        $contents = array();
+        $sql = "SELECT * from view_all_content_info limit 10 offset $offset";
+        $result = $this->db->conn->query($sql);
+
+        while($data = $result->fetch_assoc()){
+            array_push($contents,$data);
+        }
+        if (!is_null($contents)) {
+            return $contents;
+        } else {
+            throw new Exception("Something went wrong. please refresh the page");
+        }
+    }
 }

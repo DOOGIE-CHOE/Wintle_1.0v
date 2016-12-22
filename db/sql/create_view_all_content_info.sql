@@ -24,3 +24,4 @@ VIEW `view_all_content_info` AS
     WHERE
         ((`cntlist`.`user_id` = `prf`.`user_id`)
             AND (`cntlist`.`user_id` = `usr`.`user_id`))
+    ORDER BY `cntlist`.`upload_date` DESC

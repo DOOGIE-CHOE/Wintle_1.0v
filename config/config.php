@@ -26,5 +26,8 @@ define("DBNAME", "wintle");    // The database name.
 define("URL","http://localhost/");
 
 set_error_handler(function($errno, $errstr, $errfile, $errline ){
+    if (error_reporting() == 0) {
+        return;
+    }
     throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 });

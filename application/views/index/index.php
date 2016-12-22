@@ -1,4 +1,7 @@
 <div id="all">
+
+
+
     <body class="body_bg02">
     <div id="sub-header">
         <div id="container">

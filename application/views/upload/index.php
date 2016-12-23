@@ -111,9 +111,23 @@
                 <input type="submit" id="test" name="test" value="send">
             </form>
 
-            <br><br><br>
+            <br><br><br><br>
 
             <form id="upload-content-form" action="http://localhost/upload/uploadcontent/audio" method="post"  enctype="multipart/form-data">
+                <input type="text" id="content_title" name="content_title" required> title
+                <br><br>
+                <input type="file" id="content_path" name="content_path" required> path
+                <br><br>
+                <input type="text" id="content_comments" name="content_comments" required> comments
+                <br><br>
+                <input type="text" id="hashtags[]" name="hashtags" required> hashtags
+                <br><br>
+                <input type="submit" id="test" name="test" value="send">
+            </form>
+
+            <br><br><br><br>
+
+            <form id="upload-content-form" action="http://localhost/upload/uploadcontent/image" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path

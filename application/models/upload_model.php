@@ -20,9 +20,10 @@ class Upload_Model extends Model {
             }else if($type == "audio"){
                 $path = $this->uploadAudio();
             }else if($type == "image"){
-
+                $path = $this->uploadimage();
             }
 
+            /* DB Stored Procedure part ! */
             $this->db->conn->begin_transaction();
             $sql = $this->db->conn->prepare("CALL Win_Upload_Content(?,?,?,?,?,@result)");
             $user_id = Session::get('user_id');
@@ -62,13 +63,41 @@ class Upload_Model extends Model {
         $file_tmp = $_FILES['content_path']['tmp_name'];
         $time = getdate();
         $length = count($_FILES['content_path']['name']);
-        $wavepath = "wave".DS.$time['year'].DS.$time['mon'];
-        $audiopath = "audio".DS.$time['year'].DS.$time['mon'];
+        $imgpath = "image".DS.$time['year'].DS.$time['mon'];
         $count = 0;
 
+        //get extension
+        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+        foreach($permitted as $extension){
+            if($extension == $ext)
+                $count++;
+        }
+        if($count != 1){
+            throw new Exception("jpeg, png and gif extensions are supportive");
+        }
+        $file_name = $this->createFileName($time).'.'.$ext;
 
+        //make directory it not exists
+        if(!is_dir("image".DS.$time['year'])){
+            mkdir("image".DS.$time['year'],0755);
+        }
+        if(!is_dir($imgpath)){
+            mkdir($imgpath,0755);
+        }
 
-
+        if($length == 0){
+            throw new Exception("No file selected");
+        }else if($length == 1){
+            //move file to server
+            if(move_uploaded_file($file_tmp, $imgpath.DS.basename($file_name))) {
+                return $imgpath.DS.$file_name;
+            }
+            else{
+                throw new Exception("System error occur during uploading file");
+            }
+        }else{
+            throw new Exception("more than one file is selected");
+        }
     }
 
     public function uploadAudio(){
@@ -89,13 +118,14 @@ class Upload_Model extends Model {
                 $count++;
         }
         if($count != 1){
-            throw new Exception("MP3 and WAV extension are supportive");
+            throw new Exception("MP3 and WAV extensions are supportive");
         }
 
         $key = $this->createFileName($time);
 
         $file_name = $key.'.'.$ext;
 
+        //make directory it not exists
         if(!is_dir("wave".DS.$time['year'])){
             mkdir("wave".DS.$time['year'],0755);
         }
@@ -112,11 +142,14 @@ class Upload_Model extends Model {
         if($length == 0){
             throw new Exception("No file selected");
         }else if($length == 1){
+            //move file to server
             if(move_uploaded_file($file_tmp, $audiopath.DS.basename($file_name))) {
+                //get waveform file
                 $justwave = new JustWave('GET');
                 $justwave->setAudioDir($audiopath);
                 $justwave->setWaveDir($wavepath);
                 $justwave->create($key,$ext);
+                return $audiopath.DS.$file_name;
             }
             else{
                 throw new Exception("System error occur during uploading file");
@@ -124,8 +157,8 @@ class Upload_Model extends Model {
         }else{
             throw new Exception("more than one file is selected");
         }
-        return $audiopath.DS.$file_name;
     }
+
 
     function uploadHashtag($contentid, $hashs){
         $tmp = rtrim($hashs, ',');

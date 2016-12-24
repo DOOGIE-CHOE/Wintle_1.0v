@@ -1,7 +1,59 @@
 <div id="all">
+    <script>
 
 
+        //put this instead of on load function;
+        $.get("<?php echo URL?>index/loadNewContents/<?php echo 0?>", function(o) {
+            var value = jQuery.parseJSON(o);
+            if (value == null) {
+                //display default image
+            } else {
+                for (var i = 0; i < value.length; i++) {
+                    if (value[i].content_type_name == "image") {
 
+                        // to replace \ to /
+                        //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
+                        if(value[i].profile_photo_path == null){
+                            value[i].profile_photo_path = 'img/defaultprofile.png';
+                        }
+
+                        var html = "<div class='grid-item' style='height:auto;'>" + <!--앨범-->
+                            "<div class='albumP'><img src='"+value[i].content_path+"' alt=''/></div>" + <!--앨범사진-->
+                            "<div class='userinfo'>" +
+                            "<div class='userphoto'>" +
+                            "<img src='"+value[i].profile_photo_path+"' class='img-circle'></div>" +
+                            "<div class='musictext'><ul><li><span class='music_title'>"+value[i].content_title+"</span></li>" +
+                            "<li><span class='music_name'>"+value[i].user_name+"</span></li>" +
+                            "<li class='music_tag'>";
+
+                        if(value[i].hashtags != null){
+                            var hsh = value[i].hashtags.split(",");
+                        }
+
+                        for(var j = 0 ; j< hsh.length ; j++){
+                            html += "<span class='label label-primary'>"+"\#"+hsh[j]+"</span>";
+                        }
+
+                        html +=
+                            "</li></ul></div></div>" + <!--userinfo-->
+                            "<div class='btm_info bg_beige'>" + <!--공유및 종아요버튼외-->
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/like_fill.svg'  class='w20px' /></a></span>" +
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/Comment.svg'  class='w20px' /></a></span>" +
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/share.svg'  class='w20px' /></a></span>" +
+                            "</div>" +
+                            "</div>";
+                        $(".grid").append(html);
+
+                    } else if (value[i].content_type_name == "audio") {
+
+                    }
+                    else if (value[i].content_type_name == "lyrics") {
+
+                    }
+                }
+            }
+        });
+    </script>
     <body class="body_bg02">
     <div id="sub-header">
         <div id="container">
@@ -18,601 +70,12 @@
         </div>
     </div>
 
+
     <div id="wrapper">
         <div class="container bg_dgray">
 
             <!--앨범전체 AREA-->
             <div class="grid mgt_35" data-layout-mode="masonry">
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <!--앨범사진-->
-                    <div class="albumP"><img src="image/album_p1.jpg" alt="" /></div>
-                    <!--앨범제목및 태그안내-->
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">1</div>
-                            <img src="image/p1.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <!--공유및 종아요버튼외-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사가 짧은경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도ddd<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">2</span>
-                            <img src="image/p_no.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="albumP"><a href="#"  data-toggle="modal" data-target="#myModal"><img src="image/sample1.png" alt="" /></a></div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">3</div>
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사보일경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">4</span>
-                            <img src="image/p3.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <!--앨범사진-->
-                    <div class="albumP"><img src="image/album_p1.jpg" alt="" /></div>
-                    <!--앨범제목및 태그안내-->
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">1</div>
-                            <img src="image/p1.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <!--공유및 종아요버튼외-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사가 짧은경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도ddd<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">2</span>
-                            <img src="image/p_no.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="albumP"><a href="#"  data-toggle="modal" data-target="#myModal"><img src="image/sample1.png" alt="" /></a></div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">3</div>
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사보일경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">4</span>
-                            <img src="image/p3.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <!--앨범사진-->
-                    <div class="albumP"><img src="image/album_p1.jpg" alt="" /></div>
-                    <!--앨범제목및 태그안내-->
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">1</div>
-                            <img src="image/p1.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <!--공유및 종아요버튼외-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사가 짧은경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도ddd<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">2</span>
-                            <img src="image/p_no.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="albumP"><a href="#"  data-toggle="modal" data-target="#myModal"><img src="image/sample1.png" alt="" /></a></div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">3</div>
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사보일경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">4</span>
-                            <img src="image/p3.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <!--앨범사진-->
-                    <div class="albumP"><img src="image/album_p1.jpg" alt="" /></div>
-                    <!--앨범제목및 태그안내-->
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">1</div>
-                            <img src="image/p1.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <!--공유및 종아요버튼외-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사가 짧은경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도ddd<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">2</span>
-                            <img src="image/p_no.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="albumP"><a href="#"  data-toggle="modal" data-target="#myModal"><img src="image/sample1.png" alt="" /></a></div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">3</div>
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--노래가사보일경우-->
-                <div class="grid-item">
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                    </div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <span class="badge bg_orange">4</span>
-                            <img src="image/p3.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">다시 돌아온 사랑 사랑사랑</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#jazz</span>
-                                    <span class="label label-primary">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like_fill.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item">
-                    <div class="albumP"><img src="image/album_p4.jpg" alt="" /></div>
-                    <div class="userinfo">
-                        <div class="userphoto">
-                            <div class="badge bg_orange">5</div>
-                            <img src="image/p4.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
-                                <li><span class="music_name">Andrew</span></li>
-                                <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#몽환</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg"  class="w20px" /></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg"  class="w20px" /></a></span>
-                    </div>
-                </div>
 
 
                 <!-- Modal 앨범상세보기 호출 -->
@@ -788,19 +251,25 @@
                          $("#lyrics").css("height",tmp + "px");
                          console.log($("#lyrics").css("height"));*/
 
+                            /*
+                             var wall = new Freewall(".grid");
+                             wall.reset({
+                             selector: '.grid-item',
+                             animate: true,
+                             cellW: 200,
+                             cellH: 'auto',
+                             onResize: function() {
+                             wall.fitWidth();
+                             }
+                             });
+                             //put this instead of on load function;
+                             wall.fitWidth();
+                             console.log(3);*/
 
-                        var wall = new Freewall(".grid");
-                        wall.reset({
-                            selector: '.grid-item',
-                            animate: true,
-                            cellW: 200,
-                            cellH: 'auto',
-                            onResize: function() {
-                                wall.fitWidth();
-                            }
-                        });
-                        //put this instead of on load function;
-                        wall.fitWidth();
+
+
+
+
 
 
                         /*

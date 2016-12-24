@@ -4,14 +4,15 @@
 #wrapper {width:100%; height:100%;}
 .body_bg02 { width:100%; height:100%; /*background:url(/\wintle/image/body_bg02.jpg) no-repeat center top; position:fixed; background-size:cover*/ }
 .container { width:100% !important; min-height:100% !important; margin:0 auto !important; padding:0 !important }
+.grid { width:95%; min-height:100% !important; margin:35px auto !important; padding:0 !important }
 .container_100 { width:100% !important; min-height:100% !important; margin:0 auto !important; padding:0 !important }
 .rowAR { display:block; clear:both; margin-bottom:30px; padding:15px}
 
 
 /*앨범목록 그리드사용(앨범및 가사제공)*/
-.grid-item         {border-radius: 10px; box-sizing:border-box; position: relative; float: left; width: 200px; min-height:309px; margin:1px; padding:0; background:#cccccc;}
+.grid-item         {border-radius: 10px; box-sizing:border-box; position: relative; float: left; width: 200px; height:auto; margin:5px; padding:0; background:#cccccc;}
 .grid-item .albumP     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:0 0 0 0 !important;}
-.grid-item .albumP img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; width:100%; height:auto; box-sizing:border-box; overflow:hidden}
+.grid-item .albumP img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; ;width:100%;  box-sizing:border-box; }
 .grid-item .albumT     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:3px; !important; display:block; padding:18px; box-sizing:border-box; max-height:370px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
 
 /*앨범그리드 사운드파일제공 영역*/
@@ -28,7 +29,7 @@
 .grid-item .userinfo     { position:relative;padding:0 0 0 10px !important;  margin:10px 5px !important; clear:both; display:block}
 .grid-item .userinfo  .badge { position:absolute; top:0; left:0; }
 .grid-item .userinfo  .userphoto { position:absolute; top:0; left:0; }
-.grid-item .userinfo  .userphoto img { width:48px; height:48px; box-shadow: 0px 0px 8px 0px black; }
+.grid-item .userinfo  .userphoto img { width:48px; height:48px; box-shadow: 0px 0px 8px 0px black;}
 
 /*앨범그리드 앨범제목및 태그제공*/
 .grid-item .userinfo  .musictext { padding-left:35px ;}

@@ -1,6 +1,22 @@
 <div id="all">
     <script>
 
+        $(function(){
+            setwidthgrid();
+            $( window ).resize(function(){
+                setwidthgrid();
+            });
+        });
+
+        function setwidthgrid(){
+            $(".grid").width("95%");
+            var $grid = $(".grid").css("width");
+            var tmp = parseInt($grid);
+            var w = parseInt(tmp / 210);
+            var width = w * 210;
+            $(".grid").css("width",width + "px");
+        }
+
 
         //put this instead of on load function;
         $.get("<?php echo URL?>index/loadNewContents/<?php echo 0?>", function(o) {

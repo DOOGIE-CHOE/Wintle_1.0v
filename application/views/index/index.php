@@ -2,9 +2,18 @@
     <script>
 
         $(function(){
-            setwidthgrid();
+            var wall = new Freewall(".grid");
+            wall.reset({
+                selector: '.grid-item',
+                animate: true,
+                cellW: 200,
+                cellH: 'auto'
+            });
+            //put this instead of on load function;
+            wall.fitZone(setwidthgrid(),'auto');
+
             $( window ).resize(function(){
-                setwidthgrid();
+                wall.fitZone(setwidthgrid(),'auto');
             });
         });
 
@@ -15,6 +24,7 @@
             var w = parseInt(tmp / 210);
             var width = w * 210;
             $(".grid").css("width",width + "px");
+            return width;
         }
 
 
@@ -60,15 +70,48 @@
                             "</div>";
                         $(".grid").append(html);
 
-                    } else if (value[i].content_type_name == "audio") {
+                    } else if (value[i].content_type_name == "lyrics") {
 
-                    }
-                    else if (value[i].content_type_name == "lyrics") {
+                        if(value[i].profile_photo_path == null){
+                            value[i].profile_photo_path = 'img/defaultprofile.png';
+                        }
+
+                        var html = "<div class='grid-item' style='height:auto;'>" + <!--앨범-->
+                            "<div class='albumT'>" +
+                            value[i].content_path
+                            +
+                            "</div>" + <!--앨범사진-->
+                            "<div class='userinfo'>" +
+                            "<div class='userphoto'>" +
+                            "<img src='"+value[i].profile_photo_path+"' class='img-circle'></div>" +
+                            "<div class='musictext'><ul><li><span class='music_title'>"+value[i].content_title+"</span></li>" +
+                            "<li><span class='music_name'>"+value[i].user_name+"</span></li>" +
+                            "<li class='music_tag'>";
+
+                        if(value[i].hashtags != null){
+                            var hsh = value[i].hashtags.split(",");
+                        }
+
+                        for(var j = 0 ; j< hsh.length ; j++){
+                            html += "<span class='label label-primary'>"+"\#"+hsh[j]+"</span>";
+                        }
+
+                        html +=
+                            "</li></ul></div></div>" + <!--userinfo-->
+                            "<div class='btm_info bg_beige'>" + <!--공유및 종아요버튼외-->
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/like_fill.svg'  class='w20px' /></a></span>" +
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/Comment.svg'  class='w20px' /></a></span>" +
+                            "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/share.svg'  class='w20px' /></a></span>" +
+                            "</div>" +
+                            "</div>";
+                        $(".grid").append(html);
 
                     }
                 }
             }
+            $(window).trigger('resize'); // execute resize event
         });
+
     </script>
     <body class="body_bg02">
     <div id="sub-header">
@@ -78,7 +121,7 @@
                 <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>topchart','all');">Seed</p></div>
                 <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>recommend','all');">Recommended</p></div>
             </div>
-
+            aa.html
             <div id="sort">
                 <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
                 <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">

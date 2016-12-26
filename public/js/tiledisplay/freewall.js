@@ -217,7 +217,7 @@
             if ($item.hasClass('fw-float')) return;
 
             // kill the old transition;
-            self.setTransition(item, "");
+            //self.setTransition(item, ""); //disabled transition
             item.style.position = "absolute";
             setting.onBlockActive.call(item, block, setting);
 
@@ -226,7 +226,7 @@
                 start && $item.attr("data-state", "start");
                 // add animation by using css3 transition;
                 if (setting.animate && self.transition) {
-                    self.setTransition(item, trans);
+                 //   self.setTransition(item, trans); //disabled transition
                 }
 
                 runtime.length -= 1;
@@ -279,7 +279,6 @@
             }
 
             block && block.resize && setting.onBlockResize.call(item, block, setting);
-
             setting.delay > 0 ? (item.delay = setTimeout(action, setting.delay * $item.attr("data-delay"))) : action();
         },
         nestedGrid: function(item, setting) {

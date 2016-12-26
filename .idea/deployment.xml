@@ -8,7 +8,7 @@
             <mapping deploy="\" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="C:/Apache24/htdocs" />
+            <excludedPath local="true" path="$USER_HOME$/htdocs" />
           </excludedPaths>
         </serverdata>
       </paths>

@@ -111,6 +111,7 @@ class Upload_Model extends Model {
         $audiopath = "audio".DS.$time['year'].DS.$time['mon'];
         $count = 0;
 
+
         //get extension
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         foreach($permitted as $extension){

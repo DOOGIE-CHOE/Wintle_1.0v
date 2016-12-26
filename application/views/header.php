@@ -134,7 +134,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/4.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/9.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">

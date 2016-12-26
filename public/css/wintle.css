@@ -10,7 +10,7 @@
 
 
 /*앨범목록 그리드사용(앨범및 가사제공)*/
-.grid-item         {border-radius: 10px; box-sizing:border-box; position: relative; float: left; width: 200px; height:auto; margin:5px; padding:0; background:#cccccc;}
+.grid-item         {border-radius: 10px; box-sizing:border-box; position: relative; float: left; width: 200px; height:auto !important; margin:5px; padding:0; background:#cccccc;}
 .grid-item .albumP     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:0 0 0 0 !important;}
 .grid-item .albumP img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; ;width:100%;  box-sizing:border-box; }
 .grid-item .albumT     { border-top-left-radius: 10px; border-top-right-radius: 10px; margin:3px; !important; display:block; padding:18px; box-sizing:border-box; max-height:370px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }

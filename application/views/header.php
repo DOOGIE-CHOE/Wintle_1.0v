@@ -77,8 +77,9 @@ if(Session::isSessionSet("loggedIn")){
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="./common/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./common/js/jquery.min.js"></script>
+
+<!--    <script type="text/javascript" src="--><?php //echo URL?><!--/js/bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="./common/js/jquery.min.js"></script>
     -->
 
 

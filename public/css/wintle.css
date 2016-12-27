@@ -52,8 +52,9 @@
 .userinfo_myP > img { width: 100%;height: auto;}*/
 
 
+
 /*앨범상세보기 모달창전체영역*/
-.modal {  background : rgba(0, 0, 0, 0.7)  !important; }
+.modal {background : rgba(0, 0, 0, 0.7)  !important; }
 .modal-content { background:#333 !important; border-radius:0 !important; }
 .modal_close { color:#FFF !important; font-size:5em !important; padding:0 10px; font-weight:100; text-shadow:none; position:absolute; right:0; top:-20px}
 .modal_close a { text-decoration:none !important; color:#FFF !important; }

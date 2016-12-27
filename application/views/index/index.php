@@ -1,4 +1,4 @@
-<div id="all">
+<div id="all" style="height:100%">
     <script>
         $(function(){
             var wall = new Freewall(".grid");
@@ -27,7 +27,7 @@
         }
 
         //put this instead of on load function;
-        $.get("<?php echo URL?>index/loadNewContents/<?php echo 0?>", function(o) {
+        $.get("<?php echo URL?>viewlist/loadNewContents/<?php echo 0?>", function(o) {
             var value = jQuery.parseJSON(o);
             if (value == null) {
                 //display default image
@@ -93,12 +93,11 @@
     <body class="body_bg02">
     <div id="sub-header">
         <div id="container">
-            <div id="subclass">
-                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">All</p></div>
-                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>topchart','all');">Seed</p></div>
-                <div><p onclick="$.pagehandler.loadContent('<?php echo URL?>recommend','all');">Recommended</p></div>
-            </div>
-            aa.html
+            <!--<div id="subclass">
+                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;" onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>index','all');">All</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>topchart','all');">Seed</p></div>
+                <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>recommend','all');">Recommended</p></div>
+            </div>-->
             <div id="sort">
                 <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
                 <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">
@@ -111,7 +110,7 @@
         <div class="container bg_dgray">
 
             <!--앨범전체 AREA-->
-            <div class="grid mgt_35" data-layout-mode="masonry">
+            <div class="grid" data-layout-mode="masonry">
 
 
                 <!-- Modal 앨범상세보기 호출 -->

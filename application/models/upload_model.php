@@ -128,16 +128,16 @@ class Upload_Model extends Model {
 
         //make directory it not exists
         if(!is_dir("wave".DS.$time['year'])){
-            mkdir("wave".DS.$time['year'],0755);
+            mkdir("wave".DS.$time['year'],0755,true);
         }
         if(!is_dir("audio".DS.$time['year'])){
-            mkdir("audio".DS.$time['year'],0755);
+            mkdir("audio".DS.$time['year'],0755,true);
         }
         if(!is_dir($wavepath)){
-            mkdir($wavepath,0755);
+            mkdir($wavepath,0755,true);
         }
         if(!is_dir($audiopath)){
-            mkdir($audiopath,0755);
+            mkdir($audiopath,0755,true);
         }
 
         if($length == 0){

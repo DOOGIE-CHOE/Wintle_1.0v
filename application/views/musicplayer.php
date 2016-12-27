@@ -13,7 +13,7 @@
 
         #mini-music-player{
             position:fixed;
-            height:40px;
+            height:50px;
             width:100%;
             bottom:0;
             background-color: #222222;
@@ -138,7 +138,7 @@
         var currentMousePos = { x: -1, y: -1 };
 
         $(function(){
-            audio.setAttribute('src', "<?php echo URL?>audio/6.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/1.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function() {
                 duration = audio.duration;

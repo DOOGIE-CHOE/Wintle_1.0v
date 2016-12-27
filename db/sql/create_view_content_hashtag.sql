@@ -5,7 +5,6 @@ CREATE
 VIEW `view_content_hashtag` AS
     SELECT 
         `hlist`.`content_id` AS `content_id`,
-        `hlist`.`hashtag_id` AS `hashtag_id`,
         GROUP_CONCAT(`htag`.`tag_name`
             SEPARATOR ',') AS `hashtags`
     FROM

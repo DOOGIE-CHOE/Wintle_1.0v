@@ -1,19 +1,21 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Daniel
- * Date: 10/10/2016
- * Time: 5:56 PM
+ * User: daniel
+ * Date: 12/27/16
+ * Time: 2:10 PM
  */
 
-class Index_Model extends Model{
+class ViewList_Model extends Model{
+
     function __construct(){
         parent::__construct();
     }
-/*
+
+
     function loadNewContents($offset){
         $contents = array();
-        $sql = "SELECT * from view_all_content_info limit 100 offset $offset";
+        $sql = "SELECT * from wintle.view_all_content_info";
         $result = $this->db->conn->query($sql);
 
         while($data = $result->fetch_assoc()){
@@ -24,5 +26,5 @@ class Index_Model extends Model{
         } else {
             throw new Exception("Something went wrong. please refresh the page");
         }
-    }*/
+    }
 }

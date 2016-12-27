@@ -16,8 +16,8 @@ class JustWave
     const PCRE_COLOR = '/^#?[\da-fA-F]{3}([\da-fA-F]{3})?$/'; // check color strings
     const CACHE_FILENAME = 'justwave.sqlite3'; // path for sqlite3 database file
     // path to ffmpeg binary, rename it to 'avconv' if your system has it instead
-    const FFMPEG_PATH = '..\library\ffmpeg_client\ffmpeg'; // on Client
-    //const FFMPEG_PATH = '../library/ffmpeg_server/ffmpeg'; // on Linux Server
+    //const FFMPEG_PATH = '..\library\ffmpeg_client\ffmpeg'; // on Client
+    const FFMPEG_PATH = '../library/ffmpeg_server/ffmpeg'; // on Linux Server
     /**
     Input variables for creating and managing waves
      **/

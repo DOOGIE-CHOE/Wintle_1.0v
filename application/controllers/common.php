@@ -34,5 +34,4 @@ class Common extends Controller{
         $data = $this->model->getUserIdByName($username);
         echo json_encode($data);
     }
-
 }

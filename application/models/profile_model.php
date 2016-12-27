@@ -13,9 +13,9 @@ class Profile_Model extends Model{
 
     function uploadProfilePhoto($type){
         if($type == "profile"){
-            $folder = "profileimages/";
+            $folder = "profileimage/";
         }else if($type == "cover"){
-            $folder = "coverimages/";
+            $folder = "coverimage/";
         }
 
         $success = false;

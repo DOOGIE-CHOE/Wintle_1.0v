@@ -1,4 +1,4 @@
-<div id="all" style="height:100%">
+<div id="all">
     <script>
         $(function(){
             var wall = new Freewall(".grid");

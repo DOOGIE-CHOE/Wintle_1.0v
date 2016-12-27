@@ -1,4 +1,4 @@
-create table user_content(
+create table content_list(
 	user_id int,
     content_id int,
     content_type_id int not null,

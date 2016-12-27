@@ -4,6 +4,6 @@ create table content (
     content_path varchar(255) not null,
     comments varchar(255),
     upload_date  timestamp default current_timestamp,
-    modified_date timestamp  default 0,
+    modified_date timestamp  default current_timestamp,
     view_count int default 0
 );

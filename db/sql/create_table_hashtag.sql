@@ -3,5 +3,5 @@ create table hashtag(
     tag_name varchar(255) not null,
     use_count int default 1,
     upload_date timestamp default current_timestamp,
-    lastest_used_date timestamp
+    lastest_used_date timestamp default current_timestamp
 );

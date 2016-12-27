@@ -3,7 +3,7 @@ user_id	int primary key,
 profile_url varchar(255) default null,
 profile_photo_path varchar(255) default null,
 cover_photo_path varchar(255) default null,
-profile_upload_date timestamp default '0000-00-00 00:00:00',
-cover_upload_date timestamp default '0000-00-00 00:00:00',
+profile_upload_date timestamp default current_timestamp,
+cover_upload_date timestamp default current_timestamp,
 foreign key(user_id) references user(user_id)
 );

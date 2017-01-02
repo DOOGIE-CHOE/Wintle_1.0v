@@ -25,7 +25,7 @@ class Message_Model extends Model {
             $select = $this->db->conn->query('select @result');
             $result = $select->fetch_assoc();
 
-            if($result['@result'] == 0){
+            if($result['@result'] == 1){
                 $data['success'] = true;
             }else if($result['@result'] == -1){
                 throw new Exception("Some thing went wrong, please try it later");

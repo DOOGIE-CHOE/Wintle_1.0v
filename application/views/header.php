@@ -103,7 +103,7 @@ if(Session::isSessionSet("loggedIn")){
 <header style="z-index:100;">
     <?php if(Session::isSessionSet("intro") == false){ ?>
         <div class="info-content">
-            <!--<iframe src="http://pollo112.wixsite.com/wintle-landingpage"></iframe>-->
+            <iframe src="http://wintlecorp.com"></iframe>
             <div class="introbtn" onclick="<?php Session::set("intro",false)?>">시작하기</div>
         </div>
     <?php }else{ ?>
@@ -135,7 +135,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/12.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/19.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">

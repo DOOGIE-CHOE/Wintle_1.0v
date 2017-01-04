@@ -23,8 +23,8 @@ define("DBSERVERNAME", "localhost");     // The host you want to connect to.
 define("DBUSERNAME", "root");    // The database username.
 define("DBPASSWORD", "MyNewPass");    // The database password.
 define("DBNAME", "wintle");    // The database name.
-//define("URL","http://localhost/");
-define("URL","http://192.168.0.155/");
+define("URL","http://localhost/");
+//define("URL","http://192.168.0.155/");
 
 set_error_handler(function($errno, $errstr, $errfile, $errline ){
     if (error_reporting() == 0) {

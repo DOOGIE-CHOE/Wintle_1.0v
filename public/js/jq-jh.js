@@ -4,7 +4,7 @@
     var $UseBtn = $('header .introbtn');
 
     // 헤더 숨길 객체
-    var $hiddenObj = $('header .info-content');
+    var $hiddenObj = $('.info-content');
 
 
     // 헤더 높이 설정
@@ -26,8 +26,9 @@
         var playtime = 1000;
         $('header').animate({
             height: header_height
-        }, playtime);
-        $hiddenObj.css("display","none");
+        }, playtime,function(){
+            $hiddenObj.remove();
+        })
     })
 
 

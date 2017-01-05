@@ -1,6 +1,7 @@
 GRANT
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_Send_Message`(
+
+CREATE DEFINER="root"@"localhost" PROCEDURE "Win_Send_Message"(
 in _user_sender int,
 in _user_receiver int,
 in _message varchar(1000),
@@ -12,7 +13,7 @@ this : BEGIN
 	declare group_sequence int default null;
 	declare result int default 0;
     
-    declare EXIT handler for sqlexception, sqlwarning
+   declare EXIT handler for sqlexception
     begin
     rollback;
     set _return = -100;
@@ -52,15 +53,15 @@ this : BEGIN
     if opponent = 1 then
 			insert into user_message (user_id, msg_group_id, message) values(_user_sender, message_group,_message);
             set _return = 1;
-	elseif opponent = 0 then
+	elseif opponent = ''  then
 			select GET_SEQUENCE('message') into group_sequence;
             insert into message_list (user_id, msg_group_id) values (_user_sender, group_sequence);
             insert into message_list (user_id, msg_group_id) values (_user_receiver, group_sequence);
 			insert into user_message (user_id, msg_group_id, message) values(_user_sender, group_sequence,_message);
 			set _return = 1;
 	else
-		set _return = -2;
-        leave this;
+			set _return = -2;
+			leave this;
     end if;
     
     commit;

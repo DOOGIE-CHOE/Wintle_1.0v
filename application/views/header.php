@@ -100,16 +100,16 @@ if(Session::isSessionSet("loggedIn")){
     </style>
 </head>
 
-<header style="z-index:100;">
+<header style="z-index:1100;">
     <?php if(Session::isSessionSet("intro") == false){ ?>
         <div class="info-content">
-            <iframe src="http://wintlecorp.com"></iframe>
-            <div class="introbtn" onclick="<?php Session::set("intro",false)?>">시작하기</div>
+            <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>
+            <div class="introbtn">시작하기</div>
         </div>
     <?php }else{ ?>
         <script>
             $(".info-content").css("display","hide");
-            $("header").css("height","45px");
+            $("header").css("height","50px");
         </script>
     <?php } ?>
 

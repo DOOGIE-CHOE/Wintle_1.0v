@@ -5,6 +5,9 @@ create table user(
     password varchar(255) not null,
     authority_id int default 1,
     status_id int default 1,
+    sign_up_date timestamp default current_timestamp,
+    last_login_date timestamp default current_timestamp,
+    login_count int default 0,
     foreign key(authority_id) references authority_list(authority_id),
     foreign key(status_id) references user_status(status_id)
 );

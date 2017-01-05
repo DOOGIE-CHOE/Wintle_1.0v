@@ -30,7 +30,7 @@ BEGIN
 					insert into user(user_id, user_email, user_name, password) values(sequence, _user_email, _user_name, _password);
 					set url = concat(_user_name,'-',sequence);
 					insert into user_profile(user_id, profile_url) values(sequence, url);
-					insert into user_login_info(user_id) values (sequence);
+					insert into user_career(user_id) values (sequence);
                 end if;
         end if;
     end if;

@@ -12,7 +12,6 @@ this : BEGIN
 	declare group_sequence int default null;
 	declare result int default 0;
     
-    
     declare EXIT handler for sqlexception, sqlwarning
     begin
     rollback;
@@ -37,11 +36,18 @@ this : BEGIN
 	having count(user_id) = 2)
 	and user_id = _user_receiver;*/
     
-    select count(m.msg_group_id), m.msg_group_id into opponent, message_group from message_list m
+    /*select count(m.msg_group_id), m.msg_group_id into opponent, message_group from message_list m
 	inner join message_list n
 	on m.msg_group_id = n.msg_group_id
 	where m.user_id = 100001002 and
-	n.user_id = 100001032;
+	n.user_id = 100001032;*/
+    /* check if there is existing conversation */
+    select count(m.msg_group_id), m.msg_group_id into opponent, message_group from message_list m
+	inner join message_list n
+	on m.msg_group_id = n.msg_group_id
+	where m.user_id = _user_sender and
+	n.user_id = _user_receiver
+	group by m.msg_group_id;
     
     if opponent = 1 then
 			insert into user_message (user_id, msg_group_id, message) values(_user_sender, message_group,_message);

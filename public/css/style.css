@@ -22,7 +22,7 @@ p:link, a:link{
 
 .overlay {
     position: fixed;
-    z-index: 100;
+    z-index: 1500;
     top: 0;
     bottom: 0;
     left: 0;

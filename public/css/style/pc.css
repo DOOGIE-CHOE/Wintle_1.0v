@@ -38,21 +38,24 @@ header div.info-content iframe {
     right: 0;
     bottom: 0; }
 header div.info-content .introbtn {
+    z-index:1300;
     position: absolute;
-    font-size: x-large;
-    color: lightgray;
-    width: 150px;
+    font-size: large;
+    color: white;
+    width: 200px;
     text-align: center;
-    line-height: 50px;
-    height: 50px;
+    line-height: 54px;
+    font-weight:bold;
+    height: 45px;
     left: 0;
     right: 0;
-    bottom: 15%;
+    bottom: 0;
     margin: auto;
-    border: 3px solid lightgray;
-    border-radius: 50px;
+    /*border: 3px solid lightgray;*/
+    /*border-radius: 50px;*/
     cursor: pointer;
-    opacity: .8; }
+    /*opacity: .8; */
+}
 header #header-gnb {
     background-color:black;
     position: absolute;

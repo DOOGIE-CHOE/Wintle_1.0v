@@ -17,6 +17,8 @@ class LogIn_Model extends Model {
                     Session::set("user_id",$this->getUserIdByEmail($_POST['user_email']));
                     Session::set("user_name",$this->getUsernameByEmail($_POST['user_email']));
                     Session::set("my_profile",$this->getProfileUrl(Session::get("user_id")));
+                    Session::set("intro",false);
+
                     $data['success'] = true;
                 }
             }

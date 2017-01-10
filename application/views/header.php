@@ -134,20 +134,20 @@ if(Session::isSessionSet("loggedIn")){
 
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL?>img/pavicon/28.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
+            <img src="<?php echo URL?>img/pavicon/31.png" style="position:relative; height:32px; top:11px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">
         </div>
 
         <!--<div class="MemberShipBtn0">
             <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php /*echo URL."index"*/?>','all');">Page A</p>
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
-        <div class="MemberShipBtn0" style="top:10px; right:110px;">
-            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>newchart','all')">.Album</a>
-            <a href="#" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">.Hub</a>
+        <div class="MemberShipBtn0" style="top:0; right:110px;">
+            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>newchart','all')">Album</a>
+            <a href="#" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">Hub</a>
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>
-            <div class="MemberShipBtn1" style="top:22px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
+            <div class="MemberShipBtn1" style="top:12px; right:0;">  <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="#popup1" id="top_login" style="margin-right:19px; font-size:17px;">Log In</a>
                 <a href="#popup1" id="top_signup" style="font-size:17px;">Sign Up</a>
                 <!--<a style="right:10px">user name</a>-->

@@ -103,7 +103,7 @@ if(Session::isSessionSet("loggedIn")){
     <?php if(Session::isSessionSet("intro") == false){ ?>
         <div class="info-content">
             <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>
-            <div class="introbtn">시작하기</div>
+<!--            <div class="introbtn">시작하기</div>-->
         </div>
     <?php }else{ ?>
         <script>
@@ -142,8 +142,8 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/?>','all');">Page B</p>
         </div>-->
         <div class="MemberShipBtn0" style="top:0; right:110px;">
-            <a href="#"  onclick="$.pagehandler.loadContent('<?php echo URL?>newchart','all')">Album</a>
-            <a href="#" onclick="$.pagehandler.loadContent('<?php echo URL?>index','all')">Hub</a>
+           <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
+          <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
         </div>
 
         <?php if(Session::isSessionSet("loggedIn") == false){ ?>

@@ -101,7 +101,7 @@ function callHook() {
 
 
     }catch(Exception $e){
-        error("index");
+        error("index", $e->getMessage());
     }
 }
 
@@ -161,9 +161,9 @@ function isReservedName($name){
 
 /** Autoload any classes that are required **/
 
-function __autoload($className) {
-    if (file_exists(ROOT . DS . 'library' . DS . $className . '.class.php')) {
-        require_once(ROOT . DS . 'library' . DS . $className . '.class.php');
+function __mautoload($className) {
+    if (file_exists(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php')) {
+        require_once(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'models' . DS . strtolower($className) . '.php')) {
@@ -173,9 +173,9 @@ function __autoload($className) {
     }
 }
 
-function error($view) {
+function error($view, $msg = "this page is not existing") {
     $controller = new ErrorPage();
-    $controller->{$view}();
+    $controller->{$view}($msg);
     return false;
 }
 
@@ -183,4 +183,5 @@ function error($view) {
 setReporting();
 removeMagicQuotes();
 unregisterGlobals();
+spl_autoload_register('__mautoload');
 callHook();

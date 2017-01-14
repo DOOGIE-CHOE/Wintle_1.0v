@@ -10,7 +10,7 @@
 <div id="popup1" class="overlay">
     <a class="close" href="#">×</a>
     <div class="header">
-        <a href="index"><img src="<?php echo URL?>img/pavicon/logo_explain.png"></a>
+        <a href="index"><img src="<?php echo URL?>img/pavicon/wintle_logo_with_text-white.svg"></a>
     </div>
     <div class="login-signup-block" id="login-signup-block">
         <div class="login-signup-text">

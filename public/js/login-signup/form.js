@@ -140,14 +140,14 @@ function check() {
 
     if(button.value == "SIGN UP"){
         if(signUp()){
-          //  $("#login-signup-form").attr("action","http://wintle.co.kr/signup/callsignup");
+           // $("#login-signup-form").attr("action","http://wintle.co.kr/signup/callsignup");
             $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
             return true;
         }
     }
     else if(button.value == "LOG IN"){
         if(logIn()){
-            //$("#login-signup-form").attr("action","http://wintle.co.kr/login/calllogin");
+           // $("#login-signup-form").attr("action","http://wintle.co.kr/login/calllogin");
             $("#login-signup-form").attr("action","http://localhost/login/calllogin");
             return true;
         }
@@ -166,9 +166,10 @@ $(function(){
 
     $("#signup-text, #top_signup").click(function (e){
         $(".arrow-up-left").css("right","117px");
-        $("#popup").css("height","550px");
+        $("#popup").css("height","440px");
         $("#user_name").show("fast");
-        $("#g-recaptcha").show("fast");
+        $("#user_name").val('');
+       // $("#g-recaptcha").show("fast");
         $(".SignUpText").show("fast");
         $("#submit").prop("value","SIGN UP");
     });
@@ -188,7 +189,7 @@ $(function(){
         $(".arrow-up-left").css("right","calc(100% - 143px)");
         $("#popup").css("height","325px");
         $("#user_name").hide("fast");
-        $("#g-recaptcha").hide("fast");
+      //  $("#g-recaptcha").hide("fast");
         $(".SignUpText").hide("fast");
         $("#submit").prop("value","LOG IN");
     }

@@ -56,10 +56,6 @@ function callHook() {
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        $isloggedin = false;
-        $isnoinclude = false;
-
-
         if($url[0] == "favicon.ico"){
             return false;
         }
@@ -69,30 +65,21 @@ function callHook() {
             $controller = new $url[0];
         }*/
 
-        if(Session::isSessionSet("loggedIn") == true){
-            $isloggedin = true;
-        }else{
-            $isloggedin = false;
-        }
-
         if(isReservedName($url[0])){
             if($url[0] == "profile"){
                 Session::set("profile_id",Session::get("user_id"));
             }
 
-            if($url[0] == "webstudio"){
-                $isnoinclude = true;
-            }
 
             $controller = new $url[0];
             $controller->loadModel($url[0]);
-            methodHandler($controller,$url,$isnoinclude,$isloggedin);
+            methodHandler($controller,$url);
 
         }else {
             if(isExistingProfile($url[0])){
                 $controller = new Profile();
                 $controller->loadModel("Profle");
-                methodHandler($controller,$url,$isnoinclude,$isloggedin);
+                methodHandler($controller,$url);
 
             }else{
                 error("index");
@@ -106,7 +93,7 @@ function callHook() {
 }
 
 // calling methods
-function methodHandler($controller,$url,$isnoinclude = false,$isloggedin = false){
+function methodHandler($controller,$url){
     if(isset($url[3])){
         if(isset($url[2])){
             if (method_exists($controller, $url[1])) {
@@ -131,7 +118,7 @@ function methodHandler($controller,$url,$isnoinclude = false,$isloggedin = false
                 }
             }
         } else {
-            $controller->index($isnoinclude,$isloggedin);
+            $controller->index();
         }
     }
 

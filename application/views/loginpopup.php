@@ -24,7 +24,7 @@
     <form id="login-signup-form" action ="" method="post">
         <div class="popup" id="popup">
                     <span class="SignUp">
-                        <img style="margin-left:28px; margin-top:18px; height:47px;" src="<?php echo URL?>img/social_login.png"/>
+                        <div style="margin-left:28px; margin-top:18px; height:47px;"> <div class="g-signin2" data-onsuccess="onSignIn"></div></div>
                         <div class="divider">
                             <hr class="line-left"/>OR<hr class="line-right" />
                         </div>

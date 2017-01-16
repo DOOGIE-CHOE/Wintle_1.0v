@@ -27,8 +27,9 @@ if(Session::isSessionSet("loggedIn")){
     <!-- draggable import -->
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
-
+<!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->
+    <meta name="google-signin-client_id" content="853747161225-r9d9kut6nf6q4rki866nomg8amd58eie.apps.googleusercontent.com">
 
     <!-- -------------------------------------------------------------------------
                             css reset, Java script, JS PlugIn
@@ -97,6 +98,19 @@ if(Session::isSessionSet("loggedIn")){
             z-index:1000;
         }
     </style>
+    <script>
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Name: ' + profile.getGivenName());
+            console.log('Name: ' + profile.getFamilyName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+        }
+    </script>
 </head>
 
 <header style="z-index:1100;">

@@ -1,12 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Daniel
- * Date: 9/13/2016
- * Time: 3:12 PM
+ * User: daniel
+ * Date: 1/16/17
+ * Time: 2:38 PM
  */
 
-class SignUp extends Controller {
+
+class Social extends Controller {
     function index(){}
 
     function callSignUp(){

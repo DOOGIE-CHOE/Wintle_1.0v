@@ -24,7 +24,9 @@
     <form id="login-signup-form" action ="" method="post">
         <div class="popup" id="popup">
                     <span class="SignUp">
-                        <div style="margin-left:28px; margin-top:18px; height:47px;"> <div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+                        <div style="margin-left:28px; margin-top:18px; height:47px;">
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        </div>
                         <div class="divider">
                             <hr class="line-left"/>OR<hr class="line-right" />
                         </div>

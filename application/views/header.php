@@ -109,6 +109,13 @@ if(Session::isSessionSet("loggedIn")){
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail());
 
+            var id_token = googleUser.getAuthResponse().id_token;
+
+
+            $.get("<?php echo URL?>social/google_login/"+id_token,function(o){
+                var value = jQuery.parseJSON(o);
+                console.log("php : " + value);
+            });
         }
     </script>
 </head>

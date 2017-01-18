@@ -10,9 +10,9 @@
 class Social extends Controller {
     function index(){}
 
-    function google_login($data){
-        $this->model->google_login();
-        echo $data;
+    function google_login($id_token){
+        $data = $this->model->google_login($id_token);
+        echo json_encode($data);
     }
 
 }

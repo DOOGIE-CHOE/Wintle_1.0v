@@ -29,7 +29,7 @@ if(Session::isSessionSet("loggedIn")){
 
 <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->-->
     <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->
-    <meta name="google-signin-client_id" content="853747161225-r9d9kut6nf6q4rki866nomg8amd58eie.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="611141018688-vjcv2sqjcf133cgi453ogfi3lnj4c1bk.apps.googleusercontent.com">
 
     <!-- -------------------------------------------------------------------------
                             css reset, Java script, JS PlugIn
@@ -110,11 +110,11 @@ if(Session::isSessionSet("loggedIn")){
             console.log('Email: ' + profile.getEmail());
 
             var id_token = googleUser.getAuthResponse().id_token;
-
+            console.log(id_token);
 
             $.get("<?php echo URL?>social/google_login/"+id_token,function(o){
                 var value = jQuery.parseJSON(o);
-                console.log("php : " + value);
+                console.log("php : " + value.sub);
             });
         }
     </script>

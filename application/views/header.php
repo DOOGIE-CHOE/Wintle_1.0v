@@ -121,38 +121,6 @@ if(Session::isSessionSet("loggedIn")){
 </head>
 
 <header style="z-index:1100;">
-    <?php if(Session::isSessionSet("intro") == false){ ?>
-        <div class="info-content">
-            <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>
-<!--            <div class="introbtn">시작하기</div>-->
-        </div>
-    <?php }else{ ?>
-        <script>
-            $(".info-content").css("display","hide");
-            $("header").css("height","50px");
-        </script>
-    <?php } ?>
-
-
-    <!--<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-        <source src="background/file.webm">
-    </video>-->
-
-    <!--<div id="fullpage">
-        <div class="section " id="section0">
-            <div class="content">
-                <div class="contaner">
-                    <img class="intro" src="img/PAGE/main_logo.png"/>
-                </div>
-            </div>
-            <img class="paper_cap" src="img/PAGE/Cloud_paper_top.png" alt=""/>
-        </div>
-        <div class="section " id="section1"></div>
-
-        <div class="section " id="section2"></div>
-
-    </div>-->
-
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
             <img src="<?php echo URL?>img/pavicon/wintle_logo_with_text-white.svg" style="position:relative; height:32px; top:9px;"  onclick="$.pagehandler.loadContent('<?php echo URL?>index','all');">

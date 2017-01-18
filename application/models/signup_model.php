@@ -46,8 +46,6 @@ Class SignUp_Model extends Model {
 
             if($result['@result'] == 0){
                 $data['success'] = true;
-            }else if($result['@result'] == -1){
-                throw new Exception("your username already exists");
             }else if($result['@result'] == -2){
                 throw new Exception("your email address already exists");
             }else {

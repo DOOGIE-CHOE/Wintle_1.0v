@@ -27,9 +27,10 @@ class Social_Model extends Model{
             $data = $result->fetch_assoc();
             if (!isset($data)) {
 
-                return 111;
-                // signup procedure
 
+
+
+                return 111;
             }
                 return 222;
                 //login procedure

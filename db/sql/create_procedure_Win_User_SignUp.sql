@@ -1,6 +1,10 @@
-GRANT
+-- --------------------------------------------------------------------------------
+-- Routine DDL
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_User_SignUp`(
+
+CREATE DEFINER="root"@"localhost" PROCEDURE "Win_User_SignUp"(
 in _user_name varchar(50),
 in _user_email varchar(40),
 in _password varchar(255),
@@ -20,9 +24,9 @@ BEGIN
     
 	start transaction;
          
-    SELECT count(user_name) into name_result from user where user_name = _user_name;
+    /*SELECT count(user_name) into name_result from user where user_name = _user_name;*/
     
-    if name_result = 0 then
+   /*if name_result = 0 then*/
 		SELECT count(user_email) into email_result from user where user_email = _user_email;
         if email_result = 0 then
 				select GET_SEQUENCE('user') into sequence;
@@ -33,12 +37,14 @@ BEGIN
 					insert into user_career(user_id) values (sequence);
                 end if;
         end if;
-    end if;
+   /* end if;*/
     
-    if name_result = 1 then
+    /*if name_result = 1 then
 		set _return = -1;
         rollback;
-	elseif email_result = 1 then
+	else*/
+
+	if email_result = 1 then
 		set _return = -2;
         rollback;
     elseif sequence = -1 then

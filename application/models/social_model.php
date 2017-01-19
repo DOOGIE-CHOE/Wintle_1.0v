@@ -30,7 +30,6 @@ class Social_Model extends Model{
                 $password = 0;
                 $token = $payload['sub'];
 
-
                 //Put arguments
                 $sql->bind_param('ssss', $payload['given_name'], $payload['email'], $password, $token);
                 $sql->execute();
@@ -40,6 +39,12 @@ class Social_Model extends Model{
                 $result = $select->fetch_assoc();
 
                 if ($result['@_return'] == 0) {
+                    Session::set("user_email",$payload['email']);
+                    Session::set("loggedIn",true);
+                    Session::set("social_loggedIn",true);
+                    Session::set("user_id",$this->getUserIdByEmail($payload['email']));
+                    Session::set("user_name",$this->getUsernameByEmail($payload['email']));
+                    Session::set("my_profile",$this->getProfileUrl(Session::get("user_id")));
                     $data['success'] = true;
                 } else {
                     throw new Exception("System error occur :( please try it later");

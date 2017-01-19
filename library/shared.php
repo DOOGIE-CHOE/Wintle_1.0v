@@ -48,7 +48,6 @@ function callHook() {
     //Session initiate
     Session::init();
 
-
     try{
         //all error will be paased to this method
 

@@ -1,13 +1,16 @@
 <?php
 
-class Model {
+class Model
+{
 
-	function __construct() {
-		$this->db = new Database();
-	}
+    function __construct()
+    {
+        $this->db = new Database();
+    }
 
 
-    function getHashCode($password, $salt = false) {
+    function getHashCode($password, $salt = false)
+    {
         //set cost (hdigher number, higher security but slow processing time
         $cost = 10;
         if ($salt == false) {
@@ -23,21 +26,22 @@ class Model {
         return $hash;
     }
 
-    function createContentName($type){
+    function createContentName($type)
+    {
         $time = getdate();
-        $ran = rand(1000,9999);
-        $contentid = $time['year'].$time['mon'].$time['mday'].$time['hours'].$time['minutes'].$time['seconds'].$ran;
+        $ran = rand(1000, 9999);
+        $contentid = $time['year'] . $time['mon'] . $time['mday'] . $time['hours'] . $time['minutes'] . $time['seconds'] . $ran;
 
-        if($type == "image"){
+        if ($type == "image") {
             return $contentid;
-        }
-        else if($type == "lyrics"){
-            return "L".$contentid;
+        } else if ($type == "lyrics") {
+            return "L" . $contentid;
         }
     }
 
 
-    function checkId($_user_email){
+    function checkId($_user_email)
+    {
         $sql = "SELECT count(user_email) as emailnumber from user where user_email = '$_user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -48,7 +52,8 @@ class Model {
         }
     }
 
-    function checkPassword($_user_email,$_password) {
+    function checkPassword($_user_email, $_password)
+    {
         $sql = "SELECT password from user where user_email = '$_user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -61,7 +66,8 @@ class Model {
         throw new Exception("Username or password is wrong. Please, check it again");
     }
 
-    function getUsernameByEmail($user_email) {
+    function getUsernameByEmail($user_email)
+    {
         $sql = "SELECT user_name from user where user_email = '$user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -71,7 +77,8 @@ class Model {
     }
 
 
-    function getUserIdByEmail($user_email){
+    function getUserIdByEmail($user_email)
+    {
         $sql = "SELECT user_id from user where user_email = '$user_email'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
@@ -80,10 +87,26 @@ class Model {
         }
     }
 
-    function getProfileUrl($user_id){
+    function getProfileUrl($user_id)
+    {
         $sql = "SELECT profile_url from user_profile where user_id = '$user_id'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
         return $data['profile_url'];
+    }
+
+
+    function logInCount($user_id)
+    {
+            $sql = $this->db->conn->prepare("CALL Win_Count_Login(?,@_return)");
+            $sql->bind_param('s',$user_id);
+            $sql->execute();
+            $select = $this->db->conn->query('select @_return');
+            $result = $select->fetch_assoc();
+            if ($result['@_return'] == 0) {
+               return true;
+            } else {
+               return false;
+            }
     }
 }

@@ -45,6 +45,7 @@ class Social_Model extends Model{
                     Session::set("user_id",$this->getUserIdByEmail($payload['email']));
                     Session::set("user_name",$this->getUsernameByEmail($payload['email']));
                     Session::set("my_profile",$this->getProfileUrl(Session::get("user_id")));
+                    $this->logInCount(Session::get("user_id"));
                     $data['success'] = true;
                 } else {
                     throw new Exception("System error occur :( please try it later");

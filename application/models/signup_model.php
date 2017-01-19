@@ -33,21 +33,21 @@ Class SignUp_Model extends Model {
                  throw new Exception("Our system recognized you as a robot.");
              }*/
 
-            $sql = $this->db->conn->prepare("CALL Win_User_SignUp(?,?,?,@result)");
+            $sql = $this->db->conn->prepare("CALL Win_User_SignUp(?,?,?,?,@_return)");
             $password = $this->GetHashCode($_POST['password']);
+            $token = 0;
+
 
             //Put arguments
-            $sql->bind_param('sss',$_POST['user_name'],$_POST['user_email'],$password);
+            $sql->bind_param('ssss',$_POST['user_name'],$_POST['user_email'],$password,$token);
             $sql->execute();
 
             //Get output from Stored Procedure
-            $select = $this->db->conn->query('select @result');
+            $select = $this->db->conn->query('select @_return');
             $result = $select->fetch_assoc();
 
-            if($result['@result'] == 0){
+            if($result['@_return'] == 0){
                 $data['success'] = true;
-            }else if($result['@result'] == -2){
-                throw new Exception("your email address already exists");
             }else {
                 throw new Exception("System error occur :( please try it later");
             }

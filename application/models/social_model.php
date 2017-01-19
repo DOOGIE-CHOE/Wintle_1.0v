@@ -12,33 +12,44 @@ class Social_Model extends Model{
         parent::__construct();
     }
 
-    function google_login($id_token){
-        require_once (ROOT. DS. 'library'.DS.'vendor'.DS.'autoload.php');
+    function google_login($id_token)
+    {
+        require_once(ROOT . DS . 'library' . DS . 'vendor' . DS . 'autoload.php');
 
         $CLIENT_ID = "611141018688-vjcv2sqjcf133cgi453ogfi3lnj4c1bk.apps.googleusercontent.com";
 
         $client = new Google_Client(['client_id' => $CLIENT_ID]);
+
         $payload = $client->verifyIdToken($id_token);
 
         if ($payload) {
+            $data = array();
+            try {
+                $sql = $this->db->conn->prepare("CALL Win_User_SignUp(?,?,?,?,@_return)");
 
-            $sql = "SELECT user_id, user_name, token_id from user where token_id='$id_token'";
-            $result = $this->db->conn->query($sql);
-            $data = $result->fetch_assoc();
-            if (!isset($data)) {
+                $password = 0;
+                $token = $payload['sub'];
 
 
+                //Put arguments
+                $sql->bind_param('ssss', $payload['given_name'], $payload['email'], $password, $token);
+                $sql->execute();
 
+                //Get output from Stored Procedure
+                $select = $this->db->conn->query('select @_return');
+                $result = $select->fetch_assoc();
 
-                return 111;
+                if ($result['@_return'] == 0) {
+                    $data['success'] = true;
+                } else {
+                    throw new Exception("System error occur :( please try it later");
+                }
+            } catch (Exception $e) {
+                $data['error'] = $e->getMessage();
+            } finally {
+                return $data;
+
             }
-                return 222;
-                //login procedure
-
-
-        } else {
-            return 0;
-            // Invalid ID token
         }
     }
 

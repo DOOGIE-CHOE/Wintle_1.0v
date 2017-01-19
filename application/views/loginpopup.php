@@ -26,6 +26,7 @@
                     <span class="SignUp">
                         <div style="margin-left:28px; margin-top:18px; height:47px;">
                             <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            <a href="#" onclick="signOut();">Sign out</a>
                         </div>
                         <div class="divider">
                             <hr class="line-left"/>OR<hr class="line-right" />

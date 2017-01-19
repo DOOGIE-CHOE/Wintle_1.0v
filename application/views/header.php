@@ -100,6 +100,8 @@ if(Session::isSessionSet("loggedIn")){
     </style>
     <script>
 
+
+
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
             console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -114,7 +116,15 @@ if(Session::isSessionSet("loggedIn")){
 
             $.get("<?php echo URL?>social/google_login/"+id_token,function(o){
                 var value = jQuery.parseJSON(o);
-                console.log("php : " + value.sub);
+                console.log("php : " + value.success);
+            });
+
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
             });
         }
     </script>

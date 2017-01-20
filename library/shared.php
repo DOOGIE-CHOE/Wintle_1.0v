@@ -55,9 +55,9 @@ function callHook() {
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        if($url[0] == "favicon.ico"){
-            return false;
-        }
+//        if($url[0] == "favicon.ico"){
+//            return false;
+//        }
 /*
         if (empty($url[0])) {
             $url[0] = "index";

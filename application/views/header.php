@@ -72,7 +72,9 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL ?>js/ajax-page-call.js"></script>
-    <link rel="shortcut icon" href="<?php echo URL ?>img/pavicon/favicon.ico">
+
+
+    <link rel="shortcut icon" type="image/ico" href="<?php echo URL ?>favicon.ico">
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

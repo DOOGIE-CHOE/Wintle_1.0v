@@ -31,6 +31,24 @@
 //                    $(".pop").empty();
 //                 }
             });
+
+            $("#search").blur(function(){
+                if( !this.value ){ //if it's empty
+                    console.log(3);
+                }else{
+                    $.get("<?php echo URL?>viewlist/loadContentsByHash?hashtags="+$("#search").val(), function(o){
+                        var value = jQuery.parseJSON(o);
+                        if(value.error != null){
+                            errorDisplay(value.error);
+                        }else{
+                            console.log(value);
+                        }
+                    });
+                }
+            }).keypress(function( e ) {
+                if(e.which === 32)
+                    return false;
+            });
         });
 
 
@@ -269,6 +287,10 @@
                 <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>topchart','all');">Seed</p></div>
                 <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>recommend','all');">Recommended</p></div>
             </div>-->
+
+            <div style="width:100px;display:inline-block;">
+                <input type="text" id="search">
+            </div>
             <div id="sort">
                 <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
                 <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">

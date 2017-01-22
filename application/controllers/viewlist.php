@@ -18,4 +18,9 @@ class ViewList extends controller{
     }
 
 
+    function loadContentsByHash(){
+        $data =  $this->model->loadContentsByHash();
+        echo json_encode($data);
+    }
+
 }

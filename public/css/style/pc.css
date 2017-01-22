@@ -138,12 +138,14 @@ header #header-gnb [class ^= MemberShipBtn] > *:hover{
     width:100%;
     background-color: #111111;
     opacity:0.8;
-    height:30px;
+    height:40px;
     z-index:98;
 }
 #sub-header #container{
-    width:1222px;
+    max-width:1222px;
     margin: 0 auto;
+    padding-left:30px;
+    padding-right:30px;
     height:100%;
 }
 

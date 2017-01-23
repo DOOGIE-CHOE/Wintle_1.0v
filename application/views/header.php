@@ -137,16 +137,13 @@ if(Session::isSessionSet("loggedIn")){
 </head>
 
 <header style="z-index:1100;">
-    <div class="info-content">
-        <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>
-    </div>
+<!--    <div class="info-content">-->
+<!--        <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>-->
+<!--    </div>-->
     <div id="header-gnb">
-
-
-
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL ?>img/pavicon/wintle_logo_with_text-white.svg"
-                 style="position:relative; height:32px; top:9px;"
+            <img src="<?php echo URL ?>img/pavicon/wintle_logo-white.svg"
+                 style="position:relative; height:32px; top:0;"
                  onclick="$.pagehandler.loadContent('<?php echo URL ?>index','all');">
         </div>
 

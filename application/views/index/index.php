@@ -277,26 +277,38 @@
                 "	</div>	"+
                 "	</div>	";
             $(".dynamic-popup").append(html);
+
+
+            var counter = 0;
+            var myInterval = setInterval(function () {
+                ++counter;
+                console.log(counter);
+                if(counter == 10){
+                    clearInterval(myInterval);
+                }
+            }, 1000);
+
+
         }
     </script>
     <body class="body_bg02 popup-background">
-    <div id="sub-header">
-        <div id="container">
-            <!--<div id="subclass">
-                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;" onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>index','all');">All</p></div>
-                <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>topchart','all');">Seed</p></div>
-                <div><p onclick="$.pagehandler.loadContent('<?php /*echo URL*/?>recommend','all');">Recommended</p></div>
-            </div>-->
-
-            <div style="width:100px;display:inline-block;">
-                <input type="text" id="search">
-            </div>
-            <div id="sort">
-                <!--<img src="<?php /*echo URL*/?>img/search.png" style="height:18px; right:0; margin-right:10px;">-->
-                <img src="<?php echo URL?>img/filter.png" style="height:18px; right:0; margin-right:10px;">
-            </div>
-        </div>
-    </div>
+<!--    <div id="sub-header">-->
+<!--        <div id="container">-->
+<!--            <!--<div id="subclass">-->
+<!--                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;" onclick="$.pagehandler.loadContent('--><?php ///*echo URL*/?><!--index','all');">All</p></div>-->
+<!--                <div><p onclick="$.pagehandler.loadContent('--><?php ///*echo URL*/?><!--topchart','all');">Seed</p></div>-->
+<!--                <div><p onclick="$.pagehandler.loadContent('--><?php ///*echo URL*/?><!--recommend','all');">Recommended</p></div>-->
+<!--            </div>-->
+<!---->
+<!--            <div style="width:100px;display:inline-block;">-->
+<!--                <input type="text" id="search">-->
+<!--            </div>-->
+<!--            <div id="sort">-->
+<!--                <!--<img src="--><?php ///*echo URL*/?><!--img/search.png" style="height:18px; right:0; margin-right:10px;">-->
+<!--                <img src="--><?php //echo URL?><!--img/filter.png" style="height:18px; right:0; margin-right:10px;">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <div id="wrapper">

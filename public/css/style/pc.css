@@ -13,7 +13,7 @@ header {
     position: fixed;
     top:0;
     width: 100%;
-    height: 50px;
+    height: 55px;
     background: black;
     /*box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;*/
     overflow: hidden;
@@ -59,13 +59,12 @@ header div.info-content .introbtn {
 header #header-gnb {
     background-color:black;
     position: absolute;
-    margin: auto;
-    width: 1222px;
     min-width: 400px;
-    height: auto;
+    height: 55px;
     left: 0;
     right: 0;
     bottom: 0;
+    margin:0 20px 0 30px;
 }
 header #header-gnb > div {
     position: relative; }
@@ -81,7 +80,11 @@ header #header-gnb [class^=HeaderImg] {
   width: 100%;
   height: 100%; }*/
 header #header-gnb .HeaderImg1 {
-    height: 50px; }
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 55px;
+}
 header #header-gnb [class = MemberShipBtn0] { /* logo */
     float:left;
     left:30px;

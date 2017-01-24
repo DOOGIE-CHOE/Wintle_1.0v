@@ -22,10 +22,11 @@ if(Session::isSessionSet("loggedIn")){
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- draggable import -->
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<!--    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
+
 
     <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->-->
     <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->
@@ -50,10 +51,6 @@ if(Session::isSessionSet("loggedIn")){
 
     <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
-
-    <!-- Javascript custom -->
-    <script src="<?php echo URL ?>js/jq-jh.js"></script>
-
     <!-- Form process -->
     <script src="<?php echo URL ?>js/login-signup/form.js"></script>
 
@@ -61,14 +58,11 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- Tile Display -->
     <script type="text/javascript" src="<?php echo URL ?>js/tiledisplay/freewall.js"></script>
+
     <!-- Error Message -->
     <link rel="stylesheet" href="<?php echo URL ?>css/errormessage.css">
 
 
-    <!-- Tag it -->
-    <link href="<?php echo URL ?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo URL ?>css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
-    <script src="<?php echo URL ?>js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL ?>js/ajax-page-call.js"></script>
@@ -86,6 +80,11 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- css custom -->
     <link media="screen" href="<?php echo URL ?>css/style/pc.css" rel="stylesheet"/>
+    <!-- Tag it -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link href="<?php echo URL ?>css/tag-it/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo URL ?>css/tag-it/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo URL ?>js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
     <style>
         #detail-tab {
@@ -131,6 +130,9 @@ if(Session::isSessionSet("loggedIn")){
                 gapi.auth2.init();
             });
         }
+        $(document).ready(function() {
+            $("#myTags").tagit();
+        });
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
@@ -156,11 +158,17 @@ if(Session::isSessionSet("loggedIn")){
             <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
         </div>
 
+        <div class="MemberShipInput">
+            <ul id="myTags" style="height:40px; z-index:2000; color:white">
+                <!-- Existing list items will be pre-added to the tags -->
+            </ul>
+        </div>
+
         <?php if (Session::isSessionSet("loggedIn") == false) { ?>
-            <div class="MemberShipBtn1" style="top:12px; right:0;">
+            <div class="MemberShipBtn1" style="top:14px; right:0;">
                 <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
-                <a href="#popup1" id="top_login" style="margin-right:19px; font-size:17px;">Log In</a>
-                <a href="#popup1" id="top_signup" style="font-size:17px;">Sign Up</a>
+                <a href="#popup1" id="top_login" style="margin-right:19px; font-size:15px;">Log in</a>
+                <a href="#popup1" id="top_signup" style="font-size:15px;">Sign up</a>
                 <!--<a style="right:10px">user name</a>-->
             </div>
         <?php } else{ ?>
@@ -208,50 +216,6 @@ if(Session::isSessionSet("loggedIn")){
                 </div>
             </div>
 
-            <!-- <div class="MemberShipBtn1" style="position:relative;display:inline-block; right:120px; top:7px;">
-                 <img src="img/groups.png" style="width:25px">
-             </div>-->
-            <!--
-                    <div style="position:absolute; right:213px; height:30px; top:7px;">
-                        <img src="img/warning.svg" style="width:25px;">
-                    </div>
--->
-
-
         <?php } ?>
-
-        <!--<div style="position:absolute;top:15px; right:25px; height:50px;">
-            <a href="<?php /*echo URL*/ ?>webstudio"><img src="<?php /*echo URL*/ ?>img/beta.png" style="height:30px"></a>
-        </div>-->
-
-
-        <!--  <div id="detail-tab">
-              <div id="detail-info">
-                  <a>home</a>
-              </div>
-              <div id="detail-info">
-                  <a>home</a>
-              </div>
-              <div id="detail-info">
-                  <a>home</a>
-              </div>
-              <div id="detail-info">
-                  <a>home</a>
-              </div>
-              <div id="detail-info">
-                  <a>home</a>
-              </div>
-          </div>-->
     </div>
 </header>
-<!--
-    <script type="text/javascript" src="js/mainpage/javascript.fullPage.js"></script>
-    <script type="text/javascript">
-        fullpage.initialize('#fullpage', {
-            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-            menu: '#menu',
-            css3: true
-        });
-    </script>-->
-
-

@@ -90,8 +90,20 @@ header #header-gnb [class = MemberShipBtn0] { /* logo */
     left:30px;
 }
 
+header #header-gnb [class = MemberShipInput] { /* logo */
+    float:left;
+    left:30px;
+    height:40px;
+    min-width:80px;
+    width:70%;
+    top:7px;
+}
+
 header #header-gnb [class = MemberShipBtn1] { /* login sign up */
-    float: right; }
+    float: right;
+    top:0;
+    bottom:0;
+}
 header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
     display: inline-block;
     float:right;

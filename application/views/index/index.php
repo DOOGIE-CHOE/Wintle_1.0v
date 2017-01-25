@@ -294,7 +294,10 @@
 
         }
     </script>
-    <body class="body_bg02 popup-background">
+    <body class="body_bg02 popup-background, bg_black">
+    <div class="scrollbar" id="style-1">
+        <div class="force-overflow"></div>
+    </div>
 <!--    <div id="sub-header">-->
 <!--        <div id="container">-->
 <!--            <!--<div id="subclass">-->

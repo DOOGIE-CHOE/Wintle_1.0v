@@ -127,6 +127,11 @@ if(Session::isSessionSet("loggedIn")){
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
+    <style>
+
+
+    </style>
+
 </head>
 
 <header style="z-index:1100;">

@@ -22,13 +22,11 @@ if(Session::isSessionSet("loggedIn")){
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-
     <!-- draggable import -->
-<!--    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
+    <script src="<?php echo URL ?>public/js/jquery/jquery-ui.js" type="text/javascript"></script>
 
 
-    <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->-->
+    <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
     <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->
     <meta name="google-signin-client_id"
           content="611141018688-vjcv2sqjcf133cgi453ogfi3lnj4c1bk.apps.googleusercontent.com">
@@ -80,23 +78,11 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- css custom -->
     <link media="screen" href="<?php echo URL ?>css/style/pc.css" rel="stylesheet"/>
-    <!-- Tag it -->
-    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
-    <link href="<?php echo URL ?>css/tag-it/jquery.tagit.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo URL ?>css/tag-it/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
-    <script src="<?php echo URL ?>js/tag-it/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
-    <style>
-        #detail-tab {
-            position: fixed;
-            display: inline-block;
-            background: white;
-            width: 100px;
-            height: 300px;
-            right: 0;
-            z-index: 1000;
-        }
-    </style>
+    <!-- Tag -->
+    <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.min.js" type="text/javascript" charset="utf-8"></script>
+    <link href="<?php echo URL ?>css/tag-it/jquery.tag-editor.css" rel="stylesheet" type="text/css">
+
     <script>
         function onSignIn(googleUser) {
 
@@ -130,8 +116,13 @@ if(Session::isSessionSet("loggedIn")){
                 gapi.auth2.init();
             });
         }
-        $(document).ready(function() {
-            $("#myTags").tagit();
+        $(function() {
+
+            $('#demo1').tagEditor({
+                initialTags: ['Hello', 'World', 'Example', 'Tags'],
+                delimiter: ', ', /* space and comma */
+                placeholder: 'Enter tags ...'
+            });
         });
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
@@ -153,16 +144,12 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php /*echo URL."index"*/ ?>','all');">Page A</p>
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/ ?>','all');">Page B</p>
         </div>-->
-        <div class="MemberShipBtn0" style="top:0; right:110px;">
+<!--        <div class="MemberShipBtn0" style="top:0; right:110px;">-->
             <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
             <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
-        </div>
+<!--        </div>-->
 
-        <div class="MemberShipInput">
-            <ul id="myTags" style="height:40px; z-index:2000; color:white">
-                <!-- Existing list items will be pre-added to the tags -->
-            </ul>
-        </div>
+
 
         <?php if (Session::isSessionSet("loggedIn") == false) { ?>
             <div class="MemberShipBtn1" style="top:14px; right:0;">

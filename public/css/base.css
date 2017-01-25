@@ -258,6 +258,7 @@ table caption 	{display:none;}
 .bg_black    { background:#000 !important }
 .bg_orange   { background:#F30 !important }
 .bg_gray     { background:#999 !important }
+.bg_lblack   { background:#333 !important }
 .bg_dgray    { background:#333333 !important }
 .bg_dblue    { background:#161031 !important }
 .bg_topAdmin { background:#f5f5f5 !important; border-right: 1px solid #c2c2c2;}

@@ -18,7 +18,8 @@ header {
     /*box-shadow: rgba(50, 50, 50, 0.7) 0 0px 10px 5px;*/
     overflow: hidden;
     z-index:100;
-
+    border-bottom: 2px solid;
+    border-bottom-color: #444444;
 }
 header, #sub-header > * {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -59,12 +60,14 @@ header div.info-content .introbtn {
 header #header-gnb {
     background-color:black;
     position: absolute;
-    min-width: 400px;
+    min-width: 100px;
     height: 55px;
     left: 0;
     right: 0;
     bottom: 0;
     margin:0 20px 0 30px;
+
+
 }
 header #header-gnb > div {
     position: relative; }
@@ -95,7 +98,7 @@ header #header-gnb [class = MemberShipInput] { /* logo */
     left:30px;
     height:40px;
     min-width:80px;
-    width:70%;
+    width:50vh;
     top:7px;
 }
 

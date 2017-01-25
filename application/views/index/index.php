@@ -5,10 +5,13 @@
             wall.reset({
                 selector: '.grid-item',
                 animate: true,
-                cellW: 200,
-                cellH: 'auto'
+                cellW: 300,
+                cellH: 'auto',
+                gutterX: 20,
+                gutterY: 20
             });
             //put this instead of on load function;
+
             wall.fitZone(setwidthgrid(),'auto');
             $( window ).resize(function(){
                 wall.fitZone(setwidthgrid(),'auto');
@@ -56,10 +59,10 @@
             $(".grid").width("95%");
             var $grid = $(".grid").css("width");
             var tmp = parseInt($grid);
-            var w = parseInt(tmp / 210);
-            var width = w * 210;
+            var w = parseInt(tmp / 310);
+            var width = (w * 310);
             $(".grid").css("width",width + "px");
-            return width;
+         //   return width;
         }
 
         //put this instead of on load function;
@@ -312,11 +315,27 @@
 
 
     <div id="wrapper">
-        <div class="container bg_dgray">
+        <div class="container bg_black">
+            <div class="MemberShipInput">
+
+                <textarea id="demo1"></textarea>
+
+
+<!--                <ul id="myTags">-->
+<!--                    <!-- Existing list items will be pre-added to the tags -->
+<!--                    <li>Tag1</li>-->
+<!--                    <li>Tag2</li>-->
+<!--                </ul>-->
+            </div>
 
             <!--앨범전체 AREA-->
             <div class="grid" data-layout-mode="masonry">
 
+                <ul id="myTags">
+                    <!-- Existing list items will be pre-added to the tags -->
+                    <li>Tag1</li>
+                    <li>Tag2</li>
+                </ul>
                 <!--앨범-->
                 <div class="grid-item">
                     <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/sample1.png" alt=""/></a>

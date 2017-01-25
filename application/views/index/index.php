@@ -76,7 +76,7 @@
 
                     }else{
 
-                        var html = "<div class='grid-item' style='height:auto;'>";
+                        var html = "<div class='grid-item'>";
                         if(value[i].profile_photo_path == null){
                             value[i].profile_photo_path = 'img/defaultprofile.png';
                         }
@@ -107,7 +107,7 @@
 
                         html +=
                             "</li></ul></div></div>" + <!--userinfo-->
-                            "<div class='btm_info bg_beige'>" + <!--공유및 종아요버튼외-->
+                            "<div class='btm_info' style='background-color : rgba(0,0,0,0)'>" + <!--공유및 종아요버튼외-->
                             "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/like_fill.svg'  class='w20px' /></a></span>" +
                             "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/Comment.svg'  class='w20px' /></a></span>" +
                             "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/share.svg'  class='w20px' /></a></span>" +
@@ -295,9 +295,6 @@
         }
     </script>
     <body class="body_bg02 popup-background, bg_black">
-    <div class="scrollbar" id="style-1">
-        <div class="force-overflow"></div>
-    </div>
 <!--    <div id="sub-header">-->
 <!--        <div id="container">-->
 <!--            <!--<div id="subclass">-->
@@ -319,53 +316,312 @@
 
     <div id="wrapper">
         <div class="container bg_black">
-            <div class="MemberShipInput">
-
-                <textarea id="demo1"></textarea>
-
-
-<!--                <ul id="myTags">-->
-<!--                    <!-- Existing list items will be pre-added to the tags -->
-<!--                    <li>Tag1</li>-->
-<!--                    <li>Tag2</li>-->
-<!--                </ul>-->
-            </div>
 
             <!--앨범전체 AREA-->
             <div class="grid" data-layout-mode="masonry">
-
-                <ul id="myTags">
-                    <!-- Existing list items will be pre-added to the tags -->
-                    <li>Tag1</li>
-                    <li>Tag2</li>
-                </ul>
                 <!--앨범-->
                 <div class="grid-item">
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/sample1.png" alt=""/></a>
-                    </div>
-                    <div class="userinfo">
+
+                    <div class="user">
                         <div class="userphoto">
-                            <div class="badge bg_orange">3</div>
+                            <!--                            <div class="badge bg_orange">3</div>-->
                             <img src="image/p2.jpg" class="img-circle">
                         </div>
                         <div class="musictext">
                             <ul>
-                                <li><span class="music_title">눈물과 비</span></li>
                                 <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/sample111.jpg" alt=""/></a>
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그런 노래...<br> 재밌긴 하당 한번 확인해 보세용 !</span></li>
                                 <li class="music_tag">
-                                    <span class="label label-primary">#달콤한</span>
-                                    <span class="label label-primary">#Classic</span>
-                                    <span class="label label-primary">#jazz</span>
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
                                 </li>
                             </ul>
                         </div>
                     </div><!--//userinfo-->
-                    <div class="btm_info bg_beige">
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span class="col-sm-4"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
                     </div>
                 </div>
+                <!--앨범-->
+                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/album_p7.jpg" alt=""/></a>
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
+                <!--앨범-->
+                <div class="grid-item">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/album_p1.jpg" alt=""/></a>
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
+                <!--앨범-->
+                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="albumT">
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+
+
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
+                <!--앨범-->
+                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal" data-target="#myModal" ><img src="image/album_p6.jpg" alt=""/></a>
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
+                <!--앨범-->
+                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumT">
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+                        받아주겠니 I love you<br>
+                        받아주겠니 I love you<br>
+                        받아주겠니 I love you<br>
+                        받아주겠니 I love you<br>
+
+                    </div>
+
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
 
                 <!-- Modal 앨범상세보기 호출 -->
                 <div class="dynamic-popup">

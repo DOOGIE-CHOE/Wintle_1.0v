@@ -129,9 +129,11 @@ if(Session::isSessionSet("loggedIn")){
 
     <style>
 
+        svg path {
+            fill: white;
+        }
 
     </style>
-
 </head>
 
 <header style="z-index:1100;">
@@ -153,9 +155,11 @@ if(Session::isSessionSet("loggedIn")){
             <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
             <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
 <!--        </div>-->
-
-
-
+        <div class="MemberShipInput">
+            <form>
+                <textarea id="demo1"></textarea>
+            </form>
+        </div>
         <?php if (Session::isSessionSet("loggedIn") == false) { ?>
             <div class="MemberShipBtn1" style="top:14px; right:0;">
                 <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->

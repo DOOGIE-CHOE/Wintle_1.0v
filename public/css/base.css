@@ -213,6 +213,8 @@ table caption 	{display:none;}
 .f_black { color:#000 !important}
 .f_gray { color:#666 !important}
 .f_white { color:#fff !important}
+.f_swhite {color: whitesmoke !important;}
+.f_dwhite {color:#dddddd !important;}
 .f_Pwhite { color:#F9F0F0 !important}
 .f_brown { color:#a3765d !important}
 

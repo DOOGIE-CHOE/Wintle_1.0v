@@ -80,7 +80,8 @@ if(Session::isSessionSet("loggedIn")){
     <link media="screen" href="<?php echo URL ?>css/style/pc.css" rel="stylesheet"/>
 
     <!-- Tag -->
-    <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/tag-it/jquery.caret.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.js" type="text/javascript" charset="utf-8"></script>
     <link href="<?php echo URL ?>css/tag-it/jquery.tag-editor.css" rel="stylesheet" type="text/css">
 
     <script>
@@ -117,23 +118,22 @@ if(Session::isSessionSet("loggedIn")){
             });
         }
         $(function() {
-
             $('#demo1').tagEditor({
-                initialTags: ['Hello', 'World', 'Example', 'Tags'],
                 delimiter: ', ', /* space and comma */
-                placeholder: 'Enter tags ...'
+                placeholder: 'Search',
+                onEnter:function(tags){
+                }
             });
+
         });
+
+
+
+
+
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
-    <style>
-
-        svg path {
-            fill: white;
-        }
-
-    </style>
 </head>
 
 <header style="z-index:1100;">

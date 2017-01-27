@@ -9,6 +9,7 @@
 class Search extends controller{
 
     function index(){
+
     }
 
     function blocks(){

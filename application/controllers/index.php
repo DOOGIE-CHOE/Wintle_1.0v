@@ -12,19 +12,7 @@ class Index extends Controller {
     }
 
     function index(){
-        $list = array();
-        array_push($list,
-            "header",
-            "errorMessage"
-        );
-        if(!Session::isSessionSet("loggedIn")){
-            array_push($list,"loginpopup");
-        }
-        array_push($list,
-            "index/index",
-            "musicplayer",
-            "footer"
-        );
+        $list = $this->setViewComponents("index/index");
         $this->view->render($list);
     }
 

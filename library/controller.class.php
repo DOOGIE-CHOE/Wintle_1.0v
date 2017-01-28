@@ -15,4 +15,24 @@ class Controller {
 			$this->model = new $modelName();
 		}		
 	}
+
+	public function setViewComponents($view){
+        $list = array();
+        array_push($list,
+            "header",
+            "errorMessage"
+        );
+        if(!Session::isSessionSet("loggedIn")){
+            array_push($list,"loginpopup");
+        }
+
+        array_push($list, $view);
+        array_push($list,
+            "musicplayer",
+            "footer"
+        );
+
+        return $list;
+    }
+
 }

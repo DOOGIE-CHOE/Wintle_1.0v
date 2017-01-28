@@ -295,6 +295,8 @@
         }
     </script>
     <body class="body_bg02 popup-background, bg_black">
+
+
 <!--    <div id="sub-header">-->
 <!--        <div id="container">-->
 <!--            <!--<div id="subclass">-->

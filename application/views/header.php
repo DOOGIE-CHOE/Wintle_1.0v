@@ -122,15 +122,31 @@ if(Session::isSessionSet("loggedIn")){
                 delimiter: ', ', /* space and comma */
                 placeholder: 'Search',
                 onEnter:function(tags){
+                    if(tags[0] != null){
+                        var data = tags[0];
+                        for(var i = 1; i < tags.length; i++){
+                            data = data + "+" + tags[i];
+                        }
+                    }
+
+                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+data, 'all');
+
+//                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
+//
+//                    });
+
+
+
+//                        if(o.success == true){
+//                            window.location.replace("index");
+//                        }else{
+//                            errorDisplay(o.error);
+//                        }
+
                 }
             });
 
         });
-
-
-
-
-
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 

@@ -9,7 +9,6 @@
 class Search extends controller{
 
     function index(){
-
         $list =$this->setViewComponents("search/index");
         $this->view->render($list);
     }

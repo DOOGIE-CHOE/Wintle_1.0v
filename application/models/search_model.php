@@ -23,22 +23,17 @@ class Search_Model extends Model
         try {
             $contents = array();
             $sql = null;
-
             $tags = explode(' ', $_GET['tags']);
-
-
             $search = new SearchEngine();
             //check the first keyword
             if(isset($tags)){
                 if(substr($tags[0], 0, 1) == '#'){
                     $sql = $search->createQueryStringHash($tags);
                 }else{
-                    $sql = $search->createQueryStringOthers($tags);
+                    $sql = $search->createQueryStringComments($tags);
                 }
             }
-
             $result = $this->db->conn->query($sql);
-
             while ($data = $result->fetch_assoc()) {
                 array_push($contents, $data);
             }

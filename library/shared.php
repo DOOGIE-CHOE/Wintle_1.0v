@@ -147,9 +147,9 @@ function isReservedName($name){
 
 /** Autoload any classes that are required **/
 
-function __mautoload($className) {
-    if (file_exists(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php')) {
-        require_once(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php');
+function __my_autoload($className) {
+    if (file_exists(ROOT . DS . 'library' . DS . $className . '.class.php')) {
+        require_once(ROOT . DS . 'library' . DS . $className . '.class.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php')) {
         require_once(ROOT . DS . 'application' . DS .'controllers' . DS . strtolower($className) . '.php');
     } else if (file_exists(ROOT . DS . 'application' . DS .'models' . DS . strtolower($className) . '.php')) {
@@ -169,5 +169,5 @@ function error($view, $msg = "this page is not existing") {
 setReporting();
 removeMagicQuotes();
 unregisterGlobals();
-spl_autoload_register('__mautoload');
+spl_autoload_register('__my_autoload');
 callHook();

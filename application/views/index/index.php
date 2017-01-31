@@ -68,6 +68,7 @@
         //put this instead of on load function;
         $.get("<?php echo URL?>viewlist/loadNewContents/<?php echo 0?>", function(o) {
             var value = jQuery.parseJSON(o);
+            console.log(value);
             if (value == null) {
                 //display default image
             } else {
@@ -290,8 +291,6 @@
                     clearInterval(myInterval);
                 }
             }, 1000);
-
-
         }
     </script>
     <body class="body_bg02 popup-background, bg_black">

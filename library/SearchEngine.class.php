@@ -21,7 +21,7 @@ class SearchEngine
         for ($i = 1; $i < count($list); $i++) {
             $querytmp .= "or hashtags like '%$list[$i]%'";
         }
-        $sql = "SELECT * from view_content_with_hashtag where " . $querytmp;
+        $sql = "SELECT * from view_all_content_info where " . $querytmp;
         return $sql;
     }
 
@@ -32,7 +32,7 @@ class SearchEngine
         for ($i = 1; $i < count($list); $i++) {
             $querytmp .= "or comments like '%$list[$i]%'";
         }
-        $sql = "SELECT * from view_content_with_hashtag where " . $querytmp;
+        $sql = "SELECT * from view_all_content_info where " . $querytmp;
         return $sql;
     }
 

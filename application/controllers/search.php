@@ -14,7 +14,6 @@ class Search extends controller{
     }
 
     function blocks(){
-        $this->view->data = $this->model->searchBlocks();
         $list = $this->setViewComponents("search/blocks");
         $this->view->render($list);
     }
@@ -29,6 +28,11 @@ class Search extends controller{
 
         $list =$this->setViewComponents("search/people");
         $this->view->render($list);
+    }
+
+    function searchBlocks(){
+        $data = $this->model->searchBlocks();
+        echo json_encode($data);
     }
 
 }

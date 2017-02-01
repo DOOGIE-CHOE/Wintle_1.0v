@@ -16,9 +16,9 @@ html{
 
 /*앨범목록 그리드사용(앨범및 가사제공)*/
 .grid-item         {box-sizing:border-box; position: relative; float: left; width: 300px; height:auto !important; margin:0; padding:0;}
-.grid-item .albumP     { border-top-left-radius: 5px; border-top-right-radius: 5px; margin:0 0 0 0 !important;}
-.grid-item .albumP img { border-top-left-radius: 5px; border-top-right-radius: 5px; padding:10px; width:100%;  box-sizing:border-box; }
-.grid-item .albumT     { border-top-left-radius: 5px; border-top-right-radius: 5px; margin:3px; !important; display:block; padding:18px; box-sizing:border-box; max-height:500px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
+.grid-item .albumP     { margin:0 0 0 0 !important;}
+.grid-item .albumP img { padding:10px; width:100%;  box-sizing:border-box; }
+.grid-item .albumT     { margin:10px; !important; display:block; padding:18px; box-sizing:border-box; max-height:500px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
 
 /*앨범그리드 사운드파일제공 영역*/
 /*
@@ -34,9 +34,9 @@ html{
   width:100%;
   height:50px;
 }
-/*.grid-item:hover{*/
-  /*background-color:rgba(150,150,150,0.2);*/
-/*}*/
+.grid-item:hover{
+  background-color:rgba(150,150,150,0.2);
+}
 
 
 .grid-item .user  .badge { position:absolute; top:0; left:0; }

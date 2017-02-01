@@ -28,11 +28,11 @@
         $(function () {
             var url = window.location.href;
             var gets = url.substring(url.indexOf("?")+1);
-            var encodedValues = encodeURI(gets);
-            encodedValues = encodedValues.replace(/#/gi, '%23');
-            console.log(encodedValues);
+          //  var encodedValues = encodeURI(gets);
+            gets = gets.replace(/#/gi, '%23');
+            console.log(gets);
 
-            $.get("<?php echo URL?>search/searchBlocks?" + encodedValues, function (o) {
+            $.get("<?php echo URL?>search/searchBlocks?" + gets, function (o) {
 
                 var value = jQuery.parseJSON(o);
 
@@ -73,7 +73,7 @@
                             }
 
                             for (var j = 0; j < hsh.length; j++) {
-                                html += "<span class='label label-primary'>" + "\#" + hsh[j] + "</span>";
+                                html += "<span class='label label-primary'>" + hsh[j] + "</span>";
                             }
 
                             html +=

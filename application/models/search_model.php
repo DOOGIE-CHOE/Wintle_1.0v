@@ -25,6 +25,7 @@ class Search_Model extends Model
             $sql = null;
             $tags = explode(' ', $_GET['tags']);
             $search = new SearchEngine();
+          //  $ex = iconv("utf8", "euckr", $tags[0]);
             //check the first keyword
             if(isset($tags)){
                 if(substr($tags[0], 0, 1) == '#'){

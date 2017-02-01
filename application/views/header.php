@@ -17,7 +17,7 @@ if(Session::isSessionSet("loggedIn")){
 <html>
 <head>
     <title>wintle</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
 
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
@@ -129,7 +129,7 @@ if(Session::isSessionSet("loggedIn")){
                         }
                     }
 
-                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+    data, 'all');
+                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+data, 'all');
 
 //                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
 //

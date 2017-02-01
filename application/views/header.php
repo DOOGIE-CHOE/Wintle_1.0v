@@ -129,7 +129,7 @@ if(Session::isSessionSet("loggedIn")){
                         }
                     }
 
-                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+data, 'all');
+                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+    data, 'all');
 
 //                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
 //

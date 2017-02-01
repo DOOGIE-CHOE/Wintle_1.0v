@@ -26,15 +26,19 @@
 
     <script>
         $(function () {
-            $.get("<?php echo URL?>search/searchBlocks" + window.location.search, function (o) {
+            var url = window.location.href;
+            var gets = url.substring(url.indexOf("?")+1);
+            var encodedValues = encodeURI(gets);
+            encodedValues = encodedValues.replace(/#/gi, '%23');
+            console.log(encodedValues);
+
+            $.get("<?php echo URL?>search/searchBlocks?" + encodedValues, function (o) {
 
                 var value = jQuery.parseJSON(o);
-                console.log(value);
 
                 if (value == null) {
                     //display default image
                 } else {
-                    console.log(value);
                     for (var i = 0; i < value.length; i++) {
                         if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics")) {
 

@@ -43,10 +43,19 @@
                         if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics")) {
 
                         } else {
-                            var html = "<div class='grid-item'>";
                             if (value[i].profile_photo_path == null) {
                                 value[i].profile_photo_path = 'img/defaultprofile.png';
                             }
+
+                            var html = "<div class='grid-item'>" +
+                                "<div class='user'>" +
+                                "<div class='userphoto'>" +
+                                "<img src='"+value[i].profile_photo_path+"' class='img-circle'>" +
+                                "</div>" +
+                                "<div class='musictext'>" +
+                                "<ul>" +
+                                "<li><span class='music_name'>"+value[i].user_name+"</span></li>" +
+                                "</ul></div></div>";
                             if (value[i].content_type_name == "image") {
                                 html += "<div class='albumP'><img src='" + value[i].content_path + "' alt=''/></div>";
                                 <!--앨범사진-->
@@ -59,30 +68,30 @@
                                 <!--lyrics-->
                             } else {
                             }
-
                             html +=
                                 "<div class='userinfo'>" +
-                                "<div class='userphoto'>" +
-                                "<img src='<?php echo URL?>" + value[i].profile_photo_path + "' class='img-circle'></div>" +
                                 "<div class='musictext'><ul><li><span class='music_title'>" + value[i].content_title + "</span></li>" +
-                                "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
                                 "<li class='music_tag'>";
-
                             if (value[i].hashtags != null) {
                                 var hsh = value[i].hashtags.split(",");
                             }
 
                             for (var j = 0; j < hsh.length; j++) {
-                                html += "<span class='label label-primary'>" + hsh[j] + "</span>";
+                                html += "<span class='label f_dwhite'>" + "\#" + hsh[j] + "</span>";
                             }
+
+
 
                             html +=
                                 "</li></ul></div></div>" + <!--userinfo-->
-                                "<div class='btm_info' style='background-color : rgba(0,0,0,0)'>" + <!--공유및 종아요버튼외-->
-                                "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/like_fill.svg'  class='w20px' /></a></span>" +
-                                "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/Comment.svg'  class='w20px' /></a></span>" +
-                                "<span class='col-sm-4'><a href='#'><img src='icon/Details_Content/share.svg'  class='w20px' /></a></span>" +
-                                "</div>" +
+
+                                "<div class='btm_info'>"+
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='icon/Details_Content/share.svg' class='w20px'/></a></span>"+
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='icon/Details_Content/like.svg' class='w20px'/></a></span>"+
                                 "</div>";
                             $(".grid").append(html);
                         }

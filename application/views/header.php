@@ -117,7 +117,7 @@ if(Session::isSessionSet("loggedIn")){
             });
         }
         $(function () {
-            $('#demo1').tagEditor({
+            $('#search').tagEditor({
                 delimiter: ', ', /* space and comma */
                 placeholder: 'Search',
                 onEnter: function (tags) {
@@ -171,11 +171,11 @@ if(Session::isSessionSet("loggedIn")){
         <!--        </div>-->
         <div class="MemberShipInput">
             <form>
-                <textarea id="demo1"></textarea>
+                <textarea id="search" style="display:none"></textarea>
             </form>
         </div>
         <?php if (Session::isSessionSet("loggedIn") == false) { ?>
-            <div class="MemberShipBtn1" style="top:14px; right:0;">
+            <div class="MemberShipBtn1" style="top:18px; right:0;">
                 <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
                 <a href="#popup1" id="top_login" style="margin-right:19px; font-size:15px;">Log in</a>
                 <a href="#popup1" id="top_signup" style="font-size:15px;">Sign up</a>
@@ -184,6 +184,7 @@ if(Session::isSessionSet("loggedIn")){
         <?php } else{ ?>
 
             <script>
+
 
                 $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>", function (o) {
                     if(o != null){
@@ -200,22 +201,26 @@ if(Session::isSessionSet("loggedIn")){
 
             </script>
 
-            <div class="MemberShipBtn3" style="top:18px; right:5px;">
-                <img src="img/email.png" style="width:25px;"
+            <div class="MemberShipBtn3" style="top:20px; right:5px;">
+                <img src="<?php echo URL?>img/pavicon/envelope.svg" style="width:20px;"
                      onclick="$.pagehandler.loadContent('<?php echo URL . "message" ?>','all');">
-                <img src="img/melody.png" style="width:25px;"
+                <img src="<?php echo URL?>img/pavicon/upload.svg" style="width:20px;"
                      onclick="$.pagehandler.loadContent('<?php echo URL . "upload" ?>','all');">
-                <a href="<?php echo URL ?>logout/calllogout"><img src="img/story.png" style="width:25px;"
+                <a href="<?php echo URL ?>logout/calllogout"><img src="<?php echo URL?>img/pavicon/logout.svg" style="width:18px;"
                                                                   onclick="signOut()"></a>
             </div>
 
-            <div class="MemberShipBtn2" style="top:12px; right:30px;">
+            <div class="MemberShipBtn2" style="top:16px; right:30px;">
                 <div style="float:right; height:100%;">
                     <a href="#">
                         <div id="profile-mini"
                              onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');"
                              style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
                     </a>
+                    <script>
+                        console.log("<?php echo Session::get('my_profile');echo " "; echo Session::get('profile_id')?>");
+
+                    </script>
                     <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
                         <?php
                         if (strlen(Session::get("user_name")) >= 10) {

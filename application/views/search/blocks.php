@@ -30,7 +30,7 @@
             var gets = url.substring(url.indexOf("?")+1);
           //  var encodedValues = encodeURI(gets);
             gets = gets.replace(/#/gi, '%23');
-            console.log(gets);
+          //  console.log(gets);
 
             $.get("<?php echo URL?>search/searchBlocks?" + gets, function (o) {
 

@@ -96,10 +96,10 @@ header #header-gnb [class = MemberShipBtn0] { /* logo */
 header #header-gnb [class = MemberShipInput] { /* logo */
     float:left;
     left:30px;
-    height:40px;
+    height:30px;
     min-width:80px;
     width:50vh;
-    top:7px;
+    top:15px;
 }
 
 header #header-gnb [class = MemberShipBtn1] { /* login sign up */
@@ -108,10 +108,15 @@ header #header-gnb [class = MemberShipBtn1] { /* login sign up */
     bottom:0;
 }
 header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
-    display: inline-block;
+    /*display: inline-block;*/
     float:right;
     font-size:16px;
     color:white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 55px;
 }
 header #header-gnb [class = MemberShipBtn2] #profile-mini{
     display:inline-block;
@@ -128,6 +133,7 @@ header #header-gnb [class = MemberShipBtn2] #profile-mini{
 header #header-gnb [class = MemberShipBtn3] { /* setting buttons */
     display: inline-block;
     float: right;
+    cursor: pointer;
 }
 header #header-gnb [class = MemberShipBtn3] img {
     margin-left:15px;

@@ -67,7 +67,6 @@
         //put this instead of on load function;
         $.get("<?php echo URL?>viewlist/loadNewContents/<?php echo 0?>", function (o) {
             var value = jQuery.parseJSON(o);
-            console.log(value);
             if (value == null) {
                 //display default image
             } else {
@@ -82,7 +81,7 @@
                         var html = "<div class='grid-item'>" +
                             "<div class='user'>" +
                             "<div class='userphoto'>" +
-                            "<img src='"+value[i].profile_photo_path+"' class='img-circle'>" +
+                            "<img src='<?php echo URL?>"+value[i].profile_photo_path+"' class='img-circle'>" +
                             "</div>" +
                             "<div class='musictext'>" +
                             "<ul>" +
@@ -102,7 +101,9 @@
                         }
                         html +=
                             "<div class='userinfo'>" +
-                            "<div class='musictext'><ul><li><span class='music_title'>" + value[i].content_title + "</span></li>" +
+                            "<div class='musictext'><ul>"+
+                            //"<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
+                            "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
                             "<li class='music_tag'>";
                         if (value[i].hashtags != null) {
                             var hsh = value[i].hashtags.split(",");
@@ -119,11 +120,11 @@
 
                             "<div class='btm_info'>"+
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='icon/Details_Content/share.svg' class='w20px'/></a></span>"+
+                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>"+
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
+                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='icon/Details_Content/like.svg' class='w20px'/></a></span>"+
+                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>"+
                             "</div>";
                         $(".grid").append(html);
                     }

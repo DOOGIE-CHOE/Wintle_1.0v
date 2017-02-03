@@ -7,7 +7,7 @@
  */
 
 
-class ViewList extends controller{
+class ViewList extends Controller{
 
     function index(){}
 

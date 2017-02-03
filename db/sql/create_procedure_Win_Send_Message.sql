@@ -1,7 +1,6 @@
 GRANT
 DELIMITER $$
-
-CREATE DEFINER="root"@"localhost" PROCEDURE "Win_Send_Message"(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_Send_Message`(
 in _user_sender int,
 in _user_receiver int,
 in _message varchar(1000),

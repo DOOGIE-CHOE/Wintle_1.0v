@@ -100,7 +100,7 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
-            <form id="upload-content-form" action="http://localhost/upload/uploadcontent/lyrics" method="post"  enctype="multipart/form-data">
+            <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/lyrics" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
                 <input type="text" id="content_path" name="content_path" required> path
@@ -114,7 +114,7 @@
 
             <br><br><br><br>
 
-            <form id="upload-content-form" action="http://localhost/upload/uploadcontent/audio" method="post"  enctype="multipart/form-data">
+            <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/audio" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path
@@ -128,7 +128,7 @@
 
             <br><br><br><br>
 
-            <form id="upload-content-form" action="http://localhost/upload/uploadcontent/image" method="post"  enctype="multipart/form-data">
+            <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/image" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path

@@ -6,7 +6,7 @@
  * Time: 4:18 PM
  */
 
-class Search extends controller{
+class Search extends Controller{
 
     function index(){
         $list =$this->setViewComponents("search/index");

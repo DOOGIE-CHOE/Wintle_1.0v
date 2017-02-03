@@ -61,7 +61,6 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="stylesheet" href="<?php echo URL ?>css/errormessage.css">
 
 
-
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL ?>js/ajax-page-call.js"></script>
 
@@ -117,24 +116,23 @@ if(Session::isSessionSet("loggedIn")){
                 gapi.auth2.init();
             });
         }
-        $(function() {
+        $(function () {
             $('#demo1').tagEditor({
                 delimiter: ', ', /* space and comma */
                 placeholder: 'Search',
-                onEnter:function(tags){
-                    if(tags[0] != null){
+                onEnter: function (tags) {
+                    if (tags[0] != null) {
                         var data = tags[0];
-                        for(var i = 1; i < tags.length; i++){
+                        for (var i = 1; i < tags.length; i++) {
                             data = data + "+" + tags[i];
                         }
                     }
 
-                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags="+data, 'all');
+                    $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags=" + data, 'all');
 
 //                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
 //
 //                    });
-
 
 
 //                        if(o.success == true){
@@ -153,9 +151,9 @@ if(Session::isSessionSet("loggedIn")){
 </head>
 
 <header style="z-index:1100;">
-<!--    <div class="info-content">-->
-<!--        <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>-->
-<!--    </div>-->
+    <!--    <div class="info-content">-->
+    <!--        <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>-->
+    <!--    </div>-->
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
             <img src="<?php echo URL ?>img/pavicon/wintle_logo-white.svg"
@@ -167,10 +165,10 @@ if(Session::isSessionSet("loggedIn")){
             <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php /*echo URL."index"*/ ?>','all');">Page A</p>
             <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/ ?>','all');">Page B</p>
         </div>-->
-<!--        <div class="MemberShipBtn0" style="top:0; right:110px;">-->
-            <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
-            <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
-<!--        </div>-->
+        <!--        <div class="MemberShipBtn0" style="top:0; right:110px;">-->
+        <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
+        <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
+        <!--        </div>-->
         <div class="MemberShipInput">
             <form>
                 <textarea id="demo1"></textarea>
@@ -188,13 +186,16 @@ if(Session::isSessionSet("loggedIn")){
             <script>
 
                 $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>", function (o) {
-                    var value = jQuery.parseJSON(o);
-                    var photo = $("#profile-mini");
-                    if (value.profile_photo_path != null) {
-                        //display default image
-                        // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                        photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
+                    if(o != null){
+                        var value = jQuery.parseJSON(o);
+                        var photo = $("#profile-mini");
+                        if (value.profile_photo_path != null) {
+                            //display default image
+                            // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                            photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
+                        }
                     }
+
                 });
 
             </script>

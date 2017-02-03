@@ -50,7 +50,7 @@
                             var html = "<div class='grid-item'>" +
                                 "<div class='user'>" +
                                 "<div class='userphoto'>" +
-                                "<img src='"+value[i].profile_photo_path+"' class='img-circle'>" +
+                                "<img src='<?php echo URL?>"+value[i].profile_photo_path+"' class='img-circle'>" +
                                 "</div>" +
                                 "<div class='musictext'>" +
                                 "<ul>" +
@@ -87,11 +87,11 @@
 
                                 "<div class='btm_info'>"+
                                 "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='icon/Details_Content/share.svg' class='w20px'/></a></span>"+
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>"+
                                 "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
                                 "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='icon/Details_Content/like.svg' class='w20px'/></a></span>"+
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>"+
                                 "</div>";
                             $(".grid").append(html);
                         }

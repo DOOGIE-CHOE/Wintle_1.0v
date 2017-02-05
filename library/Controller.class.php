@@ -8,7 +8,7 @@ class Controller {
 
 	public function loadModel($name) {
 		
-		$path = ROOT.DS. 'application'. DS. 'models'. DS . $name.'_model.php';
+		$path = ROOT.DS. 'application'. DS. 'models'. DS . strtolower($name).'_model.php';
 		
 		if (file_exists($path)) {
 			$modelName = $name . '_Model';

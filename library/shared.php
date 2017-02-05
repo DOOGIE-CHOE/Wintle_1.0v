@@ -47,7 +47,6 @@ function unregisterGlobals() {
 function callHook() {
     //Session initiate
     Session::init();
-
     try{
         //all error will be paased to this method
 
@@ -68,20 +67,17 @@ function callHook() {
             if($url[0] == "profile"){
                 Session::set("profile_id",Session::get("user_id"));
             }
-
-
             $controller = new $url[0];
             $controller->loadModel($url[0]);
             methodHandler($controller,$url);
-
         }else {
             if(isExistingProfile($url[0])){
                 $controller = new Profile();
-                $controller->loadModel("Profle");
+                $controller->loadModel("Profile");
                 methodHandler($controller,$url);
 
             }else{
-                error("index");
+                error("index","cannot find the profile");
             }
         }
 
@@ -159,7 +155,7 @@ function __my_autoload($className) {
     }
 }
 
-function error($view, $msg = "this page is not existing") {
+function error($view, $msg = "this pageasdasd is not exis") {
     $controller = new ErrorPage();
     $controller->{$view}($msg);
     return false;

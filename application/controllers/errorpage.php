@@ -6,8 +6,8 @@ class ErrorPage extends Controller {
 		parent::__construct();
 	}
 	
-	function index() {
-		$this->view->msg = 'This page doesnt exist';
+	function index($msg) {
+		$this->view->msg = $msg;
 
         $list = array();
         array_push($list,

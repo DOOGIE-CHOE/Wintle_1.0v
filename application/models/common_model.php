@@ -29,6 +29,7 @@ class Common_Model extends Model{
         $sql = "SELECT user_id from user_profile where profile_url = '$profileurl'";
         $result = $this->db->conn->query($sql);
         $data = $result->fetch_assoc();
+       // echo    $data['user_id'];
         return $data['user_id'];
     }
 

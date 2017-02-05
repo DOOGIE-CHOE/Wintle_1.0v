@@ -83,6 +83,8 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.js" type="text/javascript" charset="utf-8"></script>
     <link href="<?php echo URL ?>css/tag-it/jquery.tag-editor.css" rel="stylesheet" type="text/css">
 
+    <link rel="mask-icon" href="<?php echo URL?>mac_favicon.png" color="#000000">
+
     <script>
         function onSignIn(googleUser) {
 

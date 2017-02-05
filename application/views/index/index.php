@@ -64,9 +64,14 @@
             //   return width;
         }
 
+
+        function profileload(){
+
+        }
         //put this instead of on load function;
         $.get("<?php echo URL?>viewlist/loadNewContents/<?php echo 0?>", function (o) {
             var value = jQuery.parseJSON(o);
+            console.log(value);
             if (value == null) {
                 //display default image
             } else {
@@ -79,7 +84,7 @@
                         }
 
                         var html = "<div class='grid-item'>" +
-                            "<div class='user'>" +
+                            "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>"+value[i].profile_url+"','all');\" >" +
                             "<div class='userphoto'>" +
                             "<img src='<?php echo URL?>"+value[i].profile_photo_path+"' class='img-circle'>" +
                             "</div>" +

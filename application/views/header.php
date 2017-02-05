@@ -212,12 +212,10 @@ if(Session::isSessionSet("loggedIn")){
                                                                   onclick="signOut()"></a>
             </div>
 
-            <div class="MemberShipBtn2" style="top:16px; right:30px;">
+            <div class="MemberShipBtn2" style="top:16px; right:30px;" onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');">
                 <div style="float:right; height:100%;">
                     <a href="#">
-                        <div id="profile-mini"
-                             onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');"
-                             style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
+                        <div id="profile-mini" style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
                     </a>
                     <script>
                         console.log("<?php echo Session::get('my_profile');echo " "; echo Session::get('profile_id')?>");

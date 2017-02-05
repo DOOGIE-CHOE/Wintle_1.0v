@@ -116,7 +116,7 @@ header #header-gnb [class = MemberShipBtn2] { /* user profile and name */
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 55px;
+    height: 28px;
 }
 header #header-gnb [class = MemberShipBtn2] #profile-mini{
     display:inline-block;
@@ -152,9 +152,9 @@ header #header-gnb .MemberShipBtn0 > * {
 header #header-gnb .MemberShipBtn1 > * {
     color: white; }
 
-header #header-gnb [class ^= MemberShipBtn] > *:hover{
-    color:#ff8243;
-}
+/*header #header-gnb [class ^= MemberShipBtn] > *:hover{*/
+    /*color:#ff8243;*/
+/*}*/
 
 #sub-header{
     position:fixed;

@@ -240,19 +240,19 @@ if(Session::isSessionSet("profile_id")){
                         }
                     }).submit();
                 });
-                $("#HashTags").tagit({
-                    //evert for after putting tags
-                    afterTagAdded: function(evt, ui) {
-                        var tags = $("#HashTags").tagit("assignedTags");
-                        //check whether the first charactor is #
-                        if(tags[tags.length-1].charAt(0) != '#'){
-                            //put # charactor at first then replace it with without-sharp tag
-                            var tagswithsharp = '#'+tags[tags.length-1];
-                            $("#HashTags").tagit("removeTagByLabel",tags[tags.length-1]);
-                            $("#HashTags").tagit("createTag",tagswithsharp);
-                        }
-                    }
-                });
+//                $("#HashTags").tagit({
+//                    //evert for after putting tags
+//                    afterTagAdded: function(evt, ui) {
+//                        var tags = $("#HashTags").tagit("assignedTags");
+//                        //check whether the first charactor is #
+//                        if(tags[tags.length-1].charAt(0) != '#'){
+//                            //put # charactor at first then replace it with without-sharp tag
+//                            var tagswithsharp = '#'+tags[tags.length-1];
+//                            $("#HashTags").tagit("removeTagByLabel",tags[tags.length-1]);
+//                            $("#HashTags").tagit("createTag",tagswithsharp);
+//                        }
+//                    }
+//                });
             });
         </script>
 

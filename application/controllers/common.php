@@ -34,4 +34,9 @@ class Common extends Controller{
         $data = $this->model->getUserIdByName($username);
         echo json_encode($data);
     }
+
+    public function likeContent($contentname, $username){
+        $data = $this->model->likeContent($contentname, $username);
+        echo json_encode($data);
+    }
 }

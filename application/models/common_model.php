@@ -52,4 +52,9 @@ class Common_Model extends Model{
         }
     }
 
+    function likeContent($contentname, $username){
+
+
+    }
+
 }

@@ -162,8 +162,8 @@ class Upload_Model extends Model {
 
 
     function uploadHashtag($contentid, $hashs){
-        $tmp = rtrim($hashs, ',');
-        $hashtags = explode(',', $tmp);
+        $tmp = rtrim($hashs, ' ');
+        $hashtags = explode(' ', $tmp);
         foreach($hashtags as $hash){
             $sql = $this->db->conn->prepare("CALL Win_Upload_Hashtag(?,?,@result)");
             $sql->bind_param('ss',$contentid,$hash);

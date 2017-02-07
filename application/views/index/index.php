@@ -100,7 +100,7 @@
                             // to replace \ to /
                             //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
                         } else if (value[i].content_type_name == "lyrics") {
-                            html += "<div class='albumT'>" + value[i].content_path + "</div>";
+                            html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
                             <!--lyrics-->
                         } else {
                         }

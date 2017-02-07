@@ -103,7 +103,7 @@
             <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/lyrics" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
-                <input type="text" id="content_path" name="content_path" required> path
+                <textarea  rows="20" cols="50"  id="content_path" name="content_path" style="width:auto;"required></textarea> pat
                 <br><br>
                 <input type="text" id="content_comments" name="content_comments" required> comments
                 <br><br>

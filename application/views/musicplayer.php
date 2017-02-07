@@ -29,7 +29,6 @@
             position: relative;
             height: 100%;
             width: 138px;
-            margin-left: 70px;
         }
 
         #button-box {
@@ -42,13 +41,13 @@
         #control-buttons input {
             display: inline-block;
             margin: 3px 10px 6px 10px;
-            height: 23px;
+            height: 21px;
         }
 
         #play-info-all {
             position: relative;
             height: 60px;
-            width: 1350px;
+            width: 1200px;
             margin: auto;
             top: 0;
             left: 0;
@@ -164,7 +163,7 @@
             position: relative;
             margin-left: 20px;
             height: 100%;
-            width: 200px;
+            width: 122px;
         }
 
         #play-options #button-box {
@@ -177,8 +176,8 @@
         #play-options input {
             display: inline-block;
             position: relative;
-            height: 28px;
-            margin: 5px;
+            height: 24px;
+            margin: 6px;
         }
 
     </style>

@@ -140,7 +140,11 @@
             display: inline-block;
             margin: 0 10px 0 10px;
             font-size: 0.9rem;
-            color: white;
+            color:white;
+        }
+
+        #played-time{
+            color: #ff8243;
         }
 
         #album-mini {
@@ -218,7 +222,6 @@
                 var currentTime = left / (progressrate * 10);
                 audio.currentTime = parseInt(currentTime);
                 displayTime(document.getElementById("played-time"), currentTime);
-                displayTime(document.getElementById("duration-time"), duration - currentTime);
             }
 
             // Set the range of mousedown
@@ -250,7 +253,7 @@
         });
 
         function displayTime(target, second) {
-            var min = ~~(second / 60); // shorthand of Math.float
+            var min = ~~(second / 60);
             var sec = ~~(second % 60);
             if (sec < 10) target.innerHTML = min + ":0" + sec;
             else target.innerHTML = min + ":" + sec;
@@ -286,11 +289,10 @@
                 setPlayedBarAndButton(0);
                 clearInterval(playinterval);
                 displayTime(document.getElementById("played-time"), 0);
-                displayTime(document.getElementById("duration-time"), duration);
                 return;
             }
+
             displayTime(document.getElementById("played-time"), audio.currentTime);
-            displayTime(document.getElementById("duration-time"), duration - audio.currentTime);
         }
 
         function setPlayedBarAndButton(left = null) {

@@ -87,7 +87,7 @@
             position: absolute;
             height: 9px;
             width: 800px;
-            bottom: 10px;
+            bottom: 9px;
         }
 
         #play-bar {
@@ -100,6 +100,7 @@
         }
 
         #play-bar-button {
+            display:none;
             position: absolute;
             top: 0;
             width: 9px;
@@ -238,7 +239,14 @@
                     $("#play-bar-button").css("left", currentMousePos.x).trigger(event); //execute drag event
                     setPlaybutton();
                 }
-            })
+            });
+
+            $("#play-info").mouseover(function(){
+                $("#play-bar-button").css("display","block");
+                setButtonPosition();
+            }).mouseout(function(){
+                $("#play-bar-button").css("display","none");
+            });
         });
 
         function displayTime(target, second) {
@@ -295,6 +303,17 @@
             }
             barbutton.css("left", tmp + "px");
             $("#played").css("width", tmp + 5 + "px");
+        }
+
+        function setButtonPosition(left = null){
+            var tmp;
+            if (left == null) {
+                tmp = ~~(audio.currentTime * 10);
+                tmp = tmp * progressrate;
+            } else {
+                tmp = left;
+            }
+            barbutton.css("left", tmp + "px");
         }
 
     </script>

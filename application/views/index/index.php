@@ -65,7 +65,7 @@
         }
 
 
-        function profileload(){
+        function profileload() {
 
         }
         //put this instead of on load function;
@@ -76,21 +76,21 @@
                 //display default image
             } else {
                 for (var i = 0; i < value.length; i++) {
-                    if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics")) {
-
+                    if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics" || value[i].content_type_name == "audio")) {
+                        //if the content is not inmage or lyrics or audio
                     } else {
                         if (value[i].profile_photo_path == null) {
                             value[i].profile_photo_path = 'img/defaultprofile.png';
                         }
 
                         var html = "<div class='grid-item'>" +
-                            "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>"+value[i].profile_url+"','all');\" >" +
+                            "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + value[i].profile_url + "','all');\" >" +
                             "<div class='userphoto'>" +
-                            "<img src='<?php echo URL?>"+value[i].profile_photo_path+"' class='img-circle'>" +
+                            "<img src='<?php echo URL?>" + value[i].profile_photo_path + "' class='img-circle'>" +
                             "</div>" +
                             "<div class='musictext'>" +
                             "<ul>" +
-                            "<li><span class='music_name'>"+value[i].user_name+"</span></li>" +
+                            "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
                             "</ul></div></div>";
                         if (value[i].content_type_name == "image") {
                             html += "<div class='albumP'><img src='" + value[i].content_path + "' alt=''/></div>";
@@ -99,14 +99,21 @@
                             // ** path **
                             // to replace \ to /
                             //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
-                        } else if (value[i].content_type_name == "lyrics") {
+                        } else if (value[i].content_type_name == "audio") {
+                            var path = value[i].content_path;
+                            path = path.split("\/");
+                            var imagename = path[3].split('.');
+                            var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0]+ ".png";
+                            html += "<div class='albumP'><img src='" + content_path +"' alt=''/></div>";
+                        }
+                        else if (value[i].content_type_name == "lyrics") {
                             html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
                             <!--lyrics-->
                         } else {
                         }
                         html +=
                             "<div class='userinfo'>" +
-                            "<div class='musictext'><ul>"+
+                            "<div class='musictext'><ul>" +
                             //"<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
                             "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
                             "<li class='music_tag'>";
@@ -119,17 +126,16 @@
                         }
 
 
-
                         html +=
                             "</li></ul></div></div>" + <!--userinfo-->
 
-                            "<div class='btm_info'>"+
+                            "<div class='btm_info'>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>"+
+                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>"+
+                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                        "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>"+
+                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
                             "</div>";
                         $(".grid").append(html);
                     }

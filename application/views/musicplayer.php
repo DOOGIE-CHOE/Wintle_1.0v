@@ -106,7 +106,7 @@
             width: 9px;
             height: 9px;
             background: black;
-            border: 2px solid #ff8243;
+            border: 2px solid #EE3B24;
             -moz-border-radius: 50px;
             -webkit-border-radius: 50px;
             border-radius: 50px;
@@ -116,7 +116,7 @@
             position: relative;
             height: 100%;
             width: 0;
-            background-color: #ff8243;
+            background-color: #EE3B24;
         }
 
         #content-name {
@@ -144,7 +144,7 @@
         }
 
         #played-time{
-            color: #ff8243;
+            color: #EE3B24;
         }
 
         #album-mini {

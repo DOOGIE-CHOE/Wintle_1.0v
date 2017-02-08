@@ -17,9 +17,9 @@ class JustWave
     const CACHE_FILENAME = 'justwave.sqlite3'; // path for sqlite3 database file
     // path to ffmpeg binary, rename it to 'avconv' if your system has it instead
     //const FFMPEG_PATH = '..\library\ffmpeg_client\ffmpeg'; // on Client
-    const FFMPEG_PATH = '../library/ffmpeg_server/ffmpeg'; // on Linux Server
+    const FFMPEG_PATH ='../library/ffmpeg_server/ffmpeg'; // on Linux Server
     /**
-    Input variables for creating and managing waves
+     * Input variables for creating and managing waves
      **/
 
     /** @var string Container for parameters to fetch from */
@@ -61,7 +61,7 @@ class JustWave
     private $progressData;
 
     /**
-    Output variables
+     * Output variables
      **/
 
     /** @var string Status ok|err */
@@ -86,51 +86,51 @@ class JustWave
      */
     private function init()
     {
-        if(isset($this->_OPTS['mode']))
+        if (isset($this->_OPTS['mode']))
             $this->mode = strtolower($this->_OPTS['mode']);
 
-        if(isset($this->_OPTS['wavedir'])) {
+        if (isset($this->_OPTS['wavedir'])) {
             $this->waveDir = $this->_OPTS['wavedir'];
             // it must be slashed at the end
-            if(substr($this->waveDir, -1) != '/')
+            if (substr($this->waveDir, -1) != '/')
                 $this->waveDir .= '/';
         }
         // try to create directory if it not exists and make it writable
-        if(!is_writable($this->waveDir)) {
+        if (!is_writable($this->waveDir)) {
             @mkdir($this->waveDir, 0755);
             @chmod($this->waveDir, 0755);
         }
 
         // dimensions of image in pixels
-        if(isset($this->_OPTS['width'])){
-            if(($width = intval(@$this->_OPTS['width'])) > 0)
+        if (isset($this->_OPTS['width'])) {
+            if (($width = intval(@$this->_OPTS['width'])) > 0)
                 $this->width = $width;
         }
-        if(isset($this->_OPTS['height'])){
-            if(($height = intval(@$this->_OPTS['height'])) > 0)
+        if (isset($this->_OPTS['height'])) {
+            if (($height = intval(@$this->_OPTS['height'])) > 0)
                 $this->height = $height;
         }
 
 
         // main wave color
-        if(@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['wave_color']))
+        if (@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['wave_color']))
             $this->waveColor = JustWave::htmlColor($this->_OPTS['wave_color']);
-        // progress color
-        if(@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['prog_color']))
+        //  progress color
+        if (@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['prog_color']))
             $this->progressColor = JustWave::htmlColor($this->_OPTS['prog_color']);
         // background color
-        if(@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['back_color']))
+        if (@preg_match(JustWave::PCRE_COLOR, $this->_OPTS['back_color']))
             $this->backgroundColor = JustWave::htmlColor($this->_OPTS['back_color']);
 
         // Flags
         // force creating wave images
-        if(isset($this->_OPTS['force']))
+        if (isset($this->_OPTS['force']))
             $this->force = true;
         // do not use cache at all
-        if(isset($this->_OPTS['nocache']))
+        if (isset($this->_OPTS['nocache']))
             $this->useCache = false;
         // use two-pass encoding for normalization
-        if(isset($this->_OPTS['twopass']))
+        if (isset($this->_OPTS['twopass']))
             $this->twopass = true;
     }
 
@@ -145,14 +145,14 @@ class JustWave
         $rawImage = ob_get_clean();
         $this->waveData = $rawImage;
 
-        if($this->mode == 'dataurl')
+        if ($this->mode == 'dataurl')
             $this->dataUrlWave = 'data:image/png;base64,' . base64_encode($rawImage);
         else {
-            $this->dataUrlWave = $this->waveDir .DS. $this->key . '.png';
+            $this->dataUrlWave = $this->waveDir . DS . $this->key . '.png';
             file_put_contents($this->dataUrlWave, $rawImage);
         }
 
-        if($this->waveColor == $this->progressColor)
+        if ($this->waveColor == $this->progressColor)
             return;
 
         // repeat for progress wave
@@ -161,10 +161,10 @@ class JustWave
         $rawImage = ob_get_clean();
         $this->progressData = $rawImage;
 
-        if($this->mode == 'dataurl')
+        if ($this->mode == 'dataurl')
             $this->dataUrlProgress = 'data:image/png;base64,' . base64_encode($rawImage);
         else {
-            $this->dataUrlProgress = $this->waveDir .DS. $this->key . '_bg.png';
+            $this->dataUrlProgress = $this->waveDir . DS . $this->key . '_bg.png';
             file_put_contents($this->dataUrlProgress, $rawImage);
         }
     } // saveWaves()
@@ -172,13 +172,13 @@ class JustWave
     /**
      * Create waves in GD images format from WAV (PCM) file
      * Wave file reading based on a post by "zvoneM" on
-     * 	http://forums.devshed.com/php-development-5/reading-16-bit-wav-file-318740.html
+     *    http://forums.devshed.com/php-development-5/reading-16-bit-wav-file-318740.html
      * Completely rewritten the file read loop, kept the header reading intact.
      *
      * Waveform drawing from https://github.com/afreiday/php-waveform-png
      *
      * Reads width * ACCURACY data points from the file and takes the peak value of accuracy values.
-     *	The peak is the highest value if mean is > 127 and the lowest value otherwise.
+     *    The peak is the highest value if mean is > 127 and the lowest value otherwise.
      * Data point is the average of ACCURACY points in the data block.
      */
     private function createWaves($wavfilename)
@@ -195,11 +195,12 @@ class JustWave
             // try to choose color that does not match
             // waveColor or progressColor
             // three colors should be sufficient
-            $colors = array('#FFFFFF','#000000','#FF0000');
-            foreach($colors as $col) {
+            $colors = array('#FFFFFF', '#000000', '#FF0000');
+            foreach ($colors as $col) {
                 $tempBackground = $col;
-                if($tempBackground != strtoupper($this->waveColor) &&
-                    $tempBackground != strtoupper($this->progressColor))
+                if ($tempBackground != strtoupper($this->waveColor) &&
+                    $tempBackground != strtoupper($this->progressColor)
+                )
                     break;
             }
         } else
@@ -207,7 +208,7 @@ class JustWave
 
         list($r, $g, $b) = JustWave::html2rgb($tempBackground);
         $transparentColor = imagecolorallocate($this->waveImg, $r, $g, $b);
-        imagefilledrectangle($this->waveImg, 0, 0, $this->width, $this->height,	$transparentColor);
+        imagefilledrectangle($this->waveImg, 0, 0, $this->width, $this->height, $transparentColor);
 
         // generate foreground color
         list($r, $g, $b) = JustWave::html2rgb($this->waveColor);
@@ -218,19 +219,19 @@ class JustWave
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         $handle = fopen($wavfilename, 'rb');
 
-        $heading[] = fread ($handle, 4);
-        $heading[] = bin2hex(fread ($handle, 4));
-        $heading[] = fread ($handle, 4);
-        $heading[] = fread ($handle, 4);
-        $heading[] = bin2hex(fread ($handle, 4));
-        $heading[] = bin2hex(fread ($handle, 2));
-        $heading[] = bin2hex(fread ($handle, 2));
-        $heading[] = bin2hex(fread ($handle, 4));
-        $heading[] = bin2hex(fread ($handle, 4));
-        $heading[] = bin2hex(fread ($handle, 2));
-        $heading[] = bin2hex(fread ($handle, 2));
-        $heading[] = fread ($handle, 4);
-        $heading[] = bin2hex(fread ($handle, 4));
+        $heading[] = fread($handle, 4);
+        $heading[] = bin2hex(fread($handle, 4));
+        $heading[] = fread($handle, 4);
+        $heading[] = fread($handle, 4);
+        $heading[] = bin2hex(fread($handle, 4));
+        $heading[] = bin2hex(fread($handle, 2));
+        $heading[] = bin2hex(fread($handle, 2));
+        $heading[] = bin2hex(fread($handle, 4));
+        $heading[] = bin2hex(fread($handle, 4));
+        $heading[] = bin2hex(fread($handle, 2));
+        $heading[] = bin2hex(fread($handle, 2));
+        $heading[] = fread($handle, 4);
+        $heading[] = bin2hex(fread($handle, 4));
 
         if ($heading[5] != '0100') {
             $this->raiseError('Wave file should be a PCM file');
@@ -244,7 +245,7 @@ class JustWave
         // point = one data point (pixel), width total
         // block = one block, there are $accuracy blocks per point
         // chunk = one data point 8 or 16 bit, mono or stereo
-        $filesize  = filesize($wavfilename);
+        $filesize = filesize($wavfilename);
         $chunksize = $byte * $channel;
 
         $file_chunks = ($filesize - 44) / $chunksize;
@@ -269,8 +270,7 @@ class JustWave
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // Read the data points and draw the image
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        while(!feof($handle))
-        {
+        while (!feof($handle)) {
             // The next file position is the float value rounded to the closest chunk
             // Read the next block, take the first value (of the first channel)
             $real_pos_diff = ($current_file_position - 44) % $chunksize;
@@ -288,8 +288,7 @@ class JustWave
                 $blocks[] = ord($chunk[1]) ^ 128; // 16 bit
 
             // Do we have enough blocks for the current point?
-            if (count($blocks) >= $accuracy)
-            {
+            if (count($blocks) >= $accuracy) {
                 // Calculate the mean and add the peak value to the array of blocks
                 sort($blocks);
                 $mean = (count($blocks) % 2) ? $blocks[(count($blocks) - 1) / 2]
@@ -309,13 +308,13 @@ class JustWave
         }
 
         // close wave file
-        fclose ($handle);
+        fclose($handle);
 
         // final line
         imageline($this->waveImg, 0, round($this->height / 2), $this->width,
             round($this->height / 2), $waveColor);
 
-        if($this->waveColor != $this->progressColor) {
+        if ($this->waveColor != $this->progressColor) {
             $this->progressImg = imagecreate($this->width, $this->height);
             imagecopy($this->progressImg, $this->waveImg, 0, 0, 0, 0, $this->width, $this->height);
             // change waveColor to progressColor
@@ -331,7 +330,7 @@ class JustWave
             imagealphablending($this->waveImg, true);
             imagecolortransparent($this->waveImg, $transparentColor);
 
-            if($this->waveColor != $this->progressColor) {
+            if ($this->waveColor != $this->progressColor) {
                 imagealphablending($this->progressImg, false);
                 imagesavealpha($this->progressImg, true);
                 imagealphablending($this->progressImg, true);
@@ -345,31 +344,31 @@ class JustWave
     /**
      * Converts audio input into WAV PCM
      * By default uses 2-pass for normalization
-     * 	and determining duration of an audio
+     *    and determining duration of an audio
      *
      * @param string $src Path to an audio file
      */
-    private function convert($audioUrl,$key)
+    private function convert($audioUrl, $key)
     {
-        $out = $m = array();
+        // $out = $m = array();
         $db = '';
 
-       /* if($this->twopass) {
-            // Normalize
-            @exec(JustWave::FFMPEG_PATH . " -i \"$src\" -af \"volumedetect\" -f null /dev/null 2>&1", $out);
+        /* if($this->twopass) {
+             // Normalize
+             @exec(JustWave::FFMPEG_PATH . " -i \"$src\" -af \"volumedetect\" -f null /dev/null 2>&1", $out);
 
-            for($i = 0, $c = count($out); $i < $c; $i++)
-                if(preg_match('/max_volume:\s+-?(\d+)/', $out[$i], $m)) {
-                    if(intval($m[1]) > 0)
-                        $db = "-af \"volume={$m[1]}dB\"";
-                    break;
-                }
-        }*/
+             for($i = 0, $c = count($out); $i < $c; $i++)
+                 if(preg_match('/max_volume:\s+-?(\d+)/', $out[$i], $m)) {
+                     if(intval($m[1]) > 0)
+                         $db = "-af \"volume={$m[1]}dB\"";
+                     break;
+                 }
+         }*/
 
         $out = $m = array(); // ffmpeg output
         // waveDir uses for temporary wav files
         //$wav = $this->waveDir . uniqid('wave') . '.wav';
-        $wav = $this->audioDir.DS . $key . '.wav';
+        $wav = $this->audioDir . DS . $key . '.wav';
         // convert mp3 to wav using FFMPEG
         $cmd = JustWave::FFMPEG_PATH . " -y -i \"$audioUrl\" $db \"$wav\" 2>&1";
         //$cmd = JustWave::FFMPEG_PATH . " -y -i \"$src\" $db \"$src\" 2>&1";
@@ -380,15 +379,15 @@ class JustWave
                 LOG::write(var_export($out, true));
         */
         // WAV file has 44 bytes length header
-        if(@filesize($wav) < 44) {
+        if (@filesize($wav) < 44) {
             @unlink($wav);
             $this->raiseError('Conversion failed');
             return false;
         }
 
         // try to find duration
-        for($i = 0, $c = count($out); $i < $c; $i++)
-            if(preg_match('/Duration: (\d\d):(\d\d):(\d\d)\.(\d+),/', $out[$i], $m)) {
+        for ($i = 0, $c = count($out); $i < $c; $i++)
+            if (preg_match('/Duration: (\d\d):(\d\d):(\d\d)\.(\d+),/', $out[$i], $m)) {
                 $this->duration = $m[1] * 3600 + $m[2] * 60 + $m[3] . '.' . $m[4];
                 //16px for one second.
                 $this->width = $this->duration * 16;
@@ -405,7 +404,7 @@ class JustWave
     private function checkCache()
     {
         // may we use caching mechanism?
-        if(!$this->useCache)
+        if (!$this->useCache)
             return false;
 
         $md5 = $this->key;
@@ -424,35 +423,33 @@ class JustWave
             list($filename, $waveData, $progressData, $this->duration) =
                 $request->fetch(PDO::FETCH_NUM);
 
-            if(!$filename)
+            if (!$filename)
                 return false;
 
             // waves are in cache
-            if($this->mode == 'dataurl')
+            if ($this->mode == 'dataurl')
                 $this->dataUrlWave = 'data:image/png;base64,' . base64_encode($waveData);
             else {
                 $this->dataUrlWave = $this->waveDir . $this->key . '.png';
                 file_put_contents($this->dataUrlWave, $waveData);
             }
 
-            if($this->waveColor != $this->progressColor) {
+            if ($this->waveColor != $this->progressColor) {
                 // repeat for progress wave
-                if($this->mode == 'dataurl')
+                if ($this->mode == 'dataurl')
                     $this->dataUrlProgress = 'data:image/png;base64,' . base64_encode($progressData);
                 else {
                     $this->dataUrlProgress = $this->waveDir . $this->key . '_bg.png';
                     file_put_contents($this->dataUrlProgress, $progressData);
                 }
-            }
-            else if($this->mode != 'dataurl') // wave images are the same
+            } else if ($this->mode != 'dataurl') // wave images are the same
                 $this->dataUrlProgress = $this->waveDir . $this->key . '.png';
 
             $this->status = 'ok';
             $this->message = 'In cache';
 
             return true;
-        }
-        catch(PDOException $e) {
+        } catch (PDOException $e) {
             // LOG::write('** PDOException' . $e->getMessage());
             return false;
         }
@@ -466,25 +463,26 @@ class JustWave
     private function waveExists()
     {
         // force to create new waves
-        if($this->force)
+        if ($this->force)
             return false;
 
         $waveName = $this->waveDir . $this->key . '.png';
         $progressName = $this->waveDir . $this->key . '_bg.png';
 
-        if(!file_exists($waveName))
+        if (!file_exists($waveName))
             return false;
-        if($this->waveColor != $this->progressColor
-            && !file_exists($progressName))
+        if ($this->waveColor != $this->progressColor
+            && !file_exists($progressName)
+        )
             return false;
 
         // NOTE: does not define duration of an audio
         $this->status = 'ok';
         $this->message = 'Images exist';
 
-        if($this->mode != 'dataurl') {
+        if ($this->mode != 'dataurl') {
             $this->dataUrlWave = $this->dataUrlProgress = $waveName;
-            if($this->waveColor != $this->progressColor)
+            if ($this->waveColor != $this->progressColor)
                 $this->dataUrlProgress = $progressName;
 
             return true;
@@ -493,7 +491,7 @@ class JustWave
         $this->dataUrlWave = 'data:image/png;base64,' .
             base64_encode(file_get_contents($waveName));
 
-        if($this->waveColor != $this->progressColor)
+        if ($this->waveColor != $this->progressColor)
             $this->dataUrlProgress = 'data:image/png;base64,' .
                 base64_encode(file_get_contents($progressName));
 
@@ -504,25 +502,25 @@ class JustWave
      * Caching waves images in SQlite database
      *
      */
-   /* private function cache()
-    {
-        // may we use caching mechanism?
-        if(!$this->useCache)
-            return;	// nope!
+    /* private function cache()
+     {
+         // may we use caching mechanism?
+         if(!$this->useCache)
+             return;	// nope!
 
-        try {
-            $stm = $this->db->prepare("INSERT INTO waves
-						VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stm->execute(array($this->key, $this->url,
-                $this->width, $this->height,
-                $this->waveColor, $this->progressColor, $this->backgroundColor,
-                $this->waveData, $this->progressData,
-                $this->duration, date('Y-m-d H:i:s')));
-        }
-        catch(PDOException $e) {
-            // LOG::write('** PDOException' . $e->getMessage());
-        }
-    }*/
+         try {
+             $stm = $this->db->prepare("INSERT INTO waves
+                         VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+             $stm->execute(array($this->key, $this->url,
+                 $this->width, $this->height,
+                 $this->waveColor, $this->progressColor, $this->backgroundColor,
+                 $this->waveData, $this->progressData,
+                 $this->duration, date('Y-m-d H:i:s')));
+         }
+         catch(PDOException $e) {
+             // LOG::write('** PDOException' . $e->getMessage());
+         }
+     }*/
 
     /**
      * Set status and message for failed result
@@ -543,13 +541,13 @@ class JustWave
      */
     private static function htmlColor($color)
     {
-        if(strlen($color) < 4)
+        if (strlen($color) < 4)
             $color = '#' . $color;
-        if(strlen($color) == 4) // #RGB
-            $color = '#' . substr($color,1,1) . substr($color,1,1)  .
-                substr($color,2,1) . substr($color,2,1) .
-                substr($color,3,1) . substr($color,3,1);
-        if(strlen($color) == 6) // RRGGBB
+        if (strlen($color) == 4) // #RGB
+            $color = '#' . substr($color, 1, 1) . substr($color, 1, 1) .
+                substr($color, 2, 1) . substr($color, 2, 1) .
+                substr($color, 3, 1) . substr($color, 3, 1);
+        if (strlen($color) == 6) // RRGGBB
             $color = '#' . $color;
         return strtoupper($color);
     }
@@ -576,24 +574,35 @@ class JustWave
      */
     public function __construct($opts = 'POST', $argv = null)
     {
-        switch(strtoupper($opts)) {
-            case 'POST': $this->_OPTS = $_POST; break;
-            case 'GET': $this->_OPTS = $_GET; break;
-            case 'REQUEST': $this->_OPTS = $_REQUEST; break;
-            case 'COOKIE': $this->_OPTS = $_COOKIE; break;
-            case 'SESSION': $this->_OPTS = $_SESSION; break;
+        switch (strtoupper($opts)) {
+            case 'POST':
+                $this->_OPTS = $_POST;
+                break;
+            case 'GET':
+                $this->_OPTS = $_GET;
+                break;
+            case 'REQUEST':
+                $this->_OPTS = $_REQUEST;
+                break;
+            case 'COOKIE':
+                $this->_OPTS = $_COOKIE;
+                break;
+            case 'SESSION':
+                $this->_OPTS = $_SESSION;
+                break;
 
             case 'ARGV': // for command line routines
-                foreach($argv as $value)
-                    if(list($key, $val) = explode('=', $value, 2)) {
+                foreach ($argv as $value)
+                    if (list($key, $val) = explode('=', $value, 2)) {
                         $this->_OPTS[$key] = $val;
                     }
                 break; // case 'ARGV'
 
-            default: $this->_OPTS = $_POST;
+            default:
+                $this->_OPTS = $_POST;
         }
 
-        // init JustWave parameters according to _OPTS
+        //init JustWave parameters according to _OPTS
         $this->init();
         return $this;
     }
@@ -603,24 +612,24 @@ class JustWave
      *
      * @param string $url Path or url to audio file (it may be not only an mp3 file)
      */
-    public function create($key,$ext)
+    public function create($key, $ext)
     {
-        $this->audio = $key.'.'.$ext;
+        $this->audio = $key . '.' . $ext;
 
-        $audioUrl = $this->audioDir.DS.$key.'.'.$ext;
+        $audioUrl = $this->audioDir . DS . $key . '.' . $ext;
 
         $this->key = $key;
 
-        if($ext != 'wav'){
-            if(!($wav = $this->convert($audioUrl,$key)))
-                return;
-        }
+        //if($ext != 'wav'){
+        if (!($wav = $this->convert($audioUrl, $key)))
+            return false;
+        //  }
         // convert audio to WAV PCM using FFMPEG
 
         // create waves
-        if(!($this->createWaves($wav))) {
+        if (!($this->createWaves($wav))) {
             @unlink($wav);
-            return;
+            return false;
         }
 
         // Delete temporary files.
@@ -653,18 +662,23 @@ class JustWave
         ));
     }
 
-    public function getKey(){
+    public function getKey()
+    {
         return $this->key;
     }
 
-    public function getwidth(){
+    public function getwidth()
+    {
         return $this->width;
     }
 
-    public function setWaveDir($wavepath){
+    public function setWaveDir($wavepath)
+    {
         $this->waveDir = $wavepath;
     }
-    public function setAudioDir($audiopath){
+
+    public function setAudioDir($audiopath)
+    {
         $this->audioDir = $audiopath;
     }
 

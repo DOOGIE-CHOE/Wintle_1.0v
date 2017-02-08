@@ -149,8 +149,11 @@ class Upload_Model extends Model {
                 $justwave = new JustWave('GET');
                 $justwave->setAudioDir($audiopath);
                 $justwave->setWaveDir($wavepath);
-                $justwave->create($key,$ext);
-                return $audiopath.DS.$file_name;
+                if($justwave->create($key,$ext) == false){
+                    throw new Exception("convert error");
+                }else{
+                    return $audiopath.DS.$file_name;
+                }
             }
             else{
                 throw new Exception("System error occur during uploading file");

@@ -1,6 +1,19 @@
 <div id="all">
     <script>
+        var offset = 0;
+        var flag = true;   //job flag
+
         $(function () {
+            loadNewContent();
+            $(window).scroll(function () {
+                // do whatever you need here.
+                if ($(window).scrollTop() > $('.grid').height() - 1200 && flag == true) {
+
+                    loadNewContent(); // call loading card function
+                    flag = false;     // wait until the job is done
+                }
+
+            });
             var wall = new Freewall(".grid");
             wall.reset({
                 selector: '.grid-item',
@@ -51,8 +64,8 @@
                 if (e.which === 32)
                     return false;
             });
-        });
 
+        });
 
         function setwidthgrid() {
             $(".grid").width("95%");
@@ -64,93 +77,95 @@
             //   return width;
         }
 
-
-        function profileload() {
-
-        }
-        //put this instead of on load function;
-        $.get("<?php echo URL?>viewlist/loadNewContents/<?php echo 0?>", function (o) {
-            var value = jQuery.parseJSON(o);
-            console.log(value);
-            if (value == null) {
-                //display default image
-            } else {
-                for (var i = 0; i < value.length; i++) {
-                    if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics" || value[i].content_type_name == "audio")) {
-                        //if the content is not inmage or lyrics or audio
-                    } else {
-                        if (value[i].profile_photo_path == null) {
-                            value[i].profile_photo_path = 'img/defaultprofile.png';
-                        }
-
-                        var html = "<div class='grid-item'>" +
-                            "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + value[i].profile_url + "','all');\" >" +
-                            "<div class='userphoto'>" +
-                            "<img src='<?php echo URL?>" + value[i].profile_photo_path + "' class='img-circle'>" +
-                            "</div>" +
-                            "<div class='musictext'>" +
-                            "<ul>" +
-                            "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
-                            "</ul></div></div>";
-                        if (value[i].content_type_name == "image") {
-                            html += "<div class='albumP'><img src='" + value[i].content_path + "' alt=''/></div>";
-                            <!--앨범사진-->
-
-                            // ** path **
-                            // to replace \ to /
-                            //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
-                        } else if (value[i].content_type_name == "audio") {
-                            var path = value[i].content_path;
-                            path = path.split("\/");
-                            var imagename = path[3].split('.');
-                            var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0]+ ".png";
-                            html += "<div class='albumA'><img src='" + content_path +"' alt=''/></div>";
-                        }
-                        else if (value[i].content_type_name == "lyrics") {
-                            html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
-                            <!--lyrics-->
+        function loadNewContent() {
+            //put this instead of on load function;
+            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset, function (o) {
+                var value = jQuery.parseJSON(o);
+                console.log(value);
+                if (value == null) {
+                    //display default image
+                } else {
+                    for (var i = 0; i < value.length; i++) {
+                        if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics" || value[i].content_type_name == "audio")) {
+                            //if the content is not inmage or lyrics or audio
                         } else {
+                            if (value[i].profile_photo_path == null) {
+                                value[i].profile_photo_path = 'img/defaultprofile.png';
+                            }
+
+                            var html = "<div class='grid-item'>" +
+                                "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + value[i].profile_url + "','all');\" >" +
+                                "<div class='userphoto'>" +
+                                "<img src='<?php echo URL?>" + value[i].profile_photo_path + "' class='img-circle'>" +
+                                "</div>" +
+                                "<div class='musictext'>" +
+                                "<ul>" +
+                                "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
+                                "</ul></div></div>";
+                            if (value[i].content_type_name == "image") {
+                                html += "<div class='albumP'><img src='" + value[i].content_path + "' alt=''/></div>";
+                                <!--앨범사진-->
+
+                                // ** path **
+                                // to replace \ to /
+                                //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
+                            } else if (value[i].content_type_name == "audio") {
+                                var path = value[i].content_path;
+                                path = path.split("\/");
+                                var imagename = path[3].split('.');
+                                var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
+                                html += "<div class='albumA'><img src='" + content_path + "' alt=''/></div>";
+                            }
+                            else if (value[i].content_type_name == "lyrics") {
+                                html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
+                                <!--lyrics-->
+                            } else {
+                            }
+                            html +=
+                                "<div class='userinfo'>" +
+                                "<div class='musictext'><ul>" +
+                                //"<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
+                                "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
+                                "<li class='music_tag'>";
+                            if (value[i].hashtags != null) {
+                                var hsh = value[i].hashtags.split(",");
+                            }
+
+                            for (var j = 0; j < hsh.length; j++) {
+                                html += "<span class='label f_dwhite'>" + "\#" + hsh[j] + "</span>";
+                            }
+
+
+                            html +=
+                                "</li></ul></div></div>" + <!--userinfo-->
+
+                                "<div class='btm_info'>" +
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>" +
+                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
+                                "</div>";
+                            $(".grid").append(html);
                         }
-                        html +=
-                            "<div class='userinfo'>" +
-                            "<div class='musictext'><ul>" +
-                            //"<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
-                            "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
-                            "<li class='music_tag'>";
-                        if (value[i].hashtags != null) {
-                            var hsh = value[i].hashtags.split(",");
-                        }
-
-                        for (var j = 0; j < hsh.length; j++) {
-                            html += "<span class='label f_dwhite'>" + "\#" + hsh[j] + "</span>";
-                        }
-
-
-                        html +=
-                            "</li></ul></div></div>" + <!--userinfo-->
-
-                            "<div class='btm_info'>" +
-                            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
-                            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>" +
-                            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
-                            "</div>";
-                        $(".grid").append(html);
                     }
                 }
-            }
-        }).done(function () {
-            var count = 0;
-            var arrange = setInterval(function () {
-                $(window).trigger('resize'); // resize grid-item
-                count++;
-                if (count >= 10) {
-                    clearInterval(arrange);
-                }
-            }, 300);
-        });
+            }).done(function () {
+                var count = 0;
+                var arrange = setInterval(function () {
+                    $(window).trigger('resize'); // resize grid-item
+                    count++;
+                    if (count >= 10) {
+                        clearInterval(arrange);
+                        offset += 10
+                        flag = true; // the job is done
+                    }
+                }, 300);
+
+            });
+        }
+
 
         function appendPopUp() {
             var html =

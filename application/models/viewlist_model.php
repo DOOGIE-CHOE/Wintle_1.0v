@@ -19,7 +19,7 @@ class ViewList_Model extends Model
     {
         try {
             $contents = array();
-            $sql = "SELECT * from view_all_content_info";
+            $sql = "SELECT * from view_all_content_info limit 10 offset $offset";
             $result = $this->db->conn->query($sql);
 
             while ($data = $result->fetch_assoc()) {

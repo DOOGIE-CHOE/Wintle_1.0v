@@ -147,6 +147,12 @@ if(Session::isSessionSet("loggedIn")){
             });
 
         });
+//        $(window).scroll(function() {
+//            console.log($(window).scrollTop());
+//
+//
+//
+//        });
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 

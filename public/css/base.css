@@ -11,7 +11,9 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td 
 {margin:0; padding:0; border:0;}
 
-html, body { width:100%; height:100%; overflow:auto }
+html, body { width:100%; height:100%;
+    /*overflow:auto */
+}
 /*
 body{font-size: 11px; line-height: 1.42857143;color: #333;}*/
 *, *:before, *:after {box-sizing:  border-box !important;}
@@ -275,7 +277,7 @@ table caption 	{display:none;}
 
 /*스크롤 속성 추가변경 필요*/
 html {
-    overflow-y : hidden;
+    /*overflow-y : hidden;*/
     scrollbar-3dLight-Color: #efefef;
     scrollbar-arrow-color: #dfdfdf;
     scrollbar-base-color: #efefef;

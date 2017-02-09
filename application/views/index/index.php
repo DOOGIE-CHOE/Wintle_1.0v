@@ -104,7 +104,7 @@
                             path = path.split("\/");
                             var imagename = path[3].split('.');
                             var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0]+ ".png";
-                            html += "<div class='albumP'><img src='" + content_path +"' alt=''/></div>";
+                            html += "<div class='albumA'><img src='" + content_path +"' alt=''/></div>";
                         }
                         else if (value[i].content_type_name == "lyrics") {
                             html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";

@@ -18,13 +18,14 @@ if(Session::isSessionSet("loggedIn")){
 <head>
     <title>wintle</title>
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
-
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
     <!-- draggable import -->
     <script src="<?php echo URL ?>public/js/jquery/jquery-ui.js" type="text/javascript"></script>
 
+    <!-- Google Analytics -->
+    <script src="<?php echo URL ?>public/js/analyticstracking.js" type="text/javascript"></script>
 
     <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
     <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->

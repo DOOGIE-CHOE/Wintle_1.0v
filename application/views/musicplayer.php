@@ -158,7 +158,7 @@
         #album-photo {
             height: 60px;
             width: 60px;
-            background-image: url('<?php echo URL?>i/1.jpg');
+            background-image: url('<?php echo URL?>image/123.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -197,7 +197,7 @@
         var currentMousePos = {x: -1, y: -1};
 
         $(function () {
-            audio.setAttribute('src', "<?php echo URL?>audio/1.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/Vexento-MaskedRaver.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function () {
                 duration = audio.duration;
@@ -342,9 +342,10 @@
 
         <div id="play-info-time">
             <div id="creator-info">
-                <div id="content-hash">#test</div>
+                <div id="content-hash">#piano #NoCopyrightSounds #music</div>
                 <div id="content-info">
-                    <div id="content-name">Shining Star by Daniel</div>
+                    <div id="content-name">vexento - Masked Raver [NCS Release]
+                    </div>
                     <div id="playtime">
                         <div id="played-time">0:00</div>
                         <div id="duration-time">0:00</div>

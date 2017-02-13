@@ -15,11 +15,11 @@ class ViewList_Model extends Model
     }
 
 
-    function loadNewContents($offset)
+    function loadNewContents($offset, $limist)
     {
         try {
             $contents = array();
-            $sql = "SELECT * from view_all_content_info limit 10 offset $offset";
+            $sql = "SELECT * from view_all_content_info limit $limist offset $offset";
             $result = $this->db->conn->query($sql);
 
             while ($data = $result->fetch_assoc()) {

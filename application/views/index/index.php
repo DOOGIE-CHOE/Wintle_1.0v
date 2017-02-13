@@ -4,13 +4,16 @@
         var flag = true;   //job flag
 
         $(function () {
-            loadNewContent();
+            if (flag) {
+                flag = false;
+                loadNewContent();
+            }
             $(window).scroll(function () {
                 // do whatever you need here.
-                if ($(window).scrollTop() > $('.grid').height() - 1200 && flag == true) {
-
+                if ($(window).scrollTop() > $('.grid').height() - 1050 && flag == true) {
+                    flag = false;    // wait until the job is done
                     loadNewContent(); // call loading card function
-                    flag = false;     // wait until the job is done
+
                 }
 
             });
@@ -79,7 +82,8 @@
 
         function loadNewContent() {
             //put this instead of on load function;
-            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset, function (o) {
+            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/20", function (o) {
+                offset += 20;
                 var value = jQuery.parseJSON(o);
                 console.log(value);
                 if (value == null) {
@@ -124,7 +128,7 @@
                             html +=
                                 "<div class='userinfo'>" +
                                 "<div class='musictext'><ul>" +
-                                //"<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
+                                "<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
                                 "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
                                 "<li class='music_tag'>";
                             if (value[i].hashtags != null) {
@@ -132,7 +136,7 @@
                             }
 
                             for (var j = 0; j < hsh.length; j++) {
-                                html += "<span class='label f_dwhite'>" + "\#" + hsh[j] + "</span>";
+                                html += "<span class='label f_dwhite'>" + hsh[j] + "</span>";
                             }
 
 
@@ -147,7 +151,7 @@
                                 "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                                 "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
                                 "</div>";
-                            $(".grid").append(html);
+                            $(".grid-main").append(html);
                         }
                     }
                 }
@@ -156,9 +160,8 @@
                 var arrange = setInterval(function () {
                     $(window).trigger('resize'); // resize grid-item
                     count++;
-                    if (count >= 10) {
+                    if (count >= 5) {
                         clearInterval(arrange);
-                        offset += 10
                         flag = true; // the job is done
                     }
                 }, 300);
@@ -361,8 +364,10 @@
         <div class="container bg_black">
 
             <!--앨범전체 AREA-->
-            <div class="grid" data-layout-mode="masonry">
+            <div class="grid grid-main" data-layout-mode="masonry">
                 <!--앨범-->
+
+
                 <div class="grid-item">
 
                     <div class="user">
@@ -416,8 +421,9 @@
                         </div>
                     </div><!--//userinfo-->
                     <div class="btm_info" style="background: ugba(0,0,0,0)">
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
                                     href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
@@ -425,7 +431,7 @@
                     </div>
                 </div>
                 <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+                <div class="grid-item" style="background-color:rgba(255,255,255,1)">
 
                     <div class="user">
                         <div class="userphoto">
@@ -434,7 +440,7 @@
                         </div>
                         <div class="musictext">
                             <ul>
-                                <li><span class="music_name">Andrew</span></li>
+                                <li><span class="music_name" style="color:black">Andrew</span></li>
                             </ul>
                         </div>
                     </div>
@@ -443,31 +449,7 @@
                     <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
                                            data-target="#myModal"><img src="image/album_p7.jpg" alt=""/></a>
                     </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
 
-                <!--앨범-->
-                <div class="grid-item">
 
                     <div class="user">
                         <div class="userphoto">
@@ -485,31 +467,7 @@
                     <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
                                            data-target="#myModal"><img src="image/album_p1.jpg" alt=""/></a>
                     </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
 
-                <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
 
                     <div class="user">
                         <div class="userphoto">
@@ -573,8 +531,87 @@
                         </div>
                     </div><!--//userinfo-->
                     <div class="btm_info" style="background: ugba(0,0,0,0)">
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+
+
+                </div>
+
+                <!--앨범-->
+                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="albumT">
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+
+
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+
+                                <li><span class="music_title"><br><br><br><br>그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
                                     href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
@@ -615,14 +652,211 @@
                         </div>
                     </div><!--//userinfo-->
                     <div class="btm_info" style="background: ugba(0,0,0,0)">
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
                                     href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
                                     href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
                     </div>
                 </div>
+
+
+
+
+
+
+
+                <div class="grid-item">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
+                                           data-target="#myModal"><img src="image/sample111.jpg" alt=""/></a>
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그런 노래...<br> 재밌긴 하당 한번 확인해 보세용 !</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!--앨범-->
+                <div class="grid-item">
+
+                    <div class="user">
+                        <div class="userphoto">
+                            <!--                            <div class="badge bg_orange">3</div>-->
+                            <img src="image/p2.jpg" class="img-circle">
+                        </div>
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_name">Andrew</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
+                                           data-target="#myModal"><img src="image/album_p7.jpg" alt=""/></a>
+                    </div>
+
+<!---->
+<!--                    <div class="user">-->
+<!--                        <div class="userphoto">-->
+<!--                            <!--                            <div class="badge bg_orange">3</div>-->
+<!--                            <img src="image/p2.jpg" class="img-circle">-->
+<!--                        </div>-->
+<!--                        <div class="musictext">-->
+<!--                            <ul>-->
+<!--                                <li><span class="music_name">Andrew</span></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
+                                           data-target="#myModal"><img src="image/album_p1.jpg" alt=""/></a>
+                    </div>
+
+
+<!--                    <div class="user">-->
+<!--                        <div class="userphoto">-->
+<!--                            <!--                            <div class="badge bg_orange">3</div>-->
+<!--                            <img src="image/p2.jpg" class="img-circle">-->
+<!--                        </div>-->
+<!--                        <div class="musictext">-->
+<!--                            <ul>-->
+<!--                                <li><span class="music_name">Andrew</span></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                    <div class="albumT">
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        사랑해 아직도<br>
+                        왜너를 잊지 못 하니<br><br>
+                        오랜 기억 속에 너를 생각하며<br>
+                        달려온 시간들 속에<br><br>
+                        필름처럼 지나온 너의 목소리가 들려와<br>
+                        I want you Only you<br><br>
+                        지금도 늦기 않았나?<br>
+                        다시 네게 다가가려해<br><br>
+                        변한 나의 모습이지만<br>
+                        받아주겠니 I love you<br>
+
+
+                    </div>
+                    <div class="userinfo">
+                        <div class="musictext">
+                            <ul>
+                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
+                                <li class="music_tag">
+                                    <span class="label f_dwhite">#달콤한</span>
+                                    <span class="label f_dwhite">#Classic</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                    <span class="label f_dwhite">#jazz</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//userinfo-->
+                    <div class="btm_info" style="background: ugba(0,0,0,0)">
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
+                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
 
                 <!--앨범-->
                 <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
@@ -678,8 +912,9 @@
                         </div>
                     </div><!--//userinfo-->
                     <div class="btm_info" style="background: ugba(0,0,0,0)">
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/share.svg" class="w20px"/></a></span>
+                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
+                                                    href="#"><img src="icon/Details_Content/share.svg"
+                                                                  class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
                                     href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
                         <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a

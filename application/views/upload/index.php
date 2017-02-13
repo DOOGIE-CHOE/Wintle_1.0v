@@ -100,6 +100,7 @@
     <div class="main-board">
         <div class="music-board">
             <br><br><br>
+            가사
             <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/lyrics" method="post"  enctype="multipart/form-data">
                 <input type="text" id="content_title" name="content_title" required> title
                 <br><br>
@@ -113,32 +114,33 @@
             </form>
 
             <br><br><br><br>
-
+            오디오
             <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/audio" method="post"  enctype="multipart/form-data">
-                <input type="text" id="content_title" name="content_title" required> title
+                <input type="text" id="content_title" name="content_title"> title
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path
                 <br><br>
-                <input type="text" id="content_comments" name="content_comments" required> comments
+                <textarea  rows="15" cols="40"  id="content_comments" name="content_comments" style="width:auto;"required></textarea> comments
                 <br><br>
-                <input type="text" id="hashtags[]" name="hashtags" required> hashtags
+                <input type="text" id="hashtags[]" name="hashtags"> hashtags
                 <br><br>
                 <input type="submit" id="test" name="test" value="send">
             </form>
 
             <br><br><br><br>
-
+            사진
             <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/image" method="post"  enctype="multipart/form-data">
-                <input type="text" id="content_title" name="content_title" required> title
+                <input type="text" id="content_title" name="content_title"> title
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path
                 <br><br>
-                <input type="text" id="content_comments" name="content_comments" required> comments
+                <input type="text" id="content_comments" name="content_comments"> comments
                 <br><br>
-                <input type="text" id="hashtags[]" name="hashtags" required> hashtags
+                <input type="text" id="hashtags[]" name="hashtags"> hashtags
                 <br><br>
                 <input type="submit" id="test" name="test" value="send">
             </form>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
 

@@ -102,13 +102,13 @@
             <br><br><br>
             가사
             <form id="upload-content-form" action="<?php echo URL?>upload/uploadcontent/lyrics" method="post"  enctype="multipart/form-data">
-                <input type="text" id="content_title" name="content_title" required> title
+                <input type="text" id="content_title" name="content_title" > title
                 <br><br>
                 <textarea  rows="20" cols="50"  id="content_path" name="content_path" style="width:auto;"required></textarea> pat
                 <br><br>
-                <input type="text" id="content_comments" name="content_comments" required> comments
+                <input type="text" id="content_comments" name="content_comments" > comments
                 <br><br>
-                <input type="text" id="hashtags[]" name="hashtags" required> hashtags
+                <input type="text" id="hashtags[]" name="hashtags" > hashtags
                 <br><br>
                 <input type="submit" id="test" name="test" value="send">
             </form>
@@ -120,7 +120,7 @@
                 <br><br>
                 <input type="file" id="content_path" name="content_path" required> path
                 <br><br>
-                <textarea  rows="15" cols="40"  id="content_comments" name="content_comments" style="width:auto;"required></textarea> comments
+                <textarea  rows="15" cols="40"  id="content_comments" name="content_comments" style="width:auto;" ></textarea> comments
                 <br><br>
                 <input type="text" id="hashtags[]" name="hashtags"> hashtags
                 <br><br>

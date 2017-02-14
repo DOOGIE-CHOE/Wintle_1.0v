@@ -12,24 +12,36 @@ class Upload_Model extends Model {
         parent::__construct();
     }
 
+
     function uploadContent($type){
+        $content_title = $_POST['content_title'];
+        $content_comments = $_POST['content_comments'];
+        $content_hashs =  $_POST['hashtags'];
+        $user_id = Session::get('user_id');
+        if($type == "lyrics"){
+            $path = $_POST['content_path'];
+        }else{
+            $file_name = $_FILES['content_path']['name'];
+            $file_size = $_FILES['content_path']['size']; // to check file size if it's too big
+            $file_tmp = $_FILES['content_path']['tmp_name'];
+            if($type == "audio"){
+                $path = $this->uploadAudio($file_name, $file_size, $file_tmp);
+            }else if($type == "image"){
+                $path = $this->uploadimage($file_name, $file_size, $file_tmp);
+            }
+        }
+        return $this->uploadContentProcedure($user_id, $content_title, $path, $content_comments, $content_hashs, $type);
+    }
+
+    function uploadContentProcedure($user_id, $content_title, $path, $content_comments, $content_hashs, $type){
         $data = array();
         try{
-            if($type == "lyrics"){
-                $path = $_POST['content_path'];
-            }else if($type == "audio"){
-                $path = $this->uploadAudio();
-            }else if($type == "image"){
-                $path = $this->uploadimage();
-            }
-
             /* DB Stored Procedure part ! */
             $this->db->conn->begin_transaction();
             $sql = $this->db->conn->prepare("CALL Win_Upload_Content(?,?,?,?,?,@result)");
-            $user_id = Session::get('user_id');
 
             //Put arguments
-            $sql->bind_param('sssss',$_POST['content_title'],$path,$_POST['content_comments'],$user_id,$type);
+            $sql->bind_param('sssss',$content_title, $path, $content_comments, $user_id, $type);
             $sql->execute();
 
             //Get output from Stored Procedure
@@ -37,7 +49,7 @@ class Upload_Model extends Model {
             $result = $select->fetch_assoc();
 
             if($result['@result'] > 0){
-                if($this->uploadHashtag($result['@result'], $_POST['hashtags'])){
+                if($this->uploadHashtag($result['@result'], $content_hashs)){
                     $data['success'] = true;
                     $this->db->conn->commit();
                 }else{
@@ -53,14 +65,10 @@ class Upload_Model extends Model {
         }finally{
             return $data;
         }
-
     }
 
-    public function uploadimage(){
+    public function uploadimage($file_name, $file_size, $file_tmp){
         $permitted = array('jpeg', 'jpg','gif','png');
-        $file_name = $_FILES['content_path']['name'];
-        //$file_size = $_FILES['content_path']['size']; check file size if it's too big
-        $file_tmp = $_FILES['content_path']['tmp_name'];
         $time = getdate();
         $length = count($_FILES['content_path']['name']);
         $imgpath = "image".DS.$time['year'].DS.$time['mon'];
@@ -100,17 +108,13 @@ class Upload_Model extends Model {
         }
     }
 
-    public function uploadAudio(){
+    public function uploadAudio($file_name, $file_size, $file_tmp){
         $permitted = array('mp3', 'wav');
-        $file_name = $_FILES['content_path']['name'];
-        //$file_size = $_FILES['content_path']['size']; check file size if it's too big
-        $file_tmp = $_FILES['content_path']['tmp_name'];
         $time = getdate();
         $length = count($_FILES['content_path']['name']);
         $wavepath = "wave".DS.$time['year'].DS.$time['mon'];
         $audiopath = "audio".DS.$time['year'].DS.$time['mon'];
         $count = 0;
-
 
         //get extension
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);

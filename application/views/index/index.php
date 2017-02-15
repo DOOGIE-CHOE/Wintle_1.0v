@@ -217,12 +217,9 @@
 
     <div class="modal" id="playDetail" role="dialog">
     </div>
+
     <div id="wrapper">
         <div class="container bg_black">
-
-
-
-
             <!--앨범전체 AREA-->
             <div class="grid grid-main" data-layout-mode="masonry">
                 <!--앨범-->
@@ -232,9 +229,6 @@
                                     src="../image/p2.jpg" alt=""/></a></div>
                 </div>
 
-
-
-
                 <!-- Modal 앨범상세보기 호출 -->
                 <div class="dynamic-popup">
 
@@ -243,4 +237,5 @@
         </div><!--container-->
     </div><!--#wrapper-->
     </body>
+
 </div>

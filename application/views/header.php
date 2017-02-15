@@ -69,7 +69,10 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="shortcut icon" type="image/ico" href="<?php echo URL ?>favicon.ico">
 
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="<?php echo URL ?>js/bootstrap.js"></script>
+
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
     <!--    <script type="text/javascript" src="--><?php //echo URL?><!--/js/bootstrap.min.js"></script>-->
     <!--<script type="text/javascript" src="./common/js/jquery.min.js"></script>

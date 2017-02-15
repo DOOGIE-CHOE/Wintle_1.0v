@@ -13,8 +13,6 @@ $.pagehandler.loadContent = function (url, type) {
     }else if(type == "modal"){
         id = ".modal";
     }
-    console.log(id);
-
     // $("#body").load(pageUrl);
 
     // $('.ajax-loader').show();
@@ -26,11 +24,8 @@ $.pagehandler.loadContent = function (url, type) {
                 $(id).html($(data).filter(id).html());
             else if(id == "#contents")
                 $(id).html($(data).find(id).html());
-            else if(id == ".modal") {
+            else if(id == ".modal")
                 $(id).html($(data).filter("#all").html());
-                console.log($(data).filter("#all").html());
-
-            }
             //$('#body').html();
             // hide ajax loader
             //   $('.ajax-loader').hide();

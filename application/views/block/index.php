@@ -44,7 +44,7 @@
                     <!--앨범사진외 -->
                     <ul class="userinfo">
                         <li>
-                            <span class="user">
+                            <span class="user" onclick="$.pagehandler.loadContent('<?php echo URL.$this->data['profile_url']?>' ,'all');"\>
                                 <div class="userP">
                                     <img src="../image/p1.jpg" class="img-circle">
                                 </div>

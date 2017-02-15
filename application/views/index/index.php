@@ -77,6 +77,9 @@
                     var opened = $('#playDetail').hasClass('modal in');
                     if (opened === true) {
                         $('#playDetail').modal('hide');
+                        var pageUrl = "<?php echo URL?>";
+                        window.history.pushState({ path: pageUrl }, '', pageUrl);
+                    }
                 }
             });
 

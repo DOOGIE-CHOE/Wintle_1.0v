@@ -13,6 +13,7 @@ class WebStudio_Model extends Model{
     }
 
     public function createProject(){
+        $upload = New Upload_Model();
 
     }
 

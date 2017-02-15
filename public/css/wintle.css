@@ -12,6 +12,7 @@ html{
 .grid { width:95%; min-height:100% !important; margin:0 auto 0 auto !important; padding:0 !important }
 .container_100 { width:100% !important; min-height:100% !important; margin:0 auto !important; padding:0 !important }
 .rowAR { display:block; clear:both; margin-bottom:30px; padding:15px}
+.navbar {z-index:1000}
 
 
 /*앨범목록 그리드사용(앨범및 가사제공)*/
@@ -27,15 +28,6 @@ html{
   background-position: center center;
   background-size: cover;
 }
-
-
-
-/*앨범그리드 사운드파일제공 영역*/
-/*
-.grid-item .eq_box     { display: table; padding:3px !important;}
-.grid-item .equalizer  { display: table-cell;  background:#a59a67; width:192px; height:192px !important; overflow:hidden; vertical-align: middle; text-align: center; }
-.grid-item .equalizer  img { border-top-left-radius: 10px; border-top-right-radius: 10px; padding:3px; width:100%; height:auto; box-sizing:border-box; overflow:hidden}
-*/
 
 
 .grid-item .user {
@@ -59,6 +51,12 @@ html{
 .grid-item .user  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}
 
 
+/*앨범그리드 사운드파일제공 영역*/
+/*2017 css필요 활성화시키고부분값 변경했음*/
+.grid-item .eq_box     { display: table; padding:3px !important;}
+.grid-item .equalizer  { display: table-cell; border-radius:8px 8px 0 0; width:200px; overflow:hidden; vertical-align: middle; text-align: center }
+.grid-item .equalizer  img { border-radius:10px 10px 0 0;  padding:3px; width:100%; height:auto; box-sizing:border-box; overflow:hidden}
+
 
 
 
@@ -78,15 +76,6 @@ html{
 .music_tag   { padding:0 0 0 5px; }
 .music_tag span.label { font-size:1em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin: 0 5px 0 5px !important}
 
-
-/*.music_title { background:#F30; color:#ffddcc; font-size:0.85em; padding:0 7px; margin-bottom:1px; }*/
-/*.music_name  { background:#000; color:#FFF; font-size:1.3em; padding:0 5px 0 10px }*/
-/*.music_tag   { padding:0 0 0 5px; }*/
-/*.music_tag span.label { font-size:0.85em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin:-1px !important}*/
-
-
-
-
 /*앨범그리드 하단 좋아요외 버튼제공*/
 .grid-item .btm_info       {border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;margin:0; padding:10px; text-align:center; width:100%; height:40px; box-sizing:border-box;}
 
@@ -96,12 +85,37 @@ html{
 .userinfo_myP > img { width: 100%;height: auto;}*/
 
 
+/*모달창센터정렬*/
+.modal { text-align: center; padding: 0!important;}
+.modal:before { content: ''; display: inline-block; height:100%; vertical-align: middle; margin-right: -4px;}
+.modal_detail:before { height:auto !important}
+.modal-dialog { display: inline-block; text-align: left; vertical-align: middle;}
+
 
 /*앨범상세보기 모달창전체영역*/
 .modal {background : rgba(0, 0, 0, 0.7)  !important; }
 .modal-content { background:#333 !important; border-radius:0 !important; }
 .modal_close { color:#FFF !important; font-size:5em !important; padding:0 10px; font-weight:100; text-shadow:none; position:absolute; right:0; top:-20px}
 .modal_close a { text-decoration:none !important; color:#FFF !important; }
+
+
+/*creat your own list */
+.modal-body .gridmodal { display:block; width:100% !important; padding:0 0 0 0 !important; height:600px !important; overflow:auto !important;}
+.modal-body .gridmodal .check {border:5px solid #F60 !important;}
+.modal-body .gridmodal .grid-item:hover,
+.modal-body .gridmodal .grid-item:active  { filter:alpha(opacity=10); opacity:0.5; -moz-opacity:0.5; border:5px solid #F60 !important; box-sizing:border-box !important }
+.modal-body .gridmodal .grid-item { position:relative  !important; float:left}
+.modal-body .gridmodal .grid-item span.badge { position:absolute !important; right:5px; top:5px; background:#F30 !important; color:#fff }
+
+.griditem_search  input { background:#222; padding:20px; border:none; color:#666; border-radius:10px; }
+.griditem_title { font-size:2.5em; color:#fff; text-align:center; padding:15px; }
+.griditem_listname  { overflow:hidden; display:inline-block; width:100%; margin-bottom:0 !important}
+.griditem_listname  input { margin:0 !important; width:90% !important; background:transparent !important; padding:20px; border:none !important; color:#fff; border-radius:10px; font-size:2em }
+.griditem_listname  input.form-control { float:left }
+.griditem_listname .badge {float:right; padding:10px 12px; margin-top:5px; background:#fff; color:#000; border-radius:50%}
+
+
+
 
 /*모달창 상단 앨범정보제공(앨범사진 및 앨범정보안내)*/
 .view_header { height:165px; padding:0; margin:0; box-sizing:border-box;
@@ -125,14 +139,38 @@ html{
 .view_body ul.media-list  { list-style:none; padding:0; margin:0; width:100%; color:#FFF; font-size:0.85em; }
 .view_body ul.media-list li { list-style:none; padding:3px 0; border-bottom:1px solid #000; margin:0; position:relative; min-height:65px; }
 .view_body ul.media-list li.comment { background:#282828; padding:5px 5px 5px 50px !important }
+
 /*댓글상세정보*/
+/*.media  {display:block}*/
+/*.media .wrt_mem { float:left;  position:absolute; top:3px; }*/
+/*.media .wrt_con { float:left; display:block; padding:4px 0 0 40px; color:#999 }*/
+/*.media .wrt_con .name{ padding:2px 5px 2px 15px; background:#000; font-weight:400; font-size:1.15em; color:#999; margin-bottom:10px !important}*/
+/*.media .wrt_day { position:absolute; padding:0 5px 2px 0; right:0; color:#999; letter-spacing:0.08em; font-size:0.8em;}*/
+/*.media .wrt_day span { clear:both !important; display:block; text-align:right}*/
+/*.media .wrt_day span a { text-decoration:none; color:#999}*/
+
+
+/*모달창 앨범상세보기 컨텐츠영역 및 댓글li구분값*/
+.view_body { box-sizing:border-box; clear:both; max-height:400px; overflow:auto; padding:15px 10px !important; width:100%; margin-bottom:30px;}
+.media-list  { list-style:none; padding:0; margin:0; width:100%; color:#FFF; font-size:0.85em; }
+.media-list p.comment_title { font-size:2em;  height:45px !important; padding:5px !important; display:block; verflow:hidden; color:#fff; font-weight:400; background:#444; text-align:left}
+.media-list p.comment_title img { width:30px !important;  filter:invert() }
+.media-list p.comment_title span {float:right !important; font-size:0.55em !important ; line-height:2em;}
+.media-list p.comment_title span  a { color:#fff}
+.media-list li { list-style:none; padding:3px 0; border-bottom:1px solid #000; margin:0; position:relative; min-height:65px; text-align:left }
+.media-list li.comment { background:#282828; padding:5px 5px 5px 50px !important }
+
+
+
+/*모달창 댓글상세정보*/
 .media  {display:block}
-.media .wrt_mem { float:left;  position:absolute; top:3px; }
-.media .wrt_con { float:left; display:block; padding:4px 0 0 40px; color:#999 }
-.media .wrt_con .name{ padding:2px 5px 2px 15px; background:#000; font-weight:400; font-size:1.15em; color:#999; margin-bottom:10px !important}
-.media .wrt_day { position:absolute; padding:0 5px 2px 0; right:0; color:#999; letter-spacing:0.08em; font-size:0.8em;}
-.media .wrt_day span { clear:both !important; display:block; text-align:right}
-.media .wrt_day span a { text-decoration:none; color:#999}
+.wrt_mem { float:left;  position:absolute; top:3px; }
+.wrt_con { float:left; display:block; padding:4px 0 0 40px; color:#999 }
+.wrt_con .name{ padding:2px 5px 2px 15px; background:#000; font-weight:400; font-size:1.15em; color:#999; margin-bottom:10px !important}
+.wrt_day { position:absolute; padding:0 5px 2px 0; right:0; color:#999; letter-spacing:0.08em; font-size:0.8em;}
+.wrt_day span { clear:both !important; display:block; text-align:right}
+.wrt_day span a { text-decoration:none; color:#999}
+
 
 /*앨범상세보기 모달창 하단 글쓰기영역*/
 .view_footer { height:50px; position:relative; width:100%;}
@@ -141,8 +179,11 @@ html{
 .view_footer .wrt_input { background:transparent !important; border-color:transparent; margin:10px 0 5px 80px !important; padding:5px !important; color:#999}
 .view_footer .wrt_input:hover, .wrt_input:active   {border-width:0px !important; border-top: 0px transparent !important; border-left: 0px transparent !important; border-bottom:1px solid #CCC; color:#999}
 
-/*하단 플레이바(앨범상세모달창 하단)*/
-.playBar { position:absolute; bottom:0; left:0; width:100%; height:66px; background:#000; padding:3px; box-sizing:border-box; overflow:hidden }
+
+
+
+/*모달창  하단 플레이바(앨범상세모달창 하단)*/
+.playBar { position:absolute; bottom:0; left:0; width:100%; height:66px; background:#222; padding:3px; box-sizing:border-box; overflow:hidden }
 .playAR  { width:1200px; margin:0 auto; height:66px;  display:table }
 .playAR  .play_btn { width:200px; float:left;  display: table-cell; vertical-align:middle; text-align:center; padding-top:20px; }
 .playAR  .play_bar { width:800px; float:left; display: table-cell; vertical-align:middle; text-align:center; }
@@ -158,9 +199,8 @@ html{
 .playAR .album_info .play { position:relative; height:4px !important; width:100%; background:#CCC; border-radius:5px; display:block; margin:7px 0}
 .playAR .album_info .play span {position:absolute; top:-5px; margin:0 !important; padding:0 !important; width:12px !important; height:12px !important; border-radius:5px !important; }
 
-
 /*LIKE*/
-.like_title { background:url('localhost/image/like_titlebar.png') no-repeat; padding:10px; text-align:center; width:267px; margin:20px auto; font-size:1.5em; font-weight:300 }
+.like_title { background:url('/wintle/image/like_titlebar.png') no-repeat; padding:10px; text-align:center; width:267px; margin:20px auto; font-size:1.5em; font-weight:300 }
 .like_graphAR { width:930px; height:300px; margin:10px auto 30px ; border-style: solid; border-width: 2px 0 2px 0; border-color:#F60 ;}
 .like_graph   { width:80%; vertical-align:middle; text-align:center; margin:0 auto; padding:10px 0 !important; color:#FFF}
 
@@ -174,11 +214,12 @@ html{
 .like-grid .albumT_ar p {  text-align:center; vertical-align:middle; display: table-cell;}
 .like-grid .albumT_ar p span { font-size:1.85em; font-weight:400; color:#E69E64}
 
-/*모달창센터정력*/
-.modal { text-align: center; padding: 0!important;}
-.modal:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -4px;}
-.modal-dialog { display: inline-block; text-align: left; vertical-align: middle;}
-
+#sort{
+  position:relative;
+  float:right;
+  display: inline-block;
+  top:5px;
+}
 #sort{
   position:relative;
   float:right;
@@ -187,3 +228,363 @@ html{
 }
 
 
+
+/*메뉴바 고정위치 속성*/
+.affix { top: 40px; width: 100% }
+.affix + .container-fluid { padding-top: 150px }
+
+.navbar-fixed-top { height:40px; background:#000; color:#fff; display:inline-block }
+.navbar-fixed-top .logo { float:left; font-size:0.95em; margin-top:10px}
+.navbar-fixed-top .user_dropdown {  float:right;  text-align:right; padding:5px; position:absolute; right:0 }
+.navbar-fixed-top .user_dropdown img {width:32px}
+.navbar-fixed-top .user_dropdown  a {color:#fff}
+
+
+/*message, notice*/
+#myTab {  background : rgba(0, 0, 0, 0.8)!important; width:350px; height:450px; border:1px solid #313131}
+#myTab .nav-tabs {border-bottom:none; opacity:1; }
+#myTab .nav-tabs li {width:50% !important;  background:#404040; border:none; text-align:center; border-radius:0 !important }
+#myTab .nav-tabs li a { margin:0 !important; border-radius:0 !important; border:none; color:#777}
+#myTab .nav-tabs li.active > a,
+#myTab .nav-tabs li.active > a:hover,
+#myTab .nav-tabs li.active > a:focus { background:#313131; border:none; color:#CCC}
+#myTab .tab-content {padding:10px; }
+#myTab .tab-content #tab1 { height:380px; overflow:auto }
+#myTab .tab-content #tab2 .tab2_content { height:350px; overflow:auto }
+#myTab .tab-content #tab2 input {background:#393738; border:none; color:#999 }
+#myTab .tab-content .tablist { display:block; overflow:hidden;  width:100%; padding:4px;}
+#myTab .tab-content .tablist .p1 { float:left; padding-right:10px;  }
+#myTab .tab-content .tablist .p1 img  { width:50px }
+#myTab .tab-content .tablist .con { float:left; width:80%; text-align:left}
+@media (max-width: 440px) {
+  .navbar-fixed-top .user_dropdown { width:100% !important; position:absolute; right:0}
+  #myTab { width:100% !important;}
+  #myTab .tab-content .tablist .con { width:75%;}
+}
+
+
+
+/*해상도별 제어가필요한 속성*********************************************************************************************/
+
+@media (max-width: 1119px) {
+  .container {width:100% !important}
+  .followAR {width:11% !important; padding:1%}
+}
+@media (max-width: 992px) {
+  .container {width:100% !important}
+  .followAR {width:16.6% !important; padding:1%}
+  .playgroupAR {width:18% !important; font-size:0.8em }
+  .playlistAR {padding:0 !important }
+  .listAlbum_info  { width:35% !important; padding:0 3%; }
+  .listAlbum_num   { width:65% !important;}
+}
+@media (max-width: 768px) {
+  .container {width:100% !important}
+  .followAR {width:20% !important; padding:1%;}
+  .playgroupAR { font-size:0.7em !important }
+  .listAlbum_info  { width:50% !important;  margin:0 25%}
+  .listAlbum_num   { width:100% !important; font-size:0.8em !important;}
+  .listAlbum_num .numlist-group dd.img img { max-width:50px !important}
+  .listAlbum_header img { width:60%; float:right }
+
+}
+@media (max-width: 620px) {
+  .container {width:100% !important}
+  .followAR {width:33% !important; padding:1%}
+  .playgroupAR {width:23% !important; font-size:0.8em; }
+  .listAlbum h3 { font-size:1em !important}
+  .listAlbum_info  { width:60% !important;  margin:0 20%; text-align:center }
+  .listAlbum_info ul li.620 { float:left !important; text-align:center; margin:0 auto !important }
+  .listAlbum_num   { width:100% !important; padding:0 !important;font-size:0.7em !important;}
+  .view_header_fix { height:180px !important }
+  .view_header_fix_top {width:100% !important}
+  .view_header_fix_top span.btn  {padding-right:30px !important; }
+  .view_bodyAR .modal-content {width:100% !important }
+}
+@media (max-width: 440px) {
+  .playgroupAR {width:30% !important;}
+  .view_footer { height:100px; }
+  .view_footer .wrt_input { background:transparent !important; border-color:transparent; margin:50px 5px !important; padding:5px !important; color:#999; width:80% !important; text-align:left}
+  .view_footer .wrt { position:absolute; right:10px; top:50px;}
+
+}
+@media (max-width: 380px) {
+  .container {width:100% !important}
+  .followAR {width:48% !important; padding:1%}
+  .playgroupAR {width:45% !important; font-size:0.8em; }
+  .view_header_fix_top span.icon {width:100% !important; text-align:left }
+  .modal-content span.icon  { width:100%;}
+  /*.modal-content span.icon img  {width:18%; height:auto;  padding:7px 10px}*/
+  .view_header_fix_top span.btn { clear:both; padding:10px; width:100% !important; text-align:center}
+  .view_header_fix_top span.btn .btn-sm {width:100% !important}
+  .userinfo .icon { width:100% !important; float:left; text-align:left}
+}
+
+/*follow */
+.followAR {width:10.55%; display: inline-block; padding:0.6%;  text-align: center; float: left;  margin: 3px auto; border-radius: 2% ;}
+.followAR img { padding: 5px; max-width:100%; height: auto}
+.followName { border-radius:5%; padding: 2%; margin:4px 0; text-align: center; width: 100% !important; display:block; color:#FFF !important; font-size:1.25em;}
+.followCheck { font-weight:500;font-size:0.9em;  background:#fc6100; border-radius:5%; padding:2px; margin:2px 0; text-align: center; width: 100% !important; display:block; color:#000 !important}
+.unfollowCheck { font-weight:500; font-size:0.9em; background:#999; border-radius:5%; padding:2px; margin:2px 0; text-align: center; width: 100% !important; display:block; color:#000 !important}
+
+.followAR_hover {background:#333; cursor:pointer; border-radius: 2% ;}
+.followARName_hover { background:#222; cursor:pointer}
+
+/*playlistAR */
+.playgroupAR {width:18%; height:auto;  text-align: center; float: left;  margin:1%; border-radius: 2%; box-sizing:border-box }
+.playlistAR  {width:100%; padding:5%; box-sizing:border-box}
+.playPhoto { overflow:hidden; display:block }
+.playPhoto img { padding:3px; max-width: 50%; height: auto; float:left; box-sizing:border-box;  }
+.playPhoto img.album1 { border-top-left-radius:10%; }
+.playPhoto img.album2 { border-top-right-radius:10%; }
+.playPhoto img.album3 { border-bottom-left-radius:10%; }
+.playPhoto img.album4 { border-bottom-right-radius:10%; }
+
+.playgroupTitle { overflow:hidden; display:block; border-radius:5%; padding:5px; margin-top:5px; color:#ffffff;  width:100%; box-sizing:border-box; border-radius:10px}
+.playgroupTitle span {display:block; clear:both; margin:2px 0; padding:2px}
+.playgroupTitle a { color:#FFF}
+.playgroupTitle a:hover { color:#FFF;}
+
+.playlistAR_hover {background-color: rgba(87, 87, 87, 0.3); cursor:pointer; border-radius: 2% }
+.playgroupTitle_hover { background:#222; cursor:pointer}
+
+/*Playlist 앨범추가삭제 모달창속성*/
+.listgroup_add { max-height:500px; overflow:auto; width:100% }
+.list-item { position:relative; display:block; overflow:hidden; margin-bottom:3px; padding:5px; }
+.list-item  img { max-width:70px }
+.list-item .btnicon { float:right; font-size:1.8em; position:absolute; right:10px; padding:0; margin:0}
+.list-item .btnicon > i { padding:0 !important; }
+.list-item .btnicon > a { color:#fff !important }
+.list-item .btnicon > a:hover { color:#F90 !important }
+.list-item .userT { font-size:2em; float:left; color:#FFF; background:none}
+.list-item .userP { padding-right:10px; float:left}
+@media (max-width: 700px) {
+  .list-item .btnicon .glyphicon  { font-size:0.7em !important}
+}
+@media (max-width: 480px) {
+  .list-item img { max-width:50px }
+  .list-item .f_2 {font-size:1.25em !important}
+  .list-item .userP { display:block}
+}
+
+/*모달창에서 대표앨범선택시 필요한속성 */
+.modal-body .playlistAR_click  { background-color: rgba(284, 201, 139, 0.5); border:5px solid #F93; box-sizing:border-box; border-radius:5%; }
+
+
+/*상세보기모달창관련 추가*/
+.view_header_fix { width:100%; height:80px; padding:0; margin:0; position:fixed; top:70px; z-index:10000; overflow:auto }
+.view_header_fix_top  { width:600px; margin:30px auto auto auto; display:inline-block; box-sizing:border-box !important}
+.view_header_fix_top span.icon { float:left; width:40%;}
+.view_header_fix_top span.icon img {width:45px; height:auto; padding:7px}
+.view_header_fix_top span.btn { width:60%; float:right; padding:10px; text-align:right; box-sizing:border-box !important}
+/*.view_header_fix_info { clear:both }*/
+
+/*모달창 좋아요외 아이콘크기 관련속성*/
+.modal-content span.icon img  {width:45px; height:auto; padding:7px}
+.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:100px; text-align:center;}
+.view_body_fix { box-sizing:border-box; clear:both; padding:15px 10px !important; width:100%; margin:0 0 30px 0; height:auto;}
+.view_bodyAR .modal-content { width:600px; margin:50px auto; background:#666;  height:auto;}
+
+/*앨범그리드 사용자프로필 제공*/
+.userinfo        { width:100%; max-height:15%; padding:10px 0 0 10px; margin:0 ; display:inline-block }
+.userinfo li     {  width:100%; padding:0; margin:0; list-style:none; display:inline-block;}
+.userinfo .user  { width:60%; height:75px; float:left; display:block; position:relative; }
+.userinfo .icon  { width:40%; float:right; text-align:right;}
+.userP  { z-index:3; position:absolute;  top:0; left:0; }
+.userN  { z-index:2; position:absolute; top:5px; left:60px; background:#000; color:#FFF; font-size:1.35em; padding:2px 15px }
+.userT  {  z-index:1; position:absolute; top:35px; left:60px;  background:#00baff; color:#fff; font-size:0.85em;  padding:2px 15px }
+.userP img {  width:70px !important  }
+.userinfo .albumIMG   { padding-left:8%; max-width:70%; height:auto; display:inline-block }
+
+/*앨범그리드 앨범제목및 태그제공*/
+.grid-item .userinfo  .musictext { padding-left:35px }
+.grid-item .userinfo  .musictext ul { margin:0 0 0 0 !important; padding:0 !important}
+.grid-item .userinfo  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}
+.music_title { background:#F30; color:#ffddcc; font-size:0.85em; padding:0 7px; margin-bottom:1px; }
+.music_name  { background:#000; color:#FFF; font-size:1.3em; padding:0 5px 0 10px }
+.music_tag   { padding:0 0 0 5px; }
+.music_tag span.label { font-size:0.85em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin:-1px !important}
+
+
+/*상단*/
+.topbar-profile .topbar-profile-image {
+  width: 35px;
+  position: relative;
+  margin-right: 5px;
+  margin-top: -15px;
+  margin-bottom: -12px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.rounded-image {
+  -webkit-border-radius: 100px;
+  /* border-radius: 100px; */
+  /* overflow: hidden; */
+  display: inline-block;
+}
+
+
+
+/*플레이목록팝업*/
+.playAlbum {width:100%; height:100%; bottom:0px; position:absolute; z-index:100000; display:none }
+.listAlbum  {background:url(../../image/detail_bg.jpg); background-size:cover; min-height:100% !important; padding:20px; margin:0;  width:100% !important; z-index:10000;  box-sizing:border-box;  }
+@media (max-width: 480px) {
+  .listAlbum  {padding:0 !important}
+  .numlist-group dd.num { width:3% !important; padding:5px 2px !important; font-size:1.5em !important;  line-height:1.5em !important; font-weight:300 }
+  .numlist-group dd.info .aTitle { font-weight:500; font-size:1.3em  !important}
+  .numlist-group dd.info img { max-width:25px !important; margin-right:5px }
+  .numlist-group dd.info img { max-width:20px !important; margin-right:5px }
+}
+.listAlbum_header { border-bottom:1px solid #FFF; margin-bottom:10px; display:block; clear:both;  display: table; width:100%;  margin-right:0; margin-left: 0;}
+.listAlbum_info  { width:25%; padding:0 3% 0 0; color:#fff; box-sizing:border-box; display:inline-block; float:left}
+.listAlbum_info .info li { margin:10px 0}
+.listAlbum_info .info li.music_name { background:transparent !important; color:#FFF; font-size:2em; font-weight:500; padding:0 5px 0 0 !important}
+.listAlbum_num   { width:75%; color:#fff; box-sizing:border-box; float:left; max-height:730px !important; overflow:auto !important}
+.listAlbum_info img { max-width:100% !important; height:auto; display:inline-block}
+.listAlbum_num img { max-width:100% !important; height:auto; display:inline-block}
+.numlist-group { padding:0;  display:inline-block; width:100%;}
+.numlist-group dl { font-size:1em; width:100%; clear:both; display:inline-block; margin-bottom:0 !important}
+.numlist-group dl:hover { background:rgba(0, 0, 0, 0.6)}
+.numlist-group dd { float:left; padding:1%; text-align:left}
+.numlist-group dd.num { float:left; width:8%; font-size:2em; text-align:center; line-height:2em; font-weight:300 }
+.numlist-group dd.img {  float:left; text-align:center; }
+.numlist-group dd.img img { max-width:70px !important}
+.numlist-group dd.info {width:70%; }
+.numlist-group dd.info .tag { color:#F30; font-size:0.85em }
+.numlist-group dd.info .aTitle { font-weight:500; font-size:2em }
+.numlist-group dd.info img { max-width:33px !important; margin-right:10px }
+.numlist-group dd.star {width:8%; float:right !important; padding:2%; text-align:right !important}
+
+
+/*메뉴바*/
+.navbar > .container { padding:0 !important}
+.nav_box { vertical-align: middle; text-align: center; height:40px !important;  margin:0 ; padding:0 ; overflow:hidden}
+.nav_menu { position: relative;display: inline-block; list-style-type: none; width:60%;  margin:0; padding:0;}
+.nav_menu li { height:40px !important; line-height:40px; vertical-align:middle}
+.nav_menu li a { color:#777;}
+.nav_menu li.active { background:#5f3f2c !important;}
+.nav_menu li.active a { color:#fff !important;}
+@media (max-width: 768px) {
+  .nav_menu {width:100%; padding:0; margin:0 }
+  .nav_menu .col-sm-3 { width:25% !important; float:left !important}
+}
+
+/*about*/
+.portfolioAlbum  { clear:both; display:block; overflow:hidden; margin-top:10px; width:100%;   }
+.portfolioAlbum .albumP  { border-radius: 0 0 0 0 !important; margin:0 0 0 0 !important; width:16.666%; padding:2px; float:left}
+.portfolioAlbum .albumP img{ -moz-border-radius: 0 0 0 0  !important; -webkit-border-radius:0 0 0 0  !important; border-radius: 0 0 0 0  !important; border: 1px solid transparent; padding:2px; width:100% }
+
+.table { border-top:1px solid #666 !important }
+.table > thead > tr > th { border-bottom:3px solid #656565 !important; border-left:1px solid #666 ; text-align:center}
+.table > tbody > tr > td { border-bottom:1px solid #666 !important; border-left:1px solid #666; text-align:center }
+.table > thead > tr > th:first-child,
+.table > tbody > tr > td:first-child { border-left: none !important }
+
+
+/*마이페이지 상단메뉴 및 백그라운드*/
+.usercoverAR { width:100%; height:350px; overflow:hidden;   position:relative }
+.usercover_top { height:350px; position:relative}
+.usercover_topbg { width:100%; height:80px; z-index:1; background:#000; color:#FFF; position:absolute; bottom:0; opacity: 0.3}
+.usercover_info {position:absolute; width:50%; left:0; bottom:10px; z-index:2; }
+.usercover_icon {position:absolute; width:50%; right:0; bottom:10px; z-index:2; text-align:right}
+.usercover_icon  a { float:left; color:#999; font-size:0.85em; padding-left:30px;}
+.usercover_icon  a:hover {color:#fff;}
+.usercover_icon .btn {position:absolute; right:0; bottom:90px; z-index:2; text-align:right; color:#fff}
+@media (max-width: 540px) {
+  .usercover_info {width:100%; bottom:100px; left:10px !important}
+  .usercover_icon {width:100%; bottom:10px; left:0 !important}
+  .usercover_icon .btn {bottom:70px; right:5px}
+  .portfolioAlbum .albumP {width:33%; height:auto}
+  .portfolioAlbum .albumP img {min-width:110px}
+
+}
+
+/*자기소개*/
+.myinfor {}
+.myinfor .text_view { background-color:#1d1d1d !important; width:100%; max-height:190px; border:10px #1d1d1d solid;  overflow:auto; padding:10px; color:#999}
+.myinfor .text_edit { background-color:#1d1d1d !important; color:#999;}
+.myinfor .text_edit > textarea { background-color:#999; border-color:transparent !important; width:100%; padding:0; text-align:left; color:#333; border:10px #999 solid;}
+.mylink   { clear:both; display:block; overflow:hidden; color:#999 }
+.about_Stitle  { text-align:center; position:relative; width:100%; margin-top:20px; display:block; }
+.about_Stitle > h4 {text-align:center; line-height:1.5em;}
+.about_Stitle > span.wm_btn {position:absolute; right:0; top:10px}
+
+
+/*채팅*/
+.chattingAR { width:430px; min-height:420px; position:absolute; left:30px; bottom:30px; }
+.chattingAR_photo {float:left; position:relative; width:100px; height:420px }
+.chattingAR_photo img {position:absolute; bottom:0; padding:10px; left:0; width:100px}
+.chatting {  background:#1e1e1e; float:left; width:330px; height:420px; position:relative;}
+.chatting_top a {color:#FFF !important; text-shadow:none }
+.chatting_top .name { font-size:1.85em !important; float:left}
+.chatting_top .close { font-size:2em !important; opacity:1 !important; font-weight:normal}
+.chatting_top { position:absolute; top:0; color:#FFF; width:100%; padding:10px; box-sizing:border-box}
+.chatting  > ul { position:absolute; bottom:0; padding:10px; left:0; width:98%; box-sizing:border-box}
+.chatting  > ul > li {display:block; list-style:none }
+.chatting  > ul > li.chatting_Mphoto { display:none  }
+.chatting  > ul > li.message {  padding:5px 0 5px 30px; display:block;  margin:5px 0; color:#fff; text-align:left; font-size:0.95em }
+.chatting  > ul > li.write  input { background:#333; color:#FFF; border:none !important; font-size:0.95em }
+
+@media (max-width: 480px) {
+  .chattingAR { width:95% !important; margin:0 auto !important;  min-height:420px; overflow:hidden; background:#1e1e1e; position:absolute; left:5px; bottom:5px; }
+  .chattingAR_photo { display:none }
+  .chatting  { float:left; width:100%;}
+  .chatting  > ul { position:absolute; bottom:0 ; padding:10px; left:0; width:100% }
+  .chatting  > ul > li.chatting_Mphoto { display:block !important; float:left !important; width:20%; }
+  .chatting  > ul > li.chatting_Mphoto img { width:50px !important }
+  .chatting  > ul > li.message {  padding:5px 0 5px 50px; float:left; width:80%; }
+  .chatting  > ul > li.write  input {clear:both !important }
+}
+
+/*newWrite*/
+.adddata        { position:absolute; bottom: 10px; right:10px; z-index:1000}
+.adddata i      { background:#F30; padding:20px; font-size:3em; color:#FFF }
+.adddataBox     { float:left; width:200px; height:300px; border:2px dashed #FF6600; background : rgba(197, 197, 197, 0.3)}
+.adddata_write  { float:left; width:700px; height:auto; display:inline-block }
+.adddata_write_img  { float:left; width:100px }
+.adddata_write_input { float:left;  background:#c5c5c5; width:600px; padding:10px; box-sizing:border-box }
+.adddata_write_input ul { width:100% !important}
+.adddata_write_input ul li.addtitle { text-align:left; padding:10px; font-size:2em; font-weight:bold}
+.adddata_write_input ul li.btnall { border-top:2px solid #09F; padding:10px; }
+.adddata_write_input ul li.btnall > button.btn-xs { }
+.adddata_write_input ul li.btnall > button.btn-xs img {  max-width:15px !important; margin:2px; filter:invert() }
+.adddata_write_input .collapse  { position:relative}
+.adddata_write_input .collapse .close { position:absolute; right:5px; top:5px; opacity:1 !important;  }
+.adddata_write_input .collapse .close  a { color:#fff }
+.adddata_write_input  textarea { padding:0 !important; margin: 0 !important; resize:none; background:transparent !important; border:none !important; box-shadow:none !important}
+.adddata_write_input #sound font { font-size:0.85em; color:#FFF}
+.adddata_write_input #sound .sound_info1 {float:left; width:25%; }
+.adddata_write_input #sound .sound_info2 {float:left; width:75%; }
+.adddata_write_input #sound .sound_info2 img {width:100% !important; max-height:80px; }
+@media (max-width: 990px) and (min-width:220px) {
+  .adddataBox { display:none !important }
+  .adddata_write_img  { display:none !important }
+  .adddata_write  { clear:both !important; width:100% !important; margin:0 auto; height:auto }
+  .adddata_write_input { background:#c5c5c5; width:100%;   padding:10px; }
+  .adddata_write_input #sound .sound_info1  { width:100%; }
+  .adddata_write_input #sound .sound_info2  {width:100%; }
+
+}
+
+/*report*/
+.carousel-control.left { background-image:none !important }
+.carousel-control.right { background-image:none !important}
+.reportAR { width:70%;  margin:0 auto !important; padding-left:10%; padding-right:10%}
+.reportAR .w100 { min-width:150px !important; max-width:330px !important;}
+.reportAR .userinfo { position:relative; }
+.reportAR .userinfo .userP  { z-index:3; position:absolute;  top:0; left:0; }
+.reportAR .userinfo .userN  { z-index:2; position:absolute; top:5px; left:50px; background:#000; color:#FFF; font-size:1.2em; padding:2px 15px }
+.reportAR .userinfo .userT  {  z-index:1; position:absolute; top:35px; left:50px;  background:#00baff; color:#fff; font-size:0.8em;  padding:2px 15px }
+.reportAR .userinfo .userP img {  width:50px !important  }
+.report_input { width:100% }
+.report_input label  { display:none !important }
+.report_input select { border-radius: 4px; padding: 6px 12px; color:#FFF;  background-color:#3f3f3f !important; border:none !important; width:100%; }
+.report_input select option { color:#999 }
+.report_input select option selected { color:#fff !important; font-weight:500}
+.report_input textarea { border-radius: 4px; background-color:#3f3f3f; border:none !important; width:100%;   padding: 6px 12px; text-align:left; color:#333; border:10px #999 solid;}
+.report_input .report_sel {width:30%; float:left; padding:5px }
+.report_input .report_text {width:70%; float:left; padding:5px }
+@media (max-width: 480px) {
+  .report_input .report_sel {width:100% !important; }
+  .report_input .report_text {width:100% !important; }
+
+}

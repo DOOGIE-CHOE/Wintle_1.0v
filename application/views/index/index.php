@@ -367,568 +367,194 @@
             <div class="grid grid-main" data-layout-mode="masonry">
                 <!--앨범-->
 
-
                 <div class="grid-item">
+                    <div class="albumP"><a href="#" data-toggle="modal" data-target="#playDetail"><img
+                                    src="../image/p2.jpg" alt=""/></a></div>
+                </div>
 
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
+
+                <div class="modal" id="playDetail" role="dialog">
+
+                    <div class="view_header_fix" style=" text-align:center">
+                        <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div>
+                        <div class="view_header_fix_top">
                             <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/sample111.jpg" alt=""/></a>
-                    </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그런 노래...<br> 재밌긴 하당 한번 확인해 보세용 !</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
+                                <li class="bg_grayDark ofh ">
+                                    <span class="icon">
+                                        <a href="#">
+                                            <img src="../icon/Details_Content/like.svg"
+                                                                         style="filter:invert()"/>
+                                        </a> <a href="#">
+                                            <img
+                                                    src="../icon/Music_pop_up/list.svg" style="filter:invert()"/>
+                                        </a> <a href="#">
+                                            <img src="../icon/Details_Content/share.svg"
+                                                              style="filter:invert()"/>
+                                        </a>
+                                    </span>
+                                    <span class="btn">
+                                               <button type="button" class="f_white btn btn-danger btn-sm">add your talent to the music</button>
+                                    </span>
                                 </li>
                             </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
-                <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,1)">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name" style="color:black">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                        </div><!--view_header_fix_top-->
+                    </div><!--view_header_fix-->
 
 
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/album_p7.jpg" alt=""/></a>
-                    </div>
+                    <!--1앨범상세 header-->
+                    <div class="view_bodyAR">
+                        <div class="modal-content">
+
+                            <!--2앨범관련 커뮤니티area-->
+                            <div class="view_body_fix" style="padding-top:100px;">
+
+                                <!--앨범사진외 -->
+                                <ul class="userinfo">
+                                    <li> <span class="user">
+              <div class="userP"><img src="../image/p1.jpg" class="img-circle"></div>
+              <div class="userN">Andrew</div>
+              <div class="userT">눈물과 비</div>
+              </span> <span class="icon"> <a href="#"><img src="../icon/Details_Content/like.svg"
+                                                           style="filter:invert()"/></a> <a href="#"><img
+                                                        src="../icon/Music_pop_up/list.svg"
+                                                        style="filter:invert()"/></a> <a href="#"><img
+                                                        src="../icon/Details_Content/share.svg"
+                                                        style="filter:invert()"/></a> </span></li>
+                                    <li><span><img src="../image/album_p2.jpg" class="albumIMG"/></span> <span><font
+                                                    class="f_right f_gray mgt_10">2017/01/01(20:00)</font></span></li>
+                                </ul>
+
+                                <!--media-->
+                                <ul class="media-list">
+                                    <p class="comment_title"><img src="../icon/Music_pop_up/Comment.svg"> Comment <font
+                                                class="f_075">9</font><span><a href="#">More</a></span></p>
+                                    <li class="media">
+                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p6.jpg"
+                                                                  style="width:55px; height:55px;"></div>
+                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Comment</a> / <a
+                                                        href="#">Edit</a></span></div>
+                                        <div class="wrt_con"><span class="name">kahee</span> <span
+                                                    class="dpb mgt_8 pdl_15">첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p3.jpg"
+                                                                  style="width:55px; height:55px;"></div>
+                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Comment</a> / <a
+                                                        href="#">Edit</a></span></div>
+                                        <div class="wrt_con"><span class="name">kahee</span> <span
+                                                    class="dpb mgt_5 pdl_20">첫번째글 내용이 보여집니다</span></div>
+                                    </li>
+                                    <!--댓글-->
+                                    <li class="media comment">
+                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p6.jpg"
+                                                                  style="width:55px; height:55px;"></div>
+                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Edit</a></span>
+                                        </div>
+                                        <div class="wrt_con"><span class="name">kahee</span> <span
+                                                    class="dpb mgt_5 pdl_20">첫번째글 내용이 보여집니다</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--view_body_fix-->
+
+                            <!--3댓글쓰기-->
+                            <div class="view_footer bg_dblue">
+                                <img class="img-circle mem" src="../icon/Music_pop_up/user_man.svg"
+                                     style="width:55px; height:55px;">
+                                <img class="wrt" src="../icon/Music_pop_up/Comment.svg"
+                                     style="width:30px; height:30px; filter:invert()">
+                                <input class="wrt_input" type="text" id="usr" placeholder="write...">
+                            </div>
+                        </div><!--modal-content-->
 
 
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                        <div class="container mgb_100">
+
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p2.jpg" class="album2"> <img
+                                                src="../image/album_p3.jpg" class="album3"> <img
+                                                src="../image/album_p4.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
+                                                    class="f_left f_09">8</font><font
+                                                    class="label label-danger f_right"><a
+                                                        href="#">edit</a></font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p1.jpg" class="album2"> <img
+                                                src="../image/album_p1.jpg" class="album3"> <img
+                                                src="../image/album_p1.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
+                                                    class="f_left">8</font><font
+                                                    class="label label-danger f_right">edit</font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p1.jpg" class="album2"> <img
+                                                src="../image/album_p1.jpg" class="album3"> <img
+                                                src="../image/album_p1.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">재미있는노래</span> <span><font
+                                                    class="f_left">8</font><font
+                                                    class="label label-danger f_right">edit</font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p1.jpg" class="album2"> <img
+                                                src="../image/album_p1.jpg" class="album3"> <img
+                                                src="../image/album_p1.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
+                                                    class="f_left">8</font><font
+                                                    class="label label-danger f_right">edit</font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p1.jpg" class="album2"> <img
+                                                src="../image/album_p1.jpg" class="album3"> <img
+                                                src="../image/album_p1.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
+                                                    class="f_left">8</font><font
+                                                    class="label label-danger f_right">edit</font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+                            <div class="playgroupAR">
+                                <div class="playlistAR">
+                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
+                                                src="../image/album_p1.jpg" class="album2"> <img
+                                                src="../image/album_p1.jpg" class="album3"> <img
+                                                src="../image/album_p1.jpg" class="album4"></div>
+                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
+                                                    class="f_left">8</font><font
+                                                    class="label label-danger f_right">edit</font></span></div>
+                                </div>
+                            </div>
+                            <!--playgroupAR-->
+
+                        </div><!--view_bodyAR-->
+                    </div><!--modal-->
 
 
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/album_p1.jpg" alt=""/></a>
-                    </div>
-
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-
-
-                    </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-
-
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-
+                    <!-- Modal 앨범상세보기 호출 -->
+                    <div class="dynamic-popup">
 
                     </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-
-                                <li><span class="music_title"><br><br><br><br>그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
-
-                <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/album_p6.jpg" alt=""/></a>
-                    </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <div class="grid-item">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/sample111.jpg" alt=""/></a>
-                    </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그런 노래...<br> 재밌긴 하당 한번 확인해 보세용 !</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span><span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
-
-
-
-
-
-
-                <!--앨범-->
-                <div class="grid-item">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/album_p7.jpg" alt=""/></a>
-                    </div>
-
-<!---->
-<!--                    <div class="user">-->
-<!--                        <div class="userphoto">-->
-<!--                            <!--                            <div class="badge bg_orange">3</div>-->
-<!--                            <img src="image/p2.jpg" class="img-circle">-->
-<!--                        </div>-->
-<!--                        <div class="musictext">-->
-<!--                            <ul>-->
-<!--                                <li><span class="music_name">Andrew</span></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-
-                    <div class="albumP"><a href="#" onclick="appendPopUp()" data-toggle="modal"
-                                           data-target="#myModal"><img src="image/album_p1.jpg" alt=""/></a>
-                    </div>
-
-
-<!--                    <div class="user">-->
-<!--                        <div class="userphoto">-->
-<!--                            <!--                            <div class="badge bg_orange">3</div>-->
-<!--                            <img src="image/p2.jpg" class="img-circle">-->
-<!--                        </div>-->
-<!--                        <div class="musictext">-->
-<!--                            <ul>-->
-<!--                                <li><span class="music_name">Andrew</span></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-
-
-                    </div>
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-                <!--앨범-->
-                <div class="grid-item" style="background-color:rgba(255,255,255,0.1)">
-
-                    <div class="user">
-                        <div class="userphoto">
-                            <!--                            <div class="badge bg_orange">3</div>-->
-                            <img src="image/p2.jpg" class="img-circle">
-                        </div>
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_name">Andrew</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="albumT">
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        사랑해 아직도<br>
-                        왜너를 잊지 못 하니<br><br>
-                        오랜 기억 속에 너를 생각하며<br>
-                        달려온 시간들 속에<br><br>
-                        필름처럼 지나온 너의 목소리가 들려와<br>
-                        I want you Only you<br><br>
-                        지금도 늦기 않았나?<br>
-                        다시 네게 다가가려해<br><br>
-                        변한 나의 모습이지만<br>
-                        받아주겠니 I love you<br>
-                        받아주겠니 I love you<br>
-                        받아주겠니 I love you<br>
-                        받아주겠니 I love you<br>
-                        받아주겠니 I love you<br>
-
-                    </div>
-
-                    <div class="userinfo">
-                        <div class="musictext">
-                            <ul>
-                                <li><span class="music_title">그냥 그저그런 노래 ..</span></li>
-                                <li class="music_tag">
-                                    <span class="label f_dwhite">#달콤한</span>
-                                    <span class="label f_dwhite">#Classic</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                    <span class="label f_dwhite">#jazz</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!--//userinfo-->
-                    <div class="btm_info" style="background: ugba(0,0,0,0)">
-                                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                                    href="#"><img src="icon/Details_Content/share.svg"
-                                                                  class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/Comment.svg" class="w20px"/></a></span>
-                        <span style="position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;"><a
-                                    href="#"><img src="icon/Details_Content/like.svg" class="w20px"/></a></span>
-                    </div>
-                </div>
-
-
-                <!-- Modal 앨범상세보기 호출 -->
-                <div class="dynamic-popup">
-
-                </div>
-            </div><!--grid-->
-        </div><!--container-->
-    </div><!--#wrapper-->
+                </div><!--grid-->
+            </div><!--container-->
+        </div><!--#wrapper-->
     </body>
 </div>

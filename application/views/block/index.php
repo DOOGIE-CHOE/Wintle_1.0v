@@ -133,11 +133,13 @@
                             <span>
                                 <?php
                                     if($this->data['content_type_name'] == 'lyrics'){ ?>
-                                        <div class='albumT'> <?php echo $this->data['content_path']?></div>
+                                        <div class='albumT'> <?php
+                                            echo str_replace("\n","<br />",$this->data['content_path']);
+                                            ?></div>
                                 <?php } else if($this->data['content_type_name'] == 'audio'){ ?>
-                                        <div class='albumP'><img src='<?php echo $this->data['content_path']?>' alt=''/></div>
+                                        <div class='albumA'><img src='<?php echo URL.$this->data['content_path']?>' alt=''/></div>
                                 <?php     }else if($this->data['content_type_name'] == 'image'){?>
-                                        <div class='albumA'><img src='<?php echo $this->data['content_path']?>' alt=''/></div>
+                                        <div class='albumP'><img src='<?php echo URL.$this->data['content_path']?>' alt=''/></div>
                                 <?php }?>
                             </span>
                         </li>
@@ -148,7 +150,12 @@
                             <span class='music_name'><?php echo $this->data['comments']?></span>
                         </li>
                         <li>
-                            <span class='label f_dwhite'><?php echo $this->data['hashtags']?></span>
+                            <?php
+                                $hashs = explode (",", $this->data['hashtags']);
+                                foreach($hashs as $tag) {
+                                    echo "<span class='label f_dwhite'>$tag</span>";
+                                }
+                            ?>
                         </li>
                     </ul>
 

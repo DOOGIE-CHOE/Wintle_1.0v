@@ -66,26 +66,41 @@
                                             echo str_replace("\n","<br />",$this->data['content_path']);
                                             ?></div>
                                 <?php } else if($this->data['content_type_name'] == 'audio'){ ?>
-                                        <div class='albumA'><img src='<?php echo URL.$this->data['content_path']?>' alt=''/></div>
+                                        <div class='albumA'><img src='<?php
+                                            $path  = explode('/', $this->data['content_path']);
+                                            $filename = explode('.', $path[3]);
+                                            echo URL . "wave" . DS . $path[1] . DS . $path[2] . DS . $filename[0].".png";
+                                            ?>' alt=''/></div>
                                 <?php     }else if($this->data['content_type_name'] == 'image'){?>
                                         <div class='albumP'><img src='<?php echo URL.$this->data['content_path']?>' alt=''/></div>
                                 <?php }?>
                             </span>
                         </li>
-                        <li>
-                            <span class='music_title'><?php echo $this->data['content_title']?></span>
-                        </li>
-                        <li>
-                            <span class='music_name'><?php echo $this->data['comments']?></span>
-                        </li>
-                        <li>
-                            <?php
+
+                        <?php
+                            if($this->data['content_title'] != ""){ ?>
+                            <li>
+                            <span class='music_title'> <?php echo $this->data['content_title']?></span>
+                            </li>
+                           <?php } ?>
+
+                        <?php
+                        if($this->data['comments'] != ""){ ?>
+                            <li>
+                                <span class='music_name'> <?php echo $this->data['comments']?></span>
+                            </li>
+                        <?php } ?>
+
+                        <?php if($this->data['comments'] != ""){ ?>
+                            <li>
+                                <?php
                                 $hashs = explode (",", $this->data['hashtags']);
                                 foreach($hashs as $tag) {
                                     echo "<span class='label f_dwhite'>$tag</span>";
                                 }
-                            ?>
-                        </li>
+                                ?>
+                            </li>
+                        <?php } ?>
                     </ul>
 
 

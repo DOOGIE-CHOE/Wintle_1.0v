@@ -77,7 +77,6 @@
                     var opened = $('#playDetail').hasClass('modal in');
                     if (opened === true) {
                         $('#playDetail').modal('hide');
-                    }
                 }
             });
 
@@ -131,10 +130,10 @@
                                 path = path.split("\/");
                                 var imagename = path[3].split('.');
                                 var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
-                                html += "<div class='albumA'><img src='" + content_path + "' alt=''/></div>";
+                                html += "<div class='albumA' data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\"><img src='" + content_path + "' alt=''/></div>";
                             }
                             else if (value[i].content_type_name == "lyrics") {
-                                html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
+                                html += "<div class='albumT'  data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\">" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
                                 <!--lyrics-->
                             } else {
                             }
@@ -184,8 +183,6 @@
 
 
         function appendPopUp() {
-
-
             $(".dynamic-popup").append(html);
         }
     </script>

@@ -4,6 +4,7 @@
         var flag = true;   //job flag
 
         $(function () {
+
             if (flag) {
                 flag = false;
                 loadNewContent();
@@ -66,6 +67,18 @@
             }).keypress(function (e) {
                 if (e.which === 32)
                     return false;
+            });
+
+
+            // to close modal window has id named playDetail by clicking background
+            $('#playDetail').bind('click', function (e) {
+
+                if ($(e.target).attr('class') == "view_bodyAR") {
+                    var opened = $('#playDetail').hasClass('modal in');
+                    if (opened === true) {
+                        $('#playDetail').modal('hide');
+                    }
+                }
             });
 
         });
@@ -171,166 +184,9 @@
 
 
         function appendPopUp() {
-            var html =
-                "	<div class='modal fade ' id='myModal' role='dialog'>	" +
-                "	<div class='modal_close' data-dismiss='modal'><a href='#' >&times;</a></div>	" +
-                "		" +
-                "	<div class='modal-dialog'>	" +
-                "	<div class='modal-content'>	" +
-                "	<div class='view_header bg_dblue'>	" +
-                "	<a href='#' title='상세보기' ><div class='de_view'><span class='glyphicon glyphicon-menu-right'></span></div></a>	" +
-                "	<div class='album_p'><img src='image/album_p1.jpg' class='w100'></div>	" +
-                "	<div class='album_con'>	" +
-                "	<ul>	" +
-                "	<li class='li_size01' >	" +
-                "	<div class='musictext w40 f_left'>	" +
-                "	<ul>	" +
-                "	<li><span class='music_name f_2'>Andrew</span></li>	" +
-                "	<li class='music_tag'>	" +
-                "	<span class='label label-primary'>#한줄만</span>	" +
-                "	<span class='label label-primary'>#Classic</span>	" +
-                "	<span class='label label-primary'>#jazz</span>	" +
-                "	</li>	" +
-                "	</ul>	" +
-                "	</div>	" +
-                "	<div class='w60 f_left pdt_15'>	" +
-                "	<div class='w70px center f_white f_08 f_left'>	" +
-                "	<a href='#' class='dpb'><img src='icon/Details_Content/like_fill.svg' class='w25px'  /></a>	" +
-                "	<font class='clear f_brown mgt_2'>like 200</font>	" +
-                "	</div>	" +
-                "	<div class='w90px center f_white f_08 f_left'>	" +
-                "	<a href='#' class='dpb'><img src='icon/Details_Content/Comment.svg' class='w25px' style='filter:invert()' /></a>	" +
-                "	<font class='clear f_brown mgt_2'>l &nbsp;&nbsp;comment 200</font>	" +
-                "	</div>	" +
-                "	<div class='w70px center f_white f_08 f_left'>	" +
-                "	<a href='#' class='dpb'><img src='icon/Details_Content/share.svg' class='w25px' style='filter:invert()'  /></a>	" +
-                "	<font class='clear f_brown mgt_2'>l &nbsp;&nbsp;share 200</font>	" +
-                "	</div>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='li_size02'>	" +
-                "	<div class='ofh f_08'>	" +
-                "	Look at the stars,	" +
-                "	Look how they shine for you,	" +
-                "	And everything you do,	" +
-                "	Yeah they were all yellow,	" +
-                "		" +
-                "	I came along	" +
-                "	I wrote a song for you	" +
-                "	And all the things you do	" +
-                "	And it was called yellow	" +
-                "		" +
-                "	So then I took my turn	" +
-                "	Oh all the things I've done	" +
-                "	And it was all yellow  Look at the stars,	" +
-                "	Look how they shine for you,	" +
-                "	And everything you do,	" +
-                "	Yeah they were all yellow,	" +
-                "		" +
-                "	I came along	" +
-                "	I wrote a song for you	" +
-                "	And all the things you do	" +
-                "	And it was called yellow	" +
-                "		" +
-                "	So then I took my turn	" +
-                "	Oh all the things I've done	" +
-                "	And it was all yellow  Look at the stars,	" +
-                "	Look how they shine for you,	" +
-                "	And everything you do,	" +
-                "	Yeah they were all yellow,	" +
-                "		" +
-                "	I came along	" +
-                "	I wrote a song for you	" +
-                "	And all the things you do	" +
-                "	And it was called yellow	" +
-                "		" +
-                "	So then I took my turn	" +
-                "	Oh all the things I've done	" +
-                "	And it was all yellow	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	</ul>	" +
-                "	</div>	" +
-                "	</div>	" +
-                "	<div class='view_body'>	" +
-                "	<ul class='media-list'>	" +
-                "	<li class='media'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p6.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Comment</a> / <a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_8 pdl_15'>첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p3.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Comment</a> / <a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media comment'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p6.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media comment'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p3.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media comment'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p3.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media comment'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p3.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	<li class='media comment'>	" +
-                "	<div class='wrt_mem'><img class='img-circle' src='image/album_p3.jpg' style='width:55px; height:55px;'></div>	" +
-                "	<div class='wrt_day'><span>2016/10/10</span><span><a href='#'>Edit</a></span></div>	" +
-                "	<div class='wrt_con'>	" +
-                "	<span class='name'>kahee</span>	" +
-                "	<span class='dpb mgt_5 pdl_20'>첫번째글 내용이 보여집니다</span>	" +
-                "	</div>	" +
-                "	</li>	" +
-                "	</ul>	" +
-                "	</div>	" +
-                "	<div class='view_footer bg_dblue'>	" +
-                "	<img class='img-circle mem' src='icon/Music_pop_up/user_man.svg' style='width:55px; height:55px;'>	" +
-                "	<img class='wrt' src='icon/Music_pop_up/Comment.svg' style='width:30px; height:30px; filter:invert()'>	" +
-                "	<input class='wrt_input w70 mgl_60' type='text'  id='usr' placeholder='write...'>	" +
-                "	</div>	" +
-                "	</div>	" +
-                "	</div>	" +
-                "	</div>	";
+
+
             $(".dynamic-popup").append(html);
-
-
-            var counter = 0;
-            var myInterval = setInterval(function () {
-                ++counter;
-                console.log(counter);
-                if (counter == 10) {
-                    clearInterval(myInterval);
-                }
-            }, 1000);
         }
     </script>
     <body class="body_bg02 popup-background, bg_black">
@@ -372,189 +228,12 @@
                                     src="../image/p2.jpg" alt=""/></a></div>
                 </div>
 
+                <!-- Modal 앨범상세보기 호출 -->
+                <div class="dynamic-popup">
 
-                <div class="modal" id="playDetail" role="dialog">
-
-                    <div class="view_header_fix" style=" text-align:center">
-                        <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div>
-                        <div class="view_header_fix_top">
-                            <ul>
-                                <li class="bg_grayDark ofh ">
-                                    <span class="icon">
-                                        <a href="#">
-                                            <img src="../icon/Details_Content/like.svg"
-                                                                         style="filter:invert()"/>
-                                        </a> <a href="#">
-                                            <img
-                                                    src="../icon/Music_pop_up/list.svg" style="filter:invert()"/>
-                                        </a> <a href="#">
-                                            <img src="../icon/Details_Content/share.svg"
-                                                              style="filter:invert()"/>
-                                        </a>
-                                    </span>
-                                    <span class="btn">
-                                               <button type="button" class="f_white btn btn-danger btn-sm">add your talent to the music</button>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div><!--view_header_fix_top-->
-                    </div><!--view_header_fix-->
-
-
-                    <!--1앨범상세 header-->
-                    <div class="view_bodyAR">
-                        <div class="modal-content">
-
-                            <!--2앨범관련 커뮤니티area-->
-                            <div class="view_body_fix" style="padding-top:100px;">
-
-                                <!--앨범사진외 -->
-                                <ul class="userinfo">
-                                    <li> <span class="user">
-              <div class="userP"><img src="../image/p1.jpg" class="img-circle"></div>
-              <div class="userN">Andrew</div>
-              <div class="userT">눈물과 비</div>
-              </span> <span class="icon"> <a href="#"><img src="../icon/Details_Content/like.svg"
-                                                           style="filter:invert()"/></a> <a href="#"><img
-                                                        src="../icon/Music_pop_up/list.svg"
-                                                        style="filter:invert()"/></a> <a href="#"><img
-                                                        src="../icon/Details_Content/share.svg"
-                                                        style="filter:invert()"/></a> </span></li>
-                                    <li><span><img src="../image/album_p2.jpg" class="albumIMG"/></span> <span><font
-                                                    class="f_right f_gray mgt_10">2017/01/01(20:00)</font></span></li>
-                                </ul>
-
-                                <!--media-->
-                                <ul class="media-list">
-                                    <p class="comment_title"><img src="../icon/Music_pop_up/Comment.svg"> Comment <font
-                                                class="f_075">9</font><span><a href="#">More</a></span></p>
-                                    <li class="media">
-                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p6.jpg"
-                                                                  style="width:55px; height:55px;"></div>
-                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Comment</a> / <a
-                                                        href="#">Edit</a></span></div>
-                                        <div class="wrt_con"><span class="name">kahee</span> <span
-                                                    class="dpb mgt_8 pdl_15">첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다첫번째글 내용이 보여집니다</span>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p3.jpg"
-                                                                  style="width:55px; height:55px;"></div>
-                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Comment</a> / <a
-                                                        href="#">Edit</a></span></div>
-                                        <div class="wrt_con"><span class="name">kahee</span> <span
-                                                    class="dpb mgt_5 pdl_20">첫번째글 내용이 보여집니다</span></div>
-                                    </li>
-                                    <!--댓글-->
-                                    <li class="media comment">
-                                        <div class="wrt_mem"><img class="img-circle" src="../image/album_p6.jpg"
-                                                                  style="width:55px; height:55px;"></div>
-                                        <div class="wrt_day"><span>2016/10/10</span><span><a href="#">Edit</a></span>
-                                        </div>
-                                        <div class="wrt_con"><span class="name">kahee</span> <span
-                                                    class="dpb mgt_5 pdl_20">첫번째글 내용이 보여집니다</span></div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--view_body_fix-->
-
-                            <!--3댓글쓰기-->
-                            <div class="view_footer bg_dblue">
-                                <img class="img-circle mem" src="../icon/Music_pop_up/user_man.svg"
-                                     style="width:55px; height:55px;">
-                                <img class="wrt" src="../icon/Music_pop_up/Comment.svg"
-                                     style="width:30px; height:30px; filter:invert()">
-                                <input class="wrt_input" type="text" id="usr" placeholder="write...">
-                            </div>
-                        </div><!--modal-content-->
-
-
-                        <div class="container mgb_100">
-
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p2.jpg" class="album2"> <img
-                                                src="../image/album_p3.jpg" class="album3"> <img
-                                                src="../image/album_p4.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
-                                                    class="f_left f_09">8</font><font
-                                                    class="label label-danger f_right"><a
-                                                        href="#">edit</a></font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p1.jpg" class="album2"> <img
-                                                src="../image/album_p1.jpg" class="album3"> <img
-                                                src="../image/album_p1.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
-                                                    class="f_left">8</font><font
-                                                    class="label label-danger f_right">edit</font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p1.jpg" class="album2"> <img
-                                                src="../image/album_p1.jpg" class="album3"> <img
-                                                src="../image/album_p1.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">재미있는노래</span> <span><font
-                                                    class="f_left">8</font><font
-                                                    class="label label-danger f_right">edit</font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p1.jpg" class="album2"> <img
-                                                src="../image/album_p1.jpg" class="album3"> <img
-                                                src="../image/album_p1.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                                    class="f_left">8</font><font
-                                                    class="label label-danger f_right">edit</font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p1.jpg" class="album2"> <img
-                                                src="../image/album_p1.jpg" class="album3"> <img
-                                                src="../image/album_p1.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                                    class="f_left">8</font><font
-                                                    class="label label-danger f_right">edit</font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-                            <div class="playgroupAR">
-                                <div class="playlistAR">
-                                    <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                                src="../image/album_p1.jpg" class="album2"> <img
-                                                src="../image/album_p1.jpg" class="album3"> <img
-                                                src="../image/album_p1.jpg" class="album4"></div>
-                                    <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                                    class="f_left">8</font><font
-                                                    class="label label-danger f_right">edit</font></span></div>
-                                </div>
-                            </div>
-                            <!--playgroupAR-->
-
-                        </div><!--view_bodyAR-->
-                    </div><!--modal-->
-
-
-                    <!-- Modal 앨범상세보기 호출 -->
-                    <div class="dynamic-popup">
-
-                    </div>
-                </div><!--grid-->
-            </div><!--container-->
-        </div><!--#wrapper-->
+                </div>
+            </div><!--grid-->
+        </div><!--container-->
+    </div><!--#wrapper-->
     </body>
 </div>

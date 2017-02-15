@@ -19,9 +19,7 @@ html{
 .grid-item         {box-sizing:border-box; position: relative; float: left; width: 300px; height:auto !important; margin:0; padding:0;}
 .grid-item .albumP     { margin:0 0 0 0 !important;}
 .grid-item .albumP img { padding-right:10px; padding-left:10px; width:100%;  box-sizing:border-box; }
-
 .grid-item .albumT     { margin-right:10px; margin-left:10px; !important; display:block; padding:18px; box-sizing:border-box; max-height:500px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
-
 .grid-item .albumA     { margin:0 0 0 0 !important;}
 .grid-item .albumA img { padding:10px; width:100%; height:200px; background: #d6dde8;
   background-repeat: no-repeat;
@@ -153,7 +151,7 @@ html{
 /*모달창 앨범상세보기 컨텐츠영역 및 댓글li구분값*/
 .view_body { box-sizing:border-box; clear:both; max-height:400px; overflow:auto; padding:15px 10px !important; width:100%; margin-bottom:30px;}
 .media-list  { list-style:none; padding:0; margin:0; width:100%; color:#FFF; font-size:0.85em; }
-.media-list p.comment_title { font-size:2em;  height:45px !important; padding:5px !important; display:block; verflow:hidden; color:#fff; font-weight:400; background:#444; text-align:left}
+.media-list p.comment_title { font-size:2em;  height:45px !important; padding:5px !important; display:block; overflow:hidden; color:#fff; font-weight:400; background:#444; text-align:left}
 .media-list p.comment_title img { width:30px !important;  filter:invert() }
 .media-list p.comment_title span {float:right !important; font-size:0.55em !important ; line-height:2em;}
 .media-list p.comment_title span  a { color:#fff}
@@ -381,29 +379,44 @@ html{
 
 /*모달창 좋아요외 아이콘크기 관련속성*/
 .modal-content span.icon img  {width:45px; height:auto; padding:7px}
-.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:100px; text-align:center;}
+.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:100px; }
 .view_body_fix { box-sizing:border-box; clear:both; padding:15px 10px !important; width:100%; margin:0 0 30px 0; height:auto;}
 .view_bodyAR .modal-content { width:600px; margin:50px auto; background:#666;  height:auto;}
 
 /*앨범그리드 사용자프로필 제공*/
 .userinfo        { width:100%; max-height:15%; padding:10px 0 0 10px; margin:0 ; display:inline-block }
-.userinfo li     {  width:100%; padding:0; margin:0; list-style:none; display:inline-block;}
-.userinfo .user  { width:60%; height:75px; float:left; display:block; position:relative; }
-.userinfo .icon  { width:40%; float:right; text-align:right;}
+.userinfo li     {  width:80%; padding:0; margin:0; list-style:none; display:inline-block;}
+.userinfo .user  { width:50%; height:45px; float:left; display:block; position:relative; }
+.userinfo .icon  { width:50%; float:right; text-align:right;}
 .userP  { z-index:3; position:absolute;  top:0; left:0; }
-.userN  { z-index:2; position:absolute; top:5px; left:60px; background:#000; color:#FFF; font-size:1.35em; padding:2px 15px }
+.userN  { z-index:2; position:absolute; top:6px; left:60px; color:#FFF; font-size:1.5em; padding:2px 15px }
 .userT  {  z-index:1; position:absolute; top:35px; left:60px;  background:#00baff; color:#fff; font-size:0.85em;  padding:2px 15px }
-.userP img {  width:70px !important  }
-.userinfo .albumIMG   { padding-left:8%; max-width:70%; height:auto; display:inline-block }
+.userP img {  width:40px !important  }
+.userinfo .albumIMG   { max-width:100%; height:auto; display:inline-block }
 
-/*앨범그리드 앨범제목및 태그제공*/
-.grid-item .userinfo  .musictext { padding-left:35px }
-.grid-item .userinfo  .musictext ul { margin:0 0 0 0 !important; padding:0 !important}
-.grid-item .userinfo  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}
-.music_title { background:#F30; color:#ffddcc; font-size:0.85em; padding:0 7px; margin-bottom:1px; }
-.music_name  { background:#000; color:#FFF; font-size:1.3em; padding:0 5px 0 10px }
-.music_tag   { padding:0 0 0 5px; }
-.music_tag span.label { font-size:0.85em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin:-1px !important}
+
+/*앨범목록 그리드사용(앨범및 가사제공)*/
+.userinfo .albumP     { margin:0 0 0 0 !important;}
+.userinfo .albumP img { padding-right:10px; padding-left:10px; width:100%;  box-sizing:border-box; }
+.userinfo .albumT     {  display:block; padding:18px; box-sizing:border-box; max-height:500px; overflow:hidden; background:#f7f7f7; font-size:0.85em; line-height:1.1em; letter-spacing:-0.035m; }
+.userinfo .albumA     { margin:0 0 0 0 !important;}
+.userinfo .albumA img { padding:10px; width:100%; height:200px; background: #d6dde8;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+
+
+/*!*앨범그리드 앨범제목및 태그제공*!*/
+/*.grid-item .userinfo  .musictext { padding-left:35px }*/
+/*.grid-item .userinfo  .musictext ul { margin:0 0 0 0 !important; padding:0 !important}*/
+/*.grid-item .userinfo  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}*/
+/*.music_title { background:#F30; color:#ffddcc; font-size:0.85em; padding:0 7px; margin-bottom:1px; }*/
+/*.music_name  { background:#000; color:#FFF; font-size:1.3em; padding:0 5px 0 10px }*/
+/*.music_tag   { padding:0 0 0 5px; }*/
+/*.music_tag span.label { font-size:0.85em; font-weight:normal !important; color:#fff; padding:1px 3px !important; margin:-1px !important}*/
 
 
 /*상단*/

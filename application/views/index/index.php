@@ -120,7 +120,7 @@
                                 "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
                                 "</ul></div></div>";
                             if (value[i].content_type_name == "image") {
-                                html += "<div class='albumP'><img src='" + value[i].content_path + "' alt=''/></div>";
+                                html += "<div class='albumP' data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\"><img src='" + value[i].content_path + "' alt=''/></div>";
                                 <!--앨범사진-->
 
                                 // ** path **
@@ -215,9 +215,13 @@
     <!--        </div>-->
     <!--    </div>-->
 
-
+    <div class="modal" id="playDetail" role="dialog">
+    </div>
     <div id="wrapper">
         <div class="container bg_black">
+
+
+
 
             <!--앨범전체 AREA-->
             <div class="grid grid-main" data-layout-mode="masonry">
@@ -227,6 +231,9 @@
                     <div class="albumP"><a href="#" data-toggle="modal" data-target="#playDetail"><img
                                     src="../image/p2.jpg" alt=""/></a></div>
                 </div>
+
+
+
 
                 <!-- Modal 앨범상세보기 호출 -->
                 <div class="dynamic-popup">

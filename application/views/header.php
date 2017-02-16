@@ -167,12 +167,52 @@ if(Session::isSessionSet("loggedIn")){
                 return false;
             });
 
+            $("#file-5-image").change(function(){
+                $("#preview-audio").css("display","none");
+                $("#preview-div").css("display","block");
+                $('#file-5-audio').val("");
+                if(sound != null) sound.pause();
+                readImage(this);
+                $("#preview-image").css("display","block");
+            });
+
+            $("#file-5-audio").change(function(){;
+                $("#preview-div").css("display","block");
+                $("#preview-image").css("display","none");
+                $('#file-5-image').val("");
+                $("#preview-audio").css("display","block")
+                readAudio(this);
+            });
+
         });
+
+        function readImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#preview-image').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        var sound = null;
+        function readAudio(input){
+            sound = document.getElementById('preview-audio');
+            sound.src = URL.createObjectURL(input.files[0]);
+            // not really needed in this exact case, but since it is really important in other cases,
+            // don't forget to revoke the blobURI when you don't need it
+            sound.onend = function(e) {
+                URL.revokeObjectURL(input.src);
+            };
+        }
 
         function resize(obj) {
             obj.style.height = "112px";
             obj.style.height = (12 + obj.scrollHeight) + "px";
         }
+
     </script>
     <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
 
@@ -273,6 +313,12 @@ if(Session::isSessionSet("loggedIn")){
                 <div class="adddata_write_input">
                     <ul>
                         <li>
+                            <div style="width:100%; height:auto; display:none;" id="preview-div">
+                                <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
+                                <audio id="preview-audio" controls></audio>
+                            </div>
+
+
                             <input type="text" class="form-control" name="content_title"
                                    placeholder="Please enter title">
                             <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
@@ -281,17 +327,19 @@ if(Session::isSessionSet("loggedIn")){
                             <input type="text" class="form-control" name="hashtags" id="hashtags[]"
                                    placeholder="Please enter title">
 
-                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred" style="display:none"/>
-                            <label for="file-5-audio">
+                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
+                                   accept="audio/mpeg3,audio/x-wav"/>
+                            <label for="file-5-audio" >
                                 <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
                             </label>
 
                             <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
-                                   style="display:none"/>
+                                   accept="image/x-png,image/gif,image/jpeg" />
                             <label for="file-5-image">
                                 <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
                             </label>
 
+                            <input type="button" onclick="test()">
                             <input type="submit" id="submit" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
                         </li>
                 </div>

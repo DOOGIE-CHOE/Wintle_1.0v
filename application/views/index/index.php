@@ -72,7 +72,6 @@
 
             // to close modal window has id named playDetail by clicking background
             $('#playDetailModal').bind('click', function (e) {
-
                 if ($(e.target).attr('class') == "view_bodyAR") {
                     var opened = $('#playDetailModal').hasClass('modal in');
                     if (opened === true) {

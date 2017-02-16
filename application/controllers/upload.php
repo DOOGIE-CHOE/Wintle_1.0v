@@ -29,8 +29,8 @@ class Upload extends Controller {
     }
 
 
-    public function uploadContent($type){
-        $data = $this->model->uploadContent($type);
+    public function uploadContent(){
+        $data = $this->model->uploadContent();
         echo json_encode($data);
     }
 

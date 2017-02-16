@@ -13,22 +13,28 @@ class Upload_Model extends Model {
     }
 
 
-    function uploadContent($type){
+    function uploadContent(){
         $content_title = $_POST['content_title'];
         $content_comments = $_POST['content_comments'];
         $content_hashs =  $_POST['hashtags'];
         $user_id = Session::get('user_id');
-        if($type == "lyrics"){
-            $path = $_POST['content_path'];
+
+
+        if($_FILES['content_path_audio']['name'] !=  ""){
+            $file_name = $_FILES['content_path_audio']['name'];
+            $file_size = $_FILES['content_path_audio']['size']; // to check file size if it's too big
+            $file_tmp = $_FILES['content_path_audio']['tmp_name'];
+            $type = "audio";
+            $path = $this->uploadAudio($file_name, $file_size, $file_tmp);
+        }else if($_FILES['content_path_image']['name'] !=  ""){
+            $file_name = $_FILES['content_path_image']['name'];
+            $file_size = $_FILES['content_path_image']['size']; // to check file size if it's too big
+            $file_tmp = $_FILES['content_path_image']['tmp_name'];
+            $path = $this->uploadimage($file_name, $file_size, $file_tmp);
+            $type = "image";
         }else{
-            $file_name = $_FILES['content_path']['name'];
-            $file_size = $_FILES['content_path']['size']; // to check file size if it's too big
-            $file_tmp = $_FILES['content_path']['tmp_name'];
-            if($type == "audio"){
-                $path = $this->uploadAudio($file_name, $file_size, $file_tmp);
-            }else if($type == "image"){
-                $path = $this->uploadimage($file_name, $file_size, $file_tmp);
-            }
+            $type = "lyrics";
+            $path = "";
         }
         return $this->uploadContentProcedure($user_id, $content_title, $path, $content_comments, $content_hashs, $type);
     }
@@ -70,7 +76,7 @@ class Upload_Model extends Model {
     public function uploadimage($file_name, $file_size, $file_tmp){
         $permitted = array('jpeg', 'jpg','gif','png');
         $time = getdate();
-        $length = count($_FILES['content_path']['name']);
+        $length = count($file_name);
         $imgpath = "image".DS.$time['year'].DS.$time['mon'];
         $count = 0;
 
@@ -97,7 +103,7 @@ class Upload_Model extends Model {
             throw new Exception("No file selected");
         }else if($length == 1){
             //move file to server
-            if(move_uploaded_file($file_tmp, $imgpath.DS.basename($file_name))) {
+            if(move_uploaded_file($file_tmp, $imgpath . DS . basename($file_name))) {
                 return $imgpath.DS.$file_name;
             }
             else{
@@ -111,7 +117,7 @@ class Upload_Model extends Model {
     public function uploadAudio($file_name, $file_size, $file_tmp){
         $permitted = array('mp3', 'wav');
         $time = getdate();
-        $length = count($_FILES['content_path']['name']);
+        $length = count($file_name);
         $wavepath = "wave".DS.$time['year'].DS.$time['mon'];
         $audiopath = "audio".DS.$time['year'].DS.$time['mon'];
         $count = 0;

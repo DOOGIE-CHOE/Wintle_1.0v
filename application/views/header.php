@@ -19,15 +19,15 @@ if(Session::isSessionSet("loggedIn")){
     <title>wintle</title>
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
     <!------------jquery import ----------->
-    <script src="<?php echo URL ?>public/js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo URL ?>public/js/jquery/jquery.form.js" type="text/javascript"></script>
+    <script src="<?php echo URL ?>js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/jquery/jquery.form.js" type="text/javascript"></script>
     <!-- draggable import -->
-    <script src="<?php echo URL ?>public/js/jquery/jquery-ui.js" type="text/javascript"></script>
+    <script src="<?php echo URL ?>js/jquery/jquery-ui.js" type="text/javascript"></script>
 
     <!-- Google Analytics -->
     <script src="<?php echo URL ?>public/js/analyticstracking.js" type="text/javascript"></script>
 
-    <!--    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include-->
+    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- google ReCAPTCHA include
     <script src="https://apis.google.com/js/platform.js" async defer></script> <!-- google social login-->
     <meta name="google-signin-client_id"
           content="611141018688-vjcv2sqjcf133cgi453ogfi3lnj4c1bk.apps.googleusercontent.com">
@@ -41,14 +41,15 @@ if(Session::isSessionSet("loggedIn")){
     <!--추후 화면 확장성 위해 사용하는 프레임웍-->
     <link href="<?php echo URL ?>css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
+    <script type="text/javascript" src="<?php echo URL ?>js/bootstrap.js"></script>
+
     <!--공통사용하는 기본속성-->
     <link href="<?php echo URL ?>css/base.css" rel="stylesheet" type="text/css"/>
-
 
     <!--메인및작성되 화면 관리-->
     <link href="<?php echo URL ?>css/wintle.css" rel="stylesheet" type="text/css"/>
 
-    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
     <!-- Form process -->
     <script src="<?php echo URL ?>js/login-signup/form.js"></script>
@@ -61,23 +62,17 @@ if(Session::isSessionSet("loggedIn")){
     <!-- Error Message -->
     <link rel="stylesheet" href="<?php echo URL ?>css/errormessage.css">
 
-
     <!-- page handler-->
     <script type="text/javascript" src="<?php echo URL ?>js/ajax-page-call.js"></script>
 
-
     <link rel="shortcut icon" type="image/ico" href="<?php echo URL ?>favicon.ico">
 
+    <!--    <script type="text/javascript" src="--><?php //echo URL ?><!--js/bootstrap.min.js"></script>-->
 
-
-    <script type="text/javascript" src="<?php echo URL ?>js/bootstrap.js"></script>
-
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-    <!--    <script type="text/javascript" src="--><?php //echo URL?><!--/js/bootstrap.min.js"></script>-->
-    <!--<script type="text/javascript" src="./common/js/jquery.min.js"></script>
-    -->
-
+    <link href="<?php echo URL ?>css/custominput/component.css" rel="stylesheet"/>
+    <link href="<?php echo URL ?>css/custominput/normalize.css" rel="stylesheet"/>
+    <script type="text/javascript" src="<?php echo URL ?>js/custominput/custom-file-input.js"></script>
+    <script type="text/javascript" src="<?php echo URL ?>js/custominput/jquery.custom-file-input.js"></script>
 
     <!-- css custom -->
     <link media="screen" href="<?php echo URL ?>css/style/pc.css" rel="stylesheet"/>
@@ -87,7 +82,7 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.js" type="text/javascript" charset="utf-8"></script>
     <link href="<?php echo URL ?>css/tag-it/jquery.tag-editor.css" rel="stylesheet" type="text/css">
 
-    <link rel="mask-icon" href="<?php echo URL?>mac_favicon.png" color="#000000">
+    <link rel="mask-icon" href="<?php echo URL ?>mac_favicon.png" color="#000000">
 
     <script>
         function onSignIn(googleUser) {
@@ -151,14 +146,35 @@ if(Session::isSessionSet("loggedIn")){
 
 
 
+            $("#upload-content-form").submit(function(event){
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: "<?php echo URL ?>upload/uploadcontent",
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    success: function (data) {
+                        var value = jQuery.parseJSON(data);
+                        if(value.success == true){
+                            errorDisplay("File's uploaded");
+                            $('#writeContentModal').modal('hide');
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+                return false;
+            });
+
         });
 
         function resize(obj) {
             obj.style.height = "112px";
-            obj.style.height = (12+obj.scrollHeight)+"px";
+            obj.style.height = (12 + obj.scrollHeight) + "px";
         }
     </script>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
 
 </head>
 
@@ -199,7 +215,7 @@ if(Session::isSessionSet("loggedIn")){
 
 
                 $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>", function (o) {
-                    if(o != null){
+                    if (o != null) {
                         var value = jQuery.parseJSON(o);
                         var photo = $("#profile-mini");
                         if (value.profile_photo_path != null) {
@@ -214,17 +230,21 @@ if(Session::isSessionSet("loggedIn")){
             </script>
 
             <div class="MemberShipBtn3" style="top:20px; right:5px;">
-                <img src="<?php echo URL?>img/pavicon/envelope.svg" style="width:20px;"
+                <img src="<?php echo URL ?>img/pavicon/envelope.svg" style="width:20px;"
                      onclick="$.pagehandler.loadContent('<?php echo URL . "message" ?>','all');">
-                <img src="<?php echo URL?>img/pavicon/upload.svg" style="width:20px;" data-toggle='modal' data-target='#writeContentModal' >
-                <a href="<?php echo URL ?>logout/calllogout"><img src="<?php echo URL?>img/pavicon/logout.svg" style="width:18px;"
+                <img src="<?php echo URL ?>img/pavicon/upload.svg" style="width:20px;" data-toggle='modal'
+                     data-target='#writeContentModal'>
+                <a href="<?php echo URL ?>logout/calllogout"><img src="<?php echo URL ?>img/pavicon/logout.svg"
+                                                                  style="width:18px;"
                                                                   onclick="signOut()"></a>
             </div>
 
-            <div class="MemberShipBtn2" style="top:16px; right:30px;" onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');">
+            <div class="MemberShipBtn2" style="top:16px; right:30px;"
+                 onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');">
                 <div style="float:right; height:100%;">
                     <a href="#">
-                        <div id="profile-mini" style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
+                        <div id="profile-mini"
+                             style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
                     </a>
                     <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
                         <?php
@@ -243,49 +263,39 @@ if(Session::isSessionSet("loggedIn")){
     </div>
 
 
-
-
-
-
-
-
-
-
-
     <div class="modal" id="writeContentModal" role="dialog">
-        <div class="modal_close" data-dismiss="modal"><a href="#" >&times;</a></div><!--modal-dialog-->
+        <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div><!--modal-dialog-->
         <div class="modal-dialog">
             <!--<div class="adddataBox">&lt;!&ndash;점선박스&ndash;&gt;</div>-->
             <!--<div class="adddata_write">-->
             <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
-            <div class="adddata_write_input">
-                <ul>
-                    <li>
-                        <input type="text" class="form-control" id="" placeholder="Please enter title">
-                        <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"  class="form-control" placeholder = "show us your inspiration" style="resize:none;" ></textarea>
-                        <input type="text" class="form-control" id="" placeholder="Please enter title">
-                    </li>
+            <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
+                <div class="adddata_write_input">
+                    <ul>
+                        <li>
+                            <input type="text" class="form-control" name="content_title"
+                                   placeholder="Please enter title">
+                            <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
+                                      class="form-control" placeholder="show us your inspiration"
+                                      style="resize:none;" name="content_comments"></textarea>
+                            <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                                   placeholder="Please enter title">
 
-<!--                    <li id="sound" class="collapse" >-->
-<!--                        <div class="alert bg_gray ofh dpb">-->
-<!--                            <div class="close"> <a href="#" data-toggle="collapse" data-target="#sound">&times;</a></div>-->
-<!--                            <span class="sound_info1">-->
-<!--                              <font>2016.01.10</font><br>-->
-<!--                              <font>Type :WRC_211212111</font><br>-->
-<!--                              <font>Time : 12:15 </font>-->
-<!--                          </span>-->
-<!--                            <span class="sound_info2"><img src="../image/eq.png" ></span>-->
-<!--                        </div>-->
-<!--                    </li>-->
-                    <li class="btnall">
-<!--                        <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#lyrics"><img src="../icon/Write/icon_list/lyrics.svg" >Write lyrics</button>-->
-                        <input type="button" class="btn btn-primary btn-xs" id="b_image" src="../icon/Write/icon_list/file.svg" value="Image">
-                        <input type="button" class="btn btn-primary btn-xs" id="b_sound" src="../icon/Write/icon_list/file.svg" value="Sound">
-                        <input type="submit" class="btn f_right f_bred" value="Upload">
-                    </li>
-                </ul>
-            </div>
+                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred" style="display:none"/>
+                            <label for="file-5-audio">
+                                <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
+                            </label>
 
+                            <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
+                                   style="display:none"/>
+                            <label for="file-5-image">
+                                <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
+                            </label>
+
+                            <input type="submit" id="submit" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
+                        </li>
+                </div>
+            </form>
             <!--</div>-->
         </div><!--modal-dialog-->
     </div><!--modal-->

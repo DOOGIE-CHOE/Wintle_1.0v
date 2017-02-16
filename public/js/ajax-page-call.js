@@ -10,8 +10,8 @@ $.pagehandler.loadContent = function (url, type) {
         id = "#all";
     }else if(type == "contents"){
         id = "#contents";
-    }else if(type == "modal"){
-        id = ".modal";
+    }else if(type == "playDetailModal"){
+        id = "#playDetailModal";
     }
     // $("#body").load(pageUrl);
 
@@ -24,7 +24,7 @@ $.pagehandler.loadContent = function (url, type) {
                 $(id).html($(data).filter(id).html());
             else if(id == "#contents")
                 $(id).html($(data).find(id).html());
-            else if(id == ".modal")
+            else if(id == "#playDetailModal")
                 $(id).html($(data).filter("#all").html());
             //$('#body').html();
             // hide ajax loader

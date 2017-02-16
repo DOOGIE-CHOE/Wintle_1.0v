@@ -554,16 +554,16 @@ html{
 .adddataBox     { float:left; width:200px; height:300px; border:2px dashed #FF6600; background : rgba(197, 197, 197, 0.3)}
 .adddata_write  { float:left; width:700px; height:auto; display:inline-block }
 .adddata_write_img  { float:left; width:100px }
-.adddata_write_input { float:left;  background:#c5c5c5; width:600px; padding:10px; box-sizing:border-box }
+.adddata_write_input { float:left;  background:#333333; width:500px; padding:10px; box-sizing:border-box }
 .adddata_write_input ul { width:100% !important}
 .adddata_write_input ul li.addtitle { text-align:left; padding:10px; font-size:2em; font-weight:bold}
-.adddata_write_input ul li.btnall { border-top:2px solid #09F; padding:10px; }
+.adddata_write_input ul li.btnall {  padding:10px; }
 .adddata_write_input ul li.btnall > button.btn-xs { }
 .adddata_write_input ul li.btnall > button.btn-xs img {  max-width:15px !important; margin:2px; filter:invert() }
 .adddata_write_input .collapse  { position:relative}
 .adddata_write_input .collapse .close { position:absolute; right:5px; top:5px; opacity:1 !important;  }
 .adddata_write_input .collapse .close  a { color:#fff }
-.adddata_write_input  textarea { padding:0 !important; margin: 0 !important; resize:none; background:transparent !important; border:none !important; box-shadow:none !important}
+/*.adddata_write_input  textarea { padding:0 !important; margin: 0 !important; resize:none; background:transparent !important; border:none !important; box-shadow:none !important}*/
 .adddata_write_input #sound font { font-size:0.85em; color:#FFF}
 .adddata_write_input #sound .sound_info1 {float:left; width:25%; }
 .adddata_write_input #sound .sound_info2 {float:left; width:75%; }

@@ -99,7 +99,6 @@ if(Session::isSessionSet("loggedIn")){
         }else{ ?>
             $.get("<?php echo URL?>social/google_login/" + id_token, function (o) {
                 var value = jQuery.parseJSON(o);
-                console.log(value.success);
                 if (value.success == true) {
                     window.location.replace("http://wintle.co.kr");
                 } else {
@@ -150,13 +149,14 @@ if(Session::isSessionSet("loggedIn")){
                 }
             });
 
+
+
         });
-//        $(window).scroll(function() {
-//            console.log($(window).scrollTop());
-//
-//
-//
-//        });
+
+        function resize(obj) {
+            obj.style.height = "112px";
+            obj.style.height = (12+obj.scrollHeight)+"px";
+        }
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
@@ -216,8 +216,7 @@ if(Session::isSessionSet("loggedIn")){
             <div class="MemberShipBtn3" style="top:20px; right:5px;">
                 <img src="<?php echo URL?>img/pavicon/envelope.svg" style="width:20px;"
                      onclick="$.pagehandler.loadContent('<?php echo URL . "message" ?>','all');">
-                <img src="<?php echo URL?>img/pavicon/upload.svg" style="width:20px;"
-                     onclick="$.pagehandler.loadContent('<?php echo URL . "upload" ?>','all');">
+                <img src="<?php echo URL?>img/pavicon/upload.svg" style="width:20px;" data-toggle='modal' data-target='#writeContentModal' >
                 <a href="<?php echo URL ?>logout/calllogout"><img src="<?php echo URL?>img/pavicon/logout.svg" style="width:18px;"
                                                                   onclick="signOut()"></a>
             </div>
@@ -227,10 +226,6 @@ if(Session::isSessionSet("loggedIn")){
                     <a href="#">
                         <div id="profile-mini" style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
                     </a>
-                    <script>
-                        console.log("<?php echo Session::get('my_profile');echo " "; echo Session::get('profile_id')?>");
-
-                    </script>
                     <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
                         <?php
                         if (strlen(Session::get("user_name")) >= 10) {
@@ -246,4 +241,53 @@ if(Session::isSessionSet("loggedIn")){
 
         <?php } ?>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal" id="writeContentModal" role="dialog">
+        <div class="modal_close" data-dismiss="modal"><a href="#" >&times;</a></div><!--modal-dialog-->
+        <div class="modal-dialog">
+            <!--<div class="adddataBox">&lt;!&ndash;점선박스&ndash;&gt;</div>-->
+            <!--<div class="adddata_write">-->
+            <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
+            <div class="adddata_write_input">
+                <ul>
+                    <li>
+                        <input type="text" class="form-control" id="" placeholder="Please enter title">
+                        <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"  class="form-control" placeholder = "show us your inspiration" style="resize:none;" ></textarea>
+                        <input type="text" class="form-control" id="" placeholder="Please enter title">
+                    </li>
+
+<!--                    <li id="sound" class="collapse" >-->
+<!--                        <div class="alert bg_gray ofh dpb">-->
+<!--                            <div class="close"> <a href="#" data-toggle="collapse" data-target="#sound">&times;</a></div>-->
+<!--                            <span class="sound_info1">-->
+<!--                              <font>2016.01.10</font><br>-->
+<!--                              <font>Type :WRC_211212111</font><br>-->
+<!--                              <font>Time : 12:15 </font>-->
+<!--                          </span>-->
+<!--                            <span class="sound_info2"><img src="../image/eq.png" ></span>-->
+<!--                        </div>-->
+<!--                    </li>-->
+                    <li class="btnall">
+<!--                        <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#lyrics"><img src="../icon/Write/icon_list/lyrics.svg" >Write lyrics</button>-->
+                        <input type="button" class="btn btn-primary btn-xs" id="b_image" src="../icon/Write/icon_list/file.svg" value="Image">
+                        <input type="button" class="btn btn-primary btn-xs" id="b_sound" src="../icon/Write/icon_list/file.svg" value="Sound">
+                        <input type="submit" class="btn f_right f_bred" value="Upload">
+                    </li>
+                </ul>
+            </div>
+
+            <!--</div>-->
+        </div><!--modal-dialog-->
+    </div><!--modal-->
+
 </header>

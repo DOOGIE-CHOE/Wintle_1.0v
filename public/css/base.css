@@ -220,6 +220,9 @@ table caption 	{display:none;}
 .f_Pwhite { color:#F9F0F0 !important}
 .f_brown { color:#a3765d !important}
 
+.f_cred{color:#EE3B24  !important}
+.f_bred{background:#EE3B24  !important}
+
 .ls_005 { letter-spacing:-0.05em}
 .ls_01 { letter-spacing:-0.1em}
 .ls_0 { letter-spacing:0 !important}

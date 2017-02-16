@@ -36,12 +36,12 @@
 
 
             //catch the event to click dynamically appended div
-            $(".popup-background").on("click", "div.dynamic-popup", function (e) {
+        //    $(".popup-background").on("click", "div.dynamic-popup", function (e) {
                 //when the mymodal is hidden (after toggled)
-                $('#myModal').on('hidden.bs.modal', function (e) {
+            //    $('#myModal').on('hidden.bs.modal', function (e) {
                     //remove appended popup
-                    $(".dynamic-popup").empty();
-                });
+             //       $(".dynamic-popup").empty();
+             //   });
 //                 var container = $("#mymodal");
 //                 var block = $(".modal-dialog");
 //                  clicking outside of popup
@@ -49,7 +49,7 @@
 //                 {
 //                    $(".pop").empty();
 //                 }
-            });
+            //});
 
             $("#search").blur(function () {
                 if (!this.value) { //if it's empty
@@ -71,12 +71,12 @@
 
 
             // to close modal window has id named playDetail by clicking background
-            $('#playDetail').bind('click', function (e) {
+            $('#playDetailModal').bind('click', function (e) {
 
                 if ($(e.target).attr('class') == "view_bodyAR") {
-                    var opened = $('#playDetail').hasClass('modal in');
+                    var opened = $('#playDetailModal').hasClass('modal in');
                     if (opened === true) {
-                        $('#playDetail').modal('hide');
+                        $('#playDetailModal').modal('hide');
                         var pageUrl = "<?php echo URL?>";
                         window.history.pushState({ path: pageUrl }, '', pageUrl);
                     }
@@ -100,7 +100,6 @@
             $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/20", function (o) {
                 offset += 20;
                 var value = jQuery.parseJSON(o);
-                console.log(value);
                 if (value == null) {
                     //display default image
                 } else {
@@ -122,7 +121,7 @@
                                 "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
                                 "</ul></div></div>";
                             if (value[i].content_type_name == "image") {
-                                html += "<div class='albumP' data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\"><img src='" + value[i].content_path + "' alt=''/></div>";
+                                html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','playDetailModal');\"><img src='" + value[i].content_path + "' alt=''/></div>";
                                 <!--앨범사진-->
 
                                 // ** path **
@@ -133,10 +132,10 @@
                                 path = path.split("\/");
                                 var imagename = path[3].split('.');
                                 var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
-                                html += "<div class='albumA' data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\"><img src='" + content_path + "' alt=''/></div>";
+                                html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
                             }
                             else if (value[i].content_type_name == "lyrics") {
-                                html += "<div class='albumT'  data-toggle='modal' data-target='#playDetail' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','modal');\">" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
+                                html += "<div class='albumT'  data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL.'block/'?>" + value[i].content_id + "','playDetailModal');\">" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
                                 <!--lyrics-->
                             } else {
                             }
@@ -215,7 +214,7 @@
     <!--        </div>-->
     <!--    </div>-->
 
-    <div class="modal" id="playDetail" role="dialog">
+    <div class="modal" id="playDetailModal" role="dialog">
     </div>
 
     <div id="wrapper">
@@ -225,7 +224,7 @@
                 <!--앨범-->
 
                 <div class="grid-item">
-                    <div class="albumP"><a href="#" data-toggle="modal" data-target="#playDetail"><img
+                    <div class="albumP"><a href="#" data-toggle="modal" data-target="#playDetailModal"><img
                                     src="../image/p2.jpg" alt=""/></a></div>
                 </div>
 

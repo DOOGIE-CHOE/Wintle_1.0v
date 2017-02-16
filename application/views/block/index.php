@@ -58,6 +58,14 @@
                                 <a href="#"><img src="../icon/Details_Content/share.svg" style="filter:invert()"/></a>
                             </span>
                         </li>
+
+                        <?php
+                        if($this->data['content_title'] != ""){ ?>
+                            <li>
+                                <span class='music_title'> <?php echo $this->data['content_title']?></span>
+                            </li>
+                        <?php } ?>
+
                         <li>
                             <span>
                                 <?php
@@ -78,13 +86,6 @@
                         </li>
 
                         <?php
-                            if($this->data['content_title'] != ""){ ?>
-                            <li>
-                            <span class='music_title'> <?php echo $this->data['content_title']?></span>
-                            </li>
-                           <?php } ?>
-
-                        <?php
                         if($this->data['comments'] != ""){ ?>
                             <li>
                                 <span class='music_name'> <?php echo $this->data['comments']?></span>
@@ -96,7 +97,7 @@
                                 <?php
                                 $hashs = explode (",", $this->data['hashtags']);
                                 foreach($hashs as $tag) {
-                                    echo "<span class='label f_dwhite'>$tag</span>";
+                                    echo "<span class='f_dwhite' style='margin:2px; font-size:1em; padding:0 5px 0 5px;'>$tag</span>";
                                 }
                                 ?>
                             </li>

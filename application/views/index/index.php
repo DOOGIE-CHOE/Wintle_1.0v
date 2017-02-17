@@ -117,11 +117,11 @@
                                 "</div>" +
                                 "<div class='musictext'>" +
                                 "<ul>" +
-                                "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
+                                "<li><span class='user_name'>" + value[i].user_name + "</span></li>" +
                                 "</ul></div></div>";
 
                             if(value[i].content_title != "")
-                                html += "<div  style='font-size:0.9em;padding:13px; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + value[i].content_id + "','playDetailModal');\">" + value[i].content_title + "</div>";
+                                html += "<div  style='font-size:0.9em;padding:10px 13px 10px 13px; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + value[i].content_id + "','playDetailModal');\"><span class='music_name'>" + value[i].content_title + "</span></div>";
                             if (value[i].content_type_name == "image") {
                                 html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + value[i].content_id + "','playDetailModal');\"><img src='" + value[i].content_path + "' alt=''/></div>";
                                 <!--앨범사진-->
@@ -138,35 +138,35 @@
                             }
 
                             if (value[i].comments != "") {
-                                html += "<div  style='font-size:1.1em;padding:13px; color:white; border:1px; border-color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + value[i].content_id + "','playDetailModal');\">" + value[i].comments.replace(/\n/g, '<br />') + "</div>";
+                                html += "<div class='albumT' style='font-size:1.1em;padding:13px; color:white; border:1px; border-color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + value[i].content_id + "','playDetailModal');\"><span class='text'>" + value[i].comments.replace(/\n/g, '<br />') + "</span></div>";
                             }
 
                             <!--lyrics-->
 
                         }
                         html +=
-                            "<div class='userinfo'>" +
-                            "<div class='musictext'><ul>" +
-                            "<li class='music_tag'>";
+                            "" +
+                            "" +
+                            "<div class='music_tag'>";
                         if (value[i].hashtags != null) {
                             var hsh = value[i].hashtags.split(",");
                         }
 
                         for (var j = 0; j < hsh.length; j++) {
-                            html += "<span class='label f_dwhite' style='font-size:1em'>" + hsh[j] + "</span>";
+                            html += "<span class='label'>" + hsh[j] + "</span>";
                         }
 
 
                         html +=
-                            "</li></ul></div></div>" + <!--userinfo-->
+                            "</div>" + <!--userinfo-->
 
                             "<div class='btm_info'>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                             "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>" +
+                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/playlist.svg' class='w20px'/></a></span>" +
                             "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
+                            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                             "</div>";
                         $(".grid-main").append(html);
                     }
@@ -191,7 +191,7 @@
             $(".dynamic-popup").append(html);
         }
     </script>
-    <body class="body_bg02 popup-background, bg_black">
+    <body class="body_bg02 popup-background, bg_deepgray">
 
 
     <!--    <div id="sub-header">-->
@@ -221,7 +221,7 @@
     </div>
 
     <div id="wrapper">
-        <div class="container bg_black">
+        <div class="container bg_deepgray">
             <!--앨범전체 AREA-->
             <div class="grid grid-main" data-layout-mode="masonry">
                 <!--앨범-->

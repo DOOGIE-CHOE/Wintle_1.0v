@@ -219,6 +219,7 @@ table caption 	{display:none;}
 .f_dwhite {color:#dddddd !important;}
 .f_Pwhite { color:#F9F0F0 !important}
 .f_brown { color:#a3765d !important}
+.f_deepgray {color:#222222 !important}
 
 .f_cred{color:#EE3B24  !important}
 .f_bred{background:#EE3B24  !important}
@@ -276,7 +277,7 @@ table caption 	{display:none;}
 .bg_black03  { background : rgba(0, 0, 0, 0.3)!important; }
 .bg_beige    { background:#eeece1 !important }
 .bg_no       { background:none !important}
-
+.bg_deepgray { background: #333333 !important;}
 
 /*스크롤 속성 추가변경 필요*/
 html {

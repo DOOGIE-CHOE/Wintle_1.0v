@@ -178,7 +178,7 @@ if(Session::isSessionSet("loggedIn")){
             });
 
             //on audio selected
-            $("#file-5-audio").change(function(){;
+            $("#file-5-audio").change(function(){
                 $("#preview-div").css("display","block");
                 $("#preview-image").css("display","none");
                 $('#file-5-image').val("");
@@ -314,36 +314,36 @@ if(Session::isSessionSet("loggedIn")){
             <!--<div class="adddata_write">-->
             <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
             <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
-                <div class="adddata_write_input">
-                    <ul>
-                        <li>
-                            <input type="text" class="form-control" name="content_title"
-                                   placeholder="Please enter title" autocomplete="off">
-                            <div style="width:100%; height:auto; display:none;" id="preview-div">
-                                <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-                                <audio id="preview-audio" controls></audio>
-                            </div>
-                            <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
-                                      class="form-control" placeholder="show us your inspiration"
-                                      style="resize:none;" name="content_comments" autocomplete="off"></textarea>
-                            <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                                   placeholder="Please enter title" autocomplete="off">
+                    <div class="adddata_write_input">
+                        <ul>
+                            <li>
+                                <input type="text" class="form-control" name="content_title"
+                                       placeholder="Please enter title" autocomplete="off">
+                                <div style="width:100%; height:auto; display:none;" id="preview-div">
+                                    <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
+                                    <audio id="preview-audio" controls></audio>
+                                </div>
+                                <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
+                                          class="form-control" placeholder="show us your inspiration"
+                                          style="resize:none;" name="content_comments" autocomplete="off"></textarea>
+                                <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                                       placeholder="Please enter title" autocomplete="off">
 
-                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
-                                   accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
-                            <label for="file-5-audio" >
-                                <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
-                            </label>
+                                <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
+                                       accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
+                                <label for="file-5-audio" >
+                                    <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
+                                </label>
 
-                            <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
-                                   accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
-                            <label for="file-5-image">
-                                <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
-                            </label>
+                                <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
+                                       accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
+                                <label for="file-5-image">
+                                    <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
+                                </label>
 
-                            <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
-                        </li>
-                </div>
+                                <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
+                            </li>
+                    </div>
             </form>
             <!--</div>-->
         </div><!--modal-dialog-->

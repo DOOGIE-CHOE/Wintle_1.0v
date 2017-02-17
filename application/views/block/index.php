@@ -8,6 +8,44 @@
 
 ?>
 <div id="all" class="bg_black">
+
+    <script>
+
+        function tttest(){
+
+                var html =  '<div class="adddata_write_input">'+
+                     '<ul>'+
+                        '<li>'+
+                         '<input type="text" class="form-control" name="content_title"'+
+                                 'placeholder="Please enter title" autocomplete="off">'+
+                         '<div style="width:100%; height:auto; display:none;" id="preview-div">'+
+                '<img id="preview-image" src="#"  style="height:100%;width:100%;"/>'+
+                '<audio id="preview-audio" controls></audio>'+
+                '</div>'+
+            '<textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"'+
+                'class="form-control" placeholder="show us your inspiration"'+
+                'style="resize:none;" name="content_comments" autocomplete="off"></textarea>'+
+                '<input type="text" class="form-control" name="hashtags" id="hashtags[]"'+
+            'placeholder="Please enter title" autocomplete="off">'+
+                '<input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"'+
+            'accept="audio/mpeg3,audio/x-wav" style="display:none;"/>'+
+                '<label for="file-5-audio" >'+
+                '<img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">'+
+                '</label>'+
+
+                '<input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"'+
+            'accept="image/x-png,image/gif,image/jpeg" style="display:none;" />'+
+                '<label for="file-5-image">'+
+                '<img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">'+
+                '</label>'+
+
+                '<input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">'+
+                '</li>'+
+                '</div>';
+                $("#upload-project-form").append(html);
+        }
+
+    </script>
     <div>
         <div class="view_header_fix" style=" text-align:center">
             <!--            <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div>-->
@@ -27,7 +65,7 @@
                                         </a>
                                     </span>
                         <span class="btn">
-                                               <button type="button" class="f_white btn btn-danger btn-sm">add your talent to the music</button>
+                                               <button type="button" class="f_white btn btn-danger btn-sm" onclick="tttest();">add your talent to the music</button>
                                     </span>
                     </li>
                 </ul>
@@ -102,6 +140,10 @@
                                 ?>
                             </li>
                         <?php } ?>
+                        <li>
+                            <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
+                            </form>
+                        </li>
                     </ul>
 
 

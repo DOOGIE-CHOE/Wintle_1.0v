@@ -7,13 +7,13 @@
  */
 
 ?>
-<div id="all" class="bg_black">
+<div id="all" class="bg_deepgray">
 
     <script>
 
         function tttest(){
 
-                var html =  '<div class="adddata_write_input">'+
+            var html =  '<div class="adddata_write_input">'+
                      '<ul>'+
                         '<li>'+
                          '<input type="text" class="form-control" name="content_title"'+
@@ -45,27 +45,61 @@
                 $("#upload-project-form").append(html);
         }
 
+        function toggledata(){
+            $(".upload-project").toggle();
+
+
+        }
+
+        $(function(){
+            //upload ajax
+            $("#upload-project-form").submit(function(event){
+                var formData = new FormData($(this)[0]);
+
+                formData.append("content_ids" , new Array("Saab", "Volvo", "BMW"));
+
+
+                $.ajax({
+                    url: "<?php echo URL ?>upload/uploadcontent",
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    success: function (data) {
+                        var value = jQuery.parseJSON(data);
+                        if(value.success == true){
+                            errorDisplay("File's uploaded");
+                            $('#writeContentModal').modal('hide');
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+                return false;
+            });
+
+        });
+
     </script>
     <div>
-        <div class="view_header_fix" style=" text-align:center">
+        <div class="view_header_fix" style="text-align:center">
             <!--            <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div>-->
             <div class="view_header_fix_top">
                 <ul>
-                    <li class="bg_grayDark ofh ">
+                    <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
                                     <span class="icon">
                                         <a href="#">
-                                            <img src="../icon/Details_Content/like.svg"
-                                                 style="filter:invert()"/>
-                                        </a> <a href="#">
-                                            <img
-                                                    src="../icon/Music_pop_up/list.svg" style="filter:invert()"/>
-                                        </a> <a href="#">
-                                            <img src="../icon/Details_Content/share.svg"
-                                                 style="filter:invert()"/>
+                                            <img src="<?php echo URL?>icon/Details_Content/play.svg"/>
                                         </a>
                                     </span>
+                        <?php
+                        if($this->data[0]['content_title'] != ""){ ?>
+
+                        <span class='music_title' style="position:relative; top:12px;"> <?php echo $this->data[0]['content_title']?></span>
+
+                    <?php } ?>
                         <span class="btn">
-                                               <button type="button" class="f_white btn btn-danger btn-sm" onclick="tttest();">add your talent to the music</button>
+                                               <button type="button" class="f_white btn btn-danger btn-sm" onclick="toggledata();">add your talent to the music</button>
                                     </span>
                     </li>
                 </ul>
@@ -76,64 +110,65 @@
         <!--1앨범상세 header-->
         <div class="view_bodyAR">
             <div class="modal-content">
-
                 <!--2앨범관련 커뮤니티area-->
-                <div class="view_body_fix" style="padding-top:100px;">
+                <div class="view_body_fix" style="padding-top:10px;">
                     <!--앨범사진외 -->
+
+                    <?php foreach($this->data as $data) {?>
+
                     <ul class="userinfo">
                         <li>
-                            <span class="user" onclick="$.pagehandler.loadContent('<?php echo URL.$this->data['profile_url']?>' ,'all');"\>
+                            <span class="user" onclick="$.pagehandler.loadContent('<?php echo URL.$data['profile_url']?>' ,'all');"\>
                                 <div class="userP">
                                     <img src="../image/p1.jpg" class="img-circle">
                                 </div>
                                 <div class="userN">
-                                    <?php echo $this->data['user_name'] ?>
+                                    <?php echo $data['user_name'] ?>
                                 </div>
                             </span>
-                            <span class="icon">
-                                <a href="#"><img src="<?php echo URL?>icon/Details_Content/like.svg" style="filter:invert()"/></a>
-                                <a href="#"><img src="<?php echo URL?>icon/Music_pop_up/list.svg" style="filter:invert()"/></a>
-                                <a href="#"><img src="../icon/Details_Content/share.svg" style="filter:invert()"/></a>
-                            </span>
+<!--                            <span class="icon">-->
+<!--                                <a href="#"><img src="--><?php //echo URL?><!--icon/Details_Content/like.svg" style="filter:invert()"/></a>-->
+<!--                                <a href="#"><img src="--><?php //echo URL?><!--icon/Music_pop_up/list.svg" style="filter:invert()"/></a>-->
+<!--                                <a href="#"><img src="../icon/Details_Content/share.svg" style="filter:invert()"/></a>-->
+<!--                            </span>-->
                         </li>
 
-                        <?php
-                        if($this->data['content_title'] != ""){ ?>
-                            <li>
-                                <span class='music_title'> <?php echo $this->data['content_title']?></span>
-                            </li>
-                        <?php } ?>
+
 
                         <li>
                             <span>
-                                <?php
-                                    if($this->data['content_type_name'] == 'lyrics'){ ?>
-                                        <div class='albumT'> <?php
-                                            echo str_replace("\n","<br />",$this->data['content_path']);
-                                            ?></div>
-                                <?php } else if($this->data['content_type_name'] == 'audio'){ ?>
+                                <?php if($data['content_type_name'] == 'audio'){ ?>
                                         <div class='albumA'><img src='<?php
-                                            $path  = explode('/', $this->data['content_path']);
+                                            $path  = explode('/', $data['content_path']);
                                             $filename = explode('.', $path[3]);
                                             echo URL . "wave" . DS . $path[1] . DS . $path[2] . DS . $filename[0].".png";
                                             ?>' alt=''/></div>
-                                <?php     }else if($this->data['content_type_name'] == 'image'){?>
-                                        <div class='albumP'><img src='<?php echo URL.$this->data['content_path']?>' alt=''/></div>
+                                <?php     }else if($data['content_type_name'] == 'image'){?>
+                                        <div class='albumP'><img src='<?php echo URL.$data['content_path']?>' alt=''/></div>
                                 <?php }?>
                             </span>
                         </li>
 
+
+<!--                        --><?php
+//                        if($data['comments'] != ""){ ?>
+<!--                            <div class='albumT'>-->
+<!--                                --><?php //  echo str_replace("\n", "<br />", $data['comments']);
+//                                ?>
+<!--                            </div>-->
+<!--                        --><?php //} ?>
+
                         <?php
-                        if($this->data['comments'] != ""){ ?>
+                        if($data['comments'] != ""){ ?>
                             <li>
-                                <span class='music_name'> <?php echo $this->data['comments']?></span>
+                                <span class='music_name'> <?php echo $data['comments']?></span>
                             </li>
                         <?php } ?>
 
-                        <?php if($this->data['comments'] != ""){ ?>
+                        <?php if($data['comments'] != ""){ ?>
                             <li>
                                 <?php
-                                $hashs = explode (",", $this->data['hashtags']);
+                                $hashs = explode (",", $data['hashtags']);
                                 foreach($hashs as $tag) {
                                     echo "<span class='f_dwhite' style='margin:2px; font-size:1em; padding:0 5px 0 5px;'>$tag</span>";
                                 }
@@ -142,10 +177,52 @@
                         <?php } ?>
                         <li>
                             <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
+                                <div class="adddata_write_input upload-project" style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
+                                    <ul>
+                                        <li>
+                                            <input type="text" class="form-control" name="content_title"
+                                                   placeholder="Please enter title" autocomplete="off">
+                                            <div style="width:100%; height:auto; display:none;" id="preview-div">
+                                                <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
+                                                <audio id="preview-audio" controls></audio>
+                                            </div>
+                                            <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
+                                                      class="form-control" placeholder="show us your inspiration"
+                                                      style="resize:none;" name="content_comments" autocomplete="off"></textarea>
+                                            <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                                                   placeholder="Please enter title" autocomplete="off">
+
+                                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
+                                                   accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
+                                            <label for="file-5-audio" >
+                                                <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
+                                            </label>
+
+                                            <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
+                                                   accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
+                                            <label for="file-5-image">
+                                                <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
+                                            </label>
+
+                                            <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin:16px 16px 0 0;">
+                                        </li>
+                                </div>
                             </form>
                         </li>
+                        <li class="bg_white ofh " style="border-top:1px solid #eeeeee;">
+                                    <span class="icon" style="margin-right:10px;">
+                                        <a href="#">
+                                            <img src="<?php echo URL?>icon/Details_Content/star.svg"/>
+                                        </a> <a href="#">
+                                            <img
+                                                    src="<?php echo URL?>icon/Music_pop_up/list.svg"/>
+                                        </a> <a href="#">
+                                            <img src="<?php echo URL?>icon/Details_Content/share.svg"/>
+                                        </a>
+                                    </span>
+                        </li>
                     </ul>
-
+                    <?php }?>
 
 
                     <!--media-->

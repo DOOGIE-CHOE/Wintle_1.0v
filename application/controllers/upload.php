@@ -34,4 +34,9 @@ class Upload extends Controller {
         echo json_encode($data);
     }
 
+
+    public function uploadProject(){
+        $data = $this->model->uploadProject();
+        echo json_encode($data);
+    }
 }

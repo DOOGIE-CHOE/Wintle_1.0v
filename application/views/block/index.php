@@ -56,11 +56,17 @@
             $("#upload-project-form").submit(function(event){
                 var formData = new FormData($(this)[0]);
 
-                formData.append("content_ids" , new Array("Saab", "Volvo", "BMW"));
+                <?php
+                    $c_ids = null;
+                    foreach($this->data as $data){
+                        $c_ids.= $data['content_id'].",";
+                    }
+                ?>
 
+                formData.append("content_ids" , '<?php echo $c_ids?>');
 
                 $.ajax({
-                    url: "<?php echo URL ?>upload/uploadcontent",
+                    url: "<?php echo URL ?>upload/uploadproject",
                     type: 'POST',
                     data: formData,
                     async: false,

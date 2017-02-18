@@ -13,22 +13,35 @@ class Block_Model extends Model{
 
     function getContentInfo($id)
     {
-        $data = null;
+        $contents = array();
         try{
             /* id for all content */
             if($id >= 200000000 && $id <= 499999999){
                 $sql = "SELECT * from view_all_content_info where content_id = $id";
                 $result = $this->db->conn->query($sql);
-                $data = $result->fetch_assoc();
-                if (is_null($data)) {
+
+                while ($data = $result->fetch_assoc()) {
+                    array_push($contents, $data);
+                }
+                if (empty($contents)) {
                     throw new Exception("Something went wrong. please refresh the page");
                 }
 
             }
+            else if($id >= 700000000 && $id <= 799999999){
+                $sql = "SELECT * from view_all_project_list_info where project_id = $id";
+                $result = $this->db->conn->query($sql);
+                while ($data = $result->fetch_assoc()) {
+                    array_push($contents, $data);
+                }
+                if (empty($contents)) {
+                    throw new Exception("Something went wrong. please refresh the page");
+                }
+            }
         } catch (Exception $e) {
-            $data = $e->getMessage();
+            $contents = $e->getMessage();
         } finally {
-            return $data;
+            return $contents;
         }
     }
 }

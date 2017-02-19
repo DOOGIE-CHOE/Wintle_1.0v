@@ -10,45 +10,8 @@
 <div id="all" class="bg_deepgray">
 
     <script>
-
-        function tttest(){
-
-            var html =  '<div class="adddata_write_input">'+
-                     '<ul>'+
-                        '<li>'+
-                         '<input type="text" class="form-control" name="content_title"'+
-                                 'placeholder="Please enter title" autocomplete="off">'+
-                         '<div style="width:100%; height:auto; display:none;" id="preview-div">'+
-                '<img id="preview-image" src="#"  style="height:100%;width:100%;"/>'+
-                '<audio id="preview-audio" controls></audio>'+
-                '</div>'+
-            '<textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"'+
-                'class="form-control" placeholder="show us your inspiration"'+
-                'style="resize:none;" name="content_comments" autocomplete="off"></textarea>'+
-                '<input type="text" class="form-control" name="hashtags" id="hashtags[]"'+
-            'placeholder="Please enter title" autocomplete="off">'+
-                '<input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"'+
-            'accept="audio/mpeg3,audio/x-wav" style="display:none;"/>'+
-                '<label for="file-5-audio" >'+
-                '<img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">'+
-                '</label>'+
-
-                '<input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"'+
-            'accept="image/x-png,image/gif,image/jpeg" style="display:none;" />'+
-                '<label for="file-5-image">'+
-                '<img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">'+
-                '</label>'+
-
-                '<input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">'+
-                '</li>'+
-                '</div>';
-                $("#upload-project-form").append(html);
-        }
-
         function toggledata(){
             $(".upload-project").toggle();
-
-
         }
 
         $(function(){
@@ -84,7 +47,50 @@
                 return false;
             });
 
+
+
+            $("#file-project-image").change(function(){
+                $("#preview-project-div").css("display","block");
+                $("#preview-project-audio").css("display","none");
+                $('#file-project-audio').val("");
+                if(projectsound != null) projectsound.pause();
+                readProjectImage(this);
+                $("#preview-project-image").css("display","block");
+            });
+
+            //on audio selected
+            $("#file-project-audio").change(function(){
+                $("#preview-project-div").css("display","block");
+                $("#preview-project-image").css("display","none");
+                $('#file-project-image').val("");
+                $("#preview-project-audio").css("display","block")
+                readProjectAudio(this);
+            });
         });
+
+
+        //image preview
+        function readProjectImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#preview-project-image').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        //audio preview
+        var projectsound = null;
+        function readProjectAudio(input){
+            projectsound = document.getElementById('preview-project-audio');
+            projectsound.src = URL.createObjectURL(input.files[0]);
+            // not really needed in this exact case, but since it is really important in other cases,
+            // don't forget to revoke the blobURI when you don't need it
+            projectsound.onend = function(e) {
+                URL.revokeObjectURL(input.src);
+            };
+        }
 
     </script>
     <div>
@@ -120,9 +126,10 @@
                 <div class="view_body_fix" style="padding-top:10px;">
                     <!--앨범사진외 -->
 
+
+                    <ul class="userinfo"
                     <?php foreach($this->data as $data) {?>
 
-                    <ul class="userinfo">
                         <li>
                             <span class="user" onclick="$.pagehandler.loadContent('<?php echo URL.$data['profile_url']?>' ,'all');"\>
                                 <div class="userP">
@@ -181,41 +188,43 @@
                                 ?>
                             </li>
                         <?php } ?>
-                        <li>
-                            <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
-                                <div class="adddata_write_input upload-project" style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
-                                    <ul>
-                                        <li>
-                                            <input type="text" class="form-control" name="content_title"
-                                                   placeholder="Please enter title" autocomplete="off">
-                                            <div style="width:100%; height:auto; display:none;" id="preview-div">
-                                                <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-                                                <audio id="preview-audio" controls></audio>
-                                            </div>
-                                            <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
-                                                      class="form-control" placeholder="show us your inspiration"
-                                                      style="resize:none;" name="content_comments" autocomplete="off"></textarea>
-                                            <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                                                   placeholder="Please enter title" autocomplete="off">
+                        <?php }?>
+                    <li>
+                        <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
+                            <div class="adddata_write_input upload-project" style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
+                                <ul>
+                                    <li>
+                                        <input type="text" class="form-control" name="content_title"
+                                               placeholder="Please enter title" autocomplete="off">
+                                        <div style="width:100%; height:auto; display:none;" id="preview-project-div">
+                                            <img id="preview-project-image" src="#"  style="height:100%;width:100%;"/>
+                                            <audio id="preview-project-audio" style="width:100%;" controls></audio>
+                                        </div>
+                                        <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
+                                                  class="form-control" placeholder="show us your inspiration"
+                                                  style="resize:none;" name="content_comments" autocomplete="off"></textarea>
+                                        <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                                               placeholder="Please enter title" autocomplete="off">
 
-                                            <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
-                                                   accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
-                                            <label for="file-5-audio" >
-                                                <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
-                                            </label>
+                                        <input type="file" name="content_path_audio" id="file-project-audio" class="inputfile inputfile-4 f_bred"
+                                               accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
+                                        <label for="file-project-audio" >
+                                            <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
+                                        </label>
 
-                                            <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
-                                                   accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
-                                            <label for="file-5-image">
-                                                <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
-                                            </label>
+                                        <input type="file" name="content_path_image" id="file-project-image" class="inputfile inputfile-4 f_bred"
+                                               accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
+                                        <label for="file-project-image">
+                                            <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
+                                        </label>
 
-                                            <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin:16px 16px 0 0;">
-                                        </li>
-                                </div>
-                            </form>
-                        </li>
-                        <li class="bg_white ofh " style="border-top:1px solid #eeeeee;">
+                                        <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin:16px 16px 0 0;">
+                                    </li>
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="bg_white ofh " style="border-top:1px solid #eeeeee;">
                                     <span class="icon" style="margin-right:10px;">
                                         <a href="#">
                                             <img src="<?php echo URL?>icon/Details_Content/star.svg"/>
@@ -228,7 +237,6 @@
                                     </span>
                         </li>
                     </ul>
-                    <?php }?>
 
 
                     <!--media-->

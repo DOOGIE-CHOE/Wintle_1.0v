@@ -204,6 +204,7 @@ if(Session::isSessionSet("loggedIn")){
         function readAudio(input){
             sound = document.getElementById('preview-audio');
             sound.src = URL.createObjectURL(input.files[0]);
+            console.log(input);
             // not really needed in this exact case, but since it is really important in other cases,
             // don't forget to revoke the blobURI when you don't need it
             sound.onend = function(e) {
@@ -321,7 +322,7 @@ if(Session::isSessionSet("loggedIn")){
                                        placeholder="Please enter title" autocomplete="off">
                                 <div style="width:100%; height:auto; display:none;" id="preview-div">
                                     <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-                                    <audio id="preview-audio" controls></audio>
+                                    <audio id="preview-audio" style="width:100%;" controls></audio>
                                 </div>
                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
                                           class="form-control" placeholder="show us your inspiration"

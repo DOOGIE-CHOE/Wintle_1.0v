@@ -14,6 +14,8 @@ class Block_Model extends Model{
     function getContentInfo($id)
     {
         $contents = array();
+        $projects = array();
+        $tmp = null;
         try{
             /* id for all content */
             if($id >= 200000000 && $id <= 499999999){
@@ -23,6 +25,7 @@ class Block_Model extends Model{
                 while ($data = $result->fetch_assoc()) {
                     array_push($contents, $data);
                 }
+
                 if (empty($contents)) {
                     throw new Exception("Something went wrong. please refresh the page");
                 }
@@ -31,9 +34,11 @@ class Block_Model extends Model{
             else if($id >= 700000000 && $id <= 799999999){
                 $sql = "SELECT * from view_all_project_list_info where project_id = $id";
                 $result = $this->db->conn->query($sql);
+
                 while ($data = $result->fetch_assoc()) {
                     array_push($contents, $data);
                 }
+
                 if (empty($contents)) {
                     throw new Exception("Something went wrong. please refresh the page");
                 }

@@ -19,12 +19,35 @@ class ViewList_Model extends Model
     {
         try {
             $contents = array();
-            $sql = "SELECT * from view_all_content_info limit $limist offset $offset";
+            $projects = array();
+            $tmp = null;
+
+            $sql = "select * from view_all_project_info order by upload_date desc limit $limist offset $offset";
             $result = $this->db->conn->query($sql);
 
+            $data = $result->fetch_assoc();
+
+            $tmp = $data['project_id'];
+            array_push($projects, $data);
             while ($data = $result->fetch_assoc()) {
-                array_push($contents, $data);
+                if ($tmp == $data['project_id']) {
+                    array_push($projects, $data);
+                } else {
+                    array_push($contents, $projects);
+                    $tmp = $data['project_id'];
+                    $projects = array();
+                    array_push($projects, $data);
+                }
             }
+            array_push($contents, $projects);
+
+            $sql = "SELECT * from view_all_content_info limit $limist offset $offset";
+            $result = $this->db->conn->query($sql);
+            while( $data = $result->fetch_assoc()){
+                $data['project_id'] = false;
+                array_push($contents,$data);
+            }
+
             if (is_null($contents)) {
                 throw new Exception("Something went wrong. please refresh the page");
             }

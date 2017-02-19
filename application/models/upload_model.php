@@ -105,6 +105,7 @@ class Upload_Model extends Model
                 if ($result['@result'] != 1) {
                     throw new Exception("Creating project error");
                 }
+                $sequence++;
             }
             $data['success'] = true;
             $this->db->conn->commit();

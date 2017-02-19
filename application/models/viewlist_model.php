@@ -22,7 +22,8 @@ class ViewList_Model extends Model
             $projects = array();
             $tmp = null;
 
-            $sql = "select * from view_all_project_info order by upload_date desc limit $limist offset $offset";
+           // $sql = "select * from view_all_project_info order by upload_date desc limit $limist offset $offset";
+              $sql = "select * from view_all_project_info  order by upload_date desc, sequence asc limit $limist offset $offset ";
             $result = $this->db->conn->query($sql);
 
             $data = $result->fetch_assoc();

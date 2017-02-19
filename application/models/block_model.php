@@ -32,7 +32,7 @@ class Block_Model extends Model{
 
             }
             else if($id >= 700000000 && $id <= 799999999){
-                $sql = "SELECT * from view_all_project_list_info where project_id = $id";
+                $sql = " select * from view_all_project_info where project_id = $id order by upload_date desc, sequence asc ";
                 $result = $this->db->conn->query($sql);
 
                 while ($data = $result->fetch_assoc()) {

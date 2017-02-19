@@ -17,6 +17,12 @@
         $(function(){
             //upload ajax
             $("#upload-project-form").submit(function(event){
+                <?php
+                if(!Session::isSessionSet('user_id')){?>
+                errorDisplay("Please log in for uploading content");
+                return false;
+                <?php }?>
+
                 var formData = new FormData($(this)[0]);
 
                 <?php

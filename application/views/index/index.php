@@ -96,8 +96,8 @@
 
         function loadNewContent() {
             //put this instead of on load function;
-            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/10", function (o) {
-                offset += 10;
+            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/15", function (o) {
+                offset += 15;
                 var value = jQuery.parseJSON(o);
                 console.log(value);
                 if (value == null) {

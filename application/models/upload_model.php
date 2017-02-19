@@ -20,6 +20,9 @@ class Upload_Model extends Model
         $content_title = $_POST['content_title'];
         $content_comments = $_POST['content_comments'];
         $content_hashs = $_POST['hashtags'];
+        if(!Session::isSessionSet('user_id')){
+            return $data['error'] = "Invalid input";
+        }
         $user_id = Session::get('user_id');
 
 

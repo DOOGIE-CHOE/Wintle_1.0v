@@ -20,6 +20,7 @@ class Upload_Model extends Model
         $content_title = $_POST['content_title'];
         $content_comments = $_POST['content_comments'];
         $content_hashs = $_POST['hashtags'];
+
         if(!Session::isSessionSet('user_id')){
             return $data['error'] = "Invalid input";
         }
@@ -38,6 +39,13 @@ class Upload_Model extends Model
             $file_tmp = $_FILES['content_path_image']['tmp_name'];
             $path = $this->uploadimage($file_name, $file_size, $file_tmp);
             $type = "image";
+        } else if($_POST['microphone_tmp_name'] != "") {
+            $file_name = $_POST['microphone_name'];
+            $file_size = $_POST['microphone_size']; // to check file size if it's too big
+            $file_tmp = $_POST['microphone_tmp_name'];
+            $type = "audio";
+            $format = "base64";
+            $path = $this->uploadAudio($file_name, $file_size, $file_tmp,$format);
         } else {
             $type = "lyrics";
             $path = "";
@@ -45,6 +53,9 @@ class Upload_Model extends Model
         return $this->uploadContentProcedure($user_id, $content_title, $path, $content_comments, $content_hashs, $type);
     }
 
+    function test(){
+
+    }
 
     function uploadProject()
     {
@@ -197,7 +208,7 @@ class Upload_Model extends Model
         }
     }
 
-    public function uploadAudio($file_name, $file_size, $file_tmp)
+    public function uploadAudio($file_name, $file_size, $file_tmp, $format = 'file')
     {
         $permitted = array('mp3', 'wav');
         $time = getdate();
@@ -238,8 +249,17 @@ class Upload_Model extends Model
             throw new Exception("No file selected");
         } else if ($length == 1) {
             //move file to server
-            if (move_uploaded_file($file_tmp, $audiopath . DS . basename($file_name))) {
-                //get waveform file
+
+            $result = false;
+            if($format == "base64"){
+                $data = explode(',',$file_tmp);
+                $result = file_put_contents($audiopath . DS . basename($file_name), base64_decode($data[1]));
+
+            }else{
+                $result = move_uploaded_file($file_tmp, $audiopath . DS . basename($file_name));
+                    //get waveform file
+            }
+            if($result){
                 $justwave = new JustWave('GET');
                 $justwave->setAudioDir($audiopath);
                 $justwave->setWaveDir($wavepath);

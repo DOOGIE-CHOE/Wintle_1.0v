@@ -161,10 +161,12 @@ if(Session::isSessionSet("loggedIn")){
 
                 var formData = new FormData($(this)[0]);
 
+
+
                 var fp = document.getElementById('preview-microphone');
                 var head = 'data:image/png;base64,';
                 var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
-                formData.append("microphone_name","microphoneFile.mp3");
+                formData.append("microphone_name","");
                 formData.append("microphone_tmp_name",fp.src);
                 formData.append("microphone_size",fileSize);
 

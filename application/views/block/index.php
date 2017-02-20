@@ -129,14 +129,14 @@
         <div class="view_bodyAR">
             <div class="modal-content">
                 <!--2앨범관련 커뮤니티area-->
-                <div class="view_body_fix" style="padding-top:10px;">
+                <div class="view_body_fix" style="padding-top:4px;">
                     <!--앨범사진외 -->
 
 
-                    <ul class="userinfo"
+                    <ul class="userinfo">
                     <?php foreach($this->data as $data) {?>
 
-                        <li>
+                        <li style="padding-top:8px;">
                             <span class="user" onclick="$.pagehandler.loadContent('<?php echo URL.$data['profile_url']?>' ,'all');"\>
                                 <div class="userP">
                                     <img src="../image/p1.jpg" class="img-circle">
@@ -289,133 +289,133 @@
                 <!--                </div>-->
             </div><!--modal-content-->
 
-
-            <div class="container mgb_100">
-
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p2.jpg" class="album2"> <img
-                                    src="../image/album_p3.jpg" class="album3"> <img
-                                    src="../image/album_p4.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
-                                        class="f_left f_09">8</font><font
-                                        class="label label-danger f_right"><a
-                                            href="#">edit</a></font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">재미있는노래</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-                <div class="playgroupAR">
-                    <div class="playlistAR">
-                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img
-                                    src="../image/album_p1.jpg" class="album2"> <img
-                                    src="../image/album_p1.jpg" class="album3"> <img
-                                    src="../image/album_p1.jpg" class="album4"></div>
-                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font
-                                        class="f_left">8</font><font
-                                        class="label label-danger f_right">edit</font></span></div>
-                    </div>
-                </div>
-                <!--playgroupAR-->
-
-
-            </div><!--view_bodyAR-->
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+<!--            <div class="container mgb_100">-->
+<!---->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p2.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p3.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p4.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font-->
+<!--                                        class="f_left f_09">8</font><font-->
+<!--                                        class="label label-danger f_right"><a-->
+<!--                                            href="#">edit</a></font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">Funky</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">재미있는노래</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!--                <div class="playgroupAR">-->
+<!--                    <div class="playlistAR">-->
+<!--                        <div class="playPhoto"><img src="../image/album_p1.jpg" class="album1"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album2"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album3"> <img-->
+<!--                                    src="../image/album_p1.jpg" class="album4"></div>-->
+<!--                        <div class="playgroupTitle"><span class="left f500 f_1-3">피아노가좋은곡</span> <span><font-->
+<!--                                        class="f_left">8</font><font-->
+<!--                                        class="label label-danger f_right">edit</font></span></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--playgroupAR-->
+<!---->
+<!---->
+<!--            </div><!--view_bodyAR-->
         </div><!--modal-->
 
     </div>

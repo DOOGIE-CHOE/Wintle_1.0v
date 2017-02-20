@@ -96,108 +96,176 @@
 
         function loadNewContent() {
             //put this instead of on load function;
-            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/15", function (o) {
-                offset += 15;
-                var value = jQuery.parseJSON(o);
-                console.log(value);
-                if (value == null) {
-                    //display default image
-                } else {
-                    for (var i = 0; i < value.length; i++) {
-                        if(value[i].constructor === Array){
-                            displayProject(value[i]);
-                        }else{
-                            displayContent(value[i]);
+            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/12", function (o) {
+                    offset += 12;
+                    var value = jQuery.parseJSON(o);
+                    console.log(value);
+                    if (value == null) {
+                        //display default image
+                    } else {
+                        for (var i = 0; i < value.length; i++) {
+                            if (value[i].constructor === Array) {
+                                displayProjectSimple(value[i][value[i].length - 1]);
+                            } else {
+                                displayContent(value[i]);
+                            }
                         }
                     }
                 }
+            ).done(function () {
+                var count = 0;
+                var arrange = setInterval(function () {
+                    $(window).trigger('resize'); // resize grid-item
+                    count++;
+                    if (count >= 5) {
+                        clearInterval(arrange);
+                        flag = true; // the job is done
+                    }
+                }, 100);
+
+            });
+        }
+
+        function displayContent(content) {
+            if (content == null) {
+
             }
-        ).done(function () {
-            var count = 0;
-            var arrange = setInterval(function () {
-                $(window).trigger('resize'); // resize grid-item
-                count++;
-                if (count >= 5) {
-                    clearInterval(arrange);
-                    flag = true; // the job is done
+            else {
+                if (content.profile_photo_path == null) {
+                    content.profile_photo_path = 'img/defaultprofile.png';
                 }
-            }, 300);
 
-        });
+                var html = "<div class='grid-item'>" +
+                    "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + content.profile_url + "','all');\" >" +
+                    "<div class='userphoto'>" +
+                    "<img src='<?php echo URL?>" + content.profile_photo_path + "' class='img-circle'>" +
+                    "</div>" +
+                    "<div class='musictext'>" +
+                    "<ul>" +
+                    "<li><span class='user_name'>" + content.user_name + "</span></li>" +
+                    "</ul></div></div>";
+
+                if (content.content_title != "" && content.content_title != null)
+                    html += "<div class='albumTitle'  data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
+                if (content.content_type_name == "image") {
+                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+                    <!--앨범사진-->
+
+                    // ** path **
+                    // to replace \ to /
+                    //content.content_path = content.content_path.replace(/\\/g,'/');
+                } else if (content.content_type_name == "audio") {
+                    var path = content.content_path;
+                    path = path.split("\/");
+                    var imagename = path[3].split('.');
+                    var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
+                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+                }
+
+                if (content.comments != "" && content.comments != null) {
+                    html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
+                }
+
+                <!--lyrics-->
+
+
+                html +=
+                    "" +
+                    "" +
+                    "<div class='music_tag'>";
+                if (content.hashtags != null) {
+                    var hsh = content.hashtags.split(",");
+                    for (var j = 0; j < hsh.length; j++) {
+                        html += "<span class='label'>" + hsh[j] + "</span>";
+                    }
+                }
+
+                html +=
+                    "</div>" + <!--userinfo-->
+
+                    "<div class='btm_info'>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
+                    "</div>";
+                $(".grid-main").append(html);
+            }
         }
 
-        function displayContent(content){
-            if (content.profile_photo_path == null) {
-                content.profile_photo_path = 'img/defaultprofile.png';
+
+        function displayProjectSimple(content) {
+            if (content == null) {
+
             }
+            else {
+                if (content.profile_photo_path == null) {
+                    content.profile_photo_path = 'img/defaultprofile.png';
+                }
 
-             var html = "<div class='grid-item'>" +
-                "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + content.profile_url + "','all');\" >" +
-                "<div class='userphoto'>" +
-                "<img src='<?php echo URL?>" + content.profile_photo_path + "' class='img-circle'>" +
-                "</div>" +
-                "<div class='musictext'>" +
-                "<ul>" +
-                "<li><span class='user_name'>" + content.user_name + "</span></li>" +
-                "</ul></div></div>";
+                var html = "<div class='grid-item'>" +
+                    "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + content.profile_url + "','all');\" >" +
+                    "<div class='userphoto'>" +
+                    "<img src='<?php echo URL?>" + content.profile_photo_path + "' class='img-circle'>" +
+                    "</div>" +
+                    "<div class='musictext'>" +
+                    "<ul>" +
+                    "<li><span class='user_name'>" + content.user_name + "</span></li>" +
+                    "</ul></div></div>";
 
-            if(content.content_title != "" && content.content_title != null)
-                html += "<div  style='font-size:0.9em;padding:10px 13px 10px 13px; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
-            if (content.content_type_name == "image") {
-                html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
-                <!--앨범사진-->
+                if (content.content_title != "" && content.content_title != null)
+                    html += "<div class='albumTitle' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
+                if (content.content_type_name == "image") {
+                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+                    <!--앨범사진-->
 
-                // ** path **
-                // to replace \ to /
-                //content.content_path = content.content_path.replace(/\\/g,'/');
-            } else if (content.content_type_name == "audio") {
-                var path = content.content_path;
-                path = path.split("\/");
-                var imagename = path[3].split('.');
-                var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
-                html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
-            }
+                    // ** path **
+                    // to replace \ to /
+                    //content.content_path = content.content_path.replace(/\\/g,'/');
+                } else if (content.content_type_name == "audio") {
+                    var path = content.content_path;
+                    path = path.split("\/");
+                    var imagename = path[3].split('.');
+                    var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
+                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+                }
 
-            if (content.comments != "" && content.comments != null) {
-                html += "<div class='albumT' style='font-size:1.1em;padding:13px; color:white; border:1px; border-color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
-            }
+                if (content.comments != "" && content.comments != null) {
+                    html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
+                }
 
-            <!--lyrics-->
+                <!--lyrics-->
 
 
-        html +=
-            "" +
-            "" +
-            "<div class='music_tag'>";
-        if (content.hashtags != null) {
-            var hsh = content.hashtags.split(",");
-            for (var j = 0; j < hsh.length; j++) {
-                html += "<span class='label'>" + hsh[j] + "</span>";
+                html +=
+                    "<div class='music_tag'>";
+                if (content.hashtags != null) {
+                    var hsh = content.hashtags.split(",");
+                    for (var j = 0; j < hsh.length; j++) {
+                        html += "<span class='label'>" + hsh[j] + "</span>";
+                    }
+                }
+
+                html +=
+                    "</div>" + <!--userinfo-->
+                    "<div class='btm_info'>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
+                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
+                    "</div>";
+                $(".grid-main").append(html);
             }
         }
 
-
-
-
-        html +=
-            "</div>" + <!--userinfo-->
-
-            "<div class='btm_info'>" +
-            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
-            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-            "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
-            "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-            "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
-            "</div>";
-        $(".grid-main").append(html);
-
-        }
-
-        function displayProject(project){
-            var lastContentUpload = project[project.length-1];
-
-            if(lastContentUpload != null) {
+        function displayProject(project) {
+            // var lastContentUpload = project[project.length-1];
+            var lastContentUpload = project;
+            if (lastContentUpload != null) {
                 if (lastContentUpload.profile_photo_path == null) {
                     lastContentUpload.profile_photo_path = 'img/defaultprofile.png';
                 }
@@ -213,7 +281,7 @@
                     "</ul></div></div>";
 
                 if (lastContentUpload.content_title != "" && lastContentUpload.content_title != null)
-                    html += "<div  style='font-size:0.9em;padding:10px 13px 10px 13px; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + lastContentUpload.project_id + "','playDetailModal');\"><span class='music_name'>" + lastContentUpload.content_title + "</span></div>";
+                    html += "<div  style='font-size:0.9em;padding:10px 13px 10px 13px; color:white; border-bottom:1px solid #eeeeee' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + lastContentUpload.project_id + "','playDetailModal');\"><span class='music_name'>" + lastContentUpload.content_title + "</span></div>";
 
 
                 for (var i = 0; i < project.length; i++) {
@@ -233,7 +301,7 @@
                         html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + project[i].project_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
                     }
                     if (project[i].comments != "" && project[i].comments != null) {
-                        html += "<div class='albumT' style='font-size:1.1em;padding:13px; color:white; border:1px; border-color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + project[i].project_id + "','playDetailModal');\"><span class='text'>" + project[i].comments.replace(/\n/g, '<br />') + "</span></div>";
+                        html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + project[i].project_id + "','playDetailModal');\"><span class='text'>" + project[i].comments.replace(/\n/g, '<br />') + "</span></div>";
                     }
 
 
@@ -268,38 +336,8 @@
 
 
         }
-
-
-
-        function appendPopUp() {
-            $(".dynamic-popup").append(html);
-        }
     </script>
     <body class="body_bg02 popup-background, bg_deepgray">
-
-
-    <!--    <div id="sub-header">-->
-    <!--        <div id="container">-->
-    <!--            <!--<div id="subclass">-->
-    <!--                <div><p style="border-bottom: 3px solid #ff8243; padding-bottom: 2px;" onclick="$.pagehandler.loadContent('-->
-    <?php ///*echo URL*/?><!--index','all');">All</p></div>-->
-    <!--                <div><p onclick="$.pagehandler.loadContent('-->
-    <?php ///*echo URL*/?><!--topchart','all');">Seed</p></div>-->
-    <!--                <div><p onclick="$.pagehandler.loadContent('-->
-    <?php ///*echo URL*/?><!--recommend','all');">Recommended</p></div>-->
-    <!--            </div>-->
-    <!---->
-    <!--            <div style="width:100px;display:inline-block;">-->
-    <!--                <input type="text" id="search">-->
-    <!--            </div>-->
-    <!--            <div id="sort">-->
-    <!--                <!--<img src="-->
-    <?php ///*echo URL*/?><!--img/search.png" style="height:18px; right:0; margin-right:10px;">-->
-    <!--                <img src="-->
-    <?php //echo URL?><!--img/filter.png" style="height:18px; right:0; margin-right:10px;">-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
 
     <div class="modal" id="playDetailModal" role="dialog">
     </div>

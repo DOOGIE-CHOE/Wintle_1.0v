@@ -84,6 +84,10 @@ if(Session::isSessionSet("loggedIn")){
 
     <link rel="mask-icon" href="<?php echo URL ?>mac_favicon.png" color="#000000">
 
+
+
+
+
     <script>
         function onSignIn(googleUser) {
 
@@ -147,12 +151,23 @@ if(Session::isSessionSet("loggedIn")){
 
             //upload ajax
             $("#upload-content-form").submit(function(event){
+                console.log("11");
                 <?php
                 if(!Session::isSessionSet('user_id')){?>
                     errorDisplay("Please log in for uploading content");
                     return false;
                  <?php }?>
+
+
                 var formData = new FormData($(this)[0]);
+
+                var fp = document.getElementById('preview-microphone');
+                var head = 'data:image/png;base64,';
+                var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
+                formData.append("microphone_name","microphoneFile.mp3");
+                formData.append("microphone_tmp_name",fp.src);
+                formData.append("microphone_size",fileSize);
+
                 $.ajax({
                     url: "<?php echo URL ?>upload/uploadcontent",
                     type: 'POST',
@@ -174,21 +189,32 @@ if(Session::isSessionSet("loggedIn")){
 
             //on image selected
             $("#file-5-image").change(function(){
+                $("#previewdiv").css("display","block");
                 $("#preview-audio").css("display","none");
-                $("#preview-div").css("display","block");
+                $("#preview-microphone").css("display","none");
                 $('#file-5-audio').val("");
+                $("#preview-image").css("display","block");
                 if(sound != null) sound.pause();
                 readImage(this);
-                $("#preview-image").css("display","block");
             });
 
             //on audio selected
             $("#file-5-audio").change(function(){
-                $("#preview-div").css("display","block");
+                $("#previewdiv").css("display","block");
                 $("#preview-image").css("display","none");
+                $("#preview-microphone").css("display","none");
                 $('#file-5-image').val("");
-                $("#preview-audio").css("display","block")
+                $("#preview-audio").css("display","block");
                 readAudio(this);
+            });
+
+            $("#preview-microphone").bind("DOMSubtreeModified",function(){
+                $("#previewdiv").css("display","block");
+                $("#preview-image").css("display","none");
+                $("#preview-audio").css("display","none");
+                $("#preview-microphone").css("display","block");
+                $('#file-5-image').val("");
+                $('#file-5-audio').val("");
             });
 
         });
@@ -223,6 +249,102 @@ if(Session::isSessionSet("loggedIn")){
             obj.style.height = (12 + obj.scrollHeight) + "px";
         }
 
+
+//        function __log(e, data) {
+//            log.innerHTML += "\n" + e + " " + (data || '');
+//        }
+
+        var audio_context;
+        var recorder;
+
+        function startUserMedia(stream) {
+            var input = audio_context.createMediaStreamSource(stream);
+            recorder = new Recorder(input, {
+                numChannels: 1
+            });
+        }
+
+
+        //    function startUserMedia(stream) {
+        //        var input = audio_context.createMediaStreamSource(stream);
+        //        __log('Media stream created.');
+        //        __log("input sample rate " + input.context.sampleRate);
+        //
+        //        // Feedback!
+        //        //input.connect(audio_context.destination);
+        //        __log('Input connected to audio context destination.');
+        //
+        //        recorder = new Recorder(input, {
+        //            numChannels: 1
+        //        });
+        //        __log('Recorder initialised.');
+        //    }
+
+        function startRecording(button) {
+            recorder && recorder.record();
+            button.disabled = true;
+            button.nextElementSibling.disabled = false;
+//            __log('Recording...');
+        }
+
+        function stopRecording(button) {
+            recorder && recorder.stop();
+            button.disabled = true;
+            button.previousElementSibling.disabled = false;
+//            __log('Stopped recording.');
+
+            // create WAV download link using audio data blob
+            createDownloadLink();
+
+            recorder.clear();
+        }
+
+        function createDownloadLink() {
+            recorder && recorder.exportWAV(function (blob) {
+            });
+        }
+
+        window.onload = function init() {
+            // webkit shim
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            navigator.getUserMedia = ( navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+            window.URL = window.URL || window.webkitURL;
+
+            audio_context = new AudioContext;
+
+            navigator.getUserMedia({audio: true}, startUserMedia, function (e) {
+
+            });
+        };
+
+        var recordingflag = false;
+
+        function isRecording(){
+            return recordingflag;
+        }
+
+        function recording(button){
+            console.log(1);
+            console.log(recordingflag);
+            if(isRecording()){
+                console.log(3);
+                recordingflag = false;
+                //stop recording procedure
+                stopRecording(button);
+
+
+            }else{
+                //start recording procedure
+                console.log(2);
+                recordingflag = true;
+                startRecording(button);
+
+
+            }
+        }
     </script>
     <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
 
@@ -321,19 +443,29 @@ if(Session::isSessionSet("loggedIn")){
             <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
             <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
                     <div class="adddata_write_input">
+                        <ul id="recordingslist"></ul>
                         <ul>
                             <li>
                                 <input type="text" class="form-control" name="content_title"
                                        placeholder="Please enter title" autocomplete="off">
-                                <div style="width:100%; height:auto; display:none;" id="preview-div">
+                                <div style="width:100%; height:auto; display:none" id="previewdiv">
                                     <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
                                     <audio id="preview-audio" style="width:100%;" controls></audio>
+                                    <audio id="preview-microphone" style="width:100%"></audio>
                                 </div>
                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
                                           class="form-control" placeholder="show us your inspiration"
                                           style="resize:none;" name="content_comments" autocomplete="off"></textarea>
                                 <input type="text" class="form-control" name="hashtags" id="hashtags[]"
                                        placeholder="Please enter title" autocomplete="off">
+
+
+
+                                <input id="file-5-microphone" onclick="recording(this)" style="display:none;" class="inputfile">
+                                <label for="use-microphone">
+                                    <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
+                                </label>
+
 
                                 <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
                                        accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
@@ -347,6 +479,9 @@ if(Session::isSessionSet("loggedIn")){
                                     <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
                                 </label>
 
+                                <button onclick="startRecording(this);">record</button>
+                                <button onclick="stopRecording(this);">stop</button>
+
                                 <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
                             </li>
                     </div>
@@ -354,5 +489,14 @@ if(Session::isSessionSet("loggedIn")){
             <!--</div>-->
         </div><!--modal-dialog-->
     </div><!--modal-->
+
+
+    <script>
+
+    </script>
+
+    <!-- multi track recording -->
+    <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
 </header>

@@ -210,7 +210,7 @@ if(Session::isSessionSet("loggedIn")){
                 readAudio(this);
             });
 
-            $("#preview-microphone").bind("DOMSubtreeModified",function(){
+            $("#preview-microphone")[0].addEventListener("onMicrophoneAudioUpload",function(){
                 $("#previewdiv").css("display","block");
                 $("#preview-image").css("display","none");
                 $("#preview-audio").css("display","none");
@@ -283,17 +283,28 @@ if(Session::isSessionSet("loggedIn")){
         //    }
 
         function startRecording(button) {
+            console.log(11);
+            $("#microphone-label-stop").css("display","inline-block");
+            $("#microphone-label-start").css("display","none");
+
             recorder && recorder.record();
-            button.disabled = true;
-            button.nextElementSibling.disabled = false;
+          //  button.disabled = true;
+          //  button.nextElementSibling.disabled = false;
 //            __log('Recording...');
         }
 
         function stopRecording(button) {
+            console.log(22);
+            $("#microphone-label-stop").css("display","none");
+            $("#microphone-label-start").css("display","inline-block");
+
             recorder && recorder.stop();
-            button.disabled = true;
-            button.previousElementSibling.disabled = false;
+          //  button.disabled = true;
+          //  button.previousElementSibling.disabled = false;
 //            __log('Stopped recording.');
+
+            var myEvent = new CustomEvent("onMicrophoneAudioUpload");
+            $("#preview-microphone")[0].dispatchEvent(myEvent);
 
             // create WAV download link using audio data blob
             createDownloadLink();
@@ -321,32 +332,6 @@ if(Session::isSessionSet("loggedIn")){
 
             });
         };
-
-        var recordingflag = false;
-
-        function isRecording(){
-            return recordingflag;
-        }
-
-        function recording(button){
-            console.log(1);
-            console.log(recordingflag);
-            if(isRecording()){
-                console.log(3);
-                recordingflag = false;
-                //stop recording procedure
-                stopRecording(button);
-
-
-            }else{
-                //start recording procedure
-                console.log(2);
-                recordingflag = true;
-                startRecording(button);
-
-
-            }
-        }
     </script>
     <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
 
@@ -463,9 +448,14 @@ if(Session::isSessionSet("loggedIn")){
 
 
 
-                                <input id="file-5-microphone" onclick="recording(this)" style="display:none;" class="inputfile">
-                                <label for="use-microphone">
+                                <input id="file-5-microphone-start" onclick="startRecording(this)" style="display:none;" class="inputfile">
+                                <label id='microphone-label-start' for="file-5-microphone-start">
                                     <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
+                                </label>
+
+                                <input id="file-5-microphone-stop" onclick="stopRecording(this)" style="display:none;" class="inputfile">
+                                <label id='microphone-label-stop' for="file-5-microphone-stop" style="display:none">
+                                    <img src="<?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
                                 </label>
 
 
@@ -480,9 +470,6 @@ if(Session::isSessionSet("loggedIn")){
                                 <label for="file-5-image">
                                     <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
                                 </label>
-
-                                <button onclick="startRecording(this);">record</button>
-                                <button onclick="stopRecording(this);">stop</button>
 
                                 <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
                             </li>

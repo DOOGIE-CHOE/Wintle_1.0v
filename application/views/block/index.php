@@ -100,36 +100,39 @@
 
     </script>
     <div>
-        <div class="view_header_fix" style="text-align:center">
+<!--        <div class="view_header_fix" style="text-align:center">-->
             <!--            <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div>-->
-            <div class="view_header_fix_top">
-                <ul>
-                    <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
+
+<!--        </div>-->
+    <!--view_header_fix-->
+
+
+        <!--1앨범상세 header-->
+        <div class="view_bodyAR">
+
+            <div class="modal-content">
+                <div class="view_header_fix_top">
+                    <ul>
+                        <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
                                     <span class="icon">
                                         <a href="#">
                                             <img src="<?php echo URL?>icon/Details_Content/play.svg"/>
                                         </a>
                                     </span>
-                        <?php
-                        if($this->data[0]['content_title'] != ""){ ?>
+                            <?php
+                            if($this->data[0]['content_title'] != ""){ ?>
 
-                        <span class='music_title' style="position:relative; top:12px;"> <?php echo $this->data[0]['content_title']?></span>
+                                <span class='music_title' style="position:relative; top:12px;"> <?php echo $this->data[0]['content_title']?></span>
 
-                    <?php } ?>
-                        <span class="btn">
+                            <?php } ?>
+                            <span class="btn">
                                                <button type="button" class="f_white btn btn-danger btn-sm" onclick="toggledata();">add your talent to the music</button>
                                     </span>
-                    </li>
-                </ul>
-            </div><!--view_header_fix_top-->
-        </div><!--view_header_fix-->
-
-
-        <!--1앨범상세 header-->
-        <div class="view_bodyAR">
-            <div class="modal-content">
+                        </li>
+                    </ul>
+                </div><!--view_header_fix_top-->
                 <!--2앨범관련 커뮤니티area-->
-                <div class="view_body_fix" style="padding-top:4px;">
+                <div class="view_body_fix">
                     <!--앨범사진외 -->
 
 
@@ -289,6 +292,9 @@
                 <!--                </div>-->
             </div><!--modal-content-->
 
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
 <!--            <div class="container mgb_100">-->
 <!---->

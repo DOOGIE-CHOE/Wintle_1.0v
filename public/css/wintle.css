@@ -50,18 +50,19 @@ html{
 .grid-item .user  .musictext { padding-left:55px ;  padding-top:20px; }
 .grid-item .user  .musictext ul { margin:0 0 0 0 !important; padding:0 !important}
 .grid-item .user  .musictext ul li { margin:0 !important; line-height:1.4em; font-size:0.85em;}
+.grid-item .user  .musictext .project-number { float:right; font-size:1.5em; margin-right:17px;}
 
 
-.user_name  { color:#222222; font-size:1.5em; padding:0 5px 0 10px }
+.user_name  { color:#222222; font-size:1.3em; padding:0 5px 0 10px }
 .music_title { color:#222222; font-size:1.3em; padding:0 7px;  text-align:left; margin:5px 0 5px 0;}
 .albumTitle {font-size:0.9em;padding:10px 13px 10px 13px; color:white; border-bottom:1px solid #eeeeee; text-align: center}
-.music_name { color:#222222; font-size:1.1em; padding:0 5px 0 10px }
+.music_name { color:#222222; font-size:1.5em; padding:0 5px 0 10px }
 
 .music_tag   { padding:0 0 0 5px;  overflow-y:scroll; height:auto;}
 .music_tag span.label { font-size:0.7em; color:#555555; padding:10px; !important; }
 .music_tag::-webkit-scrollbar{
   width:0;
-  background-color:transparent;
+  display:none;
 }
 
 /*앨범그리드 사운드파일제공 영역*/
@@ -380,7 +381,8 @@ html{
 
 /*상세보기모달창관련 추가*/
 .view_header_fix { width:100%; height:100px; padding:0; margin:0; position:fixed; top:70px; z-index:10000; overflow:auto }
-.view_header_fix_top  { width:500px; margin:30px auto auto auto; display:inline-block; box-sizing:border-box !important}
+/*.view_header_fix_top  { width:500px; margin:30px auto auto auto; display:inline-block; box-sizing:border-box !important}*/
+.view_header_fix_top  { width:500px; margin:0 auto; display:inline-block; box-sizing:border-box !important}
 .view_header_fix_top span.icon { float:left; width:15%;}
 .view_header_fix_top span.icon img {width:45px; height:auto; padding:7px}
 .view_header_fix_top span.btn { width:60%; float:right; padding:10px; text-align:right; box-sizing:border-box !important}
@@ -389,7 +391,8 @@ html{
 
 /*모달창 좋아요외 아이콘크기 관련속성*/
 .modal-content span.icon img  {width:45px; height:auto; padding:7px}
-.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:100px; }
+/*.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:100px; }*/
+.view_bodyAR { max-height:1000px; overflow:auto; width:100%; position:fixed; top:55px; }
 .view_body_fix { box-sizing:border-box; clear:both; width:100%; margin:0 0 10px 0; height:auto; background:white;}
 .view_bodyAR .modal-content { width:500px; margin:50px auto; background:white;  height:auto; border:0;}
 

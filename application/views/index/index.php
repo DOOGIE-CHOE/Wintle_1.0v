@@ -105,7 +105,7 @@
                     } else {
                         for (var i = 0; i < value.length; i++) {
                             if (value[i].constructor === Array) {
-                                displayProjectSimple(value[i][value[i].length - 1]);
+                                displayProjectSimple(value[i][value[i].length - 1], value[i].length);
                             } else {
                                 displayContent(value[i]);
                             }
@@ -163,7 +163,7 @@
                 }
 
                 if (content.comments != "" && content.comments != null) {
-                    html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
+                    html += "<div class='albumT' style='font-size:1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
                 }
 
                 <!--lyrics-->
@@ -196,7 +196,7 @@
         }
 
 
-        function displayProjectSimple(content) {
+        function displayProjectSimple(content, number) {
             if (content == null) {
 
             }
@@ -212,11 +212,11 @@
                     "</div>" +
                     "<div class='musictext'>" +
                     "<ul>" +
-                    "<li><span class='user_name'>" + content.user_name + "</span></li>" +
+                    "<li><span class='user_name'>" + content.user_name + "</span> <span class='project-number'>"+ number + "</span></li>" +
                     "</ul></div></div>";
 
                 if (content.content_title != "" && content.content_title != null)
-                    html += "<div class='albumTitle' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
+                    html += "<div class='albumTitle' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
                 if (content.content_type_name == "image") {
                     html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
                     <!--앨범사진-->
@@ -233,7 +233,7 @@
                 }
 
                 if (content.comments != "" && content.comments != null) {
-                    html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
+                    html += "<div class='albumT' style='font-size:1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
                 }
 
                 <!--lyrics-->

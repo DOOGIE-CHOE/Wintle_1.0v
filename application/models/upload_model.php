@@ -62,6 +62,9 @@ class Upload_Model extends Model
         $content_title = $_POST['content_title'];
         $content_comments = $_POST['content_comments'];
         $content_hashs = $_POST['hashtags'];
+        if(!Session::isSessionSet('user_id')){
+            return $data['error'] = "Invalid input";
+        }
         $user_id = Session::get('user_id');
         $content_ids = $_POST['content_ids'];
 
@@ -77,6 +80,13 @@ class Upload_Model extends Model
             $file_tmp = $_FILES['content_path_image']['tmp_name'];
             $path = $this->uploadimage($file_name, $file_size, $file_tmp);
             $type = "image";
+        } else if($_POST['microphone_tmp_name'] != "") {
+            $file_name = $_POST['microphone_name'];
+            $file_size = $_POST['microphone_size']; // to check file size if it's too big
+            $file_tmp = $_POST['microphone_tmp_name'];
+            $type = "audio";
+            $format = "base64";
+            $path = $this->uploadAudio($file_name, $file_size, $file_tmp, $format);
         } else {
             $type = "lyrics";
             $path = "";

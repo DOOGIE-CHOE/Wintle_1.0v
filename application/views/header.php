@@ -85,6 +85,9 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="mask-icon" href="<?php echo URL ?>mac_favicon.png" color="#000000">
 
 
+    <!-- multi track recording -->
+    <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
 
 
@@ -263,7 +266,7 @@ if(Session::isSessionSet("loggedIn")){
             var input = audio_context.createMediaStreamSource(stream);
             recorder = new Recorder(input, {
                 numChannels: 1
-            });
+            },"content");
         }
 
 
@@ -284,6 +287,7 @@ if(Session::isSessionSet("loggedIn")){
 
         function startRecording(button) {
             console.log(11);
+            init();
             $("#microphone-label-stop").css("display","inline-block");
             $("#microphone-label-start").css("display","none");
 
@@ -317,6 +321,7 @@ if(Session::isSessionSet("loggedIn")){
             });
         }
 
+
         window.onload = function init() {
             // webkit shim
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -325,13 +330,11 @@ if(Session::isSessionSet("loggedIn")){
             navigator.mozGetUserMedia ||
             navigator.msGetUserMedia);
             window.URL = window.URL || window.webkitURL;
-
             audio_context = new AudioContext;
-
             navigator.getUserMedia({audio: true}, startUserMedia, function (e) {
 
             });
-        };
+        }
     </script>
     <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
 
@@ -484,8 +487,5 @@ if(Session::isSessionSet("loggedIn")){
 
     </script>
 
-    <!-- multi track recording -->
-    <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
 </header>

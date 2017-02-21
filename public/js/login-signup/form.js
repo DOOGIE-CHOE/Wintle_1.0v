@@ -139,15 +139,15 @@ function check() {
 
     if(button.value == "SIGN UP"){
         if(signUp()){
-            //$("#login-signup-form").attr("action","http://www.wintle.co.kr/signup/callsignup");
-            $("#login-signup-form").attr("action","http://localhost/signup/callsignup");
+            $("#login-signup-form").attr("action","http://www.wintle.co.kr/signup/callsignup");
+            //$("#login-signup-form").attr("action","http://localhost/signup/callsignup");
             return true;
         }
     }
     else if(button.value == "LOG IN"){
         if(logIn()){
-            //$("#login-signup-form").attr("action","http://www.wintle.co.kr/login/calllogin");
-           $("#login-signup-form").attr("action","http://localhost/login/calllogin");
+            $("#login-signup-form").attr("action","http://www.wintle.co.kr/login/calllogin");
+           //$("#login-signup-form").attr("action","http://localhost/login/calllogin");
             return true;
         }
     }

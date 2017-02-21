@@ -1,9 +1,12 @@
 (function(window){
 
-  var WORKER_PATH = 'js/multi-recording/recorderWorker.js';
-  var encoderWorker = new Worker('js/multi-recording/mp3Worker.js');
+  var WORKER_PATH = 'http://localhost/js/multi-recording/recorderWorker.js';
+  var encoderWorker = new Worker('http://localhost/js/multi-recording/mp3Worker.js');
 
-  var Recorder = function(source, cfg){
+  var Recorder = function(source, cfg,type){
+
+
+    var content_type = type;
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
     var numChannels = config.numChannels || 2;
@@ -112,10 +115,20 @@
 
 				var url = 'data:audio/mp3;base64,'+encode64(e.data.buf);
 				// var li = document.createElement('li');
-				var au = document.getElementById('preview-microphone');
+
+
+                if(content_type == "content"){
+                    var au = document.getElementById('preview-microphone');
+                    au.controls = true;
+                    au.src = url;
+                }else if(content_type == "project"){
+                    var aup = document.getElementById('preview-project-microphone');
+                    aup.controls = true;
+                    aup.src = url;
+                }
+
 				// var hf = document.createElement('a');
-				au.controls = true;
-                au.src = url;
+
 				// hf.href = url;
 				// hf.download = 'audio_recording_' + new Date().getTime() + '.mp3';
 				// hf.innerHTML = hf.download;

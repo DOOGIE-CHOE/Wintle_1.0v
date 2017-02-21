@@ -87,11 +87,23 @@
         });
 
         function setwidthgrid() {
-            $(".grid").width("80%");
+            $(".grid").width("90%");
             var $grid = $(".grid").css("width");
             var tmp = parseInt($grid);
-            var w = parseInt(tmp / 400);
-            var width = (w * 400);
+       //     var w;
+            var width;
+            if(tmp >= 1250){
+              //  w = parseInt(tmp / 400);
+                width = (3 * 400);
+            }else if(tmp <= 1100 && tmp >=850){
+                width = (2 * 400);
+            }else if(tmp < 850)
+            {
+                width = 400;
+            }
+
+
+
             $(".grid").css("width", width + "px");
             //   return width;
         }

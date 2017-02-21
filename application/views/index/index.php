@@ -1,9 +1,11 @@
 <div id="all">
     <script>
-        var offset = 0;
+        var offset = 10;
+        var limit = 10;
         var flag = true;   //job flag
-
+        var wall;
         $(function () {
+
 
             if (flag) {
                 flag = false;
@@ -18,14 +20,14 @@
                 }
 
             });
-            var wall = new Freewall(".grid");
+            wall = new Freewall(".grid");
             wall.reset({
                 selector: '.grid-item',
                 animate: true,
-                cellW: 300,
+                cellW: 400,
                 cellH: 'auto',
-                gutterX: 20,
-                gutterY: 20
+                gutterX: 25,
+                gutterY: 25
             });
             //put this instead of on load function;
 
@@ -85,19 +87,20 @@
         });
 
         function setwidthgrid() {
-            $(".grid").width("95%");
+            $(".grid").width("80%");
             var $grid = $(".grid").css("width");
             var tmp = parseInt($grid);
-            var w = parseInt(tmp / 310);
-            var width = (w * 310);
+            var w = parseInt(tmp / 400);
+            var width = (w * 400);
             $(".grid").css("width", width + "px");
             //   return width;
         }
 
         function loadNewContent() {
             //put this instead of on load function;
-            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/12", function (o) {
-                    offset += 12;
+            $.get("<?php echo URL?>viewlist/loadNewContents/" + offset + "/" + limit, function (o) {
+                    offset += 5;
+                    limit = 5;
                     var value = jQuery.parseJSON(o);
                     console.log(value);
                     if (value == null) {
@@ -113,15 +116,17 @@
                     }
                 }
             ).done(function () {
-                var count = 0;
-                var arrange = setInterval(function () {
-                    $(window).trigger('resize'); // resize grid-item
-                    count++;
-                    if (count >= 5) {
-                        clearInterval(arrange);
-                        flag = true; // the job is done
-                    }
-                }, 100);
+                $(window).trigger('resize'); // resize grid-item
+                flag = true; // the job is done
+//                var wavesurfer = WaveSurfer.create({
+//                    waveColor: '#0074d9',
+//                    barWidth: 5,
+//                    height: 200,
+//                    container: '#aaaa',
+//                    interact: false
+//                });
+//
+//                wavesurfer.load('audio/1.mp3');mp3
 
             });
         }
@@ -148,7 +153,9 @@
                 if (content.content_title != "" && content.content_title != null)
                     html += "<div class='albumTitle'  data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
                 if (content.content_type_name == "image") {
-                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+                    html += "<div class='albumP' id='aaaa' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+
+
                     <!--앨범사진-->
 
                     // ** path **
@@ -159,14 +166,18 @@
                     path = path.split("\/");
                     var imagename = path[3].split('.');
                     var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
-                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+
+//                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php //echo URL . 'block/'?>//" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+
+
+                    html += "<div class='albumA' id='aaa' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+
+
                 }
 
                 if (content.comments != "" && content.comments != null) {
                     html += "<div class='albumT' style='font-size:1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
                 }
-
-                <!--lyrics-->
 
 
                 html +=
@@ -191,7 +202,9 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                     "</div>";
-                $(".grid-main").append(html);
+
+                wall.appendBlock(html);
+               // $(".grid-main").append(html);
             }
         }
 
@@ -212,7 +225,7 @@
                     "</div>" +
                     "<div class='musictext'>" +
                     "<ul>" +
-                    "<li><span class='user_name'>" + content.user_name + "</span> <span class='project-number'>"+ number + "</span></li>" +
+                    "<li><span class='user_name'>" + content.user_name + "</span> <span class='project-number'>" + number + "</span></li>" +
                     "</ul></div></div>";
 
                 if (content.content_title != "" && content.content_title != null)
@@ -258,7 +271,11 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                     "</div>";
-                $(".grid-main").append(html);
+
+                wall.appendBlock(html);
+                    //$(".grid-main").append(html);
+
+
             }
         }
 
@@ -341,17 +358,21 @@
 
     <div class="modal" id="playDetailModal" role="dialog">
     </div>
+    <div class='albumA' id='waveform'></div>
 
     <div id="wrapper">
         <div class="container bg_deepgray">
             <!--앨범전체 AREA-->
             <div class="grid grid-main" data-layout-mode="masonry">
                 <!--앨범-->
-
             </div>
         </div><!--grid-->
     </div><!--container-->
 </div><!--#wrapper-->
+
+<script>
+
+</script>
 </body>
 
 </div>

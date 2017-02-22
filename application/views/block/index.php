@@ -15,6 +15,17 @@
         }
 
         $(function () {
+
+            $("#addTalent").click(function() {
+                var childPos = $("#upload-project").offset().top;
+                var parentPos = $(".view_bodyAR").offset().top;
+                $('.view_bodyAR').animate({
+                    scrollTop: childPos - parentPos - 10
+                }, 1500);
+            });
+
+
+
             //upload ajax
             $("#upload-project-form").submit(function (event) {
                 <?php
@@ -198,11 +209,25 @@
                 <div class="view_header_fix_top">
                     <ul>
                         <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
-                                    <span class="icon">
+                            <?php
+                                $audiolist = array();
+                                foreach($this->data as $data){
+                                    if($data['content_type_name'] == 'audio'){
+                                        array_push($audiolist,URL.$data['content_path']);
+                                    }
+                                }
+
+                                if($audiolist) {
+                                    ?>
+                                    <span class="icon" onclick='setMusic(<?php echo json_encode($audiolist)?>)'>
                                         <a href="#">
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
                                     </span>
+                                    <?php
+                                }
+                            ?>
+
                             <?php
                             if ($this->data[0]['content_title'] != "") { ?>
 
@@ -211,9 +236,8 @@
 
                             <?php } ?>
                             <span class="btn">
-                                               <button type="button" class="f_white btn btn-danger btn-sm"
-                                                       onclick="toggledata();">add your talent to the music</button>
-                                    </span>
+                                      <button type="button" id="addTalent" class="f_white btn btn-danger btn-sm" onclick="toggledata();">add your talent to the music</button>
+                            </span>
                         </li>
                     </ul>
                 </div><!--view_header_fix_top-->
@@ -290,8 +314,7 @@
                         <?php } ?>
                         <li>
                             <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
-                                <div class="adddata_write_input upload-project"
-                                     style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
+                                <div class="adddata_write_input upload-project" id="upload-project" style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
                                     <ul>
                                         <li>
                                             <input type="text" class="form-control" name="content_title"
@@ -349,7 +372,7 @@
                             </form>
                         </li>
 
-                        <li class="bg_white ofh " style="border-top:1px solid #eeeeee;">
+                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">
                                     <span class="icon" style="margin-right:10px;">
                                         <a href="#">
                                             <img src="<?php echo URL ?>icon/Details_Content/star.svg"/>

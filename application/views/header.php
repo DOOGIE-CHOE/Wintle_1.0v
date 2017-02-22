@@ -89,7 +89,7 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.2/wavesurfer.min.js"></script>
 
     <script>
         function onSignIn(googleUser) {
@@ -267,45 +267,26 @@ if(Session::isSessionSet("loggedIn")){
             recorder = new Recorder(input, {
                 numChannels: 1
             },"content");
-        }
 
-
-        //    function startUserMedia(stream) {
-        //        var input = audio_context.createMediaStreamSource(stream);
-        //        __log('Media stream created.');
-        //        __log("input sample rate " + input.context.sampleRate);
-        //
-        //        // Feedback!
-        //        //input.connect(audio_context.destination);
-        //        __log('Input connected to audio context destination.');
-        //
-        //        recorder = new Recorder(input, {
-        //            numChannels: 1
-        //        });
-        //        __log('Recorder initialised.');
-        //    }
-
-        function startRecording(button) {
-            console.log(11);
-            init();
+            //on successfully get instance for recording
             $("#microphone-label-stop").css("display","inline-block");
             $("#microphone-label-start").css("display","none");
-
             recorder && recorder.record();
-          //  button.disabled = true;
-          //  button.nextElementSibling.disabled = false;
-//            __log('Recording...');
         }
 
-        function stopRecording(button) {
-            console.log(22);
+        function failToGetUserMedia(){
+            errorDisplay("Please allow to use microphone in order to record");
+        }
+
+        function startRecording() {
+            init();
+        }
+
+        function stopRecording() {
             $("#microphone-label-stop").css("display","none");
             $("#microphone-label-start").css("display","inline-block");
 
             recorder && recorder.stop();
-          //  button.disabled = true;
-          //  button.previousElementSibling.disabled = false;
-//            __log('Stopped recording.');
 
             var myEvent = new CustomEvent("onMicrophoneAudioUpload");
             $("#preview-microphone")[0].dispatchEvent(myEvent);
@@ -321,9 +302,7 @@ if(Session::isSessionSet("loggedIn")){
             });
         }
 
-
-        window.onload = function init() {
-            // webkit shim
+        function init(){
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             navigator.getUserMedia = ( navigator.getUserMedia ||
             navigator.webkitGetUserMedia ||
@@ -331,9 +310,8 @@ if(Session::isSessionSet("loggedIn")){
             navigator.msGetUserMedia);
             window.URL = window.URL || window.webkitURL;
             audio_context = new AudioContext;
-            navigator.getUserMedia({audio: true}, startUserMedia, function (e) {
-
-            });
+            //get user media, if it's found startUserMedia executes otherwise, function () executes
+            navigator.getUserMedia({audio: true}, startUserMedia, failToGetUserMedia);
         }
     </script>
     <!--    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>-->
@@ -451,12 +429,12 @@ if(Session::isSessionSet("loggedIn")){
 
 
 
-                                <input id="file-5-microphone-start" onclick="startRecording(this)" style="display:none;" class="inputfile">
+                                <input id="file-5-microphone-start" onclick="startRecording()" style="display:none;" class="inputfile">
                                 <label id='microphone-label-start' for="file-5-microphone-start">
                                     <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
                                 </label>
 
-                                <input id="file-5-microphone-stop" onclick="stopRecording(this)" style="display:none;" class="inputfile">
+                                <input id="file-5-microphone-stop" onclick="stopRecording()" style="display:none;" class="inputfile">
                                 <label id='microphone-label-stop' for="file-5-microphone-stop" style="display:none">
                                     <img src="<?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
                                 </label>

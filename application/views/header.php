@@ -89,7 +89,7 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.2/wavesurfer.min.js"></script>
+    <script src="<?php echo URL ?>js/waveform/wavesurfer.js"></script>
 
     <script>
         function onSignIn(googleUser) {

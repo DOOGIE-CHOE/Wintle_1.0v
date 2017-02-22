@@ -33,6 +33,7 @@
 
             wall.fitZone(setwidthgrid(), 'auto');
             $(window).resize(function () {
+                console.log("resized");
                 wall.fitZone(setwidthgrid(), 'auto');
             });
 
@@ -126,13 +127,19 @@
                             }
                         }
                     }
+
                 }
             ).done(function () {
-                $(window).trigger('resize'); // resize grid-item
-                flag = true; // the job is done
+                setTimeout(function(){
+                    console.log("triggered");
+                    $(window).trigger('resize'); // resize grid-item
+                    flag = true; // the job is done
+                },50);
+
+
 //                var wavesurfer = WaveSurfer.create({
 //                    waveColor: '#0074d9',
-//                    barWidth: 5,
+////                    barWidth: 5,
 //                    height: 200,
 //                    container: '#aaaa',
 //                    interact: false

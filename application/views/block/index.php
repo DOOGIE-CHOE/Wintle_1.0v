@@ -16,14 +16,13 @@
 
         $(function () {
 
-            $("#addTalent").click(function() {
+            $("#addTalent").click(function () {
                 var childPos = $("#upload-project").offset().top;
                 var parentPos = $(".view_bodyAR").offset().top;
                 $('.view_bodyAR').animate({
                     scrollTop: childPos - parentPos - 10
-                }, 1500);
+                }, 1000);
             });
-
 
 
             //upload ajax
@@ -48,11 +47,10 @@
 
                 var fp = document.getElementById('preview-project-microphone');
                 var head = 'data:image/png;base64,';
-                var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
-                formData.append("microphone_name","");
-                formData.append("microphone_tmp_name",fp.src);
-                formData.append("microphone_size",fileSize);
-
+                var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
+                formData.append("microphone_name", "");
+                formData.append("microphone_tmp_name", fp.src);
+                formData.append("microphone_size", fileSize);
 
 
                 $.ajax({
@@ -132,65 +130,58 @@
         }
 
 
-                var project_audio_context;
-                var project_recorder;
-                function startUserMediaProject(stream) {
-                    var input = project_audio_context.createMediaStreamSource(stream);
-                    project_recorder = new Recorder(input, {
-                        numChannels: 1
-                    },"project");
-                }
+        var project_audio_context;
+        var project_recorder;
+        function startUserMediaProject(stream) {
+            var input = project_audio_context.createMediaStreamSource(stream);
+            project_recorder = new Recorder(input, {
+                numChannels: 1
+            }, "project");
 
-                function startRecordingProject(button) {
-                    init();
-                    console.log(11111);
-                    $("#microphone-label-project-stop").css("display","inline-block");
-                    $("#microphone-label-project-start").css("display","none");
 
-                    project_recorder && project_recorder.record();
-                }
+            $("#microphone-label-project-stop").css("display", "inline-block");
+            $("#microphone-label-project-start").css("display", "none");
 
-                function stopRecordingProject(button) {
-                    console.log(22222);
-                    $("#microphone-label-project-stop").css("display","none");
-                    $("#microphone-label-project-start").css("display","inline-block");
+            project_recorder && project_recorder.record();
+        }
 
-                    project_recorder && project_recorder.stop();
+        function startRecordingProject() {
+            initMicrophoneProject();
+        }
 
-                    var myEvent = new CustomEvent("onMicrophoneAudioUploadProject");
-                    $("#preview-project-microphone")[0].dispatchEvent(myEvent);
+        function stopRecordingProject() {
+            $("#microphone-label-project-stop").css("display", "none");
+            $("#microphone-label-project-start").css("display", "inline-block");
 
-                    // create WAV download link using audio data blob
-                    createDownloadLinkProject();
+            project_recorder && project_recorder.stop();
 
-                    project_recorder.clear();
-                }
+            var myEvent = new CustomEvent("onMicrophoneAudioUploadProject");
+            $("#preview-project-microphone")[0].dispatchEvent(myEvent);
 
-                function createDownloadLinkProject() {
-                    project_recorder && project_recorder.exportWAV(function (blob) {
-                    });
-                }
+            // create WAV download link using audio data blob
+            createDownloadLinkProject();
 
-                function init(){
+            project_recorder.clear();
+        }
 
-                    window.onload = function init() {
-                        // webkit shim
-                        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-                        navigator.getUserMedia = ( navigator.getUserMedia ||
-                        navigator.webkitGetUserMedia ||
-                        navigator.mozGetUserMedia ||
-                        navigator.msGetUserMedia);
-                        window.URL = window.URL || window.webkitURL;
+        function createDownloadLinkProject() {
+            project_recorder && project_recorder.exportWAV(function (blob) {
+            });
+        }
 
-                        project_audio_context = new AudioContext;
+        function initMicrophoneProject() {
+            // webkit shim
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            navigator.getUserMedia = ( navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+            window.URL = window.URL || window.webkitURL;
 
-                        navigator.getUserMedia({audio: true}, startUserMediaProject, function (e) {
+            project_audio_context = new AudioContext;
 
-                        });
-
-                    };
-
-                }
+            navigator.getUserMedia({audio: true}, startUserMediaProject, failToGetUserMedia);
+        }
 
 
     </script>
@@ -210,22 +201,22 @@
                     <ul>
                         <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
                             <?php
-                                $audiolist = array();
-                                foreach($this->data as $data){
-                                    if($data['content_type_name'] == 'audio'){
-                                        array_push($audiolist,URL.$data['content_path']);
-                                    }
+                            $audiolist = array();
+                            foreach ($this->data as $data) {
+                                if ($data['content_type_name'] == 'audio') {
+                                    array_push($audiolist, URL . $data['content_path']);
                                 }
+                            }
 
-                                if($audiolist) {
-                                    ?>
-                                    <span class="icon" onclick='setMusic(<?php echo json_encode($audiolist)?>)'>
+                            if ($audiolist) {
+                                ?>
+                                <span class="icon" onclick='setMusic(<?php echo json_encode($audiolist) ?>)'>
                                         <a href="#">
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
                                     </span>
-                                    <?php
-                                }
+                                <?php
+                            }
                             ?>
 
                             <?php
@@ -236,7 +227,8 @@
 
                             <?php } ?>
                             <span class="btn">
-                                      <button type="button" id="addTalent" class="f_white btn btn-danger btn-sm" onclick="toggledata();">add your talent to the music</button>
+                                      <button type="button" id="addTalent" class="f_white btn btn-danger btn-sm"
+                                              onclick="toggledata();">add your talent to the music</button>
                             </span>
                         </li>
                     </ul>
@@ -314,7 +306,8 @@
                         <?php } ?>
                         <li>
                             <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
-                                <div class="adddata_write_input upload-project" id="upload-project" style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
+                                <div class="adddata_write_input upload-project" id="upload-project"
+                                     style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
                                     <ul>
                                         <li>
                                             <input type="text" class="form-control" name="content_title"
@@ -336,17 +329,24 @@
                                                    placeholder="Please enter title" autocomplete="off">
 
 
-                                                                                    <input id="file-5-microphone-project-start" onclick="startRecordingProject(this)" style="display:none;" class="inputfile">
-                                                                                    <label id='microphone-label-project-start' for="file-5-microphone-project-start">
-                                                                                        <img src="
+                                            <input id="file-5-microphone-project-start"
+                                                   onclick="startRecordingProject()" style="display:none;"
+                                                   class="inputfile">
+                                            <label id='microphone-label-project-start'
+                                                   for="file-5-microphone-project-start">
+                                                <img src="
                                             <?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
-                                                                                    </label>
+                                            </label>
 
-                                                                                    <input id="file-5-microphone-project-stop" onclick="stopRecordingProject(this)" style="display:none;" class="inputfile">
-                                                                                    <label id='microphone-label-project-stop' for="file-5-microphone-project-stop" style="display:none">
-                                                                                        <img src="
-                                            <?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
-                                                                                    </label>
+                                            <input id="file-5-microphone-project-stop"
+                                                   onclick="stopRecordingProject()" style="display:none;"
+                                                   class="inputfile">
+                                            <label id='microphone-label-project-stop'
+                                                   for="file-5-microphone-project-stop" style="display:none">
+                                                <img src="
+                                            <?php echo URL ?>icon/upload/microphone-recording.svg"
+                                                     style="width:20px; height:20px;">
+                                            </label>
 
 
                                             <input type="file" name="content_path_audio" id="file-project-audio"

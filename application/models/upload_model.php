@@ -270,14 +270,15 @@ class Upload_Model extends Model
                     //get waveform file
             }
             if($result){
-                $justwave = new JustWave('GET');
-                $justwave->setAudioDir($audiopath);
-                $justwave->setWaveDir($wavepath);
-                if ($justwave->create($key, $ext) == false) {
-                    throw new Exception("convert error");
-                } else {
-                    return $audiopath . DS . $file_name;
-                }
+                return $audiopath . DS . $file_name;
+//                $justwave = new JustWave('GET');
+//                $justwave->setAudioDir($audiopath);
+//                $justwave->setWaveDir($wavepath);
+//                if ($justwave->create($key, $ext) == false) {
+//                    throw new Exception("convert error");
+//                } else {
+//                    return $audiopath . DS . $file_name;
+//                }
             } else {
                 throw new Exception("System error occur during uploading file");
             }

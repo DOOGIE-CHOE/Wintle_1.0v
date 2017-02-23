@@ -12,8 +12,8 @@ class ViewList extends Controller{
     function index(){}
 
 
-    function loadNewContents($offset, $limist = 10){
-        $data =  $this->model->loadNewContents($offset, $limist);
+    function loadNewContents($limist, $offset){
+        $data =  $this->model->loadNewContents($limist, $offset);
         echo json_encode($data);
     }
 

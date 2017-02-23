@@ -154,7 +154,6 @@ if(Session::isSessionSet("loggedIn")){
 
             //upload ajax
             $("#upload-content-form").submit(function(event){
-                console.log("11");
                 <?php
                 if(!Session::isSessionSet('user_id')){?>
                     errorDisplay("Please log in for uploading content");
@@ -165,13 +164,14 @@ if(Session::isSessionSet("loggedIn")){
                 var formData = new FormData($(this)[0]);
 
 
-
                 var fp = document.getElementById('preview-microphone');
-                var head = 'data:image/png;base64,';
-                var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
-                formData.append("microphone_name","");
-                formData.append("microphone_tmp_name",fp.src);
-                formData.append("microphone_size",fileSize);
+                if(typeof fp.src !== "undefined"){
+                    var head = 'data:image/png;base64,';
+                    var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
+                    formData.append("microphone_name","microphone.mp3");
+                    formData.append("microphone_tmp_name",fp.src);
+                    formData.append("microphone_size",fileSize);
+                }
 
                 $.ajax({
                     url: "<?php echo URL ?>upload/uploadcontent",
@@ -199,7 +199,6 @@ if(Session::isSessionSet("loggedIn")){
                 $("#preview-microphone").css("display","none");
                 $('#file-5-audio').val("");
                 $("#preview-image").css("display","block");
-                if(sound != null) sound.pause();
                 readImage(this);
             });
 
@@ -209,14 +208,14 @@ if(Session::isSessionSet("loggedIn")){
                 $("#preview-image").css("display","none");
                 $("#preview-microphone").css("display","none");
                 $('#file-5-image').val("");
-                $("#preview-audio").css("display","block");
+//                $("#preview-audio").css("display","block");
                 readAudio(this);
             });
 
             $("#preview-microphone")[0].addEventListener("onMicrophoneAudioUpload",function(){
                 $("#previewdiv").css("display","block");
                 $("#preview-image").css("display","none");
-                $("#preview-audio").css("display","none");
+//                $("#preview-audio").css("display","none");
                 $("#preview-microphone").css("display","block");
                 $('#file-5-image').val("");
                 $('#file-5-audio').val("");
@@ -237,16 +236,26 @@ if(Session::isSessionSet("loggedIn")){
         }
 
         //audio preview
-        var sound = null;
         function readAudio(input){
-            sound = document.getElementById('preview-audio');
-            sound.src = URL.createObjectURL(input.files[0]);
-            console.log(input);
-            // not really needed in this exact case, but since it is really important in other cases,
-            // don't forget to revoke the blobURI when you don't need it
-            sound.onend = function(e) {
-                URL.revokeObjectURL(input.src);
-            };
+            var pvAudio = document.getElementById('preview-audio');
+            var pvMP = document.getElementById('preview-microphone');
+            pvAudio.innerHTML="";
+            pvMP.innerHTML="";
+
+            //pvAudio.src = URL.createObjectURL(input.files[0]);
+            console.log(pvAudio.src);
+
+            wavesurfer = WaveSurfer.create({
+                //waveColor: '#0074d9',
+                waveColor: 'gray',
+                barWidth: 3,
+                height: 200,
+                barRadius:6,
+                container: '#preview-audio'
+                //interact: false
+            });
+
+            wavesurfer.load(URL.createObjectURL(input.files[0]));
         }
 
         //resize for textarea
@@ -300,10 +309,12 @@ if(Session::isSessionSet("loggedIn")){
 
         var wavesurfer;
         function createDownloadLink() {
+            //record call back
             recorder && recorder.exportWAV(function (blob) {
-
-                var fp = document.getElementById('preview-microphone');
-                fp.innerHTML="";
+                var pvAudio = document.getElementById('preview-audio');
+                var pvMP = document.getElementById('preview-microphone');
+                pvAudio.innerHTML="";
+                pvMP.innerHTML="";
                 wavesurfer = WaveSurfer.create({
                     //waveColor: '#0074d9',
                     waveColor: 'gray',
@@ -314,7 +325,7 @@ if(Session::isSessionSet("loggedIn")){
                     //interact: false
                 });
 
-                wavesurfer.load(fp.src);
+                wavesurfer.load(pvMP.src);
             });
 
         }
@@ -433,9 +444,10 @@ if(Session::isSessionSet("loggedIn")){
                             <li>
                                 <input type="text" class="form-control" name="content_title"
                                        placeholder="Please enter title" autocomplete="off">
-                                <div style="width:100%; height:auto; display:none" id="previewdiv">
+                                <div style="width:100%; height:auto; display:none; background:white;" id="previewdiv">
                                     <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-                                    <audio id="preview-audio" style="width:100%;" controls></audio>
+<!--                                    <audio id="preview-audio" style="width:100%; display:none;" controls></audio>-->
+                                    <div id="preview-audio" style="width:100%; background: #d6dde8;" ></div>
                                     <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
                                 </div>
                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"

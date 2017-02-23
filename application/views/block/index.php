@@ -46,12 +46,13 @@
 
 
                 var fp = document.getElementById('preview-project-microphone');
-                var head = 'data:image/png;base64,';
-                var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
-                formData.append("microphone_name", "");
-                formData.append("microphone_tmp_name", fp.src);
-                formData.append("microphone_size", fileSize);
-
+                if(typeof fp.src !== "undefined") {
+                    var head = 'data:image/png;base64,';
+                    var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
+                    formData.append("microphone_name", "microphone.mp3");
+                    formData.append("microphone_tmp_name", fp.src);
+                    formData.append("microphone_size", fileSize);
+                }
 
                 $.ajax({
                     url: "<?php echo URL ?>upload/uploadproject",
@@ -79,7 +80,6 @@
                 $("#preview-project-microphone").css("display", "none");
                 $('#file-project-audio').val("");
                 $("#preview-project-image").css("display", "block");
-                if (projectsound != null) projectsound.pause();
                 readProjectImage(this);
             });
 
@@ -102,7 +102,6 @@
                 $('#file-project-image').val("");
                 $('#file-project-audio').val("");
             });
-
         });
 
 
@@ -118,15 +117,26 @@
         }
 
         //audio preview
-        var projectsound = null;
         function readProjectAudio(input) {
-            projectsound = document.getElementById('preview-project-audio');
-            projectsound.src = URL.createObjectURL(input.files[0]);
-            // not really needed in this exact case, but since it is really important in other cases,
-            // don't forget to revoke the blobURI when you don't need it
-            projectsound.onend = function (e) {
-                URL.revokeObjectURL(input.src);
-            };
+            var pvAudio = document.getElementById('preview-project-audio');
+            var pvMP = document.getElementById('preview-project-microphone');
+            pvAudio.innerHTML="";
+            pvMP.innerHTML="";
+
+            pvAudio.src = URL.createObjectURL(input.files[0]);
+            console.log(pvAudio.src);
+
+            var wavesurfer = WaveSurfer.create({
+                //waveColor: '#0074d9',
+                waveColor: 'gray',
+                barWidth: 3,
+                height: 200,
+                barRadius:6,
+                container: '#preview-project-audio'
+                //interact: false
+            });
+
+            wavesurfer.load(pvAudio.src);
         }
 
 
@@ -166,6 +176,25 @@
 
         function createDownloadLinkProject() {
             project_recorder && project_recorder.exportWAV(function (blob) {
+
+                var pvAudio = document.getElementById('preview-project-audio');
+                var pvMP = document.getElementById('preview-project-microphone');
+                pvAudio.innerHTML="";
+                pvMP.innerHTML="";
+
+                var wavesurfer = WaveSurfer.create({
+                    //waveColor: '#0074d9',
+                    waveColor: 'gray',
+                    barWidth: 3,
+                    height: 200,
+                    barRadius:6,
+                    container: '#preview-project-microphone'
+                    //interact: false
+                });
+
+                wavesurfer.load(pvMP.src);
+
+
             });
         }
 
@@ -316,8 +345,8 @@
                                             <div style="width:100%; height:auto; display:none;" id="previewprojectdiv">
                                                 <img id="preview-project-image" src="#"
                                                      style="height:100%;width:100%;"/>
-                                                <audio id="preview-project-audio" style="width:100%;" controls></audio>
-                                                <audio id="preview-project-microphone" style="width:100%"></audio>
+                                                <div id="preview-project-audio" style="width:100%; background: #d6dde8;" ></div>
+                                                <div id="preview-project-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
                                             </div>
 
                                             <textarea id="textcontent" rows="5" onkeydown="resize(this)"

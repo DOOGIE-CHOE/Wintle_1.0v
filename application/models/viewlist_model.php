@@ -15,7 +15,7 @@ class ViewList_Model extends Model
     }
 
 
-    function loadNewContents($offset, $limist)
+    function loadNewContents($limist, $offset)
     {
         try {
             $contents = array();

@@ -137,13 +137,14 @@
                 // previewdiv.appendChild(li);
                // previewdiv.appendChild(au);
 
+                currCallback(blob);
             }
         };
 	  };
 
-	  fileReader.readAsArrayBuffer(blob);
+        fileReader.readAsArrayBuffer(blob);
 
-      currCallback(blob);
+       // currCallback(blob);
     }
 
 

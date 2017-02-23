@@ -1,10 +1,10 @@
 <?php
 //
-//$protocol = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-//
+//$protocol = (@$_SERVER["HTTPS"] == "on") ? "https://" : "https://";
+
 //if (substr($_SERVER['HTTP_HOST'], 0, 4) !== 'www.') {
-//    header('Location: '.$protocol.'www.'.$_SERVER['HTTP_HOST']);
-//    exit;
+  //  header('Location: '.$protocol.'www.'.$_SERVER['HTTP_HOST']);
+    //exit;
 //}
 
 require_once (ROOT . DS . 'config' . DS . 'config.php');

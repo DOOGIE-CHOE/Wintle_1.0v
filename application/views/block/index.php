@@ -211,7 +211,9 @@
 
             navigator.getUserMedia({audio: true}, startUserMediaProject, failToGetUserMedia);
         }
-
+        function failToGetUserMedia(){
+            errorDisplay("Please allow to use microphone in order to record");
+        }
 
     </script>
     <div>
@@ -317,8 +319,8 @@
 
                             <?php
                             if ($data['comments'] != "") { ?>
-                                <li>
-                                    <span class='music_name'> <?php echo $data['comments'] ?></span>
+                                <li style="padding:0 20px 10px 20px;">
+                                    <span class='music_name'> <?php echo preg_replace("/\r\n|\r|\n/",'<br/>',$data['comments']) ?></span>
                                 </li>
                             <?php } ?>
 

@@ -1741,11 +1741,12 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
                 bottom: 0,
                 overflow: 'hidden',
                 width: '0',
-                display: 'none',
-                boxSizing: 'border-box',
-                borderRightStyle: 'solid',
-                borderRightWidth: this.params.cursorWidth + 'px',
-                borderRightColor: this.params.cursorColor
+                display: 'none'
+                // ,
+                // boxSizing: 'border-box',
+                // borderRightStyle: 'solid',
+                // borderRightWidth: this.params.cursorWidth + 'px',
+                // borderRightColor: this.params.cursorColor
             })
         );
 
@@ -1960,11 +1961,12 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.MultiCanvas, {
                 bottom: 0,
                 overflow: 'hidden',
                 width: '0',
-                display: 'none',
-                boxSizing: 'border-box',
-                borderRightStyle: 'solid',
-                borderRightWidth: this.params.cursorWidth + 'px',
-                borderRightColor: this.params.cursorColor
+                display: 'none'
+                //
+                // boxSizing: 'border-box',
+                // borderRightStyle: 'solid',
+                // borderRightWidth: this.params.cursorWidth + 'px',
+                // borderRightColor: this.params.cursorColor
             })
         );
 
@@ -2006,7 +2008,8 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.MultiCanvas, {
                 zIndex: 1,
                 left: leftOffset + 'px',
                 top: 0,
-                bottom: 0
+                bottom: 0,
+                padding:10+ 'px'
             })
         );
         entry.waveCtx = entry.wave.getContext('2d');
@@ -2017,7 +2020,8 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.MultiCanvas, {
                     position: 'absolute',
                     left: leftOffset + 'px',
                     top: 0,
-                    bottom: 0
+                    bottom: 0,
+                    padding:10 + 'px'
                 })
             );
             entry.progressCtx = entry.progress.getContext('2d');

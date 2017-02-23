@@ -220,6 +220,7 @@ if(Session::isSessionSet("loggedIn")){
                 $("#preview-microphone").css("display","block");
                 $('#file-5-image').val("");
                 $('#file-5-audio').val("");
+
             });
 
         });
@@ -297,9 +298,25 @@ if(Session::isSessionSet("loggedIn")){
             recorder.clear();
         }
 
+        var wavesurfer;
         function createDownloadLink() {
             recorder && recorder.exportWAV(function (blob) {
+
+                var fp = document.getElementById('preview-microphone');
+                fp.innerHTML="";
+                wavesurfer = WaveSurfer.create({
+                    //waveColor: '#0074d9',
+                    waveColor: 'gray',
+                    barWidth: 3,
+                    height: 200,
+                    barRadius:6,
+                    container: '#preview-microphone'
+                    //interact: false
+                });
+
+                wavesurfer.load(fp.src);
             });
+
         }
 
         function init(){
@@ -419,7 +436,7 @@ if(Session::isSessionSet("loggedIn")){
                                 <div style="width:100%; height:auto; display:none" id="previewdiv">
                                     <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
                                     <audio id="preview-audio" style="width:100%;" controls></audio>
-                                    <audio id="preview-microphone" style="width:100%"></audio>
+                                    <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
                                 </div>
                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
                                           class="form-control" placeholder="show us your inspiration"

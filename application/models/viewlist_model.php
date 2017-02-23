@@ -23,7 +23,15 @@ class ViewList_Model extends Model
             $tmp = null;
 
            // $sql = "select * from view_all_project_info order by upload_date desc limit $limist offset $offset";
-              $sql = "select * from view_all_project_info  order by upload_date desc, sequence asc limit $limist offset $offset ";
+             // $sql = "select * from view_all_project_info  order by upload_date desc, sequence asc limit $limist offset $offset ";
+
+            $sql = "select * from view_all_project_info as plist inner join 
+                    (select project_id from view_all_project_info
+                    group by project_id
+                    order by upload_date desc
+                    limit $limist offset $offset ) as pid
+                    on plist.project_id = pid.project_id";
+
             $result = $this->db->conn->query($sql);
 
             $data = $result->fetch_assoc();

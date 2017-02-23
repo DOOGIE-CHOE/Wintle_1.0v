@@ -1,6 +1,6 @@
 <div id="all">
     <script>
-        var limit = 5;
+        var limit = 3;
         var offset = 0;
         var flag = true;   //job flag
         var wall;
@@ -112,8 +112,8 @@
         function loadNewContent() {
             //put this instead of on load function;
             $.get("<?php echo URL?>viewlist/loadNewContents/" + limit + "/" + offset, function (o) {
-                    limit = 5;
-                    offset += 5;
+                    limit = 3;
+                    offset += 3;
 
                     var value = jQuery.parseJSON(o);
                     console.log(value);

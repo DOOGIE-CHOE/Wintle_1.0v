@@ -41,10 +41,7 @@
                     $c_ids .= $data['content_id'] . ",";
                 }
                 ?>
-
                 formData.append("content_ids", '<?php echo $c_ids?>');
-
-
                 var fp = document.getElementById('preview-project-microphone');
                 if(typeof fp.src !== "undefined") {
                     var head = 'data:image/png;base64,';
@@ -90,7 +87,7 @@
                 $("#preview-project-microphone").css("display", "none");
                 $('#file-project-image').val("");
                 $("#preview-project-audio").css("display", "block");
-                readProjectAudio(this);
+                //readProjectAudio(this);
             });
 
 
@@ -122,21 +119,8 @@
             var pvMP = document.getElementById('preview-project-microphone');
             pvAudio.innerHTML="";
             pvMP.innerHTML="";
-
             pvAudio.src = URL.createObjectURL(input.files[0]);
-            console.log(pvAudio.src);
-
-            var wavesurfer = WaveSurfer.create({
-                //waveColor: '#0074d9',
-                waveColor: 'gray',
-                barWidth: 3,
-                height: 200,
-                barRadius:6,
-                container: '#preview-project-audio'
-                //interact: false
-            });
-
-            wavesurfer.load(pvAudio.src);
+            createWaveform(pvAudio.src, "#preview-project-audio");
         }
 
 
@@ -148,10 +132,8 @@
                 numChannels: 1
             }, "project");
 
-
             $("#microphone-label-project-stop").css("display", "inline-block");
             $("#microphone-label-project-start").css("display", "none");
-
             project_recorder && project_recorder.record();
         }
 
@@ -182,19 +164,7 @@
                 pvAudio.innerHTML="";
                 pvMP.innerHTML="";
 
-                var wavesurfer = WaveSurfer.create({
-                    //waveColor: '#0074d9',
-                    waveColor: 'gray',
-                    barWidth: 3,
-                    height: 200,
-                    barRadius:6,
-                    container: '#preview-project-microphone'
-                    //interact: false
-                });
-
-                wavesurfer.load(pvMP.src);
-
-
+                createWaveform(pvMP.src,"#preview-project-microphone");
             });
         }
 
@@ -270,14 +240,17 @@
 
 
                     <ul class="userinfo">
-                        <?php foreach ($this->data as $data) { ?>
+
+                        <?php
+                        $waveSequence = 0;
+                        foreach ($this->data as $data) { ?>
 
                             <li style="padding-top:8px;">
                             <span class="user"
                                   onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');"
-                                  \>
+                                  >
                                 <div class="userP">
-                                    <img src="../image/p1.jpg" class="img-circle">
+                                    <img src="<?php echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?>" class="img-circle">
                                 </div>
                                 <div class="userN">
                                     <?php echo $data['user_name'] ?>
@@ -296,26 +269,13 @@
                             <li>
                             <span>
                                 <?php if ($data['content_type_name'] == 'audio') { ?>
-                                    <div class='albumA'><img src='<?php
-                                        $path = explode('/', $data['content_path']);
-                                        $filename = explode('.', $path[3]);
-                                        echo URL . "wave" . DS . $path[1] . DS . $path[2] . DS . $filename[0] . ".png";
-                                        ?>' alt=''/></div>
+                                    <div class='albumA' id="waveform-<?php echo $waveSequence;?>"></div>
                                 <?php } else if ($data['content_type_name'] == 'image') { ?>
                                     <div class='albumP'><img src='<?php echo URL . $data['content_path'] ?>'
                                                              alt=''/></div>
                                 <?php } ?>
                             </span>
                             </li>
-
-
-                            <!--                        --><?php
-//                        if($data['comments'] != ""){ ?>
-                            <!--                            <div class='albumT'>-->
-                            <!--                                --><?php //  echo str_replace("\n", "<br />", $data['comments']);
-//                                ?>
-                            <!--                            </div>-->
-                            <!--                        --><?php //} ?>
 
                             <?php
                             if ($data['comments'] != "") { ?>
@@ -333,9 +293,14 @@
                                     }
                                     ?>
                                 </li>
-                            <?php } ?>
-                        <?php } ?>
-                        <li>
+                            <?php }
+                            if ($data['content_type_name'] == 'audio') {
+                            ?>
+                            <script>
+                                 createWaveform('<?php echo URL.$data['content_path']?>' ,'<?php echo "#waveform-".$waveSequence++?>');
+                            </script>
+                        <?php }} ?>
+                        <li style="margin-bottom:-5px">
                             <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
                                 <div class="adddata_write_input upload-project" id="upload-project"
                                      style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
@@ -382,7 +347,7 @@
 
                                             <input type="file" name="content_path_audio" id="file-project-audio"
                                                    class="inputfile inputfile-4 f_bred"
-                                                   accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
+                                                   accept=".mp3,audio/*" style="display:none;"/>
                                             <label for="file-project-audio">
                                                 <img src="<?php echo URL ?>img/musical-note.svg"
                                                      style="width:20px; height:20px;">
@@ -403,18 +368,18 @@
                             </form>
                         </li>
 
-                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">
-                                    <span class="icon" style="margin-right:10px;">
-                                        <a href="#">
-                                            <img src="<?php echo URL ?>icon/Details_Content/star.svg"/>
-                                        </a> <a href="#">
-                                            <img
-                                                    src="<?php echo URL ?>icon/Music_pop_up/list.svg"/>
-                                        </a> <a href="#">
-                                            <img src="<?php echo URL ?>icon/Details_Content/share.svg"/>
-                                        </a>
-                                    </span>
-                        </li>
+<!--                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">-->
+<!--                                    <span class="icon" style="margin-right:10px;">-->
+<!--                                        <a href="#">-->
+<!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/star.svg"/>-->
+<!--                                        </a> <a href="#">-->
+<!--                                            <img-->
+<!--                                                    src="--><?php //echo URL ?><!--icon/Music_pop_up/list.svg"/>-->
+<!--                                        </a> <a href="#">-->
+<!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/share.svg"/>-->
+<!--                                        </a>-->
+<!--                                    </span>-->
+<!--                        </li>-->
                     </ul>
 
 

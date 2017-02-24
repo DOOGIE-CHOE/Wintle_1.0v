@@ -197,7 +197,7 @@
         var currentMousePos = {x: -1, y: -1};
 
         $(function () {
-            audio.setAttribute('src', "<?php echo URL?>audio/Vexento-MaskedRaver.mp3");
+            audio.setAttribute('src', "<?php echo URL?>audio/ulsanmusic.mp3");
             //Event Listener will be executed when the audio loads
             audio.addEventListener("loadeddata", function () {
                 duration = audio.duration;
@@ -342,9 +342,9 @@
 
         <div id="play-info-time">
             <div id="creator-info">
-                <div id="content-hash">#piano #NoCopyrightSounds #music</div>
+                <div id="content-hash">#Ulsan #Electronic #music</div>
                 <div id="content-info">
-                    <div id="content-name">vexento - Masked Raver [NCS Release]
+                    <div id="content-name">울산시민(예정) - 울산 응원가
                     </div>
                     <div id="playtime">
                         <div id="played-time">0:00</div>

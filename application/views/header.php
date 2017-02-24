@@ -89,7 +89,7 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <script src="<?php echo URL ?>js/waveform/wavesurfer.js"></script>
+    <script src="<?php echo URL ?>js/waveform/waveform.min.js" type="text/javascript" charset="utf-8"></script>
 
     <script>
         function onSignIn(googleUser) {
@@ -140,14 +140,11 @@ if(Session::isSessionSet("loggedIn")){
 //                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
 //
 //                    });
-
-
 //                        if(o.success == true){
 //                            window.location.replace("index");
 //                        }else{
 //                            errorDisplay(o.error);
 //                        }
-
                 }
             });
 
@@ -235,6 +232,20 @@ if(Session::isSessionSet("loggedIn")){
             }
         }
 
+
+        // output waveform
+        function createWaveform(url,elementid){
+            var wavesurfer = WaveSurfer.create({
+                waveColor: '#0074d9',
+                barWidth: 5,
+                height: 200,
+                interact: false,
+                container:elementid
+            });
+            wavesurfer.load(url);
+        }
+
+
         //audio preview
         function readAudio(input){
             var pvAudio = document.getElementById('preview-audio');
@@ -242,20 +253,8 @@ if(Session::isSessionSet("loggedIn")){
             pvAudio.innerHTML="";
             pvMP.innerHTML="";
 
-            //pvAudio.src = URL.createObjectURL(input.files[0]);
-            console.log(pvAudio.src);
-
-            wavesurfer = WaveSurfer.create({
-                //waveColor: '#0074d9',
-                waveColor: 'gray',
-                barWidth: 3,
-                height: 200,
-                barRadius:6,
-                container: '#preview-audio'
-                //interact: false
-            });
-
-            wavesurfer.load(URL.createObjectURL(input.files[0]));
+            pvAudio.src = URL.createObjectURL(input.files[0]);
+            createWaveform(pvAudio.src,'#preview-audio');
         }
 
         //resize for textarea
@@ -263,11 +262,6 @@ if(Session::isSessionSet("loggedIn")){
             obj.style.height = "112px";
             obj.style.height = (12 + obj.scrollHeight) + "px";
         }
-
-
-//        function __log(e, data) {
-//            log.innerHTML += "\n" + e + " " + (data || '');
-//        }
 
         var audio_context;
         var recorder;
@@ -307,7 +301,7 @@ if(Session::isSessionSet("loggedIn")){
             recorder.clear();
         }
 
-        var wavesurfer;
+
         function createDownloadLink() {
             //record call back
             recorder && recorder.exportWAV(function (blob) {
@@ -315,17 +309,8 @@ if(Session::isSessionSet("loggedIn")){
                 var pvMP = document.getElementById('preview-microphone');
                 pvAudio.innerHTML="";
                 pvMP.innerHTML="";
-                wavesurfer = WaveSurfer.create({
-                    //waveColor: '#0074d9',
-                    waveColor: 'gray',
-                    barWidth: 3,
-                    height: 200,
-                    barRadius:6,
-                    container: '#preview-microphone'
-                    //interact: false
-                });
 
-                wavesurfer.load(pvMP.src);
+                createWaveform(pvMP.src,"#preview-microphone");
             });
 
         }
@@ -347,9 +332,6 @@ if(Session::isSessionSet("loggedIn")){
 </head>
 
 <header style="z-index:1100;">
-    <!--    <div class="info-content">-->
-    <!--        <iframe src="http://wintlecorp.com" style="bottom:50px;"></iframe>-->
-    <!--    </div>-->
     <div id="header-gnb">
         <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
             <img src="<?php echo URL ?>img/pavicon/wintle_logo-white.svg"
@@ -431,68 +413,68 @@ if(Session::isSessionSet("loggedIn")){
     </div>
 
 
-    <div class="modal" id="writeContentModal" role="dialog">
-        <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div><!--modal-dialog-->
-        <div class="modal-dialog">
-            <!--<div class="adddataBox">&lt;!&ndash;점선박스&ndash;&gt;</div>-->
-            <!--<div class="adddata_write">-->
-            <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
-            <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
-                    <div class="adddata_write_input">
-                        <ul id="recordingslist"></ul>
-                        <ul>
-                            <li>
-                                <input type="text" class="form-control" name="content_title"
-                                       placeholder="Please enter title" autocomplete="off">
-                                <div style="width:100%; height:auto; display:none; background:white;" id="previewdiv">
-                                    <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-<!--                                    <audio id="preview-audio" style="width:100%; display:none;" controls></audio>-->
-                                    <div id="preview-audio" style="width:100%; background: #d6dde8;" ></div>
-                                    <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
-                                </div>
-                                <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
-                                          class="form-control" placeholder="show us your inspiration"
-                                          style="resize:none;" name="content_comments" autocomplete="off"></textarea>
-                                <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                                       placeholder="Please enter title" autocomplete="off">
-
-
-
-                                <input id="file-5-microphone-start" onclick="startRecording()" style="display:none;" class="inputfile">
-                                <label id='microphone-label-start' for="file-5-microphone-start">
-                                    <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
-                                </label>
-
-                                <input id="file-5-microphone-stop" onclick="stopRecording()" style="display:none;" class="inputfile">
-                                <label id='microphone-label-stop' for="file-5-microphone-stop" style="display:none">
-                                    <img src="<?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
-                                </label>
-
-
-                                <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
-                                       accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
-                                <label for="file-5-audio" >
-                                    <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
-                                </label>
-
-                                <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
-                                       accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
-                                <label for="file-5-image">
-                                    <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
-                                </label>
-
-                                <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
-                            </li>
-                    </div>
-            </form>
-            <!--</div>-->
-        </div><!--modal-dialog-->
-    </div><!--modal-->
-
-
     <script>
 
     </script>
 
 
 </header>
+
+
+<div class="modal" id="writeContentModal" role="dialog">
+    <div class="modal-dialog">
+        <!--<div class="adddataBox">&lt;!&ndash;점선박스&ndash;&gt;</div>-->
+        <!--<div class="adddata_write">-->
+        <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
+        <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
+            <div class="adddata_write_input">
+                <ul id="recordingslist"></ul>
+                <ul>
+                    <li>
+                        <input type="text" class="form-control" name="content_title"
+                               placeholder="Please enter title" autocomplete="off">
+                        <div style="width:100%; height:auto; display:none; background:white;" id="previewdiv">
+                            <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
+                            <!--                                    <audio id="preview-audio" style="width:100%; display:none;" controls></audio>-->
+                            <div id="preview-audio" style="width:100%; background: #d6dde8;" ></div>
+                            <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
+                        </div>
+                        <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
+                                  class="form-control" placeholder="show us your inspiration"
+                                  style="resize:none;" name="content_comments" autocomplete="off"></textarea>
+                        <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                               placeholder="Please enter title" autocomplete="off">
+
+
+                        <input id="file-5-microphone-start" onclick="startRecording()" style="display:none;" class="inputfile">
+                        <label id='microphone-label-start' for="file-5-microphone-start">
+                            <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
+                        </label>
+
+                        <input id="file-5-microphone-stop" onclick="stopRecording()" style="display:none;" class="inputfile">
+                        <label id='microphone-label-stop' for="file-5-microphone-stop" style="display:none">
+                            <img src="<?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
+                        </label>
+
+
+                        <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
+                               accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
+                        <label for="file-5-audio" >
+                            <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
+                        </label>
+
+                        <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
+                               accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
+                        <label for="file-5-image">
+                            <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
+                        </label>
+
+                        <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
+                    </li>
+            </div>
+        </form>
+        <!--</div>-->
+    </div><!--modal-dialog-->
+    <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div><!--modal-dialog-->
+</div><!--modal-->
+

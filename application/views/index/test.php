@@ -1,6 +1,6 @@
-
-
 <div id="all">
+
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>-->
     <script>
         var limit = 3;
         var offset = 0;
@@ -38,11 +38,30 @@
 
             wall.fitZone(setwidthgrid(), 'auto');
             $(window).resize(function () {
+                console.log("resized");
                 wall.fitZone(setwidthgrid(), 'auto');
             });
 
+
+            //catch the event to click dynamically appended div
+            //    $(".popup-background").on("click", "div.dynamic-popup", function (e) {
+            //when the mymodal is hidden (after toggled)
+            //    $('#myModal').on('hidden.bs.modal', function (e) {
+            //remove appended popup
+            //       $(".dynamic-popup").empty();
+            //   });
+//                 var container = $("#mymodal");
+//                 var block = $(".modal-dialog");
+//                  clicking outside of popup
+//                 if ((!container.is(e.target) && container.has(e.target).length === 0) && (!block.is(e.target) && block.has(e.target).length === 0) )
+//                 {
+//                    $(".pop").empty();
+//                 }
+            //});
+
             $("#search").blur(function () {
                 if (!this.value) { //if it's empty
+                    console.log(3);
                 } else {
                     $.get("<?php echo URL?>viewlist/loadContentsByHash?hashtags=" + $("#search").val(), function (o) {
                         var value = jQuery.parseJSON(o);
@@ -98,12 +117,15 @@
             $.get("<?php echo URL?>viewlist/loadNewContents/" + limit + "/" + offset, function (o) {
                     limit = 3;
                     offset += 3;
+
                     var value = jQuery.parseJSON(o);
+                    console.log(value);
                     if (value == null) {
                         //display default image
                     } else {
                         for (var i = 0; i < value.length; i++) {
                             if (value[i].constructor === Array) {
+
                                 displayProjectSimple(value[i][value[i].length - 1], value[i].length);
                             } else {
                                 displayContent(value[i]);
@@ -113,6 +135,57 @@
 
                 }
             ).done(function () {
+                //console.log("#waveform-" + waveSequence);
+
+                var list = [];
+
+                for (var i = 0; i < waveSequence; i++) {
+
+//                    var wavesurfer = WaveSurfer.create({
+//                        waveColor: '#0074d9',
+//                        barWidth: 5,
+//                        height: 200,
+//                        interact: false,
+//                        container: "#waveform-" + i
+//                    });
+//                    wavesurfer.load(path[i]);
+                    //wavesurfer.destroy();
+
+
+//
+//                    var tmp = Object.create(WaveSurfer);
+//                    var options = {
+//                        waveColor: '#0074d9',
+//                        barWidth: 5,
+//                        height: 200,
+//                        interact: false,
+//                        container:"#waveform-" + i
+//                    };
+//                    console.log(options);
+//                    tmp.init(options);
+//                    list.push(wavesurfer);
+
+//
+//                    var wavesurfer = Object.create(WaveSurfer);
+//                    wavesurfer.init({
+//                        waveColor: '#0074d9',
+//                        barWidth: 5,
+//                        height: 200,
+//                        interact: false,
+//                        container:"#waveform-" + i
+//                    });
+//                    wavesurfer.load(path[i]);
+                    //wavesurfer.destroy();
+
+                  //  list.push(wavesurfer);
+
+                }
+//
+//                $.each(list, function () {
+//                    this.load(path[1]);
+//                });
+
+
                 setTimeout(function () {
                     $(window).trigger('resize'); // resize grid-item
                     flag = true; // the job is done
@@ -120,6 +193,38 @@
 
             });
         }
+
+        var allwave = [];
+        function testwaveform(parentSelector){
+            console.log(1);
+//            var domEl = document.createElement('div');
+//            document.querySelector(parentSelector).appendChild(domEl);
+
+            var wavesurfer = WaveSurfer.create({
+                container: parentSelector,
+                waveColor: 'red',
+                progressColor: 'purple',
+                hideScrollbar: true
+            });
+//            wavesurfer.load(url);
+//
+//
+//            var wavesurfer = Object.create(WaveSurfer);
+//            wavesurfer.init({
+//                waveColor: '#0074d9',
+//                barWidth: 5,
+//                height: 200,
+//                interact: false,
+//                container:"#waveform-0"
+//            });
+            var tmp = '<?php echo URL?>';
+            console.log(tmp + path[0]);
+            wavesurfer.load(tmp+path[0]);
+            allwave.push(wavesurfer);
+            //return wavesurfer;
+
+        }
+
         var waveSequence = 0;
         var path = [];
         function displayContent(content) {
@@ -146,15 +251,33 @@
                 if (content.content_type_name == "image") {
                     html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
 
+
                     <!--앨범사진-->
+
+                    // ** path **
+                    // to replace \ to /
+                    //content.content_path = content.content_path.replace(/\\/g,'/');
                 } else if (content.content_type_name == "audio") {
-                    html += "<div class='albumA' id='waveform-"+ waveSequence + "' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"></div>";
+//                    var path = content.content_path;
+//                    path = path.split("\/");
+//                    var imagename = path[3].split('.');
+//                    var content_path = "<?php //echo URL?>//" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
+
+//                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php //echo URL . 'block/'?>//" + content.content_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
+
+
+                    html += "<div class='albumA' id='waveform-"+ waveSequence +"' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"></div>";
+                    path.push(content.content_path);
                 }
+
                 if (content.comments != "" && content.comments != null) {
                     html += "<div class='albumT' style='font-size:1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='text'>" + content.comments.replace(/\n/g, '<br />') + "</span></div>";
                 }
 
+
                 html +=
+                    "" +
+                    "" +
                     "<div class='music_tag'>";
                 if (content.hashtags != null) {
                     var hsh = content.hashtags.split(",");
@@ -162,6 +285,7 @@
                         html += "<span class='label'>" + hsh[j] + "</span>";
                     }
                 }
+
                 html +=
                     "</div>" + <!--userinfo-->
 
@@ -173,14 +297,52 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                     "</div>";
+
                 wall.appendBlock(html);
-                if(content.content_type_name == "audio"){
-                    var url = '<?php echo URL?>' + content.content_path;
-                    var element = '#waveform-'+waveSequence++;
-                    createWaveform(url,element);
-                }
+
+                // $(".grid-main").append(html);
             }
+
+            var wavesurfer = WaveSurfer.create({
+                container: '#waveform-0',
+                waveColor: 'red',
+                progressColor: 'purple',
+                hideScrollbar: true
+            });
+//            wavesurfer.load(url);
+//
+//
+//            var wavesurfer = Object.create(WaveSurfer);
+//            wavesurfer.init({
+//                waveColor: '#0074d9',
+//                barWidth: 5,
+//                height: 200,
+//                interact: false,
+//                container:"#waveform-0"
+//            });
+            var tmp = '<?php echo URL?>';
+            console.log(tmp + path[0]);
+            wavesurfer.load(tmp+path[0]);
+            allwave.push(wavesurfer);
+            //return wavesurfer;
+
+//            if (content.content_type_name == "audio") {
+//                var container = '#waveform-' + waveSequence++;
+//                console.log(container);
+//                var wavesurfer = WaveSurfer.create({
+//                    waveColor: '#0074d9',
+//                    barWidth: 5,
+//                    height: 200,
+//                    interact: false,
+//                    container:container
+//                }).load(content.content_path);
+//             //   wavesurfer.container = container;
+//                wavesurfer.destroy();
+//                console.log(wavesurfer);
+//
+//            }
         }
+
 
         function displayProjectSimple(content, number) {
             if (content == null) {
@@ -216,8 +378,8 @@
 //                    var imagename = path[3].split('.');
 //                    var content_path = "<?php //echo URL?>//" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
 //                    html += "<div class='albumA' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php //echo URL . 'block/'?>//" + content.project_id + "','playDetailModal');\"><img src='" + content_path + "' alt=''/></div>";
-                    html += "<div class='albumA' id='waveform-"+waveSequence+"' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"></div>";
-                  //  path.push(content.content_path);
+                    html += "<div class='albumA' id='waveform-"+ waveSequence +"' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"></div>";
+                    path.push(content.content_path);
                 }
 
                 if (content.comments != "" && content.comments != null) {
@@ -248,12 +410,48 @@
                     "</div>";
 
                 wall.appendBlock(html);
-                if(content.content_type_name == "audio"){
-                    var url = '<?php echo URL?>' + content.content_path;
-                    var element = '#waveform-'+waveSequence++;
-                    createWaveform(url,element);
-                }
 
+                var wavesurfer = WaveSurfer.create({
+                    container: '#waveform-0',
+                    waveColor: 'red',
+                    progressColor: 'purple',
+                    hideScrollbar: true
+                });
+//            wavesurfer.load(url);
+//
+//
+//            var wavesurfer = Object.create(WaveSurfer);
+//            wavesurfer.init({
+//                waveColor: '#0074d9',
+//                barWidth: 5,
+//                height: 200,
+//                interact: false,
+//                container:"#waveform-0"
+//            });
+                var tmp = '<?php echo URL?>';
+                console.log(tmp + path[0]);
+                wavesurfer.load(tmp+path[0]);
+                allwave.push(wavesurfer);
+                //$(".grid-main").append(html);
+//                if (content.content_type_name == "audio") {
+//                    var container = '#waveform-' + waveSequence++;
+//                    console.log(container);
+//
+//                    var sample1 = Object.create(WaveSurfer);
+//
+//                    var options = {
+//                        waveColor: '#0074d9',
+//                        barWidth: 5,
+//                        height: 200,
+//                        interact: false,
+//                        container:container
+//                    };
+//
+//                    sample1.init(options);
+//
+//                    sample1.load(content.content_path);
+//                }
+               // testwaveform('#waveform-'+waveSequence++);
             }
         }
 
@@ -300,7 +498,10 @@
                     if (project[i].comments != "" && project[i].comments != null) {
                         html += "<div class='albumT' style='font-size:1.1em; color:white;' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + project[i].project_id + "','playDetailModal');\"><span class='text'>" + project[i].comments.replace(/\n/g, '<br />') + "</span></div>";
                     }
+
+
                 }
+
 
                 html +=
                     "<div class='music_tag'>";
@@ -310,6 +511,7 @@
                         html += "<span class='label'>" + hsh[j] + "</span>";
                     }
                 }
+
 
                 html +=
                     "</div>" + <!--userinfo-->
@@ -323,6 +525,8 @@
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                     "</div>";
                 $(".grid-main").append(html);
+
+
             }
 
         }

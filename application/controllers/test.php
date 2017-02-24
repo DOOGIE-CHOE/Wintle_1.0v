@@ -10,13 +10,15 @@
 
 class Test extends Controller{
     function __construct() {
+        parent::__construct();
     }
 
     function index(){
     }
 
     function testtest(){
-        $this->model->testtest();
+        $list = $this->setViewComponents("index/test");
+        $this->view->render($list);
     }
 
 }

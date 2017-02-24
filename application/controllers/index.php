@@ -15,5 +15,4 @@ class Index extends Controller {
         $list = $this->setViewComponents("index/index");
         $this->view->render($list);
     }
-
 }

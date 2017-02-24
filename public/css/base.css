@@ -277,7 +277,7 @@ table caption 	{display:none;}
 .bg_black03  { background : rgba(0, 0, 0, 0.3)!important; }
 .bg_beige    { background:#eeece1 !important }
 .bg_no       { background:none !important}
-.bg_deepgray { background: #333333 !important;}
+.bg_deepgray { background: #252525 !important;}
 
 /*스크롤 속성 추가변경 필요*/
 html {

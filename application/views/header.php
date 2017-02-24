@@ -89,8 +89,10 @@ if(Session::isSessionSet("loggedIn")){
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <script src="<?php echo URL ?>js/waveform/waveform.min.js" type="text/javascript" charset="utf-8"></script>
-
+    <!-- waveform -->
+<!--    <script src="--><?php //echo URL ?><!--js/waveform/waveform_custom.min.js" type="text/javascript" charset="utf-8"></script>-->
+    //<script src="<?php echo URL ?>js/waveform/back/unminified.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo URL ?>js/waveform/wavesurfer.js" type="text/javascript" charset="utf-8"></script>
     <script>
         function onSignIn(googleUser) {
 
@@ -236,11 +238,13 @@ if(Session::isSessionSet("loggedIn")){
         // output waveform
         function createWaveform(url,elementid){
             var wavesurfer = WaveSurfer.create({
-                waveColor: '#0074d9',
+                waveColor: '#FF8040',
                 barWidth: 5,
                 height: 200,
                 interact: false,
-                container:elementid
+                container:elementid,
+                barRadius: true,
+                backend:"MediaElement"
             });
             wavesurfer.load(url);
         }

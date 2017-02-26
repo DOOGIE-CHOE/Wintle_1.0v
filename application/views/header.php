@@ -91,7 +91,7 @@ if(Session::isSessionSet("loggedIn")){
 
     <!-- waveform -->
 <!--    <script src="--><?php //echo URL ?><!--js/waveform/waveform_custom.min.js" type="text/javascript" charset="utf-8"></script>-->
-    //<script src="<?php echo URL ?>js/waveform/back/unminified.js" type="text/javascript" charset="utf-8"></script>
+<!--     <script src="--><?php //echo URL ?><!--js/waveform/back/unminified.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="<?php echo URL ?>js/waveform/wavesurfer.js" type="text/javascript" charset="utf-8"></script>
     <script>
         function onSignIn(googleUser) {
@@ -238,12 +238,11 @@ if(Session::isSessionSet("loggedIn")){
         // output waveform
         function createWaveform(url,elementid){
             var wavesurfer = WaveSurfer.create({
-                waveColor: '#FF8040',
+                waveColor: 'slategray',
                 barWidth: 5,
                 height: 200,
                 interact: false,
                 container:elementid,
-                barRadius: true,
                 backend:"MediaElement"
             });
             wavesurfer.load(url);
@@ -440,8 +439,8 @@ if(Session::isSessionSet("loggedIn")){
                         <div style="width:100%; height:auto; display:none; background:white;" id="previewdiv">
                             <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
                             <!--                                    <audio id="preview-audio" style="width:100%; display:none;" controls></audio>-->
-                            <div id="preview-audio" style="width:100%; background: #d6dde8;" ></div>
-                            <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
+                            <div id="preview-audio" style="width:100%;" ></div>
+                            <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%;"></div>
                         </div>
                         <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
                                   class="form-control" placeholder="show us your inspiration"
@@ -479,6 +478,6 @@ if(Session::isSessionSet("loggedIn")){
         </form>
         <!--</div>-->
     </div><!--modal-dialog-->
-    <div class="modal_close" data-dismiss="modal"><a href="#">&times;</a></div><!--modal-dialog-->
+    <div class="modal_close" data-dismiss="modal" style="top:50px;"><a href="#">&times;</a></div><!--modal-dialog-->
 </div><!--modal-->
 

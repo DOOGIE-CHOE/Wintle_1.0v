@@ -30,7 +30,9 @@ class ViewList_Model extends Model
                     group by project_id
                     order by upload_date desc
                     limit $limist offset $offset ) as pid
-                    on plist.project_id = pid.project_id";
+                    on plist.project_id = pid.project_id
+                    order by upload_date desc, sequence desc
+                    ";
 
             $result = $this->db->conn->query($sql);
 

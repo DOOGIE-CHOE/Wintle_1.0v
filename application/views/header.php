@@ -248,7 +248,6 @@ if(Session::isSessionSet("loggedIn")){
             wavesurfer.load(url);
         }
 
-
         //audio preview
         function readAudio(input){
             var pvAudio = document.getElementById('preview-audio');

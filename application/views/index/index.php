@@ -8,17 +8,14 @@
         var wall;
         var wavesurfer;
 
-        var sample1;
-
         $(function () {
-            sample1 = Object.create(WaveSurfer);
             if (flag) {
                 flag = false;
                 loadNewContent();
             }
             $(window).scroll(function () {
                 // do whatever you need here.
-                if ($(window).scrollTop() > $('.grid').height() - 1050 && flag == true) {
+                if ($(window).scrollTop() > $('.grid').height() - 1550 && flag == true) {
                     flag = false;    // wait until the job is done
                     loadNewContent(); // call loading card function
 
@@ -104,6 +101,7 @@
                     } else {
                         for (var i = 0; i < value.length; i++) {
                             if (value[i].constructor === Array) {
+                                console.log(value[i]);
                                 displayProjectSimple(value[i][value[i].length - 1], value[i].length);
                             } else {
                                 displayContent(value[i]);

@@ -1,16 +1,16 @@
 <?php
 //
-$protocol = "https://";
-$path = null;
-if (substr($_SERVER['HTTP_HOST'], 0, 4) !== 'www.') {
-    $path = $protocol.'www.'.$_SERVER['HTTP_HOST'];
-    header('Location: '.$path);
-    exit;
-}else if(substr($_SERVER['HTTP_HOST'], 0, 4) == 'www.' && ($_SERVER["HTTPS"] == "off" || !isset($_SERVER["HTTPS"]))){
-    $path = $protocol.$_SERVER['HTTP_HOST'];
-    header('Location: '.$path);
-    exit;
-}
+//$protocol = "https://";
+//$path = null;
+//if (substr($_SERVER['HTTP_HOST'], 0, 4) !== 'www.') {
+//    $path = $protocol.'www.'.$_SERVER['HTTP_HOST'];
+//    header('Location: '.$path);
+//    exit;
+//}else if(substr($_SERVER['HTTP_HOST'], 0, 4) == 'www.' && ($_SERVER["HTTPS"] == "off" || !isset($_SERVER["HTTPS"]))){
+//    $path = $protocol.$_SERVER['HTTP_HOST'];
+//    header('Location: '.$path);
+//    exit;
+//}
 
 
 

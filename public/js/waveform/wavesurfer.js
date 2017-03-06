@@ -479,6 +479,8 @@ var WaveSurfer = {
                     this.backend.buffer = buffer;
                     this.drawBuffer();
                     this.fireEvent('waveform-ready');
+                    this.arraybuffer = null;
+                    this.backend.buffer = null;
                 }).bind(this));
             }).bind(this));
         }
@@ -486,13 +488,14 @@ var WaveSurfer = {
 
     decodeArrayBuffer: function (arraybuffer, callback) {
         this.arraybuffer = arraybuffer;
-
         this.backend.decodeArrayBuffer(
             arraybuffer,
             (function (data) {
                 // Only use the decoded data if we haven't been destroyed or another decode started in the meantime
                 if (!this.isDestroyed && this.arraybuffer == arraybuffer) {
                     callback(data);
+                    this.arraybuffer = null;
+                }else{
                     this.arraybuffer = null;
                 }
             }).bind(this),
@@ -612,7 +615,12 @@ var WaveSurfer = {
         this.backend.destroy();
         this.drawer.destroy();
         this.isDestroyed = true;
+    },
+
+    emptyAudioArray: function(){
+        this.arraybuffer = null;
     }
+
 };
 
 WaveSurfer.create = function (params) {
@@ -705,13 +713,6 @@ WaveSurfer.util = {
 
             if (200 == xhr.status || 206 == xhr.status) {
                 ajax.fireEvent('success', xhr.response, e);
-                xhr.abort();
-                ajax.xhr.abort();
-                xhr = null;
-                ajax.xhr = null;
-                this.handlers = null;
-                this.arraybuffer = null;
-
             } else {
                 ajax.fireEvent('error', e);
             }
@@ -979,6 +980,7 @@ WaveSurfer.WebAudio = {
         }
         this.offlineAc.decodeAudioData(arraybuffer, (function (data) {
             callback(data);
+            arraybuffer = null;
         }).bind(this), errback);
     },
 

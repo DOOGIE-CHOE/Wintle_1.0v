@@ -246,6 +246,7 @@ if(Session::isSessionSet("loggedIn")){
                 audioContext:ac
             });
             wavesurfer.load(url);
+            wavesurfer.emptyAudioArray();
         }
 
         //audio preview

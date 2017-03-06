@@ -517,6 +517,7 @@ var WaveSurfer = {
             ajax.on('success', function (data, e) {
                 callback(data);
                 my.currentAjax = null;
+                my = null;
             }),
             ajax.on('error', function (e) {
                 my.fireEvent('error', 'XHR error: ' + e.target.statusText);
@@ -685,7 +686,8 @@ WaveSurfer.util = {
         var xhr = new XMLHttpRequest();
         var fired100 = false;
 
-        xhr.open(options.method || 'GET', options.url, true);
+        var tmp =  options.url;
+        xhr.open(options.method || 'GET', tmp, true);
         xhr.responseType = options.responseType || 'json';
 
         xhr.addEventListener('progress', function (e) {
@@ -703,6 +705,13 @@ WaveSurfer.util = {
 
             if (200 == xhr.status || 206 == xhr.status) {
                 ajax.fireEvent('success', xhr.response, e);
+                xhr.abort();
+                ajax.xhr.abort();
+                xhr = null;
+                ajax.xhr = null;
+                this.handlers = null;
+                this.arraybuffer = null;
+
             } else {
                 ajax.fireEvent('error', e);
             }

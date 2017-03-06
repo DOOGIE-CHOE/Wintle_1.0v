@@ -117,6 +117,7 @@
                 }, 50);
 
             });
+
         }
         var waveSequence = 0;
         var path = [];

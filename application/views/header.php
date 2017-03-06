@@ -234,8 +234,7 @@ if(Session::isSessionSet("loggedIn")){
             }
         }
 
-
-        // output waveform
+        var ac = new window.AudioContext;
         function createWaveform(url,elementid){
             var wavesurfer = WaveSurfer.create({
                 waveColor: 'slategray',
@@ -243,7 +242,8 @@ if(Session::isSessionSet("loggedIn")){
                 height: 200,
                 interact: false,
                 container:elementid,
-                backend:"MediaElement"
+                backend:'MediaElement',
+                audioContext:ac
             });
             wavesurfer.load(url);
         }

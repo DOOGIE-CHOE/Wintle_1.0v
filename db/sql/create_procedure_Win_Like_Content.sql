@@ -47,6 +47,7 @@ this:BEGIN
 				LEAVE read_loop;
 				END IF;
 			END LOOP;
+		insert into project_like(project_id, user_id) values(_content_id, _user_id);
 		set _return = 1;
 		elseif _result = 1 then
 			OPEN my_cursor;
@@ -60,6 +61,7 @@ this:BEGIN
 				LEAVE read_loop;
 				END IF;
 			END LOOP;
+		delete from project_like where project_id = _content_id;
 		set _return = 2;
 		end if;
 	end if;

@@ -7,6 +7,8 @@
         var flag = true;   //job flag
         var wall;
         var wavesurfer;
+        var contentArray = [];
+        var waves = [];
 
         $(function () {
             if (flag) {
@@ -94,7 +96,6 @@
             var value = null;
             $.get("<?php echo URL?>common/likecontent/" + content_id, function (o) {
                     value = jQuery.parseJSON(o);
-                    console.log(value);
             }).done(function () {
                 var result = value.result;
                 if(result == "liked"){
@@ -102,6 +103,27 @@
                 }else if(result == "unliked"){
                     img.src = URL + "icon/Details_Content/star.svg";
                 }
+            });
+        }
+
+//        function islikedcontent(content_id, img){
+//            var value;
+//            $.get("<?php //echo URL?>//common/islikedcontent/" + content_id, function(o){
+//                value = jQuery.parseJSON(o);
+//            }).done(function () {
+//                if(value == 1){
+//                    img.src = URL + "icon/Details_Content/stared.svg";
+//                }else{
+//                    img.src = URL + "icon/Details_Content/star.svg";
+//                }
+//            });
+//        }
+
+
+        function islikedcontent(content_id){
+            return $.ajax({
+                url:"<?php echo URL?>common/islikedcontent/" + content_id,
+                async:false
             });
         }
 
@@ -116,7 +138,6 @@
                     } else {
                         for (var i = 0; i < value.length; i++) {
                             if (value[i].constructor === Array) {
-                                console.log(value[i]);
                                 displayProjectSimple(value[i][value[i].length - 1], value[i].length);
                             } else {
                                 displayContent(value[i]);
@@ -126,16 +147,23 @@
 
                 }
             ).done(function () {
+                for(var i = 0;i < contentArray.length ; i++){
+                    $(".grid-main").append(contentArray[i]);
+                }
+                contentArray = [];
                 setTimeout(function () {
+                    //after loading all blocks, load waveforms
+                    for(var j = 0; j < waves.length ; j++){
+                        createWaveform(waves[j].url, waves[j].element);
+                    }
+                    waves = [];
                     $(window).trigger('resize'); // resize grid-item
                     flag = true; // the job is done
-                }, 50);
-
+                });
             });
 
         }
         var waveSequence = 0;
-        var path = [];
         function displayContent(content) {
             if (content == null) {
 
@@ -183,16 +211,32 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
-                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/ onclick='likecontent("+content.content_id+",this);'></span>" +
-                    "</div>";
-                wall.appendBlock(html);
-                if(content.content_type_name == "audio"){
-                    var url = '<?php echo URL?>' + content.content_path;
-                    var element = '#waveform-'+waveSequence++;
-                    createWaveform(url,element);
-                }
+                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>";
+
+
+                html +="<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>";
+
+                $.when(islikedcontent(content.content_id)).done(function(o){
+                    var value = jQuery.parseJSON(o);
+                    if(value == 1){
+                        html += "<img src='"+ URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
+                    }else{
+                        html += "<img src='"+ URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
+                    }
+                    html += "</div>";
+
+                    contentArray.push(html);
+
+                    if(content.content_type_name == "audio"){
+                        var tmp = {
+                            url : '<?php echo URL?>' + content.content_path,
+                            element : '#waveform-'+waveSequence++
+                        };
+                        waves.push(tmp);
+
+                    }
+                });
+
             }
         }
 
@@ -252,21 +296,34 @@
 
                 html +=
                     "</div>" + <!--userinfo-->
+
                     "<div class='btm_info'>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
-                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></a></span>" +
-                    "</div>";
+                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>";
 
-                wall.appendBlock(html);
-                if(content.content_type_name == "audio"){
-                    var url = '<?php echo URL?>' + content.content_path;
-                    var element = '#waveform-'+waveSequence++;
-                    createWaveform(url,element);
-                }
+
+                html +="<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>";
+
+                $.when(islikedcontent(content.project_id)).done(function(o){
+                    var value = jQuery.parseJSON(o);
+                    if(value == 1){
+                        html += "<img src='"+ URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
+                    }else{
+                        html += "<img src='"+ URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
+                    }
+                    html += "</div>";
+                    contentArray.push(html);
+
+                    if(content.content_type_name == "audio"){
+                        var tmp = {
+                            url : '<?php echo URL?>' + content.content_path,
+                            element : '#waveform-'+waveSequence++
+                        };
+                        waves.push(tmp);
+                    }
+                });
 
             }
         }

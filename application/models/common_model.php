@@ -62,7 +62,9 @@ class Common_Model extends Model{
 
         try {
             $sql = $this->db->conn->prepare("CALL Win_Like_Content(?,?,?,@result)");
+
             $user_id = Session::get("user_id");
+
 
             //Put arguments
             $sql->bind_param('sss',$user_id, $content_id, $type);
@@ -86,6 +88,23 @@ class Common_Model extends Model{
             $data['error'] = $e->getMessage();
         }finally{
             return $data;
+        }
+    }
+
+    function isLikedContent($content_id){
+        $user_id = Session::get("user_id");
+
+        if($user_id == null)
+            return false; // if it's not logged in
+
+        if($content_id >= 700000000 && $content_id < 800000000)
+            $sql = "SELECT count(*) as num from project_like where project_id = '$content_id' and user_id = '$user_id'";
+        else
+            $sql = "SELECT count(*) as num from content_like where content_id = '$content_id' and user_id = '$user_id'";
+        $select = $this->db->conn->query($sql);
+        $result = $select->fetch_assoc();
+        if ($result['num'] == '1') {
+            return $data['result'] = 1;
         }
     }
 

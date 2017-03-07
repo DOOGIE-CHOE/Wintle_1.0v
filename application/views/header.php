@@ -18,6 +18,7 @@ if(Session::isSessionSet("loggedIn")){
 <head>
     <title>wintle</title>
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
+    <script src="<?php echo URL ?>js/config.js" type="text/javascript"></script>
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/jquery/jquery.form.js" type="text/javascript"></script>

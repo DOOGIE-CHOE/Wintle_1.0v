@@ -90,6 +90,21 @@
             //   return width;
         }
 
+        function likecontent(content_id, img){
+            var value = null;
+            $.get("<?php echo URL?>common/likecontent/" + content_id, function (o) {
+                    value = jQuery.parseJSON(o);
+                    console.log(value);
+            }).done(function () {
+                var result = value.result;
+                if(result == "liked"){
+                    img.src = URL + "icon/Details_Content/stared.svg";
+                }else if(result == "unliked"){
+                    img.src = URL + "icon/Details_Content/star.svg";
+                }
+            });
+        }
+
         function loadNewContent() {
             //put this instead of on load function;
             $.get("<?php echo URL?>viewlist/loadNewContents/" + limit + "/" + offset, function (o) {
@@ -170,7 +185,7 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
+                    "<img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/ onclick='likecontent("+content.content_id+",this);'></span>" +
                     "</div>";
                 wall.appendBlock(html);
                 if(content.content_type_name == "audio"){
@@ -243,7 +258,7 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></a></span>" +
                     "</div>";
 
                 wall.appendBlock(html);

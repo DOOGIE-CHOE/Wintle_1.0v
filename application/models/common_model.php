@@ -52,9 +52,41 @@ class Common_Model extends Model{
         }
     }
 
-    function likeContent($contentname, $username){
+    function likeContent($content_id){
+        $type = null;
+        $data = array();
+        if($content_id >= 700000000 && $content_id < 800000000)
+            $type = "project";
+        else
+            $type = "content";
 
+        try {
+            $sql = $this->db->conn->prepare("CALL Win_Like_Content(?,?,?,@result)");
+            $user_id = Session::get("user_id");
 
+            //Put arguments
+            $sql->bind_param('sss',$user_id, $content_id, $type);
+            $sql->execute();
+
+            //Get output from Stored Procedure
+            $select = $this->db->conn->query('select @result');
+            $result = $select->fetch_assoc();
+
+            if($result['@result'] == 1) {
+                $data['result'] = "liked";
+            }else if($result['@result'] == 2){
+                $data['result'] = "unliked";
+            }else if($result['@result'] == -1){
+                throw new Exception("Some thing went wrong, please try it later");
+            }else {
+                throw new Exception("System error occur :( please try it later");
+            }
+        }
+        catch(Exception $e){
+            $data['error'] = $e->getMessage();
+        }finally{
+            return $data;
+        }
     }
 
 }

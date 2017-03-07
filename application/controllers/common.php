@@ -35,8 +35,8 @@ class Common extends Controller{
         echo json_encode($data);
     }
 
-    public function likeContent($contentname, $username){
-        $data = $this->model->likeContent($contentname, $username);
+    public function likeContent($content_id){
+        $data = $this->model->likeContent($content_id);
         echo json_encode($data);
     }
 }

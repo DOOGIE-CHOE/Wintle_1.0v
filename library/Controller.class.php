@@ -22,10 +22,7 @@ class Controller {
             "header",
             "errorMessage"
         );
-        if(!Session::isSessionSet("loggedIn")){
-            array_push($list,"loginpopup");
-        }
-
+        array_push($list,"loginpopup");
         array_push($list, $view);
         array_push($list,
             "musicplayer",

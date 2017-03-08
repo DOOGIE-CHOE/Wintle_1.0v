@@ -20,7 +20,6 @@
                 if ($(window).scrollTop() > $('.grid').height() - 1550 && flag == true) {
                     flag = false;    // wait until the job is done
                     loadNewContent(); // call loading card function
-
                 }
 
             });
@@ -151,14 +150,16 @@
                     $(".grid-main").append(contentArray[i]);
                 }
                 contentArray = [];
+
                 setTimeout(function () {
                     //after loading all blocks, load waveforms
                     for(var j = 0; j < waves.length ; j++){
                         createWaveform(waves[j].url, waves[j].element);
                     }
                     waves = [];
-                    $(window).trigger('resize'); // resize grid-item
                     flag = true; // the job is done
+
+                    $(window).trigger('resize'); // resize grid-item
                 });
             });
 

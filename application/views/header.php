@@ -86,7 +86,7 @@ if(Session::isSessionSet("loggedIn")){
     <link rel="mask-icon" href="<?php echo URL ?>mac_favicon.png" color="#000000">
 
 
-    <!-- multi track recording -->
+    <!-- multi track recording / microphone-->
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
@@ -105,7 +105,7 @@ if(Session::isSessionSet("loggedIn")){
             $.get("<?php echo URL?>social/google_login/" + id_token, function (o) {
                 var value = jQuery.parseJSON(o);
                 if (value.success == true) {
-                    window.location.replace("http://wintle.co.kr");
+                    window.location.replace("https://www.wintle.co.kr");
                 } else {
                     errorDisplay(value.error);
                 }

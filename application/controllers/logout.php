@@ -12,7 +12,7 @@ class LogOut extends Controller {
 
     function callLogOut(){
         Session::destroy();
-        header("Location: ".URL."index");
+        header("Location: ".URL);
         exit();
     }
 }

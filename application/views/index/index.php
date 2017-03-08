@@ -175,8 +175,7 @@
 
                 var html = "<div class='grid-item'>" +
                     "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + content.profile_url + "','all');\" >" +
-                    "<div class='userphoto'>" +
-                    "<img src='<?php echo URL?>" + content.profile_photo_path + "' class='img-circle'>" +
+                    "<div class='userphoto' style='background-image:url(<?php echo URL?>" + content.profile_photo_path + ")'>" +
                     "</div>" +
                     "<div class='musictext'>" +
                     "<ul>" +
@@ -209,9 +208,7 @@
 
                     "<div class='btm_info'>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
-                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>";
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" ;
 
 
                 html +="<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>";
@@ -258,8 +255,7 @@
 
                 var html = "<div class='grid-item'>" +
                     "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + content.profile_url + "','all');\" >" +
-                    "<div class='userphoto'>" +
-                    "<img src='<?php echo URL?>" + content.profile_photo_path + "' class='img-circle'>" +
+                    "<div class='userphoto' style='background-image:url(<?php echo URL?>" + content.profile_photo_path + ")'>" +
                     "</div>" +
                     "<div class='musictext'>" +
                     "<ul>" +
@@ -306,9 +302,7 @@
 
                     "<div class='btm_info'>" +
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
-                    "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                    "<a href='#'><img src='<?php echo URL?>icon/Music_pop_up/list.svg' class='w20px'/></a></span>";
+                    "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>";
 
 
                 html +="<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>";
@@ -322,8 +316,8 @@
                     }
                     html += "</div>";
 
-                    $(".grid-main").append(html);
-
+                    //$(".grid-main").append(html);
+                    wall.appendBlock(html);
                     if(content.content_type_name == "audio") {
                         var url = '<?php echo URL?>' + content.content_path;
                         var element = '#waveform-' + waveSequence++;
@@ -409,7 +403,8 @@
                     "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
                     "<a href='#'><img src='<?php echo URL?>icon/Details_Content/star.svg' class='w20px'/></a></span>" +
                     "</div>";
-                $(".grid-main").append(html);
+               // $(".grid-main").append(html);
+                wall.appendBlock(html);
             }
 
         }

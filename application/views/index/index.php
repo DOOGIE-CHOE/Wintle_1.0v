@@ -146,23 +146,22 @@
 
                 }
             ).done(function () {
-                for(var i = 0;i < contentArray.length ; i++){
-                    $(".grid-main").append(contentArray[i]);
-                }
-                contentArray = [];
+//                for(var i = 0;i < contentArray.length ; i++){
+//                    $(".grid-main").append(contentArray[i]);
+//                }
+//                contentArray = [];
 
-                setTimeout(function () {
+                var interval = setInterval(function () {
                     //after loading all blocks, load waveforms
-                    for(var j = 0; j < waves.length ; j++){
-                        createWaveform(waves[j].url, waves[j].element);
-                    }
-                    waves = [];
+//                    for(var j = 0; j < waves.length ; j++){
+//                        createWaveform(waves[j].url, waves[j].element);
+//                    }
+//                    waves = [];
                     flag = true; // the job is done
-
                     $(window).trigger('resize'); // resize grid-item
-                });
+                    clearInterval(interval);
+                },100);
             });
-
         }
         var waveSequence = 0;
         function displayContent(content) {
@@ -226,16 +225,25 @@
                     }
                     html += "</div>";
 
-                    contentArray.push(html);
+                    $(".grid-main").append(html);
 
-                    if(content.content_type_name == "audio"){
-                        var tmp = {
-                            url : '<?php echo URL?>' + content.content_path,
-                            element : '#waveform-'+waveSequence++
-                        };
-                        waves.push(tmp);
-
+                    if(content.content_type_name == "audio") {
+                        var url = '<?php echo URL?>' + content.content_path;
+                        var element = '#waveform-' + waveSequence++;
+                        console.log(url);
+                        console.log(element);
+                        createWaveform(url, element);
                     }
+//                    contentArray.push(html);
+//
+//                    if(content.content_type_name == "audio"){
+//                        var tmp = {
+//                            url : '<?php //echo URL?>//' + content.content_path,
+//                            element : '#waveform-'+waveSequence++
+//                        };
+//                        waves.push(tmp);
+//
+//                    }
                 });
 
             }
@@ -315,15 +323,26 @@
                         html += "<img src='"+ URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
                     }
                     html += "</div>";
-                    contentArray.push(html);
 
-                    if(content.content_type_name == "audio"){
-                        var tmp = {
-                            url : '<?php echo URL?>' + content.content_path,
-                            element : '#waveform-'+waveSequence++
-                        };
-                        waves.push(tmp);
+                    $(".grid-main").append(html);
+
+                    if(content.content_type_name == "audio") {
+                        var url = '<?php echo URL?>' + content.content_path;
+                        var element = '#waveform-' + waveSequence++;
+                        console.log(url);
+                        console.log(element);
+                        createWaveform(url, element);
                     }
+
+//                    contentArray.push(html);
+//
+//                    if(content.content_type_name == "audio"){
+//                        var tmp = {
+//                            url : '<?php //echo URL?>//' + content.content_path,
+//                            element : '#waveform-'+waveSequence++
+//                        };
+//                        waves.push(tmp);
+//                    }
                 });
 
             }

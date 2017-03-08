@@ -230,8 +230,6 @@
                     if(content.content_type_name == "audio") {
                         var url = '<?php echo URL?>' + content.content_path;
                         var element = '#waveform-' + waveSequence++;
-                        console.log(url);
-                        console.log(element);
                         createWaveform(url, element);
                     }
 //                    contentArray.push(html);
@@ -329,8 +327,6 @@
                     if(content.content_type_name == "audio") {
                         var url = '<?php echo URL?>' + content.content_path;
                         var element = '#waveform-' + waveSequence++;
-                        console.log(url);
-                        console.log(element);
                         createWaveform(url, element);
                     }
 

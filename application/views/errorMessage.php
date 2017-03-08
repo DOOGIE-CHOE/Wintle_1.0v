@@ -9,7 +9,7 @@
 ?>
 <div class="alert">
     <span class="closebtn">&times;</span>
-    <a id="error-message"></a>
+    <a id="error-message" style="color:white"></a>
 </div>
 
 <script>

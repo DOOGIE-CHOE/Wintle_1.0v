@@ -3,6 +3,6 @@
  */
 
 //For global variables
-//var URL = "http://localhost/";
+//var _URL = "http://localhost/";
 
-var URL = "https://www.wintle.co.kr/";
+var _URL = "https://www.wintle.co.kr/";

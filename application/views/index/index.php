@@ -98,9 +98,9 @@
             }).done(function () {
                 var result = value.result;
                 if(result == "liked"){
-                    img.src = URL + "icon/Details_Content/stared.svg";
+                    img.src = _URL + "icon/Details_Content/stared.svg";
                 }else if(result == "unliked"){
-                    img.src = URL + "icon/Details_Content/star.svg";
+                    img.src = _URL + "icon/Details_Content/star.svg";
                 }
             });
         }
@@ -111,9 +111,9 @@
 //                value = jQuery.parseJSON(o);
 //            }).done(function () {
 //                if(value == 1){
-//                    img.src = URL + "icon/Details_Content/stared.svg";
+//                    img.src = _URL + "icon/Details_Content/stared.svg";
 //                }else{
-//                    img.src = URL + "icon/Details_Content/star.svg";
+//                    img.src = _URL + "icon/Details_Content/star.svg";
 //                }
 //            });
 //        }
@@ -216,9 +216,9 @@
                 $.when(islikedcontent(content.content_id)).done(function(o){
                     var value = jQuery.parseJSON(o);
                     if(value == 1){
-                        html += "<img src='"+ URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
+                        html += "<img src='"+ _URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
                     }else{
-                        html += "<img src='"+ URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
+                        html += "<img src='"+ _URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.content_id+",this);'/></span>";
                     }
                     html += "</div>";
 
@@ -310,9 +310,9 @@
                 $.when(islikedcontent(content.project_id)).done(function(o){
                     var value = jQuery.parseJSON(o);
                     if(value == 1){
-                        html += "<img src='"+ URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
+                        html += "<img src='"+ _URL + "icon/Details_Content/stared.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
                     }else{
-                        html += "<img src='"+ URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
+                        html += "<img src='"+ _URL + "icon/Details_Content/star.svg' class='w20px' onclick='likecontent("+content.project_id+",this);'/></span>";
                     }
                     html += "</div>";
 

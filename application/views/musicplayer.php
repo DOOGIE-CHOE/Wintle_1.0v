@@ -158,7 +158,7 @@
         #album-photo {
             height: 60px;
             width: 60px;
-            background-image: url('<?php echo URL?>image/123.png');
+            background-image: url('<?php echo URL?>img/vinyl.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -405,9 +405,9 @@
 
         <div id="play-info-time">
             <div id="creator-info">
-                <div id="content-hash">#Ulsan #Electronic #music</div>
+                <div id="content-hash"></div>
                 <div id="content-info">
-                    <div id="content-name">울산시민(예정) - 울산 응원가
+                    <div id="content-name">
                     </div>
                     <div id="playtime">
                         <div id="played-time">0:00</div>

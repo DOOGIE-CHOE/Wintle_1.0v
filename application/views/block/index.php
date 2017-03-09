@@ -212,8 +212,11 @@
                             }
 
                             if ($audiolist) {
+
+                                $title = $this->data[count($this->data)-1]['content_title'];
+                                $hash = $this->data[count($this->data)-1]['content_title']
                                 ?>
-                                <span class="icon" onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo 11?>","<?php echo 11?>")'>
+                                <span class="icon" onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo $title?>","<?php echo $hash?>")'>
                                         <a>
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
@@ -222,13 +225,8 @@
                             }
                             ?>
 
-                            <?php
-                            if ($this->data[0]['content_title'] != "") { ?>
-
                                 <span class='music_title'
-                                      style="position:relative; top:12px;"> <?php echo $this->data[0]['content_title'] ?></span>
-
-                            <?php } ?>
+                                      style="position:relative; top:12px;"> <?php echo $title ?></span>
                             <span class="btn">
                                       <button type="button" id="addTalent" class="f_white btn btn-danger btn-sm"
                                               onclick="toggledata();">add your talent to the music</button>

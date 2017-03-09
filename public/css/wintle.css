@@ -377,7 +377,10 @@ html{
 .list-item .btnicon > a { color:#fff !important }
 .list-item .btnicon > a:hover { color:#F90 !important }
 .list-item .userT { font-size:2em; float:left; color:#FFF; background:none}
-.list-item .userP { padding-right:10px; float:left}
+.list-item .userP { padding-right:10px; float:left
+
+}
+
 @media (max-width: 700px) {
   .list-item .btnicon .glyphicon  { font-size:0.7em !important}
 }
@@ -413,10 +416,17 @@ html{
 .userinfo li     {  width:100%; padding:0;  list-style:none; display:inline-block; text-align: left;}
 .userinfo .user  { width:30%; height:45px; float:left; display:block; position:relative; }
 .userinfo .icon  { width:50%; float:right; text-align:right;}
-.userP  { z-index:3; position:absolute;  top:0; left:0; margin-left:10px;}
+.userP  { z-index:3; position:absolute;  top:5px; left:5px; margin-left:10px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 0 8px 0 black;
+  width:30px;
+  height:30px;
+}
 .userN  { z-index:2; position:absolute; top:6px; left:60px; color:#222222; font-size:1.5em; padding:2px 15px }
 .userT  {  z-index:1; position:absolute; top:35px; left:60px;  background:#00baff; color:#fff; font-size:0.85em;  padding:2px 15px }
-.userP img {  width:30px !important; height:30px;  box-shadow: 0 0 8px 0 black;}
 .userinfo .albumIMG   { max-width:100%; height:auto; display:inline-block }
 
 

@@ -248,8 +248,10 @@
                                 <li style="padding-top:8px;">
                             <span class="user"
                                   onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');">
-                                <div class="userP">
-                                    <img src="<?php echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?>" class="img-circle">
+
+
+                                <div class="userP" style="background-image:url('<?php echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?>') ">
+<!--                                    <img src="--><?php //echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?><!--" class="img-circle">-->
                                 </div>
                                 <div class="userN">
                                     <?php echo $data['user_name'] ?>

@@ -185,6 +185,7 @@
             errorDisplay("Please allow to use microphone in order to record");
         }
 
+
     </script>
     <div>
         <!--        <div class="view_header_fix" style="text-align:center">-->
@@ -203,6 +204,7 @@
                         <li class="bg_white ofh " style="border-bottom:1px solid #eeeeee">
                             <?php
                             $audiolist = array();
+
                             foreach ($this->data as $data) {
                                 if ($data['content_type_name'] == 'audio') {
                                     array_push($audiolist, URL . $data['content_path']);
@@ -211,8 +213,8 @@
 
                             if ($audiolist) {
                                 ?>
-                                <span class="icon" onclick='setMusic(<?php echo json_encode($audiolist) ?>)'>
-                                        <a href="#">
+                                <span class="icon" onclick='loadAudio(<?php echo json_encode($audiolist) ?>)'>
+                                        <a>
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
                                     </span>
@@ -238,17 +240,14 @@
                 <div class="view_body_fix">
                     <!--앨범사진외 -->
 
-
-                    <ul class="userinfo">
-
-                        <?php
-                        $waveSequence = 0;
-                        foreach ($this->data as $data) { ?>
-
-                            <li style="padding-top:8px;">
+                    <div>
+                        <ul class="userinfo">
+                            <?php
+                            $waveSequence = 0;
+                            foreach ($this->data as $data) { ?>
+                                <li style="padding-top:8px;">
                             <span class="user"
-                                  onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');"
-                                  >
+                                  onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');">
                                 <div class="userP">
                                     <img src="<?php echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?>" class="img-circle">
                                 </div>
@@ -256,17 +255,15 @@
                                     <?php echo $data['user_name'] ?>
                                 </div>
                             </span>
-                                <!--                            <span class="icon">-->
-                                <!--                                <a href="#"><img src="-->
-                                <?php //echo URL?><!--icon/Details_Content/like.svg" style="filter:invert()"/></a>-->
-                                <!--                                <a href="#"><img src="-->
-                                <?php //echo URL?><!--icon/Music_pop_up/list.svg" style="filter:invert()"/></a>-->
-                                <!--                                <a href="#"><img src="../icon/Details_Content/share.svg" style="filter:invert()"/></a>-->
-                                <!--                            </span>-->
-                            </li>
-
-
-                            <li>
+                                    <!--                            <span class="icon">-->
+                                    <!--                                <a href="#"><img src="-->
+                                    <?php //echo URL?><!--icon/Details_Content/like.svg" style="filter:invert()"/></a>-->
+                                    <!--                                <a href="#"><img src="-->
+                                    <?php //echo URL?><!--icon/Music_pop_up/list.svg" style="filter:invert()"/></a>-->
+                                    <!--                                <a href="#"><img src="../icon/Details_Content/share.svg" style="filter:invert()"/></a>-->
+                                    <!--                            </span>-->
+                                </li>
+                                <li>
                             <span>
                                 <?php if ($data['content_type_name'] == 'audio') { ?>
                                     <div class='albumA' id="waveform-<?php echo $waveSequence;?>"></div>
@@ -275,7 +272,7 @@
                                                              alt=''/></div>
                                 <?php } ?>
                             </span>
-                            </li>
+                                </li>
 
                             <?php
                             if ($data['comments'] != "") { ?>
@@ -296,90 +293,90 @@
                             <?php }
                             if ($data['content_type_name'] == 'audio') {
                             ?>
-                            <script>
-                                 createWaveform('<?php echo URL.$data['content_path']?>' ,'<?php echo "#waveform-".$waveSequence++?>');
-                            </script>
-                        <?php }} ?>
-                        <li style="margin-bottom:-5px">
-                            <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
-                                <div class="adddata_write_input upload-project" id="upload-project"
-                                     style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
-                                    <ul>
-                                        <li>
-                                            <input type="text" class="form-control" name="content_title"
-                                                   placeholder="Please enter title" autocomplete="off">
+                                <script>
+                                    createWaveform('<?php echo URL.$data['content_path']?>' ,'<?php echo "#waveform-".$waveSequence++?>');
+                                </script>
+                            <?php }} ?>
+                            <li style="margin-bottom:-5px">
+                                <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
+                                    <div class="adddata_write_input upload-project" id="upload-project"
+                                         style="display:none; padding : 0 0 15px 0; margin-top:10px; border-top:1px solid #eeeeee">
+                                        <ul>
+                                            <li>
+                                                <input type="text" class="form-control" name="content_title"
+                                                       placeholder="Please enter title" autocomplete="off">
 
-                                            <div style="width:100%; height:auto; display:none;" id="previewprojectdiv">
-                                                <img id="preview-project-image" src="#"
-                                                     style="height:100%;width:100%;"/>
-                                                <div id="preview-project-audio" style="width:100%; background: #d6dde8;" ></div>
-                                                <div id="preview-project-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
-                                            </div>
+                                                <div style="width:100%; height:auto; display:none;" id="previewprojectdiv">
+                                                    <img id="preview-project-image" src="#"
+                                                         style="height:100%;width:100%;"/>
+                                                    <div id="preview-project-audio" style="width:100%; background: #d6dde8;" ></div>
+                                                    <div id="preview-project-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
+                                                </div>
 
-                                            <textarea id="textcontent" rows="5" onkeydown="resize(this)"
-                                                      onkeyup="resize(this)"
-                                                      class="form-control" placeholder="show us your inspiration"
-                                                      style="resize:none;" name="content_comments"
-                                                      autocomplete="off"></textarea>
-                                            <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                                                   placeholder="Please enter title" autocomplete="off">
+                                                <textarea id="textcontent" rows="5" onkeydown="resize(this)"
+                                                          onkeyup="resize(this)"
+                                                          class="form-control" placeholder="show us your inspiration"
+                                                          style="resize:none;" name="content_comments"
+                                                          autocomplete="off"></textarea>
+                                                <input type="text" class="form-control" name="hashtags" id="hashtags[]"
+                                                       placeholder="Please enter title" autocomplete="off">
 
 
-                                            <input id="file-5-microphone-project-start"
-                                                   onclick="startRecordingProject()" style="display:none;"
-                                                   class="inputfile">
-                                            <label id='microphone-label-project-start'
-                                                   for="file-5-microphone-project-start">
-                                                <img src="
+                                                <input id="file-5-microphone-project-start"
+                                                       onclick="startRecordingProject()" style="display:none;"
+                                                       class="inputfile">
+                                                <label id='microphone-label-project-start'
+                                                       for="file-5-microphone-project-start">
+                                                    <img src="
                                             <?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
-                                            </label>
+                                                </label>
 
-                                            <input id="file-5-microphone-project-stop"
-                                                   onclick="stopRecordingProject()" style="display:none;"
-                                                   class="inputfile">
-                                            <label id='microphone-label-project-stop'
-                                                   for="file-5-microphone-project-stop" style="display:none">
-                                                <img src="
+                                                <input id="file-5-microphone-project-stop"
+                                                       onclick="stopRecordingProject()" style="display:none;"
+                                                       class="inputfile">
+                                                <label id='microphone-label-project-stop'
+                                                       for="file-5-microphone-project-stop" style="display:none">
+                                                    <img src="
                                             <?php echo URL ?>icon/upload/microphone-recording.svg"
-                                                     style="width:20px; height:20px;">
-                                            </label>
+                                                         style="width:20px; height:20px;">
+                                                </label>
 
 
-                                            <input type="file" name="content_path_audio" id="file-project-audio"
-                                                   class="inputfile inputfile-4 f_bred"
-                                                   accept=".mp3,audio/*" style="display:none;"/>
-                                            <label for="file-project-audio">
-                                                <img src="<?php echo URL ?>img/musical-note.svg"
-                                                     style="width:20px; height:20px;">
-                                            </label>
+                                                <input type="file" name="content_path_audio" id="file-project-audio"
+                                                       class="inputfile inputfile-4 f_bred"
+                                                       accept=".mp3,audio/*" style="display:none;"/>
+                                                <label for="file-project-audio">
+                                                    <img src="<?php echo URL ?>img/musical-note.svg"
+                                                         style="width:20px; height:20px;">
+                                                </label>
 
-                                            <input type="file" name="content_path_image" id="file-project-image"
-                                                   class="inputfile inputfile-4 f_bred"
-                                                   accept="image/x-png,image/gif,image/jpeg" style="display:none;"/>
-                                            <label for="file-project-image">
-                                                <img src="<?php echo URL ?>img/frame-landscape.svg"
-                                                     style="width:20px; height:20px;">
-                                            </label>
+                                                <input type="file" name="content_path_image" id="file-project-image"
+                                                       class="inputfile inputfile-4 f_bred"
+                                                       accept="image/x-png,image/gif,image/jpeg" style="display:none;"/>
+                                                <label for="file-project-image">
+                                                    <img src="<?php echo URL ?>img/frame-landscape.svg"
+                                                         style="width:20px; height:20px;">
+                                                </label>
 
-                                            <input type="submit" id="upload-content" class="btn f_right f_bred"
-                                                   value="Upload" style="margin:16px 16px 0 0;">
-                                        </li>
-                                </div>
-                            </form>
-                        </li>
-
-<!--                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">-->
-<!--                                    <span class="icon" style="margin-right:10px;">-->
-<!--                                        <a href="#">-->
-<!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/star.svg"/>-->
-<!--                                        </a> <a href="#">-->
-<!--                                            <img-->
-<!--                                                    src="--><?php //echo URL ?><!--icon/Music_pop_up/list.svg"/>-->
-<!--                                        </a> <a href="#">-->
-<!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/share.svg"/>-->
-<!--                                        </a>-->
-<!--                                    </span>-->
-<!--                        </li>-->
+                                                <input type="submit" id="upload-content" class="btn f_right f_bred"
+                                                       value="Upload" style="margin:16px 16px 0 0;">
+                                            </li>
+                                    </div>
+                                </form>
+                            </li>
+                    </div>
+                    <!--                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">-->
+                    <!--                                    <span class="icon" style="margin-right:10px;">-->
+                    <!--                                        <a href="#">-->
+                    <!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/star.svg"/>-->
+                    <!--                                        </a> <a href="#">-->
+                    <!--                                            <img-->
+                    <!--                                                    src="--><?php //echo URL ?><!--icon/Music_pop_up/list.svg"/>-->
+                    <!--                                        </a> <a href="#">-->
+                    <!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/share.svg"/>-->
+                    <!--                                        </a>-->
+                    <!--                                    </span>-->
+                    <!--                        </li>-->
                     </ul>
 
 

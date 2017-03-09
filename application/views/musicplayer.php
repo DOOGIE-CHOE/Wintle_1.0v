@@ -195,17 +195,11 @@
         var playinterval;
         var barbutton;
         var currentMousePos = {x: -1, y: -1};
+        var audioElement = [];
+        var longestAudio;
+        var playFlag = false;
 
         $(function () {
-            audio.setAttribute('src', "<?php echo URL?>audio/ulsanmusic.mp3");
-            //Event Listener will be executed when the audio loads
-            audio.addEventListener("loadeddata", function () {
-                duration = audio.duration;
-                barbutton = $("#play-bar-button");
-                displayTime(document.getElementById("duration-time"), duration);
-                //calculate px that will progress per sec
-                progressrate = Math.round((PLAYBARWIDTH / (duration * 10)) * 1000) / 1000;
-            });
 
 
             $("#play-bar-button").draggable({
@@ -216,13 +210,7 @@
                 }
             });
 
-            function setPlaybutton() {
-                var left = parseInt(barbutton.css("left"));
-                setPlayedBarAndButton(left);
-                var currentTime = left / (progressrate * 10);
-                audio.currentTime = parseInt(currentTime);
-                displayTime(document.getElementById("played-time"), currentTime);
-            }
+
 
             // Set the range of mousedown
             // prevent clicking out of the play bar
@@ -252,6 +240,63 @@
             });
         });
 
+        function resetAllAudio(){
+            for(var i =0; i< audioElement.length; i++){
+                audioElement[i].pause();
+            }
+            clearInterval(playinterval);
+            audioElement = [];
+            longestAudio = null;
+        }
+
+        function loadAudio(component){
+            resetAllAudio();
+            var count = 0;
+            var maxDuraion = 0;
+
+            for(var i = 0; i< component.length; i++){
+                var audio = document.createElement('audio');
+                audio.setAttribute('src', component[i]);
+                audio.load();
+                audio.onloadeddata = function(){
+                    if(this.duration > maxDuraion){
+                        maxDuraion = this.duration;
+                        longestAudio = this;
+                    }
+                    audioElement.push(this);
+                    count++;
+                    if(count >= component.length){
+                        preSetAudio(maxDuraion)
+                    }
+                };
+            }
+        }
+
+        function preSetAudio(duration){
+            barbutton = $("#play-bar-button");
+            displayTime(document.getElementById("duration-time"), duration);
+            //calculate px that will progress per sec
+            progressrate = Math.round((PLAYBARWIDTH / (duration * 10)) * 1000) / 1000;
+            musicPlay();
+        }
+
+        function setPlaybutton() {
+            var left = parseInt(barbutton.css("left"));
+            setPlayedBarAndButton(left);
+            var currentTime = left / (progressrate * 10);
+
+            for(var i =0; i< audioElement.length; i++){
+                audioElement[i].currentTime = parseInt(currentTime);
+                if(!isPlaying(audioElement[i])) {
+                    if(playFlag){
+                        console.log(playFlag);
+                        audioElement[i].play();
+                    }
+                }
+            }
+            displayTime(document.getElementById("played-time"), currentTime);
+        }
+
         function displayTime(target, second) {
             var min = ~~(second / 60);
             var sec = ~~(second % 60);
@@ -260,12 +305,18 @@
         }
 
         function musicPlay() {
-            if (isPlaying(audio)) {
-                audio.pause();
+            if (isPlaying(longestAudio)) {
+                playFlag = false;
+                for(var i =0; i< audioElement.length; i++){
+                    audioElement[i].pause();
+                }
                 $("#play").attr("src", "<?php echo URL?>img/play.png");
                 clearInterval(playinterval);
             } else {
-                audio.play();
+                playFlag = true;
+                for(var i =0; i< audioElement.length; i++){
+                    audioElement[i].play();
+                }
                 playinterval = setInterval(function () {
                     playBarButtonProgress();
                 }, 100);
@@ -282,8 +333,10 @@
             left += progressrate;
             setPlayedBarAndButton();
             if (left >= (PLAYBARWIDTH - 2 )) {
-                audio.pause();
-                audio.currentTime = 0;
+                for(var i =0; i< audioElement.length; i++){
+                    audioElement[i].pause();
+                    audioElement[i].currentTime = 0;
+                }
                 $("#play").attr("src", "<?php echo URL?>img/play.png");
                 //$("#play-bar-button").css("left","  0px");
                 setPlayedBarAndButton(0);
@@ -291,14 +344,13 @@
                 displayTime(document.getElementById("played-time"), 0);
                 return;
             }
-
-            displayTime(document.getElementById("played-time"), audio.currentTime);
+            displayTime(document.getElementById("played-time"), longestAudio.currentTime);
         }
 
         function setPlayedBarAndButton(left = null) {
             var tmp;
             if (left == null) {
-                tmp = ~~(audio.currentTime * 10);
+                tmp = ~~(longestAudio.currentTime * 10);
                 tmp = tmp * progressrate;
             } else {
                 tmp = left;
@@ -310,7 +362,7 @@
         function setButtonPosition(left = null){
             var tmp;
             if (left == null) {
-                tmp = ~~(audio.currentTime * 10);
+                tmp = ~~(longestAudio.currentTime * 10);
                 tmp = tmp * progressrate;
             } else {
                 tmp = left;

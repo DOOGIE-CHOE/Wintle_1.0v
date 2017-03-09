@@ -16,7 +16,7 @@
             height: 60px;
             width: 100%;
             bottom: 0;
-            background-color: #222222;
+            background-color: rgba(0,0,0,0.8);
             z-index: 1060;
         }
 

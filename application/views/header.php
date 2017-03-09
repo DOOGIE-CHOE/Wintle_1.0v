@@ -444,10 +444,10 @@ if(Session::isSessionSet("loggedIn")){
                             <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%;"></div>
                         </div>
                         <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
-                                  class="form-control" placeholder="show us your inspiration"
+                                  class="form-control" placeholder="Show us your inspiration"
                                   style="resize:none;" name="content_comments" autocomplete="off"></textarea>
                         <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                               placeholder="Please enter title" autocomplete="off">
+                               placeholder="#" autocomplete="off">
 
 
                         <input id="file-5-microphone-start" onclick="startRecording()" style="display:none;" class="inputfile">

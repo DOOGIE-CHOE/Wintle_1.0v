@@ -321,11 +321,11 @@
 
                                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)"
                                                           onkeyup="resize(this)"
-                                                          class="form-control" placeholder="show us your inspiration"
+                                                          class="form-control" placeholder="Show us your inspiration"
                                                           style="resize:none;" name="content_comments"
                                                           autocomplete="off"></textarea>
                                                 <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                                                       placeholder="Please enter title" autocomplete="off">
+                                                       placeholder="#" autocomplete="off">
 
 
                                                 <input id="file-5-microphone-project-start"

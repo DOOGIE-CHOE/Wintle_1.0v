@@ -200,7 +200,12 @@
                 if (content.hashtags != null) {
                     var hsh = content.hashtags.split(",");
                     for (var j = 0; j < hsh.length; j++) {
+
+                        if(hsh.length == 1 && hsh[0] == " "){
+
+                        }else{
                         html += "<span class='label'>" + hsh[j] + "</span>";
+                        }
                     }
                 }
                 html +=
@@ -293,7 +298,11 @@
                 if (content.hashtags != null) {
                     var hsh = content.hashtags.split(",");
                     for (var j = 0; j < hsh.length; j++) {
-                        html += "<span class='label'>" + hsh[j] + "</span>";
+                        if(hsh.length == 1 && hsh[0] == " "){
+
+                        }else{
+                            html += "<span class='label'>" + hsh[j] + "</span>";
+                        }
                     }
                 }
 

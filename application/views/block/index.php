@@ -213,7 +213,7 @@
 
                             if ($audiolist) {
                                 ?>
-                                <span class="icon" onclick='loadAudio(<?php echo json_encode($audiolist) ?>)'>
+                                <span class="icon" onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo 11?>","<?php echo 11?>")'>
                                         <a>
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
@@ -254,7 +254,13 @@
                                 <div class="userN">
                                     <?php echo $data['user_name'] ?>
                                 </div>
+
                             </span>
+                                    <span><a href="<?php echo URL.$data['content_path']?>" download>
+                                     <div style="position:absolute; right:10px; height:25px; width:25px; background-image:url('<?php echo URL?>icon/Details_Content/download.svg')">
+                                     </div></a>
+                                        </span>
+
                                     <!--                            <span class="icon">-->
                                     <!--                                <a href="#"><img src="-->
                                     <?php //echo URL?><!--icon/Details_Content/like.svg" style="filter:invert()"/></a>-->

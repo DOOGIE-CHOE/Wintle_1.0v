@@ -185,7 +185,7 @@
                 if (content.content_title != "" && content.content_title != null)
                     html += "<div class='albumTitle'  data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
                 if (content.content_type_name == "image") {
-                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.content_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/><div style='position:absolute; color: rgba(255,255,255,0.5); right:30px; bottom:100px;'>"+ content.user_name +  " from wintle</div></div>";
 
                     <!--앨범사진-->
                 } else if (content.content_type_name == "audio") {
@@ -265,7 +265,7 @@
                 if (content.content_title != "" && content.content_title != null)
                     html += "<div class='albumTitle' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><span class='music_name'>" + content.content_title + "</span></div>";
                 if (content.content_type_name == "image") {
-                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/></div>";
+                    html += "<div class='albumP' data-toggle='modal' data-target='#playDetailModal' onclick = \"$.pagehandler.loadContent('<?php echo URL . 'block/'?>" + content.project_id + "','playDetailModal');\"><img src='" + content.content_path + "' alt=''/><div style='position:absolute; color: rgba(255,255,255,0.5);right:20px; bottom:100px;'>"+ content.user_name +  " from wintle</div></div>";
                     <!--앨범사진-->
 
                     // ** path **

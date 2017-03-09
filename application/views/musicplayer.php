@@ -249,11 +249,22 @@
             longestAudio = null;
         }
 
+        function playAudioFiles(component, content_name, hashs){
+            loadAudio(component);
+            setPlaybarInfos(content_name,hashs);
+
+        }
+
+        function setPlaybarInfos(content_name, hashs, album_photo = null){
+            document.getElementById("content-hash").innerHTML = hashs;
+            document.getElementById("content-name").innerHTML = content_name;
+        }
+
         function loadAudio(component){
             resetAllAudio();
             var count = 0;
             var maxDuraion = 0;
-
+            console.log(component);
             for(var i = 0; i< component.length; i++){
                 var audio = document.createElement('audio');
                 audio.setAttribute('src', component[i]);
@@ -266,7 +277,7 @@
                     audioElement.push(this);
                     count++;
                     if(count >= component.length){
-                        preSetAudio(maxDuraion)
+                        preSetAudio(maxDuraion);
                     }
                 };
             }

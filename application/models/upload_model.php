@@ -39,7 +39,7 @@ class Upload_Model extends Model
             $file_tmp = $_FILES['content_path_image']['tmp_name'];
             $path = $this->uploadimage($file_name, $file_size, $file_tmp);
             $type = "image";
-        } else if($_POST['microphone_tmp_name'] != "") {
+        } else if(isset($_POST['microphone_tmp_name'])) {
             $file_name = $_POST['microphone_name'];
             $file_size = $_POST['microphone_size']; // to check file size if it's too big
             $file_tmp = $_POST['microphone_tmp_name'];

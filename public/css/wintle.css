@@ -71,7 +71,7 @@ html{
 .music_name { color:#222222; font-size:1.5em; }
 
 .music_tag   { padding:0 0 0 5px;  overflow-y:scroll; height:auto;}
-.music_tag span.label { font-size:0.7em; color:#555555; padding:10px; !important; }
+.music_tag span.label { font-size:0.7em; color:#555555; padding:0 10px 0 10px; !important; }
 .music_tag::-webkit-scrollbar{
   width:0;
   display:none;

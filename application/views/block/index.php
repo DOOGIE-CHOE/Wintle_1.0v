@@ -210,11 +210,12 @@
                                     array_push($audiolist, URL . $data['content_path']);
                                 }
                             }
+                            $title = $this->data[count($this->data)-1]['content_title'];
+                            $hash = $this->data[count($this->data)-1]['content_title'];
 
                             if ($audiolist) {
 
-                                $title = $this->data[count($this->data)-1]['content_title'];
-                                $hash = $this->data[count($this->data)-1]['content_title']
+
                                 ?>
                                 <span class="icon" onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo $title?>","<?php echo $hash?>")'>
                                         <a>

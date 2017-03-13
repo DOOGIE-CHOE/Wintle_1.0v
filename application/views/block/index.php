@@ -43,7 +43,7 @@
                 ?>
                 formData.append("content_ids", '<?php echo $c_ids?>');
                 var fp = document.getElementById('preview-project-microphone');
-                if(typeof fp.src !== "undefined") {
+                if (typeof fp.src !== "undefined") {
                     var head = 'data:image/png;base64,';
                     var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
                     formData.append("microphone_name", "microphone.mp3");
@@ -117,8 +117,8 @@
         function readProjectAudio(input) {
             var pvAudio = document.getElementById('preview-project-audio');
             var pvMP = document.getElementById('preview-project-microphone');
-            pvAudio.innerHTML="";
-            pvMP.innerHTML="";
+            pvAudio.innerHTML = "";
+            pvMP.innerHTML = "";
             pvAudio.src = URL.createObjectURL(input.files[0]);
             createWaveform(pvAudio.src, "#preview-project-audio");
         }
@@ -161,10 +161,10 @@
 
                 var pvAudio = document.getElementById('preview-project-audio');
                 var pvMP = document.getElementById('preview-project-microphone');
-                pvAudio.innerHTML="";
-                pvMP.innerHTML="";
+                pvAudio.innerHTML = "";
+                pvMP.innerHTML = "";
 
-                createWaveform(pvMP.src,"#preview-project-microphone");
+                createWaveform(pvMP.src, "#preview-project-microphone");
             });
         }
 
@@ -181,7 +181,7 @@
 
             navigator.getUserMedia({audio: true}, startUserMediaProject, failToGetUserMedia);
         }
-        function failToGetUserMedia(){
+        function failToGetUserMedia() {
             errorDisplay("Please allow to use microphone in order to record");
         }
 
@@ -210,14 +210,15 @@
                                     array_push($audiolist, URL . $data['content_path']);
                                 }
                             }
-                            $title = $this->data[count($this->data)-1]['content_title'];
-                            $hash = $this->data[count($this->data)-1]['content_title'];
+                            $title = $this->data[count($this->data) - 1]['content_title'];
+                            $hash = $this->data[count($this->data) - 1]['content_title'];
 
                             if ($audiolist) {
 
 
                                 ?>
-                                <span class="icon" onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo $title?>","<?php echo $hash?>")'>
+                                <span class="icon"
+                                      onclick='playAudioFiles(<?php echo json_encode($audiolist) ?>,"<?php echo $title ?>","<?php echo $hash ?>")'>
                                         <a>
                                             <img src="<?php echo URL ?>icon/Details_Content/play.svg"/>
                                         </a>
@@ -226,8 +227,8 @@
                             }
                             ?>
 
-                                <span class='music_title'
-                                      style="position:relative; top:12px;"> <?php echo $title ?></span>
+                            <span class='music_title'
+                                  style="position:relative; top:12px;"> <?php echo $title ?></span>
                             <span class="btn">
                                       <button type="button" id="addTalent" class="f_white btn btn-danger btn-sm"
                                               onclick="toggledata();">add your talent to the music</button>
@@ -245,20 +246,9 @@
                             $waveSequence = 0;
                             foreach ($this->data as $data) { ?>
                                 <li style="padding-top:8px;">
-                            <span class="user"
-                                  onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');">
 
-
-                                <div class="userP" style="background-image:url('<?php echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?>') ">
-<!--                                    <img src="--><?php //echo $data['profile_photo_path'] != "" ? URL.$data['profile_photo_path'] : URL.'img/defaultprofile.png' ?><!--" class="img-circle">-->
-                                </div>
-                                <div class="userN">
-                                    <?php echo $data['user_name'] ?>
-                                </div>
-
-                            </span>
-                                    <span><a href="<?php echo URL.$data['content_path']?>" download>
-                                     <div style="position:absolute; right:10px; height:25px; width:25px; background-image:url('<?php echo URL?>icon/Details_Content/download.svg')">
+                                    <span><a href="<?php echo URL . $data['content_path'] ?>" download>
+                                     <div style="position:absolute; right:10px; height:25px; width:25px; background-image:url('<?php echo URL ?>icon/Details_Content/download.svg')">
                                      </div></a>
                                         </span>
 
@@ -273,37 +263,46 @@
                                 <li>
                             <span>
                                 <?php if ($data['content_type_name'] == 'audio') { ?>
-                                    <div class='albumA' id="waveform-<?php echo $waveSequence;?>"></div>
+                                    <div class='albumA' id="waveform-<?php echo $waveSequence; ?>">
+                                         <span class="user" style="position:absolute"
+                                               onclick="$.pagehandler.loadContent('<?php echo URL . $data['profile_url'] ?>' ,'all');">
+                                        <div class="userN">
+                                            <?php echo "by ".$data['user_name'] ?>
+                                        </div>
+                                        </span>
+                                    </div>
                                 <?php } else if ($data['content_type_name'] == 'image') { ?>
                                     <div class='albumP'><img src='<?php echo URL . $data['content_path'] ?>'
                                                              alt=''/></div>
                                 <?php } ?>
                             </span>
+
                                 </li>
 
                             <?php
                             if ($data['comments'] != "") { ?>
                                 <li style="padding:0 20px 10px 20px;">
-                                    <span class='music_name'> <?php echo preg_replace("/\r\n|\r|\n/",'<br/>',$data['comments']) ?></span>
+                                    <span class='music_name'> <?php echo preg_replace("/\r\n|\r|\n/", '<br/>', $data['comments']) ?></span>
                                 </li>
                             <?php } ?>
 
-                            <?php if ($data['comments'] != "") { ?>
-                                <li>
-                                    <?php
-                                    $hashs = explode(",", $data['hashtags']);
-                                    foreach ($hashs as $tag) {
-                                        echo "<span class='f_dwhite' style='margin:2px; font-size:1em; padding:0 5px 0 5px;'>$tag</span>";
-                                    }
-                                    ?>
-                                </li>
-                            <?php }
+<!--                            --><?php //if ($data['hashtags'] != "") { ?>
+<!--                                <li>-->
+<!--                                    --><?php
+//                                    $hashs = explode(",", $data['hashtags']);
+//                                    foreach ($hashs as $tag) {
+//                                        echo "<span class='f_dwhite' style='margin:2px; font-size:1em; padding:0 5px 0 5px;'>$tag</span>";
+//                                    }
+//                                    ?>
+<!--                                </li>-->
+<!--                            --><?php //}
                             if ($data['content_type_name'] == 'audio') {
                             ?>
                                 <script>
-                                    createWaveform('<?php echo URL.$data['content_path']?>' ,'<?php echo "#waveform-".$waveSequence++?>');
+                                    createWaveform('<?php echo URL . $data['content_path']?>', '<?php echo "#waveform-" . $waveSequence++?>');
                                 </script>
-                            <?php }} ?>
+                            <?php }
+                            } ?>
                             <li style="margin-bottom:-5px">
                                 <form id="upload-project-form" action="" method="post" enctype="multipart/form-data">
                                     <div class="adddata_write_input upload-project" id="upload-project"
@@ -313,11 +312,14 @@
                                                 <input type="text" class="form-control" name="content_title"
                                                        placeholder="Please enter title" autocomplete="off">
 
-                                                <div style="width:100%; height:auto; display:none;" id="previewprojectdiv">
+                                                <div style="width:100%; height:auto; display:none;"
+                                                     id="previewprojectdiv">
                                                     <img id="preview-project-image" src="#"
                                                          style="height:100%;width:100%;"/>
-                                                    <div id="preview-project-audio" style="width:100%; background: #d6dde8;" ></div>
-                                                    <div id="preview-project-microphone" onclick="wavesurfer.play()" style="width:100%; background: #d6dde8;"></div>
+                                                    <div id="preview-project-audio"
+                                                         style="width:100%; background: #d6dde8;"></div>
+                                                    <div id="preview-project-microphone" onclick="wavesurfer.play()"
+                                                         style="width:100%; background: #d6dde8;"></div>
                                                 </div>
 
                                                 <textarea id="textcontent" rows="5" onkeydown="resize(this)"
@@ -375,12 +377,15 @@
                     <!--                        <li class="bg_white ofh" style="border-top:1px solid #eeeeee;">-->
                     <!--                                    <span class="icon" style="margin-right:10px;">-->
                     <!--                                        <a href="#">-->
-                    <!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/star.svg"/>-->
+                    <!--                                            <img src="-->
+                    <?php //echo URL ?><!--icon/Details_Content/star.svg"/>-->
                     <!--                                        </a> <a href="#">-->
                     <!--                                            <img-->
-                    <!--                                                    src="--><?php //echo URL ?><!--icon/Music_pop_up/list.svg"/>-->
+                    <!--                                                    src="-->
+                    <?php //echo URL ?><!--icon/Music_pop_up/list.svg"/>-->
                     <!--                                        </a> <a href="#">-->
-                    <!--                                            <img src="--><?php //echo URL ?><!--icon/Details_Content/share.svg"/>-->
+                    <!--                                            <img src="-->
+                    <?php //echo URL ?><!--icon/Details_Content/share.svg"/>-->
                     <!--                                        </a>-->
                     <!--                                    </span>-->
                     <!--                        </li>-->

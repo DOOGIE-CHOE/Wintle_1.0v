@@ -300,8 +300,9 @@
                 audioElement[i].currentTime = parseInt(currentTime);
                 if(!isPlaying(audioElement[i])) {
                     if(playFlag){
-                        console.log(playFlag);
-                        audioElement[i].play();
+                        if(audioElement[i].duration > audioElement[i].currentTime){
+                            audioElement[i].play();
+                        }
                     }
                 }
             }

@@ -249,7 +249,7 @@
             longestAudio = null;
         }
 
-        function playAudioFiles(component, content_name, hashs){
+        function playAudioFiles(component, content_name, hashs, event = null){
             loadAudio(component, event);
             setPlaybarInfos(content_name,hashs);
         }
@@ -259,7 +259,7 @@
             document.getElementById("content-name").innerHTML = content_name;
         }
 
-        function loadAudio(component){
+        function loadAudio(component, event = null){
             resetAllAudio();
             var count = 0;
             var maxDuraion = 0;
@@ -277,6 +277,12 @@
                     count++;
                     if(count >= component.length){
                         preSetAudio(maxDuraion);
+
+                        if(event == null){
+                            musicPlay();
+                        }else{
+                            document.dispatchEvent(readyAudioEvent);
+                        }
                     }
                 };
             }
@@ -289,7 +295,6 @@
             progressrate = Math.round((PLAYBARWIDTH / (duration * 10)) * 1000) / 1000;
             //Trigger playing music event******************
             //musicPlay();
-            document.dispatchEvent(readyAudioEvent);
         }
 
         function setPlaybutton() {

@@ -150,14 +150,13 @@
             readyAudioEvent = new Event('AudioReady');
 
             document.addEventListener('MSR', function (e) {
-                playAudioFiles(content, title, hash);
+                playAudioFiles(content, title, hash,readyAudioEvent);
             }, false);
 
             document.addEventListener('AudioReady', function(e){
                 musicPlay();
                 var interval = setInterval(function () {
                     project_recorder && project_recorder.record();
-
                     clearInterval(interval);
                 },130);
             },false);

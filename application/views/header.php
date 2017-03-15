@@ -94,6 +94,8 @@ if(Session::isSessionSet("loggedIn")){
 <!--    <script src="--><?php //echo URL ?><!--js/waveform/waveform_custom.min.js" type="text/javascript" charset="utf-8"></script>-->
 <!--     <script src="--><?php //echo URL ?><!--js/waveform/back/unminified.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="<?php echo URL ?>js/waveform/wavesurfer.js" type="text/javascript" charset="utf-8"></script>
+    <link href="<?php echo URL?>css/loadingSpinner.css" rel="stylesheet">
+
     <script>
         function onSignIn(googleUser) {
 

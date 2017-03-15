@@ -152,7 +152,6 @@
             document.addEventListener('MSR', function (e) {
                 playAudioFiles(content, title, hash,readyAudioEvent);
             }, false);
-
             document.addEventListener('AudioReady', function(e){
                 musicPlay();
                 var interval = setInterval(function () {
@@ -160,7 +159,6 @@
                     clearInterval(interval);
                 },130);
             },false);
-
             initMicrophoneProject();
         }
 
@@ -178,8 +176,9 @@
 
             // create WAV download link using audio data blob
             createDownloadLinkProject();
-
             project_recorder.clear();
+
+            $('.cssload-overlay').css("visibility","visible");
         }
 
         function createDownloadLinkProject() {
@@ -191,10 +190,11 @@
                 pvMP.innerHTML = "";
 
                 createWaveform(pvMP.src, "#preview-project-microphone");
+                $('.cssload-overlay').css("visibility","hidden");
             });
         }
 
-        function initMicrophoneProject(callback) {
+        function initMicrophoneProject() {
             // webkit shim
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             navigator.getUserMedia = ( navigator.getUserMedia ||
@@ -396,6 +396,12 @@
                                                 <input type="submit" id="upload-content" class="btn f_right f_bred"
                                                        value="Upload" style="margin:16px 16px 0 0;">
                                             </li>
+                                        </ul>
+                                        <div class="cssload-overlay">
+                                            <div class="cssload-container" >
+                                                <div class="cssload-whirlpool"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </li>

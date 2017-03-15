@@ -263,7 +263,6 @@
             resetAllAudio();
             var count = 0;
             var maxDuraion = 0;
-            console.log(component);
             for(var i = 0; i< component.length; i++){
                 var audio = document.createElement('audio');
                 audio.setAttribute('src', component[i]);

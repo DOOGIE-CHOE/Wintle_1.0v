@@ -11,6 +11,12 @@
     <span class="closebtn">&times;</span>
     <a id="error-message" style="color:white"></a>
 </div>
+<div class="cssload-overlay">
+    <div class="cssload-container" >
+        <div class="cssload-whirlpool"></div>
+    </div>
+</div>
+
 
 <script>
 

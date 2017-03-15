@@ -303,8 +303,8 @@ if(Session::isSessionSet("loggedIn")){
 
             // create WAV download link using audio data blob
             createDownloadLink();
-
             recorder.clear();
+            $('.cssload-overlay').css("visibility","visible");
         }
 
 
@@ -315,10 +315,9 @@ if(Session::isSessionSet("loggedIn")){
                 var pvMP = document.getElementById('preview-microphone');
                 pvAudio.innerHTML="";
                 pvMP.innerHTML="";
-
+                $('.cssload-overlay').css("visibility","hidden");
                 createWaveform(pvMP.src,"#preview-microphone");
             });
-
         }
 
         function init(){
@@ -478,6 +477,7 @@ if(Session::isSessionSet("loggedIn")){
                         <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
                     </li>
             </div>
+
         </form>
         <!--</div>-->
     </div><!--modal-dialog-->

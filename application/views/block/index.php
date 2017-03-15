@@ -42,14 +42,14 @@
                 }
                 ?>
                 formData.append("content_ids", '<?php echo $c_ids?>');
-                var fp = document.getElementById('preview-project-microphone');
-                if (typeof fp.src !== "undefined") {
-                    var head = 'data:image/png;base64,';
-                    var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
-                    formData.append("microphone_name", "microphone.mp3");
-                    formData.append("microphone_tmp_name", fp.src);
-                    formData.append("microphone_size", fileSize);
-                }
+//                var fp = document.getElementById('preview-project-microphone');
+//                if (typeof fp.src !== "undefined") {
+//                    var head = 'data:image/png;base64,';
+//                    var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
+//                    formData.append("microphone_name", "microphone.mp3");
+//                    formData.append("microphone_tmp_name", fp.src);
+//                    formData.append("microphone_size", fileSize);
+//                }
 
                 $.ajax({
                     url: "<?php echo URL ?>upload/uploadproject",
@@ -87,7 +87,7 @@
                 $("#preview-project-microphone").css("display", "none");
                 $('#file-project-image').val("");
                 $("#preview-project-audio").css("display", "block");
-                //readProjectAudio(this);
+                readProjectAudio(this);
             });
 
 
@@ -163,8 +163,6 @@
         }
 
 
-
-
         function stopRecordingProject() {
             $("#microphone-label-project-stop").css("display", "none");
             $("#microphone-label-project-start").css("display", "inline-block");
@@ -177,7 +175,7 @@
             // create WAV download link using audio data blob
             createDownloadLinkProject();
             project_recorder.clear();
-
+            musicPlay();
             $('.cssload-overlay').css("visibility","visible");
         }
 
@@ -344,7 +342,7 @@
                                                          style="height:100%;width:100%;"/>
                                                     <div id="preview-project-audio"
                                                          style="width:100%; background: #d6dde8;"></div>
-                                                    <div id="preview-project-microphone" onclick="wavesurfer.play()"
+                                                    <div id="preview-project-microphone"
                                                          style="width:100%; background: #d6dde8;"></div>
                                                 </div>
 
@@ -397,11 +395,6 @@
                                                        value="Upload" style="margin:16px 16px 0 0;">
                                             </li>
                                         </ul>
-                                        <div class="cssload-overlay">
-                                            <div class="cssload-container" >
-                                                <div class="cssload-whirlpool"></div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </form>
                             </li>

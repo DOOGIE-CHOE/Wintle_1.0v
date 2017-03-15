@@ -250,9 +250,8 @@
         }
 
         function playAudioFiles(component, content_name, hashs){
-            loadAudio(component);
+            loadAudio(component, event);
             setPlaybarInfos(content_name,hashs);
-
         }
 
         function setPlaybarInfos(content_name, hashs, album_photo = null){
@@ -288,14 +287,15 @@
             displayTime(document.getElementById("duration-time"), duration);
             //calculate px that will progress per sec
             progressrate = Math.round((PLAYBARWIDTH / (duration * 10)) * 1000) / 1000;
-            musicPlay();
+            //Trigger playing music event******************
+            //musicPlay();
+            document.dispatchEvent(readyAudioEvent);
         }
 
         function setPlaybutton() {
             var left = parseInt(barbutton.css("left"));
             setPlayedBarAndButton(left);
             var currentTime = left / (progressrate * 10);
-
             for(var i =0; i< audioElement.length; i++){
                 audioElement[i].currentTime = parseInt(currentTime);
                 if(!isPlaying(audioElement[i])) {

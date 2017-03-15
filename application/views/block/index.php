@@ -134,12 +134,39 @@
 
             $("#microphone-label-project-stop").css("display", "inline-block");
             $("#microphone-label-project-start").css("display", "none");
-            project_recorder && project_recorder.record();
+
+            document.dispatchEvent(readyMicroPhoneEvent);
         }
 
-        function startRecordingProject() {
+        function startMultiSyncRecording(content, title, hash){
+            readyForMultiSyncRecording(content, title, hash);
+        }
+
+        var readyMicroPhoneEvent;
+        var readyAudioEvent;
+
+        function readyForMultiSyncRecording(content, title, hash){
+            readyMicroPhoneEvent = new Event('MSR');
+            readyAudioEvent = new Event('AudioReady');
+
+            document.addEventListener('MSR', function (e) {
+                playAudioFiles(content, title, hash);
+            }, false);
+
+            document.addEventListener('AudioReady', function(e){
+                musicPlay();
+                var interval = setInterval(function () {
+                    project_recorder && project_recorder.record();
+
+                    clearInterval(interval);
+                },130);
+            },false);
+
             initMicrophoneProject();
         }
+
+
+
 
         function stopRecordingProject() {
             $("#microphone-label-project-stop").css("display", "none");
@@ -168,7 +195,7 @@
             });
         }
 
-        function initMicrophoneProject() {
+        function initMicrophoneProject(callback) {
             // webkit shim
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             navigator.getUserMedia = ( navigator.getUserMedia ||
@@ -332,7 +359,7 @@
 
 
                                                 <input id="file-5-microphone-project-start"
-                                                       onclick="startRecordingProject()" style="display:none;"
+                                                       onclick='startMultiSyncRecording(<?php echo json_encode($audiolist) ?>,"<?php echo $title ?>","<?php echo $hash ?>")' style='display:none;'
                                                        class="inputfile">
                                                 <label id='microphone-label-project-start'
                                                        for="file-5-microphone-project-start">

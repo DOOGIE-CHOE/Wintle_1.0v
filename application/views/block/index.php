@@ -42,14 +42,14 @@
                 }
                 ?>
                 formData.append("content_ids", '<?php echo $c_ids?>');
-//                var fp = document.getElementById('preview-project-microphone');
-//                if (typeof fp.src !== "undefined") {
-//                    var head = 'data:image/png;base64,';
-//                    var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
-//                    formData.append("microphone_name", "microphone.mp3");
-//                    formData.append("microphone_tmp_name", fp.src);
-//                    formData.append("microphone_size", fileSize);
-//                }
+                var fp = document.getElementById('preview-project-microphone');
+                if (typeof fp.src !== "undefined") {
+                    var head = 'data:image/png;base64,';
+                    var fileSize = Math.round((fp.src.length - head.length) * 3 / 4);
+                    formData.append("microphone_name", "microphone.mp3");
+                    formData.append("microphone_tmp_name", fp.src);
+                    formData.append("microphone_size", fileSize);
+                }
 
                 $.ajax({
                     url: "<?php echo URL ?>upload/uploadproject",

@@ -40,8 +40,27 @@ class Common extends Controller{
         echo json_encode($data);
     }
 
+    public function getLikeNum($content_id,$type){
+        $data = $this->model->getLikeNum($content_id,$type);
+        echo json_encode($data);
+    }
+
     public function isLikedContent($content_id){
         $data = $this->model->isLikedContent($content_id);
+        echo json_encode($data);
+    }
+
+    public function getFollowNumber($profile_id){
+        $data = $this->model->getFollowNumber($profile_id);
+        echo json_encode($data);
+    }
+
+    public function checkFileExistence($filename){
+        $data = $this->model->checkFileExistence($filename);
+        echo json_encode($data);
+    }
+    public function checkUserEmail(){
+        $data = $this->model->checkUserEmail();
         echo json_encode($data);
     }
 }

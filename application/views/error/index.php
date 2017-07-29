@@ -33,15 +33,11 @@
     </style>
 </head>
 
-<body id="body">
-
-<div id="bg"></div>
-<div>
-    <div id="display-error"></div>
+<body id="body" style="text-align:center">
+<br><br><br><br><br>
+<span>잘못된 페이지 접근 입니다. wrong page access !</span>
 
 
-</div>
-<?php echo $this->msg;?>
 </body>
 </div>
 

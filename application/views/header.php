@@ -19,11 +19,15 @@ if(Session::isSessionSet("loggedIn")){
     <title>wintle</title>
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr"/>
     <script src="<?php echo URL ?>js/config.js" type="text/javascript"></script>
+    <script src="<?php echo URL ?>js/main.js" type="text/javascript"></script>
     <!------------jquery import ----------->
     <script src="<?php echo URL ?>js/jquery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/jquery/jquery.form.js" type="text/javascript"></script>
     <!-- draggable import -->
     <script src="<?php echo URL ?>js/jquery/jquery-ui.js" type="text/javascript"></script>
+
+    <!-- underscore js import-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
     <!-- Google Analytics -->
     <script src="<?php echo URL ?>public/js/analyticstracking.js" type="text/javascript"></script>
@@ -33,9 +37,14 @@ if(Session::isSessionSet("loggedIn")){
     <meta name="google-signin-client_id"
           content="611141018688-vjcv2sqjcf133cgi453ogfi3lnj4c1bk.apps.googleusercontent.com">
 
-    <!-- -------------------------------------------------------------------------
-                            css reset, Java script, JS PlugIn
 
+    <!--   반응형 웹을 위한 뷰포트 오버라이딩  -->
+    <meta name="viewport" content="width=device-width">
+    <!--
+
+    -------------------------------------------------------------------------
+                            css reset, Java script, JS PlugIn
+    -->
     <!-- css Plug In -->
     <link href="<?php echo URL ?>css/css_reset.css" rel="stylesheet"/>
 
@@ -71,50 +80,56 @@ if(Session::isSessionSet("loggedIn")){
     <!--    <script type="text/javascript" src="--><?php //echo URL ?><!--js/bootstrap.min.js"></script>-->
 
     <link href="<?php echo URL ?>css/custominput/component.css" rel="stylesheet"/>
-    <link href="<?php echo URL ?>css/custominput/normalize.css" rel="stylesheet"/>
     <script type="text/javascript" src="<?php echo URL ?>js/custominput/custom-file-input.js"></script>
     <script type="text/javascript" src="<?php echo URL ?>js/custominput/jquery.custom-file-input.js"></script>
-
-    <!-- css custom -->
-    <link media="screen" href="<?php echo URL ?>css/style/pc.css" rel="stylesheet"/>
 
     <!-- Tag -->
     <script src="<?php echo URL ?>js/tag-it/jquery.caret.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/tag-it/jquery.tag-editor.js" type="text/javascript" charset="utf-8"></script>
     <link href="<?php echo URL ?>css/tag-it/jquery.tag-editor.css" rel="stylesheet" type="text/css">
 
+    <!-- MAC 에서 봤을 떄 터치 바 미리보기 아이콘-->
     <link rel="mask-icon" href="<?php echo URL ?>mac_favicon.png" color="#000000">
 
+    <!-- 모바일 화면에서 상단 주소창 색상 설정 -->
+    <meta name="theme-color" content="#252525"/>
 
     <!-- multi track recording / microphone-->
     <script src="<?php echo URL ?>js/multi-recording/recordmp3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo URL ?>js/multi-recording/libmp3lame.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <!-- waveform -->
-<!--    <script src="--><?php //echo URL ?><!--js/waveform/waveform_custom.min.js" type="text/javascript" charset="utf-8"></script>-->
-<!--     <script src="--><?php //echo URL ?><!--js/waveform/back/unminified.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="<?php echo URL ?>js/waveform/wavesurfer.js" type="text/javascript" charset="utf-8"></script>
-    <link href="<?php echo URL?>css/loadingSpinner.css" rel="stylesheet">
+    <link href="<?php echo URL ?>css/loadingSpinner.css" rel="stylesheet">
+
+
+    <!-- 홈페이지 주소 썸네일 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="온라인 창작 놀이터 - wintle">
+    <meta property="og:url" content="https://www.wintle.co.kr">
+    <meta property="og:description" content="일상속에서 떠오르는 영감을 이용하여 자신만의 음악을 만들 수 있다면 ?">
+    <meta property="og:image" content="https://www.wintle.co.kr/favicon.ico">
+
+    <!-- 마이크 사용 시 나타나는 음파 사운드비주얼라이져 -->
+    <script src="<?php echo URL ?>js/soundvisualizer/soundvisualizer.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?php echo URL ?>/css/soundvisualizer/style.css">
+    <script src="<?php echo URL ?>js/soundvisualizer/d3.js"></script>
+    <script src="<?php echo URL ?>js/soundvisualizer/d3.hexbin.v0.min.js?5c6e4f0"></script>
+    <script src="<?php echo URL ?>js/soundvisualizer/mousetrap.js"></script>
+    <script src="<?php echo URL ?>js/soundvisualizer/id3-minimized.js"></script>
+
+    <!-- 랜딩 페이지 -->
+    <script type="text/javascript" src="<?php echo URL?>js/fullpage/scrolloverflow.js"></script>
+    <script type="text/javascript" src="<?php echo URL?>js/fullpage/jquery.fullPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo URL?>css/fullpage/jquery.fullPage.css" />
+
+    <!-- language setting -->
+    <script src="<?php echo URL ?>public/js/lang/lang.js" type="text/javascript"></script>
+
+    <!-- js zip -->
+    <script src="<?php echo URL?>js/jszip/jszip.js"></script>
+    <script src="<?php echo URL?>js/jszip/FileSaver.js"></script>
 
     <script>
-        function onSignIn(googleUser) {
-
-            var id_token = googleUser.getAuthResponse().id_token;
-
-            <?php
-            if(Session::get('social_loggedIn') == true){
-        }else{ ?>
-            $.get("<?php echo URL?>social/google_login/" + id_token, function (o) {
-                var value = jQuery.parseJSON(o);
-                if (value.success == true) {
-                    window.location.replace("https://www.wintle.co.kr");
-                } else {
-                    errorDisplay(value.error);
-                }
-            });
-            <?php   } ?>
-
-        }
 
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
@@ -128,7 +143,16 @@ if(Session::isSessionSet("loggedIn")){
                 gapi.auth2.init();
             });
         }
+
         $(function () {
+
+            //컨텐츠 최초 업로드 팝업 출력 시 제목으로 커서 자동 이동
+            $('#writeContentModal').on('shown.bs.modal', function () {
+                $("#content_title").focus();
+            });
+
+
+
             $('#search').tagEditor({
                 delimiter: ', ', /* space and comma */
                 placeholder: 'Search',
@@ -139,40 +163,28 @@ if(Session::isSessionSet("loggedIn")){
                             data = data + "+" + tags[i];
                         }
                     }
-
                     $.pagehandler.loadContent("<?php echo URL?>search/blocks?tags=" + data, 'all');
-
-//                    $.get("<?php echo URL?>search/blocks?tags="+data,function(o) {
-//
-//                    });
-//                        if(o.success == true){
-//                            window.location.replace("index");
-//                        }else{
-//                            errorDisplay(o.error);
-//                        }
                 }
             });
 
 
             //upload ajax
-            $("#upload-content-form").submit(function(event){
+            $("#upload-content-form").submit(function (event) {
                 <?php
                 if(!Session::isSessionSet('user_id')){?>
-                    errorDisplay("Please log in for uploading content");
-                    return false;
-                 <?php }?>
+                errorDisplay("Please log in for uploading content");
+                return false;
+                <?php }?>
+
+
 
 
                 var formData = new FormData($(this)[0]);
 
-
-                var fp = document.getElementById('preview-microphone');
-                if(typeof fp.src !== "undefined"){
-                    var head = 'data:image/png;base64,';
-                    var fileSize = Math.round((fp.src.length - head.length)*3/4) ;
-                    formData.append("microphone_name","microphone.mp3");
-                    formData.append("microphone_tmp_name",fp.src);
-                    formData.append("microphone_size",fileSize);
+//                var fp = document.getElementById('preview-microphone');
+                var audioBlob = document.getElementById('audioBlob');
+                if (typeof audioBlob.src !== "undefined") {
+                    formData.append("microphone_blob", audioBlob.src,"blob");
                 }
 
                 $.ajax({
@@ -182,47 +194,34 @@ if(Session::isSessionSet("loggedIn")){
                     async: false,
                     success: function (data) {
                         var value = jQuery.parseJSON(data);
-                        if(value.success == true){
-                            errorDisplay("File's uploaded");
-                            $('#writeContentModal').modal('hide');
+                        if (value.success == true) {
+                            errorDisplay("업로드 완료");
+                            // Submit 후 콘텐츠 업로드를 위해 한번더 Submit 을 하면 콘텐츠 업로드가 안되고 페이지가 새로 고쳐짐
+                            // 따라서 콘텐츠 업로드 후 페이지 새로고침을 수행
+                            var tmp = setInterval(function(){
+                                clearInterval(tmp);
+                                window.location= _URL;
+                            },500);
+                        } else if (value.error != false) {
+                            errorDisplay(value.error);
                         }
                     },
                     cache: false,
                     contentType: false,
                     processData: false
                 });
+
+
+                //콘텐츠 업로드 팝업 초기화
+                $('#upload-content-form')[0].reset();
+                $("#previewdiv").css("display", "none");
+                $("#preview-audio").css("display", "none");
+                $("#preview-microphone").css("display", "none");
+                $('#file-5-audio').val("");
+                $('#file-5-image').val("");
                 return false;
             });
 
-            //on image selected
-            $("#file-5-image").change(function(){
-                $("#previewdiv").css("display","block");
-                $("#preview-audio").css("display","none");
-                $("#preview-microphone").css("display","none");
-                $('#file-5-audio').val("");
-                $("#preview-image").css("display","block");
-                readImage(this);
-            });
-
-            //on audio selected
-            $("#file-5-audio").change(function(){
-                $("#previewdiv").css("display","block");
-                $("#preview-image").css("display","none");
-                $("#preview-microphone").css("display","none");
-                $('#file-5-image').val("");
-//                $("#preview-audio").css("display","block");
-                readAudio(this);
-            });
-
-            $("#preview-microphone")[0].addEventListener("onMicrophoneAudioUpload",function(){
-                $("#previewdiv").css("display","block");
-                $("#preview-image").css("display","none");
-//                $("#preview-audio").css("display","none");
-                $("#preview-microphone").css("display","block");
-                $('#file-5-image').val("");
-                $('#file-5-audio').val("");
-
-            });
 
         });
 
@@ -238,29 +237,45 @@ if(Session::isSessionSet("loggedIn")){
         }
 
         var ac = new window.AudioContext;
-        function createWaveform(url,elementid){
+        // 각 웨이브폼을 실행 시키기 위한 변수 선언
+        var wavesurfer_list = [];
+        function createWaveform(url, elementid) {
+            //element가 존재 하지 않으면 웨이브폼 생성 취소
+            if (document.getElementById(elementid.substring(1, elementid.length)) == null) return;
             var wavesurfer = WaveSurfer.create({
-                waveColor: 'slategray',
+//                waveColor: 'slategray',
+                progressColor: '#EE3B24',
+                waveColor: '#666',
                 barWidth: 5,
                 height: 200,
                 interact: false,
-                container:elementid,
-                backend:'MediaElement',
-                audioContext:ac
+                container: elementid,
+                backend: 'MediaElement',
+                audioContext: ac
             });
-            wavesurfer.load(url);
-            wavesurfer.emptyAudioArray();
+            //element가 존재 하지 않으면 웨이브폼 생성 취소
+            if (wavesurfer.container !== null) {
+                wavesurfer.load(url);
+                wavesurfer.emptyAudioArray();
+            }
+
+            //웨이브폼 클릭 시 해당 웨이브폼을 실행하기 위해 key, value 형식으로 웨이브폼 정보 저장
+            var obj = {
+                wavesurfer: wavesurfer,
+                elementid: elementid
+            };
+            wavesurfer_list.push(obj);
         }
 
         //audio preview
-        function readAudio(input){
+        function readAudio(input) {
             var pvAudio = document.getElementById('preview-audio');
             var pvMP = document.getElementById('preview-microphone');
-            pvAudio.innerHTML="";
-            pvMP.innerHTML="";
+            pvAudio.innerHTML = "";
+            pvMP.innerHTML = "";
 
             pvAudio.src = URL.createObjectURL(input.files[0]);
-            createWaveform(pvAudio.src,'#preview-audio');
+            createWaveform(pvAudio.src, '#preview-audio');
         }
 
         //resize for textarea
@@ -276,15 +291,15 @@ if(Session::isSessionSet("loggedIn")){
             var input = audio_context.createMediaStreamSource(stream);
             recorder = new Recorder(input, {
                 numChannels: 1
-            },"content");
+            }, "content");
 
             //on successfully get instance for recording
-            $("#microphone-label-stop").css("display","inline-block");
-            $("#microphone-label-start").css("display","none");
+            $("#microphone-label-stop").css("display", "inline-block");
+            $("#microphone-label-start").css("display", "none");
             recorder && recorder.record();
         }
 
-        function failToGetUserMedia(){
+        function failToGetUserMedia() {
             errorDisplay("Please allow to use microphone in order to record");
         }
 
@@ -293,34 +308,45 @@ if(Session::isSessionSet("loggedIn")){
         }
 
         function stopRecording() {
-            $("#microphone-label-stop").css("display","none");
-            $("#microphone-label-start").css("display","inline-block");
+            $("#microphone-label-stop").css("display", "none");
+            $("#microphone-label-start").css("display", "inline-block");
 
             recorder && recorder.stop();
 
             var myEvent = new CustomEvent("onMicrophoneAudioUpload");
             $("#preview-microphone")[0].dispatchEvent(myEvent);
 
+            $('.cssload-overlay').css("visibility", "visible");
             // create WAV download link using audio data blob
             createDownloadLink();
             recorder.clear();
-            $('.cssload-overlay').css("visibility","visible");
-        }
 
+        }
 
         function createDownloadLink() {
             //record call back
-            recorder && recorder.exportWAV(function (blob) {
-                var pvAudio = document.getElementById('preview-audio');
-                var pvMP = document.getElementById('preview-microphone');
-                pvAudio.innerHTML="";
-                pvMP.innerHTML="";
-                $('.cssload-overlay').css("visibility","hidden");
-                createWaveform(pvMP.src,"#preview-microphone");
+            recorder && recorder.exportWAV(function (blob, url) {
+                //call back으로 받은 blob을 zip 파일로 생성
+                var zip = new JSZip();
+                zip.file("HiThere.wav", blob, {base64: true});
+                zip.generateAsync({type:"blob",
+                    compression: "DEFLATE"
+                }).then(function(content) {
+                    var tmp = document.getElementById('audioBlob');
+                    tmp.src = content;
+                });
+                //웨이브폼을 생성해야 하므로 base64 형식에 url 도 함께 가져옴
+                var au = document.getElementById('preview-microphone');
+                au.controls = true;
+                au.src = url;
+                au.innerHTML = "";
+                createWaveform(au.src, "#preview-microphone");
+                $('.cssload-overlay').css("visibility", "hidden");
+
             });
         }
 
-        function init(){
+        function init() {
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             navigator.getUserMedia = ( navigator.getUserMedia ||
             navigator.webkitGetUserMedia ||
@@ -336,85 +362,116 @@ if(Session::isSessionSet("loggedIn")){
 
 </head>
 
-<header style="z-index:1100;">
+<header style="z-index:999; box-shadow:0 3px 10px rgba(0,0,0,0.3)" >
     <div id="header-gnb">
-        <div class="HeaderImg1">  <!-- HeaderImg[i] {0 : 홈 버튼, 1 : 로고, 2 : 메뉴 버튼} -->
-            <img src="<?php echo URL ?>img/pavicon/wintle_logo-white.svg"
-                 style="position:relative; height:32px; top:0;"
-                 onclick="$.pagehandler.loadContent('<?php echo URL ?>index','all');">
-        </div>
-
-        <!--<div class="MemberShipBtn0">
-            <p id="menu page-a" onclick="$.pagehandler.loadContent('<?php /*echo URL."index"*/ ?>','all');">Page A</p>
-            <p id="menu page-b" onclick="$.pagehandler.loadContent('<?php /*echo URL."albumartall"*/ ?>','all');">Page B</p>
-        </div>-->
-        <!--        <div class="MemberShipBtn0" style="top:0; right:110px;">-->
-        <!-- <a href="#"  onclick="$.pagehandler.loadContent('<?php //echo URL?>newchart','all')">Album</a>-->
-        <!--  <a href="#" onclick="$.pagehandler.loadContent('<?php //echo URL?>index','all')">Hub</a>-->
-        <!--        </div>-->
-        <div class="MemberShipInput">
-            <form>
-                <textarea id="search" style="display:none"></textarea>
-            </form>
-        </div>
-        <?php if (Session::isSessionSet("loggedIn") == false) { ?>
-            <div class="MemberShipBtn1" style="top:18px; right:0;">
-                <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
-                <a href="#popup1" id="top_login" style="margin-right:19px; font-size:15px;">Log in</a>
-                <a href="#popup1" id="top_signup" style="font-size:15px;">Sign up</a>
-                <!--<a style="right:10px">user name</a>-->
-            </div>
-        <?php } else{ ?>
-
-            <script>
-
-
-                $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>", function (o) {
-                    if (o != null) {
-                        var value = jQuery.parseJSON(o);
-                        var photo = $("#profile-mini");
-                        if (value.profile_photo_path != null) {
-                            //display default image
-                            // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
-                            photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
-                        }
-                    }
-
-                });
-
-            </script>
-
-            <div class="MemberShipBtn3" style="top:20px; right:5px;">
-                <img src="<?php echo URL ?>img/pavicon/envelope.svg" style="width:20px;"
-                     onclick="$.pagehandler.loadContent('<?php echo URL . "message" ?>','all');">
-                <img src="<?php echo URL ?>img/pavicon/upload.svg" style="width:20px;" data-toggle='modal'
-                     data-target='#writeContentModal'>
-                <a href="<?php echo URL ?>logout/calllogout"><img src="<?php echo URL ?>img/pavicon/logout.svg"
-                                                                  style="width:18px;"
-                                                                  onclick="signOut()"></a>
-            </div>
-
-            <div class="MemberShipBtn2" style="top:16px; right:30px;"
-                 onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all');">
-                <div style="float:right; height:100%;">
-                    <a href="#">
-                        <div id="profile-mini"
-                             style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
-                    </a>
-                    <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">
-                        <?php
-                        if (strlen(Session::get("user_name")) >= 10) {
-                            echo substr(Session::get("user_name"), 0, 10) . "...";
-                        } else {
-                            echo Session::get("user_name");
-                        }
-
-                        ?>
-                    </div>
+        <div class="row" style="height:100%;">
+            <div class="HeaderImg1 col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                <div style="height:32px; width:32px;margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+                    <img src="<?php echo URL ?>img/pavicon/wintle_logo-white.svg"
+                         style="height:32px;"
+                         onclick="$.pagehandler.loadContent('<?php echo URL ?>index','all');">
                 </div>
             </div>
+            <div class="MemberShipInput col-lg-9 col-md-8 col-sm-7 col-xs-7">
+                <form>
+                    <textarea id="search" style="display:none"></textarea>
+                </form>
+            </div>
+            <?php if (Session::isSessionSet("loggedIn") == false) { ?>
+                <div class="MemberShipBtn1 col-lg-2 col-md-3 col-sm-3 col-xs-3 pull-right" style="top:14px; right:0;">
+                    <!-- MemberShipBtn[n] {0 : 입장 전, 1 : 입장 후 (로그인 X)} -->
+                  <div class="login-box" onclick='setLogInForm()' data-toggle='modal' data-target='#signModal'> <span id="top_login" style="font-size:14px; color:white;" data-langNum="1001">Log in</span> </div>
+                    <div class="signup-box" onclick="setSignUpForm()"  data-toggle='modal' data-target='#signModal'><span id="top_signup" class='sign-up-text' style="font-size:14px; color:white;" data-langNum="1002">Sign up</span></div>
+                    <div class="signup-box joing-us" style="display:none;" data-toggle='modal' data-target='#signModal'><span id="top_signup" class='sign-up-text' style="font-size:14px; color:white;">Join Us</span></div>
+                    <!--<a style="right:10px">user name</a>-->
+                </div>
+            <?php } else{ ?>
 
-        <?php } ?>
+                <script>
+                    $.get("<?php echo URL?>common/getProfilePhoto/profile/<?php echo Session::get('user_id')?>", function (o) {
+                        if (o != null) {
+                            var value = jQuery.parseJSON(o);
+                            var photo = $("#profile-mini");
+                            if (value.profile_photo_path != null) {
+                                //display default image
+                                // photo.append("<img src = '"+value.profile_photo_path+"' style='width: 187px; height: 187px; border-radius: 50%;background-repeat: no-repeat; background-position: center center;  background-size: cover;'>");
+                                photo.css("background-image", 'url(<?php echo URL?>' + value.profile_photo_path + ')');
+                            }
+                        }
+
+                    });
+
+                </script>
+
+                <!--            <div class="MemberShipBtn3 col-lg-1" style="top:20px; right:5px;">-->
+                <!--                <img src="--><?php //echo URL ?><!--img/pavicon/envelope.svg" style="width:20px;"-->
+                <!--                     onclick="$.pagehandler.loadContent('--><?php //echo URL . "message" ?><!--','all');">-->
+                <!--                <img src="--><?php //echo URL ?><!--img/pavicon/upload.svg" style="width:20px;" data-toggle='modal'-->
+                <!--                     data-target='#writeContentModal'>-->
+
+
+                <!--            </div>-->
+                <!---->
+                <!--            <div class="MemberShipBtn2 col-lg-2" style="top:16px; right:30px;"-->
+                <!--                 onclick="$.pagehandler.loadContent('--><?php //echo URL . Session::get('my_profile'); ?><!--','all');">-->
+                <!--                <div style="float:right; height:100%;">-->
+                <!--                    <a href="#">-->
+                <!--                        <div id="profile-mini"-->
+                <!--                             style="background-image: url('--><?php //echo URL ?><!--img/defaultprofile.png');"></div>-->
+                <!--                    </a>-->
+                <!--                    <div id="profile-username" style="display:inline-block; position:relative; bottom:7px; margin:8px;">-->
+                <!--                        --><?php
+            //                        if (strlen(Session::get("user_name")) >= 10) {
+            //                            echo substr(Session::get("user_name"), 0, 10) . "...";
+            //                        } else {
+            //                            echo Session::get("user_name");
+            //                        }
+            //
+            //                        ?>
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--            </div>-->
+
+
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 pull-right" style="top:15px;">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 noti-button" style="top:5px;">
+                            <div class="MemberShipBtn3">
+                                <a href="<?php echo URL ?>logout/calllogout"><img
+                                            src="<?php echo URL ?>img/pavicon/logout.svg"
+                                            style="width:18px;"
+                                            onclick="signOut()"></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-5 userinfo-box">
+                            <div class="MemberShipBtn2" style="top:10px;"
+                                 onclick="$.pagehandler.loadContent('<?php echo URL . Session::get('my_profile'); ?>','all'); ">
+                                <div style="float:right; height:100%;">
+
+                                    <div id="profile-mini"
+                                         style="background-image: url('<?php echo URL ?>img/defaultprofile.png');"></div>
+
+                                    <div id="profile-username" class="profile-username"
+                                         style="display:inline-block; position:relative; bottom:7px; margin:8px;">
+                                        <?php
+                                        if (strlen(Session::get("user_name")) >= 10) {
+                                            echo substr(Session::get("user_name"), 0, 10) . "...";
+                                        } else {
+                                            echo Session::get("user_name");
+                                        }
+
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            <?php } ?>
+        </div>
     </div>
 
 
@@ -424,63 +481,3 @@ if(Session::isSessionSet("loggedIn")){
 
 
 </header>
-
-
-<div class="modal" id="writeContentModal" role="dialog">
-    <div class="modal-dialog">
-        <!--<div class="adddataBox">&lt;!&ndash;점선박스&ndash;&gt;</div>-->
-        <!--<div class="adddata_write">-->
-        <!--<div class="adddata_write_img"><img src="../image/write.png"></div>-->
-        <form id="upload-content-form" action="" method="post" enctype="multipart/form-data">
-            <div class="adddata_write_input">
-                <ul id="recordingslist"></ul>
-                <ul>
-                    <li>
-                        <input type="text" class="form-control" name="content_title"
-                               placeholder="Please enter title" autocomplete="off">
-                        <div style="width:100%; height:auto; display:none; background:white;" id="previewdiv">
-                            <img id="preview-image" src="#"  style="height:100%;width:100%;"/>
-                            <!--                                    <audio id="preview-audio" style="width:100%; display:none;" controls></audio>-->
-                            <div id="preview-audio" style="width:100%;" ></div>
-                            <div id="preview-microphone" onclick="wavesurfer.play()" style="width:100%;"></div>
-                        </div>
-                        <textarea id="textcontent" rows="5" onkeydown="resize(this)" onkeyup="resize(this)"
-                                  class="form-control" placeholder="Show us your inspiration"
-                                  style="resize:none;" name="content_comments" autocomplete="off"></textarea>
-                        <input type="text" class="form-control" name="hashtags" id="hashtags[]"
-                               placeholder="#" autocomplete="off">
-
-
-                        <input id="file-5-microphone-start" onclick="startRecording()" style="display:none;" class="inputfile">
-                        <label id='microphone-label-start' for="file-5-microphone-start">
-                            <img src="<?php echo URL ?>icon/upload/voice.svg" style="width:20px; height:20px;">
-                        </label>
-
-                        <input id="file-5-microphone-stop" onclick="stopRecording()" style="display:none;" class="inputfile">
-                        <label id='microphone-label-stop' for="file-5-microphone-stop" style="display:none">
-                            <img src="<?php echo URL ?>icon/upload/microphone-recording.svg" style="width:20px; height:20px;">
-                        </label>
-
-
-                        <input type="file" name="content_path_audio" id="file-5-audio" class="inputfile inputfile-4 f_bred"
-                               accept="audio/mpeg3,audio/x-wav" style="display:none;"/>
-                        <label for="file-5-audio" >
-                            <img src="<?php echo URL ?>img/musical-note.svg" style="width:20px; height:20px;">
-                        </label>
-
-                        <input type="file" name="content_path_image" id="file-5-image" class="inputfile inputfile-4 f_bred"
-                               accept="image/x-png,image/gif,image/jpeg" style="display:none;" />
-                        <label for="file-5-image">
-                            <img src="<?php echo URL ?>img/frame-landscape.svg" style="width:20px; height:20px;">
-                        </label>
-
-                        <input type="submit" id="upload-content" class="btn f_right f_bred" value="Upload" style="margin-top:20px;">
-                    </li>
-            </div>
-
-        </form>
-        <!--</div>-->
-    </div><!--modal-dialog-->
-    <div class="modal_close" data-dismiss="modal" style="top:50px;"><a href="#">&times;</a></div><!--modal-dialog-->
-</div><!--modal-->
-

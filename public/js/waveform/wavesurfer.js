@@ -1531,14 +1531,17 @@ WaveSurfer.Drawer = {
             position: 'relative',
             userSelect: 'none',
             webkitUserSelect: 'none',
-            height: this.params.height + 'px'
+            height: this.params.height + 'px',
+            top:'40px'
         });
 
         if (this.params.fillParent || this.params.scrollParent) {
             this.style(this.wrapper, {
-                width: '100%',
-                overflowX: this.params.hideScrollbar ? 'hidden' : 'auto',
-                overflowY: 'hidden'
+                // 프로젝트에서 clipping 클릭 시 웨이브폼 오른쪽에 margin이 생김. overflow 주석처리 후 해당문제 해결
+                // width: '100%',
+                // overflowX: this.params.hideScrollbar ? 'hidden' : 'auto',
+                // overflowY: 'hidden'
+                width: '100%'
             });
         }
 
@@ -1973,7 +1976,7 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.MultiCanvas, {
                 bottom: 0,
                 overflow: 'hidden',
                 width: '0',
-                display: 'none',
+                display: 'none'
                 //boxSizing: 'border-box',
                 //borderRightStyle: 'solid',
                 //borderRightWidth: this.params.cursorWidth + 'px',

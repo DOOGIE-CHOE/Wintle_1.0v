@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE DEFINER="root"@"localhost" PROCEDURE "Win_User_SignUp"(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_User_SignUp`(
 in _user_name varchar(50),
 in _user_email varchar(40),
 in _password varchar(255),
@@ -62,5 +62,4 @@ BEGIN
 		set _return = 0;
 		commit;
     end if;
-    
-END
+END;

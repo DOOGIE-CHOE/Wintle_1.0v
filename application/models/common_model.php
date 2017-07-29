@@ -85,7 +85,10 @@ class Common_Model extends Model{
             }
         }
         catch(Exception $e){
-            $data['error'] = $e->getMessage();
+            if($e->getCode() == 0 )
+                $data['error'] = $e->getMessage();
+            else
+                $data['error'] = "System error occurs. Try it later or contact to system manager";
         }finally{
             return $data;
         }
@@ -106,6 +109,53 @@ class Common_Model extends Model{
         if ($result['num'] == '1') {
             return $data['result'] = 1;
         }
+    }
+
+    function getLikeNum($content_id, $type){
+        if($type == "content"){
+            $sql = "select count(*) as like_num from content_like where content_id = $content_id";
+        }else if($type == "project"){
+            $sql = "select count(*) as like_num from project_like where project_id = $content_id";
+        }else{
+            $data['error'] = "wrong access !!";
+            return $data['error'];
+        }
+
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+
+        if($data['like_num'] != null){
+            return $data['like_num'];
+        } else {
+            return 0;
+        }
+    }
+
+    function getFollowNumber($profile_id){
+        $sql = "select count(*) from follow_list where user_id_2 = $profile_id";
+
+        $result = $this->db->conn->query($sql);
+
+        $data = $result->fetch_assoc();
+
+        return $data;
+    }
+
+    function checkFileExistence($filename){
+        $filename = str_replace("-","/",$filename);
+        if (file_exists($filename)) {
+            return $data['success'] = true;
+         }else{
+            return $data['success'] = false;
+        }
+    }
+
+    function checkUserEmail(){
+        $user_email = $_POST['user_email'];
+        $sql = "select count(*) as num from user where user_email = '$user_email'";
+        $result = $this->db->conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data['num'];
     }
 
 }

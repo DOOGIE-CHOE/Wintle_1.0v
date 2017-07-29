@@ -16,30 +16,13 @@ Class SignUp_Model extends Model {
         $data = array();
 
         try {
-            //for server
-            /* $response = $_POST['g-recaptcha-response'];
-             $cap = new Verification();
-             $verified = $cap->verifyCaptcha($response);
-             //if reCAPTCHA is verified
-             if ($verified) {
-                 if ($this->verifyUsername($_POST['name'])) {
-                     if ($this->verifyEmail($_POST['user_email'])) {
-                         if ($this->registerUser($_POST['name'], $_POST['user_email'], $_POST['password'])) {
-                             $data['success'] = true;
-                         }
-                     }
-                 }
-             } else {
-                 throw new Exception("Our system recognized you as a robot.");
-             }*/
-
             $sql = $this->db->conn->prepare("CALL Win_User_SignUp(?,?,?,?,@_return)");
-            $password = $this->GetHashCode($_POST['password']);
+            $password = $this->GetHashCode($_POST['password_signup']);
+
+            //소셜 로그인시 필요. 수동 로그인임으로 0 처리
             $token = 0;
-
-
             //Put arguments
-            $sql->bind_param('ssss',$_POST['user_name'],$_POST['user_email'],$password,$token);
+            $sql->bind_param('ssss',$_POST['user_name_signup'],$_POST['user_email_signup'],$password, $token);
             $sql->execute();
 
             //Get output from Stored Procedure
@@ -48,50 +31,28 @@ Class SignUp_Model extends Model {
 
             if($result['@_return'] == 0){
                 $data['success'] = true;
+
+
+                Session::set("user_email",$_POST['user_email_signup']);
+                Session::set("loggedIn",true);
+                Session::set("user_id",$this->getUserIdByEmail($_POST['user_email_signup']));
+                Session::set("user_name",$this->getUsernameByEmail($_POST['user_email_signup']));
+                Session::set("my_profile",$this->getProfileUrl(Session::get("user_id")));
+                $this->logInCount(Session::get("user_id"));
+
             }else {
-                throw new Exception("System error occur :( please try it later");
+                throw new Exception("Email address is already existing");
             }
         }
         catch(Exception $e){
-            $data['error'] = $e->getMessage();
+            if($e->getCode() == 0 )
+                $data['error'] = $e->getMessage();
+            else
+                $data['error'] = "System error occurs. Try it later or contact to system manager";
         }finally{
             return $data;
         }
     }
-    /*
-        function verifyUsername($_name) {
-            $sql = "SELECT count(name) as usernumber from user where name = '$_name'";
-            $result = $this->db->conn->query($sql);
-            $data = $result->fetch_assoc();
-            if ($data['usernumber'] == 0) {
-                return true;
-            } else {
-                throw new Exception("username already exists. Please use other username");
-            }
-        }
-
-        function verifyEmail($_user_email) {
-            $sql = "SELECT count(user_email) as emailnumber from user where user_email = '$_user_email'";
-            $result = $this->db->conn->query($sql);
-            $data = $result->fetch_assoc();
-            if ($data['emailnumber'] == 0) {
-                return true;
-            } else {
-                throw new Exception("Email address already exists. Please use another Email");
-            }
-        }
-
-        function registerUser($_name, $_user_email, $_password) {
-            $hash = $this->GetHashCode($_password);
-            $sql = "INSERT INTO user (name, user_email, password)
-                    VALUES ('$_name', '$_user_email', '$hash')";
-            if ($this->db->conn->query($sql) === TRUE) {
-                return true;
-            } else {
-                //echo "Error: " . $sql . "<br>" . $conn->error;
-                throw new Exception("Failed to sign up,.. :( Please, try it later");
-            }
-        }*/
 }
 
 class Verification

@@ -6,22 +6,9 @@ class ErrorPage extends Controller {
 		parent::__construct();
 	}
 	
-	function index($msg) {
+	function index($msg = "Something went wrong..") {
 		$this->view->msg = $msg;
-
-        $list = array();
-        array_push($list,
-            "header",
-            "errorMessage"
-        );
-        if(!Session::isSessionSet("loggedIn")){
-            array_push($list,"loginpopup");
-        }
-        array_push($list,
-            "error/index",
-            "musicplayer",
-            "footer"
-        );
+        $list = $this->setViewComponents("error/index");
         $this->view->render($list);
 	}
 

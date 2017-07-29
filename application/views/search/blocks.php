@@ -9,119 +9,161 @@
 
 
 <div id="all">
-    <body class="body_bg02 popup-background, bg_black">
+    <script>
+        var offset_search = 0;
+        var limit = 3;
+        var flag_search = true;   //job flag
+        var url;
+        var gets;
+        var blockwidth;
+
+        $(function () {
+            //GET 으로 얻은 해쉬테그 문자열 처리
+            url = window.location.href;
+            gets = url.substring(url.indexOf("?") + 1);
+            gets = gets.replace(/#/gi, '%23');
+
+            if (flag_search) {
+                flag_search = false;
+                loadSearchContent();
+
+            }
+
+            //스크롤 높이에 따른 추가 콘텐츠 로드
+            $(window).bind('scroll',function () {
+                // do whatever you need here.
+                if (document.body.scrollHeight - $(window).scrollTop() < $(window).height() + 300 && flag_search == true) {
+                    flag_search = false;    // wait until the job is done
+                    loadSearchContent(); // call loading card function
+                }
+            });
 
 
-    <div id="wrapper">
-        <div class="container bg_black">
+            // 반응형 웹 구현을 위한 부분
+            // 전체 해상도를 가지고 온 다음 각 블록(컨텐츠)의 최대 해상도인 width 400 이상인지 이하인지
+            // 파악 한 뒤, 400이상이면 최대치인 width:400px 를 사용하며, 그 이하면 해당 해상도에 맞게 블록 크기 설정
+            var screenWidth = window.screen.availWidth;
+            var margin;
 
+            if(screenWidth <= 400){
+                blockwidth = screenWidth;
+                //여기서 -20 을 해주는 이유는 margin이 좌/우 측으로 10씩 들어가기 때문
+                blockwidth -= 20;
+                margin = 10;
+            }else{
+                blockwidth = 400;
+                // margin 크기만큼 - 를 해주지 않는 이유는 스크린이 블록 최대치인 400px 보다 크기 때문
+                margin  = 25;
+            }
+
+            wall = new Freewall(".grid");
+            wall.reset({
+                selector: '.grid-item',
+                animate: true,
+                cellW: blockwidth,
+                cellH: 'auto',
+                gutterX: margin,
+                gutterY: margin
+            });
+            //put this instead of on load function;
+
+            wall.fitZone(setwidthgrid(blockwidth), 'auto');
+//            $(window).resize(function () {
+//                wall.fitZone(setwidthgrid(blockwidth), 'auto');
+//            });
+
+            //팝업창 바깥부분 클릭 시 페이지 뒤로 돌아가기 수행
+            $('#playDetailModal').on('click', function (e) {
+                if ($(e.target).attr('class') == "view_bodyAR") {
+                    var opened = $('#playDetailModal').hasClass('modal in');
+                    if (opened === true) {
+                        window.history.back();
+                    }
+                }
+            });
+
+        });
+
+        function loadSearchContent(){
+            $.get("<?php echo URL?>search/searchBlocks/"+ limit + "/" + offset_search + "?"+ gets, function (o) {
+                var value = jQuery.parseJSON(o);
+                offset_search += 3;
+                if (value == null) {
+                    //display default image
+                } else {
+                    for (var i = 0; i < value.length; i++) {
+                        displayContent(value[i],".grid-search", "freewall");
+                    }
+                }
+            }).done(function () {
+                var interval = setInterval(function () {
+                    wall.fitZone(setwidthgrid(blockwidth), 'auto');
+                    clearInterval(interval);
+                },300);
+                var interval_load = setInterval(function () {
+                    flag_search = true; // the job is done
+                    clearInterval(interval_load);
+                },1000);
+            });
+        }
+
+        function setwidthgrid(blocksize) {
+            var $grid = $(".grid").css("width");
+            var tmp = parseInt($grid);
+            var blocknum = tmp / blocksize;
+
+            blocknum = parseInt(blocknum);
+            blocknum = (blocknum == 0) ? 1 : blocknum;
+            var gridwidth = blocksize * blocknum;
+            $(".grid-search").css("width", gridwidth + "px");
+
+            return gridwidth;
+
+        }
+
+//        function setwidthgrid() {
+//            $(".grid").width("100%");
+//            var $grid = $(".grid").css("width");
+//            var tmp = parseInt($grid);
+//            console.log(tmp);
+//            //     var w;
+//            var width;
+//            if (tmp >= 1250) {
+//                //  w = parseInt(tmp / 400);
+//                width = (3 * 400);
+//            } else if (tmp <= 1100 && tmp >= 850) {
+//                width = (2 * 400);
+//            } else if (tmp < 850) {
+//                width = 400;
+//            }
+//
+//            $(".grid").css("width", width + "px");
+//            //   return width;
+//        }
+
+        function islikedcontent(content_id){
+            return $.ajax({
+                url:"<?php echo URL?>common/islikedcontent/" + content_id,
+                async:false
+            });
+        }
+    </script>
+    <style>
+        /* very important, do not delete it*/
+        .grid-item{
+            max-width:400px;
+        }
+    </style>
+    <body class="body_bg02 popup-background, bg_deepgray">
+    <div class="modal" id="playDetailModal" role="dialog"></div>
+    <div id="wrapper" style="min-height:800px;">
+        <div class="container bg_deepgray">
             <!--앨범전체 AREA-->
-            <div class="grid grid-search" data-layout-mode="masonry">
+            <div class="grid grid-search" data-layout-mode="masonry" style="max-width: 1250px;">
 
             </div>
         </div>
     </div>
     </body>
-
-
-    <script>
-        var offset = 0;
-        var flag = true;   //job flag
-        var url;
-        var gets;
-        $(function () {
-            url = window.location.href;
-            gets = url.substring(url.indexOf("?") + 1);
-            gets = gets.replace(/#/gi, '%23');
-            $.get("<?php echo URL?>search/searchBlocks?" + gets, function (o) {
-                offset += 20;
-                var value = jQuery.parseJSON(o);
-                console.log(value);
-                if (value == null) {
-                    //display default image
-                } else {
-                    for (var i = 0; i < value.length; i++) {
-                        if (!(value[i].content_type_name == "image" || value[i].content_type_name == "lyrics" || value[i].content_type_name == "audio")) {
-                            //if the content is not inmage or lyrics or audio
-                        } else {
-                            if (value[i].profile_photo_path == null) {
-                                value[i].profile_photo_path = 'img/defaultprofile.png';
-                            }
-
-                            var html = "<div class='grid-item'>" +
-                                "<div class='user' onclick=\"$.pagehandler.loadContent('<?php echo URL?>" + value[i].profile_url + "','all');\" >" +
-                                "<div class='userphoto'>" +
-                                "<img src='<?php echo URL?>" + value[i].profile_photo_path + "' class='img-circle'>" +
-                                "</div>" +
-                                "<div class='musictext'>" +
-                                "<ul>" +
-                                "<li><span class='music_name'>" + value[i].user_name + "</span></li>" +
-                                "</ul></div></div>";
-                            if (value[i].content_type_name == "image") {
-                                html += "<div class='albumP'><img src='<?php echo URL?>" + value[i].content_path + "' alt=''/></div>";
-                                <!--앨범사진-->
-
-                                // ** path **
-                                // to replace \ to /
-                                //value[i].content_path = value[i].content_path.replace(/\\/g,'/');
-                            } else if (value[i].content_type_name == "audio") {
-                                var path = value[i].content_path;
-                                path = path.split("\/");
-                                var imagename = path[3].split('.');
-                                var content_path = "<?php echo URL?>" + "wave/" + path[1] + "/" + path[2] + "/" + imagename[0] + ".png";
-                                html += "<div class='albumA'><img src='" + content_path + "' alt=''/></div>";
-                            }
-                            else if (value[i].content_type_name == "lyrics") {
-                                html += "<div class='albumT'>" + value[i].content_path.replace(/\n/g, '<br />') + "</div>";
-                                <!--lyrics-->
-                            } else {
-                            }
-                            html +=
-                                "<div class='userinfo'>" +
-                                "<div class='musictext'><ul>" +
-                                "<li><span class='music_title'>" + value[i].content_title + "</span></li>" +
-                                "<li><span class='music_name'>" + value[i].comments + "</span></li>" +
-                                "<li class='music_tag'>";
-                            if (value[i].hashtags != null) {
-                                var hsh = value[i].hashtags.split(",");
-                            }
-
-                            for (var j = 0; j < hsh.length; j++) {
-                                html += "<span class='label f_dwhite'>" + hsh[j] + "</span>";
-                            }
-
-
-                            html +=
-                                "</li></ul></div></div>" + <!--userinfo-->
-
-                                "<div class='btm_info'>" +
-                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/share.svg' class='w20px'/></a></span>" +
-                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/Comment.svg' class='w20px'/></a></span>" +
-                                "<span style='position:relative;min-height:1px;padding-right:5px;padding-left:5px; float:right; width:15.33333333%;'>" +
-                                "<a href='#'><img src='<?php echo URL?>icon/Details_Content/like.svg' class='w20px'/></a></span>" +
-                                "</div>";
-                            $(".grid-search").append(html);
-                        }
-                    }
-                }
-            }).done(function () {
-                var count = 0;
-                var arrange = setInterval(function () {
-                    $(window).trigger('resize'); // resize grid-item
-                    count++;
-                    if (count >= 5) {
-                        clearInterval(arrange);
-                        flag = true; // the job is done
-                    }
-                }, 300);
-
-            });
-
-        });
-
-
-    </script>
 </div>
 

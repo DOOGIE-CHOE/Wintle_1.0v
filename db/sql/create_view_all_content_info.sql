@@ -13,6 +13,7 @@ VIEW `view_all_content_info` AS
         `cntlist`.`upload_date` AS `upload_date`,
         `cntlist`.`modified_date` AS `modified_date`,
         `cntlist`.`view_count` AS `view_count`,
+        `cntlist`.`shared_count` AS `shared_count`,
         `cntlist`.`hashtags` AS `hashtags`,
         `prf`.`profile_url` AS `profile_url`,
         `prf`.`profile_photo_path` AS `profile_photo_path`,

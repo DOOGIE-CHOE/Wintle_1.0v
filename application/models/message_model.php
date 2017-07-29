@@ -34,7 +34,10 @@ class Message_Model extends Model {
             }
         }
         catch(Exception $e){
-            $data['error'] = $e->getMessage();
+            if($e->getCode() == 0 )
+                $data['error'] = $e->getMessage();
+            else
+                $data['error'] = "System error occurs. Try it later or contact to system manager";
         }finally{
             return $data;
         }

@@ -30,8 +30,8 @@ class Search extends Controller{
         $this->view->render($list);
     }
 
-    function searchBlocks(){
-        $data = $this->model->searchBlocks();
+    function searchBlocks($limit, $offset){
+        $data = $this->model->searchBlocks($limit, $offset);
         echo json_encode($data);
     }
 

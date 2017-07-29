@@ -90,7 +90,9 @@
 
             // helper: update global data
             function update_globals(init){
+
                 var old_tags = tag_list.toString();
+
                 tag_list = $('.tag-editor-tag:not(.deleted)', ed).map(function(i, e) {
                     var val = $.trim($(this).hasClass('active') ? $(this).find('input').val() : $(e).text());
                     if (val) return val;
@@ -98,7 +100,10 @@
                 ed.data('tags', tag_list);
                 el.val(tag_list.join(o.delimiter[0]));
                 // change callback except for plugin init
-                if (!init) if (old_tags != tag_list.toString()) o.onChange(el, ed, tag_list);
+                if (!init) if (old_tags != tag_list.toString()){
+                o.onChange(el, ed, tag_list);
+                }
+                // tag_list[ tag_list.length -1 ] = "#" + tag_list[ tag_list.length -1 ];
                 set_placeholder();
             }
 

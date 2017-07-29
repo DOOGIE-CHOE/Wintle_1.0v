@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE DEFINER="root"@"localhost" PROCEDURE "Win_Upload_Projectlist"(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_Upload_Projectlist`(
 in _project_id int,
 in _content_id int,
 in _start_point int,

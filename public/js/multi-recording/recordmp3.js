@@ -1,11 +1,12 @@
 (function(window){
 
-  var WORKER_PATH = 'http://localhost/js/multi-recording/recorderWorker.js';
-  var encoderWorker = new Worker('http://localhost/js/multi-recording/mp3Worker.js');
+  var WORKER_PATH = _URL + 'js/multi-recording/recorderWorker.js';
+  var encoderWorker = new Worker(_URL + 'js/multi-recording/mp3Worker.js');
 
+  var self;
   var Recorder = function(source, cfg,type){
 
-
+    self = this;
     var content_type = type;
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
@@ -65,6 +66,7 @@
     this.exportWAV = function(cb, type){
       currCallback = cb || config.callback;
       type = type || config.type || 'audio/wav';
+      console.log(type);
       if (!currCallback) throw new Error('Callback not set');
       worker.postMessage({
         command: 'exportWAV',
@@ -72,80 +74,173 @@
       });
     }
 
-	//Mp3 conversion
-    worker.onmessage = function(e){
-      var blob = e.data;
-	  //console.log("the blob " +  blob + " " + blob.size + " " + blob.type);
+//wav 파일 변환 부
+//     var count = 0;
+//     worker.onmessage = function(e){
+//         // 여기서 e 는 다른곳과 다르게 메시지를 받는게 아니라 데이터를 받아옴
+//       var blob = e.data;
+// 	  var arrayBuffer;
+// 	  var fileReader = new FileReader();
+// 	  fileReader.onload = function(){
+// 	      // arrayBuffer =  self.getBuffer();
+// 		arrayBuffer = this.result;
+// 		var buffer = new Uint8Array(arrayBuffer);
+// 				var url = 'data:audio/mp3;base64,'+encode64(buffer);
+//                 // a.push(url);
+//                 if(content_type == "content"){
+//                     data = parseWav(buffer);
+//                     console.log("Converting to Mp3");
+//                     encoderWorker.postMessage({ cmd: 'init', config:{
+//                         mode : 3,
+//                         channels:1,
+//                         samplerate: data.sampleRate,
+//                         bitrate: data.bitsPerSample
+//                     }});
+//                     encoderWorker.postMessage({ cmd: 'encode', buf: Uint8ArrayToFloat32Array(data.samples) });
+//                     encoderWorker.postMessage({ cmd: 'finish'});
+//
+//                     encoderWorker.onmessage = function(e) {
+//                         if (e.data.cmd == 'data') {
+//                             console.log(e);
+//                             console.log("Done converting to Mp3");
+//                             var url = 'data:audio/mp3;base64,' + encode64(e.data.buf);
+//
+//                             var bbb = document.getElementById('previewdiv');
+//                             var node = document.createElement("a");
+//                             var tmp = document.createElement("div");
+//                             $(tmp).css("height","10px");
+//                             $(tmp).css("width","10px");
+//                             $(tmp).css("background","black");
+//                             $(tmp).css("margin","5px");
+//
+//                             node.appendChild(tmp);
+//                             node.setAttribute('id','test-microphone'+count);
+//                             node.controls = true;
+//                             // node.src = url;
+//                             node.download = true;
+//                             node.href=url;
+//                             bbb.appendChild(node);
+//                             console.log($(node));
+//                             count++;
+//
+//                         }
+//                     };
+//
+//
+//                 }else if(content_type == "project"){
+//                     var aup = document.getElementById('preview-project-microphone');
+//                     aup.controls = true;
+//                     aup.src = url;
+//                 }
+//
+//           currCallback(blob);
+//       };
+//         fileReader.readAsArrayBuffer(blob);
+//     };
 
-	  var arrayBuffer;
-	  var fileReader = new FileReader();
 
-	  fileReader.onload = function(){
-		arrayBuffer = this.result;
-		var buffer = new Uint8Array(arrayBuffer),
-        data = parseWav(buffer);
+      //wav 파일 변환 부
+      var count = 0;
+      worker.onmessage = function(e){
+          // 여기서 e 는 다른곳과 다르게 메시지를 받는게 아니라 데이터를 받아옴
+          var blob = e.data;
+          var arrayBuffer;
+          var fileReader = new FileReader();
+          fileReader.onload = function(){
+              arrayBuffer = this.result;
+              var buffer = new Uint8Array(arrayBuffer);
+              var url = 'data:audio/wav;base64,'+encode64(buffer);
+              //
+              // if(content_type == "content"){
+              //     if(content_type == "content"){
+              //     var au = document.getElementById('preview-microphone');
+              //     au.controls = true;
+              //     au.src = url;
+              // }else if(content_type == "project"){
+              //     var aup = document.getElementById('preview-project-microphone');
+              //     aup.controls = true;
+              //     aup.src = url;
+              // }
 
-        console.log(data);
-		console.log("Converting to Mp3");
-		// log.innerHTML += "\n" + "Converting to Mp3";
+              currCallback(blob, url);
+          };
+          fileReader.readAsArrayBuffer(blob);
+      };
 
-        encoderWorker.postMessage({ cmd: 'init', config:{
-            mode : 3,
-			channels:1,
-			samplerate: data.sampleRate,
-			bitrate: data.bitsPerSample
-        }});
-
-        encoderWorker.postMessage({ cmd: 'encode', buf: Uint8ArrayToFloat32Array(data.samples) });
-        encoderWorker.postMessage({ cmd: 'finish'});
-        encoderWorker.onmessage = function(e) {
-            if (e.data.cmd == 'data') {
-
-				console.log("Done converting to Mp3");
-				// log.innerHTML += "\n" + "Done converting to Mp3";
-
-				/*var audio = new Audio();
-				audio.src = 'data:audio/mp3;base64,'+encode64(e.data.buf);
-				audio.play();*/
-
-				//console.log ("The Mp3 data " + e.data.buf);
-
-				var mp3Blob = new Blob([new Uint8Array(e.data.buf)], {type: 'audio/mp3'});
-				//uploadAudio(mp3Blob);
-
-				var url = 'data:audio/mp3;base64,'+encode64(e.data.buf);
-				// var li = document.createElement('li');
-
-
-                if(content_type == "content"){
-                    var au = document.getElementById('preview-microphone');
-                    au.controls = true;
-                    au.src = url;
-                }else if(content_type == "project"){
-                    var aup = document.getElementById('preview-project-microphone');
-                    aup.controls = true;
-                    aup.src = url;
-                }
-
-				// var hf = document.createElement('a');
-
-				// hf.href = url;
-				// hf.download = 'audio_recording_' + new Date().getTime() + '.mp3';
-				// hf.innerHTML = hf.download;
-				// li.appendChild(au);
-				// li.appendChild(hf);
-                // previewdiv.appendChild(li);
-               // previewdiv.appendChild(au);
-
-                currCallback(blob);
-            }
-        };
-	  };
-
-        fileReader.readAsArrayBuffer(blob);
-
-       // currCallback(blob);
-    }
+//mp3 변환부
+//       worker.onmessage = function(e){
+//           // 여기서 e 는 다른곳과 다르게 메시지를 받는게 아니라 데이터를 받아옴
+//           var blob = e.data;
+//           //console.log("the blob " +  blob + " " + blob.size + " " + blob.type);
+//
+//           var arrayBuffer;
+//           var fileReader = new FileReader();
+//
+//           fileReader.onload = function(){
+//               arrayBuffer = this.result;
+//               var buffer = new Uint8Array(arrayBuffer);
+//               data = parseWav(buffer);
+//               console.log("Converting to Mp3");
+//               // log.innerHTML += "\n" + "Converting to Mp3";
+//
+//               encoderWorker.postMessage({ cmd: 'init', config:{
+//                   mode : 3,
+//               channels:1,
+//               samplerate: data.sampleRate,
+//               bitrate: data.bitsPerSample
+//               }});
+//               console.log(1);
+//               encoderWorker.postMessage({ cmd: 'encode', buf: Uint8ArrayToFloat32Array(data.samples) });
+//               console.log(2);
+//               encoderWorker.postMessage({ cmd: 'finish'});
+//               console.log(3);
+//
+//
+//               encoderWorker.onmessage = function(e) {
+//                   if (e.data.cmd == 'data') {
+//
+//               console.log("Done converting to Mp3");
+//               // log.innerHTML += "\n" + "Done converting to Mp3";
+//
+//               // var audio = new Audio();
+//               //  audio.src = 'data:audio/mp3;base64,'+encode64(e.data.buf);
+//                // audio.play();
+//
+//               //console.log ("The Mp3 data " + e.data.buf);
+//
+//               // var mp3Blob = new Blob([new Uint8Array(e.data.buf)], {type: 'audio/mp3'});
+//               //uploadAudio(mp3Blob);
+//
+//               var url = 'data:audio/mp3;base64,'+encode64(e.data.buf);
+//               // var li = document.createElement('li');
+//
+//
+//               if(content_type == "content"){
+//                   var au = document.getElementById('preview-microphone');
+//                   au.controls = true;
+//                   au.src = url;
+//               }else if(content_type == "project"){
+//                   var aup = document.getElementById('preview-project-microphone');
+//                   aup.controls = true;
+//                   aup.src = url;
+//               }
+//
+//               // var hf = document.createElement('a');
+//
+//               // hf.href = url;
+//               // hf.download = 'audio_recording_' + new Date().getTime() + '.mp3';
+//               // hf.innerHTML = hf.download;
+//               // li.appendChild(au);
+//               // li.appendChild(hf);
+//               // previewdiv.appendChild(li);
+//               // previewdiv.appendChild(au);
+//
+//               currCallback(blob);
+//                   }
+//               };
+//           };
+//           fileReader.readAsArrayBuffer(blob);
+//       };
 
 
 	function encode64(buffer) {

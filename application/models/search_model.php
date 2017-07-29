@@ -19,7 +19,7 @@ class Search_Model extends Model
 
     }
 
-    function searchBlocks(){
+    function searchBlocks($limit, $offset){
         try {
             $contents = array();
             $sql = null;
@@ -33,17 +33,24 @@ class Search_Model extends Model
                 }else{
                     $sql = $search->createQueryStringComments($tags);
                 }
+                $sql .= " limit $limit offset $offset";
             }
             $result = $this->db->conn->query($sql);
             while ($data = $result->fetch_assoc()) {
                 array_push($contents, $data);
             }
         } catch (Exception $e) {
-            $contents = $e->getMessage();
+            if($e->getCode() == 0 )
+                $contents = $e->getMessage();
+            else
+                $contents = "System error occurs. Try it later or contact to system manager";
         } finally {
             return $contents;
         }
     }
+
+
+
 
     function searchBoxes(){
 

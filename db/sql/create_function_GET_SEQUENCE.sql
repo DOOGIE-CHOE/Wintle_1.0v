@@ -12,7 +12,7 @@ BEGIN
  declare num int default 0;
 
  
- if (_type <> 'user' and _type <> 'lyrics' and _type <> 'audio' and _type <> 'image' and _type <> 'message' and _type <> 'hashtag' and _type <> 'project') then
+ if (_type <> 'user' and _type <> 'lyrics' and _type <> 'audio' and _type <> 'image' and _type <> 'message' and _type <> 'hashtag' and _type <> 'project' and _type <> 'comment') then
  RETURN (-1);	
  end if;
  	

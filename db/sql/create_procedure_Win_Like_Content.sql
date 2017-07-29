@@ -21,25 +21,25 @@ this:BEGIN
 
 	/* if it's content */
 	if _type != 'project' then
-		select count(*) into _result from content_like where content_id = _content_id;
+		select count(*) into _result from content_like where content_id = _content_id and user_id = _user_id;
 
 		/* like content or unlike content*/
 		if _result = 0 then
 			insert into content_like(content_id, user_id) values(_content_id, _user_id);
 			set _return = 1;
 		elseif _result = 1 then
-			delete from content_like where content_id = _content_id;
+			delete from content_like where content_id = _content_id and user_id = _user_id;
 			set _return = 2;
 		else
 			set _return = -1;
 		end if;
 	else 
-		select count(*) into _result from project_like where project_id = _content_id;		
+		select count(*) into _result from project_like where project_id = _content_id and user_id = _user_id;		
 		if _result = 0 then
 			OPEN my_cursor;
 			read_loop: LOOP
 				FETCH my_cursor INTO _c_id;
-				select count(*) into _result from content_like where content_id = _c_id;
+				select count(*) into _result from content_like where content_id = _c_id and user_id = _user_id;
 					if _result = 0 then
 						insert into content_like(content_id, user_id) values(_c_id, _user_id);
 					end if;
@@ -53,15 +53,15 @@ this:BEGIN
 			OPEN my_cursor;
 			read_loop: LOOP
 				FETCH my_cursor INTO _c_id;
-					select count(*) into _result from content_like where content_id = _c_id;
+					select count(*) into _result from content_like where content_id = _c_id and user_id = _user_id;
 					if _result = 1 then
-						delete from content_like where content_id = _c_id;
+						delete from content_like where content_id = _c_id and user_id = _user_id;
 					end if;
 				IF done THEN
 				LEAVE read_loop;
 				END IF;
 			END LOOP;
-		delete from project_like where project_id = _content_id;
+		delete from project_like where project_id = _content_id and user_id = _user_id ;
 		set _return = 2;
 		end if;
 	end if;

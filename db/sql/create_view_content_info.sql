@@ -12,7 +12,8 @@ VIEW `view_content_info` AS
         `c`.`comments` AS `comments`,
         `c`.`upload_date` AS `upload_date`,
         `c`.`modified_date` AS `modified_date`,
-        `c`.`view_count` AS `view_count`
+        `c`.`view_count` AS `view_count`,
+        `c`.`shared_count` AS `shared_count`
     FROM
         ((`content` `c`
         JOIN `content_list` `cntlst`)

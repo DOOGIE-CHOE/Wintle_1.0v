@@ -17,7 +17,7 @@ if($isServer){
     /* WINDOWS TEST CONFIG */
     define("DBSERVERNAME", "localhost");     // The host you want to connect to.
     define("DBUSERNAME", "root");    // The database username.
-    define("DBPASSWORD", "MyNewPass");    // The database password.
+    define("DBPASSWORD", "root");    // The database password.
     define("DBNAME", "wintle");    // The database name.
     define("URL","http://localhost/");
 }

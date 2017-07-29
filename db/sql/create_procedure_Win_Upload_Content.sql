@@ -2,8 +2,8 @@ GRANT
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Win_Upload_Content`(
 in _content_title varchar(255),
-in _content_path varchar(1000),
-in _comments varchar(255),
+in _content_path varchar(255),
+in _comments varchar(3000),
 in _user_id int,
 in _content_type varchar(255),
 out _return int)

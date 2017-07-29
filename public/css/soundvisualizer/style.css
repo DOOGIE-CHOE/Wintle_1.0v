@@ -1,0 +1,293 @@
+
+/* /////////////////// */
+/* LAYOUT AND UI STUFF */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.dotstyle-scaleup li a {
+  -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+     -moz-transition: -moz-transform 0.3s ease, background-color 0.3s ease;
+       -o-transition: -o-transform 0.3s ease, background-color 0.3s ease;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dotstyle-scaleup li a:hover,
+.dotstyle-scaleup li a:focus {
+  opacity: 1;
+}
+
+.dotstyle-scaleup li.current a {
+  -webkit-transform: scale(1.5);
+     -moz-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+       -o-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.dotstyle {
+  position: absolute;
+  right: 11px;
+  bottom: 20px;
+  -webkit-transition: opacity .3s linear;
+     -moz-transition: opacity .3s linear;
+       -o-transition: opacity .3s linear;
+          transition: opacity .3s linear;
+}
+
+
+.progressBar {
+  height: 3px;
+  background-color: white;
+  opacity: 0.5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity .3s linear;
+     -moz-transition: opacity .3s linear;
+       -o-transition: opacity .3s linear;
+          transition: opacity .3s linear;
+}
+
+
+/* tooltip - http://www.cssportal.com/css-tooltip-generator/ */
+/* ----------------------------------------------------------*/
+
+
+/* http://www.colourlovers.com/palette/3406603/Sunset_at_Bayinbuluk */
+.sound-visualizer{
+  position:absolute; /*it can be fixed too*/
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  z-index:1000;
+}
+
+svg circle, svg rect {
+  opacity: .4;
+  fill: #D32F2F;
+  stroke: #D32F2F;
+  stroke-width: 2;
+  /*opacity: 8;*/
+  /*fill: none;*/
+  /*stroke: #D32F2F;*/
+  /*stroke-width: 3;*/
+  -webkit-transition: fill 1.5s ease-in-out;
+     -moz-transition: fill 1.5s ease-in-out;
+       -o-transition: fill 1.5s ease-in-out;
+          transition: fill 1.5s ease;
+   
+  -webkit-transition: stroke 1.5s ease-in-out;
+     -moz-transition: stroke 1.5s ease-in-out;
+       -o-transition: stroke 1.5s ease-in-out;
+          transition: stroke 1.5s ease;
+}
+
+/*svg, svg path, svg line, svg g {*/
+  /*-webkit-transform-origin: center;*/
+     /*-moz-transform-origin: center;*/
+       /*-o-transform-origin: center;*/
+          /*transform-origin: center;*/
+/*}*/
+
+/*svg rect:nth-of-type(0) {*/
+  /*opacity: 0;*/
+/*}*/
+
+/*svg rect {*/
+    /*-webkit-transform: rotate(-30deg);*/
+       /*-moz-transform: rotate(-30deg);*/
+         /*-o-transform: rotate(-30deg);*/
+            /*transform: rotate(-30deg);*/
+/*}*/
+
+/*svg .bar rect, svg rect.equal  {*/
+    /*-webkit-transform: rotate(0deg);*/
+       /*-moz-transform: rotate(0deg);*/
+         /*-o-transform: rotate(0deg);*/
+            /*transform: rotate(0deg);*/
+/*}*/
+
+/*svg rect.equal, html.theme_2 svg rect.equal {*/
+  /*opacity: 1;*/
+  /*stroke-width: 0;*/
+/*}*/
+
+/*html.theme_3 svg rect.equal, html.theme_4 svg rect.equal  {*/
+  /*opacity: 0.8;*/
+  /*stroke-width: 0;*/
+/*}*/
+
+/*html.theme_1 svg rect.equal {*/
+  /*fill: white;*/
+  /*stroke-width: 0;*/
+/*}*/
+
+/*svg .isoco {*/
+  /*stroke-width: 0;*/
+/*}*/
+
+/*path {*/
+  /*fill: #F44336;*/
+  /*stroke: #fff;*/
+  /*stroke-width: 2px;*/
+  /*opacity: 0.4;*/
+/*}*/
+
+/*svg {*/
+  /*position: absolute;*/
+  /*z-index: -1;*/
+  /*-webkit-transform-style: preserve-3d;*/
+          /*transform-style: preserve-3d;*/
+  /*-webkit-transition: -webkit-transform 0.5s;*/
+     /*-moz-transition: -moz-transform 0.5s;*/
+       /*-o-transition: -o-transform 0.5s;*/
+          /*transition: transform 0.5s;*/
+/*}*/
+
+/*svg .spin {*/
+  /*fill: none;*/
+  /*stroke-linecap: butt;*/
+  /*-webkit-transform-origin: center;*/
+     /*-moz-transform-origin: center;*/
+       /*-o-transform-origin: center;*/
+          /*transform-origin: center;*/
+  /*-webkit-animation: draw 5s linear infinite;*/
+     /*-moz-animation: draw 5s linear infinite;*/
+          /*animation: draw 5s linear infinite;*/
+/*}*/
+
+.graticule {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #F7D11E;
+  stroke-linecap: round;
+  opacity: 1;
+}
+
+
+.hexagon {
+  stroke-width: 0;
+}
+
+/* /////////////////// */
+/* ANIMATIONS STUFF // */
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@-webkit-keyframes spinspin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinspin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinspin2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@keyframes spinspin2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes draw {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes draw {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fade {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+/* BLINK KEYFRAME */
+/* http://mudbugmedia.com/blog/2012/10/03/css3-keyframe-animation/ */
+
+@keyframes blink {
+  0% {transform: scale(1,1.6);}
+  2% {transform: scale(1,0);}
+  4% {transform: scale(1,0);}
+  5% {transform: scale(1,1.6);}
+  100% {transform: scale(1,1.6);}
+}
+
+@-webkit-keyframes blink {
+  0% {transform: scale(1,1.6);}
+  2% {transform: scale(1,0);}
+  4% {transform: scale(1,0);}
+  5% {transform: scale(1,1.6);}
+  100% {transform: scale(1,1.6);}
+}
+
+
+svg line {
+  stroke: #F44336;
+  stroke-width: 2px;
+}
+
+html.theme_1 svg line {
+  stroke: #fff; 
+  stroke-width: 2px;
+}

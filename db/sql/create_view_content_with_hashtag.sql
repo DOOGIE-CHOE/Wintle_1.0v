@@ -13,6 +13,7 @@ VIEW `view_content_with_hashtag` AS
         `con`.`upload_date` AS `upload_date`,
         `con`.`modified_date` AS `modified_date`,
         `con`.`view_count` AS `view_count`,
+        `con`.`shared_count` AS `shared_count`,
         `hashs`.`hashtags` AS `hashtags`
     FROM
         (`view_content_info` `con`

@@ -5,6 +5,7 @@
 DELIMITER $$
 
 CREATE DEFINER="root"@"localhost" PROCEDURE "Win_Upload_ProjectId"(
+in _user_id int,
 out _return int)
 this : BEGIN
 
@@ -17,8 +18,7 @@ this : BEGIN
         leave this;
     end if;
 
-	insert into project(project_id, project_status_id) values (p_id, 1);
+	insert into project(project_id, project_status_id, project_creator) values (p_id, 1, _user_id);
 	
-	commit;
 	set _return = p_id;
 END

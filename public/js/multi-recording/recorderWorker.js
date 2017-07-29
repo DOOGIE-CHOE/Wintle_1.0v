@@ -46,11 +46,38 @@ function exportWAV(type){
   } else {
       var interleaved = buffers[0];
   }
+    // var tmp = downsampleBuffer(interleaved,22050);
+
   var dataview = encodeWAV(interleaved);
   var audioBlob = new Blob([dataview], { type: type });
-
   this.postMessage(audioBlob);
 }
+
+// function downsampleBuffer(buffer, rate) {
+//     if (rate == sampleRate) {
+//         return buffer;
+//     }
+//     if (rate > sampleRate) {
+//         throw "downsampling rate show be smaller than original sample rate";
+//     }
+//     var sampleRateRatio = sampleRate / rate;
+//     var newLength = Math.round(buffer.length / sampleRateRatio);
+//     var result = new Float32Array(newLength);
+//     var offsetResult = 0;
+//     var offsetBuffer = 0;
+//     while (offsetResult < result.length) {
+//         var nextOffsetBuffer = Math.round((offsetResult + 1) * sampleRateRatio);
+//         var accum = 0, count = 0;
+//         for (var i = offsetBuffer; i < nextOffsetBuffer && i < buffer.length; i++) {
+//             accum += buffer[i];
+//             count++;
+//         }
+//         result[offsetResult] = accum / count;
+//         offsetResult++;
+//         offsetBuffer = nextOffsetBuffer;
+//     }
+//     return result;
+// }
 
 function getBuffer(){
   var buffers = [];

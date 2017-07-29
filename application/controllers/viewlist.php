@@ -12,11 +12,10 @@ class ViewList extends Controller{
     function index(){}
 
 
-    function loadNewContents($limist, $offset){
-        $data =  $this->model->loadNewContents($limist, $offset);
+    function loadNewContents($limist, $offset_main){
+        $data =  $this->model->loadNewContents($limist, $offset_main);
         echo json_encode($data);
     }
-
 
     function loadContentsByHash(){
         $data =  $this->model->loadContentsByHash();

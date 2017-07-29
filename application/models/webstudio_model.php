@@ -47,7 +47,10 @@ class WebStudio_Model extends Model{
                     $error = "Couldn't upload the file. Please try it again";
                 }
             }catch(Exception $e){
-                $error = $e->getMessage();
+                if($e->getCode() == 0 )
+                    $error = $e->getMessage();
+                else
+                    $error = "System error occurs. Try it later or contact to system manager";
             }
         }
 

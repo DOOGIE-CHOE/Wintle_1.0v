@@ -18,6 +18,7 @@
             bottom: 0;
             background-color: rgba(0,0,0,0.8);
             z-index: 1060;
+            display:none;
         }
 
         audio {
@@ -28,26 +29,29 @@
             display: inline-block;
             position: relative;
             height: 100%;
-            width: 138px;
+            float:right;
         }
 
         #button-box {
             position: absolute;
-            top: 50%;
-            height: 32px;
-            margin-top: -16px;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height:35px;
         }
 
         #control-buttons input {
             display: inline-block;
-            margin: 3px 10px 6px 10px;
+            margin: 5px 10px;
             height: 21px;
         }
 
         #play-info-all {
             position: relative;
             height: 60px;
-            width: 1200px;
+            max-width: 1400px;
             margin: auto;
             top: 0;
             left: 0;
@@ -56,17 +60,14 @@
         }
 
         #play-info-time {
-            display: inline-block;
-            position: relative;
-            margin-left: 20px;
-            height: 59px;
-            width: 800px;
+            height: 60px;
         }
 
         #creator-info {
             position: relative;
             height: 40px;
             width: 100%;
+
         }
 
         #creator-info #content-hash {
@@ -74,6 +75,7 @@
             height: 20px;
             width: 100%;
             color: white;
+            overflow:hidden;
         }
 
         #creator-info #content-info {
@@ -81,13 +83,14 @@
             position: absolute;
             height: 20px;
             width: 100%;
+            overflow:hidden;
         }
 
         #play-info {
-            position: absolute;
             height: 9px;
-            width: 800px;
+            width: 100%;
             bottom: 9px;
+
         }
 
         #play-bar {
@@ -102,7 +105,7 @@
         #play-bar-button {
             display:none;
             position: absolute;
-            top: 0;
+            top: -4px;
             width: 9px;
             height: 9px;
             background: black;
@@ -113,7 +116,6 @@
         }
 
         #played {
-            position: relative;
             height: 100%;
             width: 0;
             background-color: #EE3B24;
@@ -130,7 +132,7 @@
 
         #playtime {
             position: relative;
-            display: inline-block;
+            /*display: inline-block;*/
             float: right;
             height: 100%;
             width: auto;
@@ -145,14 +147,6 @@
 
         #played-time{
             color: #EE3B24;
-        }
-
-        #album-mini {
-            position: relative;
-            display: inline-block;
-            height: 60px;
-            width: 60px;
-            margin-left: 20px;
         }
 
         #album-photo {
@@ -189,18 +183,17 @@
     <script>
 
         var audio = document.createElement('audio');
-        var duration;
         var progressrate;
-        var PLAYBARWIDTH = 800; //800px + error range
+        var PLAYBARWIDTH; //800px + error range
         var playinterval;
         var barbutton;
         var currentMousePos = {x: -1, y: -1};
         var audioElement = [];
         var longestAudio;
         var playFlag = false;
+        var maxDuraion = 0;
 
         $(function () {
-
 
             $("#play-bar-button").draggable({
                 axis: "x",
@@ -211,8 +204,17 @@
             });
 
 
-
-            // Set the range of mousedown
+            //화면 사이즈가 재 조정 될떄마다 플레이 바 전체길이 / 이미 실행된 음악을 나타내는 바 길이 / 초당 늘어나는 바의 길이 px 재 조정
+            $(window).bind("resize",function(){
+                if(maxDuraion != 0 && longestAudio != null){
+                    PLAYBARWIDTH = $("#play-bar").css("width");
+                    PLAYBARWIDTH = parseInt(PLAYBARWIDTH);
+                    barbutton = $("#play-bar-button");
+                    progressrate = Math.round((PLAYBARWIDTH / (maxDuraion * 10)) * 1000) / 1000;
+                    setPlayedBarAndButton();
+                }
+            });
+                // Set the range of mousedown
             // prevent clicking out of the play bar
             $("#play-info").mousedown(function (event) {
                 event.type = "mousedown.draggable"; //set event type
@@ -225,8 +227,7 @@
                 } else {
                     currentMousePos.x -= offset.left + 4;
                 }
-                if (currentMousePos.x >= -1 && currentMousePos.x <= 801) {
-                    //console.log(currentMousePos.x);
+                if (currentMousePos.x >= -1 && currentMousePos.x <= PLAYBARWIDTH + 2) {
                     $("#play-bar-button").css("left", currentMousePos.x).trigger(event); //execute drag event
                     setPlaybutton();
                 }
@@ -262,12 +263,17 @@
         function loadAudio(component, event = null){
             resetAllAudio();
             var count = 0;
-            var maxDuraion = 0;
+            maxDuraion = 0;
+            //모든 오디오 파일 로드
             for(var i = 0; i< component.length; i++){
                 var audio = document.createElement('audio');
                 audio.setAttribute('src', component[i]);
                 audio.load();
+                //오디오 파일 재생시간이 가장 긴 파일을 찾아 시간초 설정
                 audio.onloadeddata = function(){
+                    if(longestAudio == null){
+                        longestAudio = this;
+                    }
                     if(this.duration > maxDuraion){
                         maxDuraion = this.duration;
                         longestAudio = this;
@@ -275,10 +281,11 @@
                     audioElement.push(this);
                     count++;
                     if(count >= component.length){
+                        //preSetAudio 에서 플레이 바 전체 길이를 가져와야 하기 때문에 이곳에서 미리 디스플레이 함
+                        $("#mini-music-player").css("display","block");
                         preSetAudio(maxDuraion);
-
                         if(event == null){
-                            musicPlay();
+                            startPlaying();
                         }else{
                             document.dispatchEvent(readyAudioEvent);
                         }
@@ -288,6 +295,8 @@
         }
 
         function preSetAudio(duration){
+            PLAYBARWIDTH = $("#play-bar").css("width");
+            PLAYBARWIDTH = parseInt(PLAYBARWIDTH);
             barbutton = $("#play-bar-button");
             displayTime(document.getElementById("duration-time"), duration);
             //calculate px that will progress per sec
@@ -320,25 +329,50 @@
             else target.innerHTML = min + ":" + sec;
         }
 
-        function musicPlay() {
-            if (isPlaying(longestAudio)) {
-                playFlag = false;
-                for(var i =0; i< audioElement.length; i++){
-                    audioElement[i].pause();
-                }
-                $("#play").attr("src", "<?php echo URL?>img/play.png");
-                clearInterval(playinterval);
-            } else {
-                playFlag = true;
-                for(var i =0; i< audioElement.length; i++){
-                    audioElement[i].play();
-                }
-                playinterval = setInterval(function () {
-                    playBarButtonProgress();
-                }, 100);
-                $("#play").attr("src", "<?php echo URL?>img/pause.png");
+        function startPlaying(){
+            playFlag = true;
+
+            for(var i =0; i< audioElement.length; i++){
+                audioElement[i].play();
             }
+            playinterval = setInterval(function () {
+                playBarButtonProgress();
+            }, 100);
+            $("#play").css("display","none");
+            $("#stop").css("display","inline-block");
         }
+
+        function stopPlaying(){
+            clearInterval(playinterval);
+            playFlag = false;
+            for(var i =0; i< audioElement.length; i++){
+                audioElement[i].pause();
+            }
+            $("#play").css("display","inline-block");
+            $("#stop").css("display","none");
+
+        }
+
+        //        function musicPlay() {
+        //            if (isPlaying(longestAudio)) {
+        //                playFlag = false;
+        //                for(var i =0; i< audioElement.length; i++){
+        //                    audioElement[i].pause();
+        //                }
+        //                $("#play").attr("src", "<?php //echo URL?>//img/play.png");
+        //                clearInterval(playinterval);
+        //            } else {
+        //                playFlag = true;
+        //                for(var i =0; i< audioElement.length; i++){
+        //                    audioElement[i].play();
+        //                }
+        //                playinterval = setInterval(function () {
+        //                    playBarButtonProgress();
+        //                }, 100);
+        //                $("#play").attr("src", "<?php //echo URL?>//img/pause.png");
+        //            }
+        //        }
+
 
         function isPlaying(audelem) {
             return !audelem.paused;
@@ -348,16 +382,17 @@
             var left = parseFloat(barbutton.css("left"));
             left += progressrate;
             setPlayedBarAndButton();
-            if (left >= (PLAYBARWIDTH - 2 )) {
+            //플레이바 가 전체 너비에 도달 했을 때
+            if (Math.ceil(left) >= Math.ceil(PLAYBARWIDTH)) { //소수점 오차범위로 인해 반올림 처리
                 for(var i =0; i< audioElement.length; i++){
                     audioElement[i].pause();
                     audioElement[i].currentTime = 0;
                 }
-                $("#play").attr("src", "<?php echo URL?>img/play.png");
-                //$("#play-bar-button").css("left","  0px");
                 setPlayedBarAndButton(0);
                 clearInterval(playinterval);
                 displayTime(document.getElementById("played-time"), 0);
+                $("#play").css("display","inline-block");
+                $("#stop").css("display","none");
                 return;
             }
             displayTime(document.getElementById("played-time"), longestAudio.currentTime);
@@ -394,21 +429,12 @@
     <audio id="test">
         <source src="audio/1.mp3" type="audio/mpeg">
     </audio>-->
-    <div id="play-info-all">
-        <div id="control-buttons">
-            <div id="button-box">
-                <input type="image" src="<?php echo URL ?>img/backwards.png" onclick="musicForwards()">
-                <input id="play" type="image" src="<?php echo URL ?>img/play.png" onclick="musicPlay()">
-                <input type="image" src="<?php echo URL ?>img/forwards.png" onclick="musicBackwards()">
-            </div>
-        </div>
-
-
-        <div id="album-mini">
+    <div id="play-info-all" class="row">
+        <div id="album-mini" class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
             <div id="album-photo"></div>
         </div>
 
-        <div id="play-info-time">
+        <div id="play-info-time" class="col-lg-9 col-md-8 col-sm-6 col-xs-6">
             <div id="creator-info">
                 <div id="content-hash"></div>
                 <div id="content-info">
@@ -423,17 +449,29 @@
             <div id="play-info">
                 <div id="play-bar">
                     <div id="played"></div>
+                    <div id="play-bar-button"></div>
                 </div>
-                <div id="play-bar-button"></div>
+
             </div>
         </div>
-        <div id="play-options">
+        <div id="control-buttons" class="col-lg-2 col-md-3 col-sm-4 col-xs-4">
             <div id="button-box">
-                <input type="image" src="<?php echo URL ?>img/repeat_one.png" onclick="musicForwards()">
-                <input id="play" type="image" src="<?php echo URL ?>img/shuffle.png" onclick="musicPlay()">
-                <input type="image" src="<?php echo URL ?>img/arrow-up.png" onclick="musicBackwards()">
+                <span><input type="image" class="backwards" src="<?php echo URL ?>img/backwards.png" onclick="musicForwards()"></span>
+                <span><input id="play" class="play" type="image" src="<?php echo URL ?>img/play.png" onclick="startPlaying()"></span>
+                <span><input id="stop" class="stop"  type="image" src="<?php echo URL ?>img/pause.png" style="display:none;" onclick="stopPlaying();"></span>
+                <span><input type="image" class="forwards" src="<?php echo URL ?>img/forwards.png" onclick="musicBackwards()"></span>
+                <span><input type="image" class="to-playlist" src="<?php echo URL ?>img/arrow-up.png" onclick="musicBackwards()"></span>
             </div>
         </div>
+
+        <!--  옵션 버튼 주석 처리 -->
+<!--        <div id="play-options">-->
+<!--            <div id="button-box">-->
+<!--                <input type="image" src="--><?php //echo URL ?><!--img/repeat_one.png" onclick="musicForwards()">-->
+<!--                <input id="play" type="image" src="--><?php //echo URL ?><!--img/shuffle.png" onclick="musicPlay()">-->
+<!--                <input type="image" src="--><?php //echo URL ?><!--img/arrow-up.png" onclick="musicBackwards()">-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 </div>

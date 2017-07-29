@@ -1,10 +1,10 @@
 create table content_comment(
-	content_id int,
-    comment_id int,
+    comment_id int primary key,
+    content_id int not null,
     user_id int not null,
-    comments varchar(1000) not null,
+    comment varchar(1000) not null,
     upload_date timestamp default current_timestamp,
     modified_date timestamp default current_timestamp,
-    primary key(content_id, comment_id),
-    foreign key(content_id) references content(content_id)
+    foreign key(content_id) references content(content_id),
+    foreign key(user_id) references user(user_id)	
 );
